@@ -1,0 +1,225 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+namespace E7_Gear_Optimizer
+{
+    public class Data
+    {
+        public List<Item> Items { get; }
+        public List<Hero> Heroes { get; }
+
+        private string currentItemID;
+        private string currentHeroID;
+
+        public string CurrentItemID { get => currentItemID; }
+        public string CurrentHeroID { get => currentHeroID; }
+        public Data()
+        {
+            Items = new List<Item>();
+            Heroes = new List<Hero>();
+            currentItemID = "0";
+            currentHeroID = "0";
+        }
+
+        //Parses the JSON data of the web Optimizer written by /u/HyrTheWinter
+        public (bool, int , int) importFromWeb(string path, IProgress<int> progress)
+        {
+            Items.Clear();
+            Heroes.Clear();
+            string json = File.ReadAllText(path);
+            try
+            {
+                JToken items = JObject.Parse(json)["items"];
+                Dictionary<string, string> IDConverter = new Dictionary<string, string>();
+                int length = items.Count();
+                for (int i = 0; i < length; i++)
+                {
+                    JToken item = items[i];
+                    int enhance = item.Value<int>("ability");
+                    int ilvl = item.Value<int>("level");
+                    Set set = (Set)Enum.Parse(typeof(Set), item.Value<string>("set").Replace("Critical", "Crit").Replace("Defense", "Def"));
+                    ItemType type = (ItemType)Enum.Parse(typeof(ItemType), item.Value<string>("slot"));
+                    Grade grade = (Grade)Enum.Parse(typeof(Grade), item.Value<string>("rarity"));
+                    JToken mainStat = item["mainStat"];
+                    Stats main = (Stats)Enum.Parse(typeof(Stats), mainStat.Value<string>(0).ToUpper().Replace("ATKP", "ATKPercent").Replace("HPP", "HPPercent").Replace("DEFP", "DEFPercent").Replace("CCHANCE", "Crit").Replace("CDMG", "CritDmg"));
+                    decimal stat = Util.percentStats.Contains(main) ? mainStat.Value<decimal>(1) / 100m : mainStat.Value<decimal>(1);
+                    Stat main_Stat = new Stat(main, stat);
+                    bool locked = item.Value<bool>("locked");
+                    List<Stat> subStats = new List<Stat>();
+                    for (int j = 1; j < 5; j++)
+                    {
+                        JToken subStat = item["subStat" + j.ToString()];
+                        if (subStat != null)
+                        {
+                            Stats name = (Stats)Enum.Parse(typeof(Stats), subStat.Value<string>(0).ToUpper().Replace("ATKP", "ATKPercent").Replace("HPP", "HPPercent").Replace("DEFP", "DEFPercent").Replace("CCHANCE", "Crit").Replace("CDMG", "CritDmg"));
+                            decimal value = Util.percentStats.Contains(name) ? subStat.Value<decimal>(1) / 100m : subStat.Value<decimal>(1);
+                            subStats.Add(new Stat(name, value));
+                        }
+                    }
+                    string id = incrementItemID();
+                    Items.Add(new Item(id, type, set, grade, ilvl, enhance, main_Stat, subStats.ToArray(), null, locked));
+                    IDConverter.Add(item.Value<string>("id"), id);
+                    progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                }
+                JToken heroes = JObject.Parse(json)["heroes"];
+                length = heroes.Count();
+                for (int i = 0; i < length; i++)
+                {
+                    JToken hero = heroes[i];
+                    JToken artifactStats = hero["artifactStats"];
+                    decimal atk = artifactStats.Value<decimal>("atk");
+                    decimal hp = artifactStats.Value<decimal>("hp");
+                    Item artifact = new Item("", ItemType.Artifact, Set.Attack, Grade.Epic, 0, 0, new Stat(), new Stat[] { new Stat(Stats.ATK, atk), new Stat(Stats.HP, hp) }, null, false);
+                    string[] nameParts = hero.Value<string>("name").Split(' ');
+                    string name = "";
+                    for (int k = 0; k < nameParts.Length -1; k++)
+                    {
+                        name += " " + nameParts[k];
+                    }
+                    name = name.Remove(0, 1);
+                    int lvl = hero.Value<int>("level");
+                    int awakening = hero.Value<int>("awakened");
+                    JToken gear = hero["equipment"];
+                    List<string> gearIDs = new List<string>();
+                    if (gear.Value<string>("armorId") != null)
+                    {
+                        gearIDs.Add(gear.Value<string>("armorId"));
+                    }
+                    if (gear.Value<string>("helmetId") != null)
+                    {
+                        gearIDs.Add(gear.Value<string>("helmetId"));
+                    }
+                    if (gear.Value<string>("weaponId") != null)
+                    {
+                        gearIDs.Add(gear.Value<string>("weaponId"));
+                    }
+                    if (gear.Value<string>("necklaceId") != null)
+                    {
+                        gearIDs.Add(gear.Value<string>("necklaceId"));
+                    }
+                    if (gear.Value<string>("ringId") != null)
+                    {
+                        gearIDs.Add(gear.Value<string>("ringId"));
+                    }
+                    if (gear.Value<string>("bootsId") != null)
+                    {
+                        gearIDs.Add(gear.Value<string>("bootsId"));
+                    }
+                    List<Item> gearList = new List<Item>();
+                    foreach (string id in gearIDs)
+                    {
+                        gearList.Add(Items.Find(x => x.ID == IDConverter[id]));
+                    }
+                    Hero newHero = new Hero(incrementHeroID(), name, gearList, artifact, lvl, awakening);
+                    Heroes.Add(newHero);
+                    progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                }
+                return (true, Heroes.Count, Items.Count);
+            }
+            catch
+            {
+                return (false, 0, 0);
+            }
+        }
+
+        //Parses the JSON data generated by this program
+        public (bool, int, int) importFromThis(string path, IProgress<int> progress)
+        {
+            Heroes.Clear();
+            Items.Clear();
+            string json = File.ReadAllText(path);
+            try
+            {
+                JToken items = JObject.Parse(json)["items"];
+                int length = items.Count();
+                for (int i = 0; i < length; i++)
+                {
+                    JToken item = items[i];
+                    string id = item.Value<string>("ID");
+                    ItemType type = (ItemType)item.Value<int>("Type");
+                    Set set = (Set)item.Value<int>("Set");
+                    Grade grade = (Grade)item.Value<int>("Grade");
+                    int ilvl = item.Value<int>("Ilvl");
+                    int enhance = item.Value<int>("Enhance");
+                    Stat mainStat = new Stat((Stats)item["Main"].Value<int>("Name"), item["Main"].Value<decimal>("Value"));
+                    JToken subStats = item["SubStats"];
+                    int subLength = subStats.Count();
+                    List<Stat> subs = new List<Stat>();
+                    for (int j = 0; j < subLength; j++)
+                    {
+                        subs.Add(new Stat((Stats)subStats[j].Value<int>("Name"), subStats[j].Value<decimal>("Value")));
+                    }
+                    bool locked = item.Value<bool>("Locked");
+                    Items.Add(new Item(id, type, set, grade, ilvl, enhance, mainStat, subs.ToArray(), null, locked));
+                    progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                }
+                JToken heroes = JObject.Parse(json)["heroes"];
+                length = heroes.Count();
+                for (int i = 0; i < length; i++)
+                {
+                    JToken hero = heroes[i];
+                    string id = hero.Value<string>("ID");
+                    string name = hero.Value<string>("Name");
+                    JToken gear = hero["Gear"];
+                    int gearLength = gear.Count();
+                    List<Item> gearList = new List<Item>();
+                    for (int j = 0; j < gearLength; j++)
+                    {
+                        gearList.Add(Items.Find(x => x.ID == gear[j].Value<string>("ID")));
+                    }
+                    Item artifact = new Item("", ItemType.Artifact, Set.Attack, Grade.Epic, 0, 0, new Stat(), new Stat[] { new Stat(Stats.ATK, hero["Artifact"].Value<decimal>("ATK")), new Stat(Stats.HP, hero["Artifact"].Value<decimal>("HP")) }, null, false);
+                    int lvl = hero.Value<int>("Lvl");
+                    int awakening = hero.Value<int>("Awakening");
+                    Heroes.Add(new Hero(id, name, gearList, artifact, lvl, awakening));
+                    progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                }
+                JToken IDs = JObject.Parse(json);
+                currentItemID = IDs.Value<string>("currentItemID");
+                currentHeroID = IDs.Value<string>("currentHeroID");
+                return (true, Heroes.Count, Items.Count);
+            }
+            catch
+            {
+                return (false, 0, 0);
+            }
+        }
+
+        public string incrementItemID()
+        {
+            int ascii = currentItemID.Last();
+            if (ascii == 122)
+            {
+                currentItemID += (char)65;
+            }
+            else
+            {
+                currentItemID = currentItemID.Substring(0, currentItemID.Length - 1) + (char)(ascii + 1);
+            }
+            return currentItemID;
+        }
+        public string incrementHeroID()
+        {
+            int ascii = currentHeroID.Last();
+            if (ascii == 122)
+            {
+                currentHeroID += (char)65;
+            }
+            else
+            {
+                currentHeroID = currentHeroID.Substring(0, currentHeroID.Length - 1) + (char)(ascii + 1);
+            }
+            return currentHeroID;
+        }
+
+        
+    }
+}
