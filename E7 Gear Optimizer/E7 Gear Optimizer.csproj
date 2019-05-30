@@ -13,18 +13,20 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <PublishUrl>F:\temp\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>1</ApplicationRevision>
+    <InstallUrl>\\abc.de\fds\</InstallUrl>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -68,6 +70,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>E59BA952381DFC952A2DF0323F1A92D37E5A072E</ManifestCertificateThumbprint>
@@ -157,204 +160,124 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\new.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\new.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Edit.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\Edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\set speed.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\set speed.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\set hit.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\set hit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\set crit.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\set crit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\set defense.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\set defense.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\set destruction.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\set destruction.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\set health.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\set health.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\set immunity.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\set immunity.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\set lifesteal.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\set lifesteal.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\set rage.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\set rage.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\set resist.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\set resist.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\set unity.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\set unity.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\set attack.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\set attack.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\set counter.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\set counter.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\armor.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\armor.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\boots.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\boots.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\helmet.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\helmet.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\necklace.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\necklace.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ring.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\ring.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\weapon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\weapon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\remove.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\remove.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\error.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\error.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\star.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\star.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\star_j.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\star_j.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\knight.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\knight.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\mage.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\mage.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ranger.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\ranger.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\thief.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\thief.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\warrior.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\warrior.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\soulweaver.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\soulweaver.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fire.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\fire.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\earth1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\earth1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ice1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\ice1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\light1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\light1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dark1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\dark1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\locked.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\locked.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\unlocked.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\unlocked.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bookmark.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\bookmark.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

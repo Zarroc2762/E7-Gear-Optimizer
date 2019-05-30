@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -51,9 +52,9 @@ namespace E7_Gear_Optimizer
                 Class = getClass(json);
                 AwakeningStats = getAwakeningStats(json);
             }
-            catch
+            catch (WebException ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
             Portrait = getPortrait(name);
             PortraitSmall = Util.ResizeImage(Portrait, 60, 60);
@@ -80,8 +81,9 @@ namespace E7_Gear_Optimizer
             {
                 portrait = new Bitmap(Util.client.OpenRead(Util.AssetUrl + "/hero/" + name.ToLower().Replace(' ', '-') + "/icon.png"));
             }
-            catch
+            catch (WebException ex)
             {
+                MessageBox.Show(ex.Message);
                 portrait = Util.error;
             }
             return portrait;
