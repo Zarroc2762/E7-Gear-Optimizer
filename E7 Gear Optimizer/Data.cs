@@ -121,7 +121,14 @@ namespace E7_Gear_Optimizer
                     }
                     Hero newHero = new Hero(incrementHeroID(), name, gearList, artifact, lvl, awakening);
                     Heroes.Add(newHero);
-                    progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                    if (length == 1)
+                    {
+                        progress.Report(100);
+                    }
+                    else
+                    {
+                        progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                    }
                 }
                 return (true, Heroes.Count, Items.Count);
             }

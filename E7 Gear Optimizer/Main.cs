@@ -2222,7 +2222,7 @@ namespace E7_Gear_Optimizer
 
             dgv_CurrentGear.Rows.Clear();
             object[] values = new object[dgv_CurrentGear.ColumnCount];
-            if (cb_OptimizeHero.Items[cb_OptimizeHero.SelectedIndex].ToString() != "")
+            if (cb_OptimizeHero.Text != "")
             {
                 Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Items[cb_OptimizeHero.SelectedIndex].ToString().Split().Last());
                 values[0] = (int)hero.CurrentStats[Stats.ATK];
