@@ -68,7 +68,14 @@ namespace E7_Gear_Optimizer
                     string id = incrementItemID();
                     Items.Add(new Item(id, type, set, grade, ilvl, enhance, main_Stat, subStats.ToArray(), null, locked));
                     IDConverter.Add(item.Value<string>("id"), id);
-                    progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                    if (length == 1)
+                    {
+                        progress.Report(100);
+                    }
+                    else
+                    {
+                        progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                    }
                 }
                 JToken heroes = JObject.Parse(json)["heroes"];
                 length = heroes.Count();
@@ -121,7 +128,14 @@ namespace E7_Gear_Optimizer
                     }
                     Hero newHero = new Hero(incrementHeroID(), name, gearList, artifact, lvl, awakening);
                     Heroes.Add(newHero);
-                    progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                    if (length == 1)
+                    {
+                        progress.Report(100);
+                    }
+                    else
+                    {
+                        progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                    }
                 }
                 return (true, Heroes.Count, Items.Count);
             }
@@ -160,7 +174,14 @@ namespace E7_Gear_Optimizer
                     }
                     bool locked = item.Value<bool>("Locked");
                     Items.Add(new Item(id, type, set, grade, ilvl, enhance, mainStat, subs.ToArray(), null, locked));
-                    progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                    if (length == 1)
+                    {
+                        progress.Report(100);
+                    }
+                    else
+                    {
+                        progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                    }
                 }
                 JToken heroes = JObject.Parse(json)["heroes"];
                 length = heroes.Count();
@@ -180,7 +201,14 @@ namespace E7_Gear_Optimizer
                     int lvl = hero.Value<int>("Lvl");
                     int awakening = hero.Value<int>("Awakening");
                     Heroes.Add(new Hero(id, name, gearList, artifact, lvl, awakening));
-                    progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                    if (length == 1)
+                    {
+                        progress.Report(100);
+                    }
+                    else
+                    {
+                        progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                    }
                 }
                 JToken IDs = JObject.Parse(json);
                 currentItemID = IDs.Value<string>("currentItemID");
