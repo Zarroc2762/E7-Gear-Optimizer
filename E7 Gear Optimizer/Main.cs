@@ -1087,6 +1087,7 @@ namespace E7_Gear_Optimizer
             Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
             hero.unequipAll();
             data.Heroes.Remove(hero);
+            updateHeroList();
         }
 
         //Show the "Select Item" dialog with a list of items which can be equipped in the selected slot
