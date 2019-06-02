@@ -46,7 +46,7 @@ namespace E7_Gear_Optimizer
             this.awakening = awakening > lvl / 10 ? lvl / 10 : awakening;
             try
             {
-                string json = Util.client.DownloadString(Util.ApiUrl + "/hero/" + Name.ToLower().Replace(' ', '-'));
+                string json = Util.client.DownloadString(Util.ApiUrl + "/hero/" + Util.toAPIUrl(Name));
                 BaseStats = getBaseStats(json);
                 Element = getElement(json);
                 Class = getClass(json);
@@ -79,7 +79,7 @@ namespace E7_Gear_Optimizer
             Bitmap portrait;
             try
             {
-                portrait = new Bitmap(Util.client.OpenRead(Util.AssetUrl + "/hero/" + name.ToLower().Replace(' ', '-') + "/icon.png"));
+                portrait = new Bitmap(Util.client.OpenRead(Util.AssetUrl + "/hero/" + Util.toAPIUrl(name) + "/icon.png"));
             }
             catch (WebException ex)
             {
@@ -165,7 +165,7 @@ namespace E7_Gear_Optimizer
 
         public void calcAwakeningStats()
         {
-            string json = Util.client.DownloadString(Util.ApiUrl + "/hero/" + Name.ToLower().Replace(' ', '-'));
+            string json = Util.client.DownloadString(Util.ApiUrl + "/hero/" + Util.toAPIUrl(Name));
             AwakeningStats = getAwakeningStats(json);
             stars = getStars(lvl, awakening);
         }
@@ -200,9 +200,9 @@ namespace E7_Gear_Optimizer
             }
             Dictionary<Stats, decimal> setBonusStats = this.setBonusStats();
             Dictionary<Stats, decimal> calculatedStats = new Dictionary<Stats, decimal>();
-            calculatedStats[Stats.ATK] = (BaseStats[Stats.ATK] * (1 + (AwakeningStats.ContainsKey(Stats.ATKPercent) ? AwakeningStats[Stats.ATKPercent] : 0))) + AwakeningStats[Stats.ATK];
+            calculatedStats[Stats.ATK] = (BaseStats[Stats.ATK] * (1 + (AwakeningStats.ContainsKey(Stats.ATKPercent) ? AwakeningStats[Stats.ATKPercent] : 0))) + (AwakeningStats.ContainsKey(Stats.ATK) ? AwakeningStats[Stats.ATK] : 0);
             calculatedStats[Stats.ATK] = (calculatedStats[Stats.ATK] * (1 + itemStats[Stats.ATKPercent] + setBonusStats[Stats.ATKPercent])) + itemStats[Stats.ATK] + Artifact.SubStats[0].Value;
-            calculatedStats[Stats.HP] = (BaseStats[Stats.HP] * (1 + (AwakeningStats.ContainsKey(Stats.HPPercent) ? AwakeningStats[Stats.HPPercent] : 0))) + AwakeningStats[Stats.HP];
+            calculatedStats[Stats.HP] = (BaseStats[Stats.HP] * (1 + (AwakeningStats.ContainsKey(Stats.HPPercent) ? AwakeningStats[Stats.HPPercent] : 0))) + (AwakeningStats.ContainsKey(Stats.HP) ? AwakeningStats[Stats.HP] : 0);
             calculatedStats[Stats.HP] = (calculatedStats[Stats.HP] * (1 + itemStats[Stats.HPPercent] + setBonusStats[Stats.HPPercent])) + itemStats[Stats.HP] + Artifact.SubStats[1].Value;
             calculatedStats[Stats.DEF] = BaseStats[Stats.DEF] * (1 + (AwakeningStats.ContainsKey(Stats.DEFPercent) ? AwakeningStats[Stats.DEFPercent] : 0));
             calculatedStats[Stats.DEF] = (calculatedStats[Stats.DEF] * (1 + itemStats[Stats.DEFPercent] + setBonusStats[Stats.DEFPercent])) + itemStats[Stats.DEF];

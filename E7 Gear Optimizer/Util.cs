@@ -182,5 +182,10 @@ namespace E7_Gear_Optimizer
             }
             return activeSets;
         }
+
+        public static string toAPIUrl(string str)
+        {
+            return str.ToLower().Replace('&', ' ').Replace("   ", " ").Replace(' ', '-');
+        }
     }
 }
