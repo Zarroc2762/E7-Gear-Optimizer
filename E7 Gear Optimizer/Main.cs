@@ -735,7 +735,7 @@ namespace E7_Gear_Optimizer
                 }
 
                 Hero newHero = data.Heroes.Find(x => x.Name == String.Join(" ", cb_Eq.Text.Split(' ').Reverse().Skip(1).Reverse()));
-                if (newHero != item.Equipped)
+                if (item.Equipped != null && newHero != item.Equipped)
                 {
                     item.Equipped.unequip(item);
                     if (newHero != null)
@@ -745,7 +745,7 @@ namespace E7_Gear_Optimizer
                 }
                 else if (newHero != null)
                 {
-                    newHero.calcStats();
+                    newHero.equip(item);
                 }
                 updateItemList();
             }
@@ -1937,6 +1937,7 @@ namespace E7_Gear_Optimizer
                             ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
                         }
                     }
+                    l_WeaponEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
                 }
                 else
                 {
@@ -1946,6 +1947,7 @@ namespace E7_Gear_Optimizer
                     l_WeaponMainOptimize.Text = "";
                     l_WeaponMainStatOptimize.Text = "";
                     l_WeaponSetOptimize.Text = "";
+                    l_WeaponEquippedOptimize.Text = "";
                     pb_WeaponSetOptimize.Image = Util.error;
                     for (int i = 0; i < 4; i++)
                     {
@@ -1977,6 +1979,7 @@ namespace E7_Gear_Optimizer
                             ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
                         }
                     }
+                    l_HelmetEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
                 }
                 else
                 {
@@ -1986,6 +1989,7 @@ namespace E7_Gear_Optimizer
                     l_HelmetMainOptimize.Text = "";
                     l_HelmetMainStatOptimize.Text = "";
                     l_HelmetSetOptimize.Text = "";
+                    l_HelmetEquippedOptimize.Text = "";
                     pb_HelmetSetOptimize.Image = Util.error;
                     for (int i = 0; i < 4; i++)
                     {
@@ -2017,6 +2021,7 @@ namespace E7_Gear_Optimizer
                             ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
                         }
                     }
+                    l_ArmorEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
                 }
                 else
                 {
@@ -2026,6 +2031,7 @@ namespace E7_Gear_Optimizer
                     l_ArmorMainOptimize.Text = "";
                     l_ArmorMainStatOptimize.Text = "";
                     l_ArmorSetOptimize.Text = "";
+                    l_ArmorEquippedOptimize.Text = "";
                     pb_ArmorSetOptimize.Image = Util.error;
                     for (int i = 0; i < 4; i++)
                     {
@@ -2057,6 +2063,7 @@ namespace E7_Gear_Optimizer
                             ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
                         }
                     }
+                    l_NecklaceEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
                 }
                 else
                 {
@@ -2066,6 +2073,7 @@ namespace E7_Gear_Optimizer
                     l_NecklaceMainOptimize.Text = "";
                     l_NecklaceMainStatOptimize.Text = "";
                     l_NecklaceSetOptimize.Text = "";
+                    l_NecklaceEquippedOptimize.Text = "";
                     pb_NecklaceSetOptimize.Image = Util.error;
                     for (int i = 0; i < 4; i++)
                     {
@@ -2097,6 +2105,7 @@ namespace E7_Gear_Optimizer
                             ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
                         }
                     }
+                    l_RingEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
                 }
                 else
                 {
@@ -2106,6 +2115,7 @@ namespace E7_Gear_Optimizer
                     l_RingMainOptimize.Text = "";
                     l_RingMainStatOptimize.Text = "";
                     l_RingSetOptimize.Text = "";
+                    l_RingEquippedOptimize.Text = "";
                     pb_RingSetOptimize.Image = Util.error;
                     for (int i = 0; i < 4; i++)
                     {
@@ -2137,6 +2147,7 @@ namespace E7_Gear_Optimizer
                             ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
                         }
                     }
+                    l_BootsEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
                 }
                 else
                 {
@@ -2146,6 +2157,7 @@ namespace E7_Gear_Optimizer
                     l_BootsMainOptimize.Text = "";
                     l_BootsMainStatOptimize.Text = "";
                     l_BootsSetOptimize.Text = "";
+                    l_BootsEquippedOptimize.Text = "";
                     pb_BootsSetOptimize.Image = Util.error;
                     for (int i = 0; i < 4; i++)
                     {

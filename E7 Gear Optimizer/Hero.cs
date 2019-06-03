@@ -260,7 +260,7 @@ namespace E7_Gear_Optimizer
             calculatedStats[Stats.SPD] = (calculatedStats[Stats.SPD] * (1 + setBonusStats[Stats.SPD])) + itemStats[Stats.SPD];
             calculatedStats[Stats.Crit] = BaseStats[Stats.Crit] + (AwakeningStats.ContainsKey(Stats.Crit) ? AwakeningStats[Stats.Crit] : 0);
             calculatedStats[Stats.Crit] = calculatedStats[Stats.Crit] + itemStats[Stats.Crit] + setBonusStats[Stats.Crit] + critbonus;
-            calculatedStats[Stats.Crit] = calculatedStats[Stats.Crit] > 1 ? 1 : calculatedStats[Stats.Crit];
+            //calculatedStats[Stats.Crit] = calculatedStats[Stats.Crit] > 1 ? 1 : calculatedStats[Stats.Crit];
             calculatedStats[Stats.CritDmg] = BaseStats[Stats.CritDmg] + (AwakeningStats.ContainsKey(Stats.CritDmg) ? AwakeningStats[Stats.CritDmg] : 0);
             calculatedStats[Stats.CritDmg] = calculatedStats[Stats.CritDmg] + itemStats[Stats.CritDmg] + setBonusStats[Stats.CritDmg];
             calculatedStats[Stats.EFF] = BaseStats[Stats.EFF] + (AwakeningStats.ContainsKey(Stats.EFF) ? AwakeningStats[Stats.EFF] : 0);
@@ -268,7 +268,8 @@ namespace E7_Gear_Optimizer
             calculatedStats[Stats.RES] = BaseStats[Stats.RES] + (AwakeningStats.ContainsKey(Stats.RES) ? AwakeningStats[Stats.RES] : 0);
             calculatedStats[Stats.RES] = calculatedStats[Stats.RES] + itemStats[Stats.RES] + setBonusStats[Stats.RES];
             calculatedStats[Stats.EHP] = calculatedStats[Stats.HP] * (1 + (calculatedStats[Stats.DEF] / 300));
-            calculatedStats[Stats.DMG] = (calculatedStats[Stats.ATK] * (1 - calculatedStats[Stats.Crit])) + (calculatedStats[Stats.ATK] * calculatedStats[Stats.Crit] * calculatedStats[Stats.CritDmg]);
+            decimal crit = calculatedStats[Stats.Crit] > 1 ? 1 : calculatedStats[Stats.Crit];
+            calculatedStats[Stats.DMG] = (calculatedStats[Stats.ATK] * (1 - crit)) + (calculatedStats[Stats.ATK] * crit * calculatedStats[Stats.CritDmg]);
             return calculatedStats;
         }
 

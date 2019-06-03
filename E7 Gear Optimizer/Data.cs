@@ -62,7 +62,10 @@ namespace E7_Gear_Optimizer
                         {
                             Stats name = (Stats)Enum.Parse(typeof(Stats), subStat.Value<string>(0).ToUpper().Replace("ATKP", "ATKPercent").Replace("HPP", "HPPercent").Replace("DEFP", "DEFPercent").Replace("CCHANCE", "Crit").Replace("CDMG", "CritDmg"));
                             decimal value = Util.percentStats.Contains(name) ? subStat.Value<decimal>(1) / 100m : subStat.Value<decimal>(1);
-                            subStats.Add(new Stat(name, value));
+                            if (value > 0)
+                            {
+                                subStats.Add(new Stat(name, value));
+                            }
                         }
                     }
                     string id = incrementItemID();
@@ -139,8 +142,9 @@ namespace E7_Gear_Optimizer
                 }
                 return (true, Heroes.Count, Items.Count);
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return (false, 0, 0);
             }
         }
