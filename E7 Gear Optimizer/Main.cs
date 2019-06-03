@@ -806,6 +806,7 @@ namespace E7_Gear_Optimizer
 
                     Item artifact = new Item("", ItemType.Artifact, Set.Attack, Grade.Epic, 0, 0, new Stat(), new Stat[] { new Stat(Stats.ATK, (decimal)nud_ArtifactAttack.Value), new Stat(Stats.HP, (decimal)nud_ArtifactHealth.Value) }, null, false);
                     hero.Artifact = artifact;
+                    hero.updateBaseStats();
                     hero.calcAwakeningStats();
                     hero.calcStats();
                 }

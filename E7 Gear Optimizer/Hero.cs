@@ -27,7 +27,9 @@ namespace E7_Gear_Optimizer
         private int awakening;
         private Image stars;
         public Image Stars { get => stars; }
-        public Dictionary<Stats, decimal> BaseStats { get; }
+
+        private Dictionary<Stats, decimal> baseStats;
+        public Dictionary<Stats, decimal> BaseStats { get => baseStats; }
         private Dictionary<Stats, decimal> currentStats;
         private Dictionary<Stats, decimal> AwakeningStats { get; set; }
 
@@ -47,7 +49,7 @@ namespace E7_Gear_Optimizer
             try
             {
                 string json = Util.client.DownloadString(Util.ApiUrl + "/hero/" + Util.toAPIUrl(Name));
-                BaseStats = getBaseStats(json);
+                baseStats = getBaseStats(json);
                 Element = getElement(json);
                 Class = getClass(json);
                 AwakeningStats = getAwakeningStats(json);
@@ -127,6 +129,13 @@ namespace E7_Gear_Optimizer
                 }
             } while (stats.MoveNext());
             return baseStats;
+        }
+
+        //Updates base stats from EpicSevenDB
+        public void updateBaseStats()
+        {
+            string json = Util.client.DownloadString(Util.ApiUrl + "/hero/" + Util.toAPIUrl(Name));
+            baseStats = getBaseStats(json);
         }
 
         //Parse JSON data from EpicSevenDB to get the stats of an awakened hero
