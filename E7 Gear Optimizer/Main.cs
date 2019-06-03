@@ -590,8 +590,54 @@ namespace E7_Gear_Optimizer
             }
         }
 
-        //Create a new item with the selected stats
+        //Create a new item with the selected stats without equipping it to a hero
         private void B_NewItem_Click(object sender, EventArgs e)
+        {
+            Set set = (Set)Enum.Parse(typeof(Set), p_Set.Controls.OfType<RadioButton>().First(x => x.Checked).Name.Replace("rb_", "").Replace("Set", ""));
+            ItemType type = (ItemType)Enum.Parse(typeof(ItemType), p_Type.Controls.OfType<RadioButton>().First(x => x.Checked).Name.Replace("rb_", "").Replace("Type", ""));
+            Grade grade = (Grade)Enum.Parse(typeof(Grade), p_Grade.Controls.OfType<RadioButton>().First(x => x.Checked).Name.Replace("rb_", "").Replace("Grade", ""));
+
+            Stat main;
+            if (lb_Main.SelectedItem.ToString() != "")
+            {
+                main = new Stat((Stats)Enum.Parse(typeof(Stats), lb_Main.SelectedItem.ToString().Replace("%", "Percent")), (decimal)nud_Main.Value);
+            }
+            else
+            {
+                MessageBox.Show("Invalid Mainstat");
+                return;
+            }
+
+            List<Stat> substats = new List<Stat>();
+            string selection = lb_Sub1.SelectedItem.ToString();
+            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (decimal)nud_Sub1.Value));
+            selection = lb_Sub2.SelectedItem.ToString();
+            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (decimal)nud_Sub2.Value));
+            selection = lb_Sub3.SelectedItem.ToString();
+            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (decimal)nud_Sub3.Value));
+            selection = lb_Sub4.SelectedItem.ToString();
+            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (decimal)nud_Sub4.Value));
+
+            int ilvl = (int)nud_ILvl.Value;
+            int enh = (int)nud_Enhance.Value;
+            bool locked = false;
+            if (Locked)
+            {
+                locked = true;
+            }
+
+            Item newItem = new Item(data.incrementItemID(), type, set, grade, ilvl, enh, main, substats.ToArray(), null, locked);
+            data.Items.Add(newItem);
+            updateItemList();
+            //select the created item if it is displayed with the current filter
+            if (tc_Inventory.SelectedIndex == 0 || (ItemType)(tc_Inventory.SelectedIndex - 1) == type)
+            {
+                dgv_Inventory.CurrentCell = dgv_Inventory.Rows.Cast<DataGridViewRow>().Where(x => x.Cells["c_ItemID"].Value.ToString() == newItem.ID).First().Cells[0];
+            }
+        }
+
+        //Create a new item with the selected stats equipped on the selected hero
+        private void B_NewItemEquipped_Click(object sender, EventArgs e)
         {
             Set set = (Set)Enum.Parse(typeof(Set), p_Set.Controls.OfType<RadioButton>().First(x => x.Checked).Name.Replace("rb_", "").Replace("Set", ""));
             ItemType type = (ItemType)Enum.Parse(typeof(ItemType), p_Type.Controls.OfType<RadioButton>().First(x => x.Checked).Name.Replace("rb_", "").Replace("Type", ""));
@@ -1067,6 +1113,7 @@ namespace E7_Gear_Optimizer
                 Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
                 if (newItem != null)
                 {
+                    hero.unequip(hero.getItem(ItemType.Weapon));
                     hero.equip(newItem);
                 }
                 else
@@ -1101,6 +1148,7 @@ namespace E7_Gear_Optimizer
                 Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
                 if (newItem != null)
                 {
+                    hero.unequip(hero.getItem(ItemType.Helmet));
                     hero.equip(newItem);
                 }
                 else
@@ -1146,6 +1194,7 @@ namespace E7_Gear_Optimizer
                 Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
                 if (newItem != null)
                 {
+                    hero.unequip(hero.getItem(ItemType.Armor));
                     hero.equip(newItem);
                 }
                 else
@@ -1171,6 +1220,8 @@ namespace E7_Gear_Optimizer
                 Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
                 if (newItem != null)
                 {
+
+                    hero.unequip(hero.getItem(ItemType.Necklace));
                     hero.equip(newItem);
                 }
                 else
@@ -1196,6 +1247,7 @@ namespace E7_Gear_Optimizer
                 Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
                 if (newItem != null)
                 {
+                    hero.unequip(hero.getItem(ItemType.Ring));
                     hero.equip(newItem);
                 }
                 else
@@ -1221,6 +1273,7 @@ namespace E7_Gear_Optimizer
                 Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
                 if (newItem != null)
                 {
+                    hero.unequip(hero.getItem(ItemType.Boots));
                     hero.equip(newItem);
                 }
                 else
@@ -2281,5 +2334,7 @@ namespace E7_Gear_Optimizer
             hero.unequipAll();
             updateHeroList();
         }
+
+        
     }
 }
