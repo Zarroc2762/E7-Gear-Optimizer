@@ -1114,7 +1114,8 @@ namespace E7_Gear_Optimizer
                 Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
                 if (newItem != null)
                 {
-                    hero.unequip(hero.getItem(ItemType.Weapon));
+                    Item oldItem = hero.getItem(ItemType.Weapon);
+                    if (oldItem != null) hero.unequip(oldItem);
                     hero.equip(newItem);
                 }
                 else
@@ -1149,7 +1150,8 @@ namespace E7_Gear_Optimizer
                 Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
                 if (newItem != null)
                 {
-                    hero.unequip(hero.getItem(ItemType.Helmet));
+                    Item oldItem = hero.getItem(ItemType.Helmet);
+                    if (oldItem != null) hero.unequip(oldItem);
                     hero.equip(newItem);
                 }
                 else
@@ -1195,7 +1197,8 @@ namespace E7_Gear_Optimizer
                 Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
                 if (newItem != null)
                 {
-                    hero.unequip(hero.getItem(ItemType.Armor));
+                    Item oldItem = hero.getItem(ItemType.Armor);
+                    if (oldItem != null) hero.unequip(oldItem);
                     hero.equip(newItem);
                 }
                 else
@@ -1222,7 +1225,8 @@ namespace E7_Gear_Optimizer
                 if (newItem != null)
                 {
 
-                    hero.unequip(hero.getItem(ItemType.Necklace));
+                    Item oldItem = hero.getItem(ItemType.Necklace);
+                    if (oldItem != null) hero.unequip(oldItem);
                     hero.equip(newItem);
                 }
                 else
@@ -1248,7 +1252,8 @@ namespace E7_Gear_Optimizer
                 Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
                 if (newItem != null)
                 {
-                    hero.unequip(hero.getItem(ItemType.Ring));
+                    Item oldItem = hero.getItem(ItemType.Ring);
+                    if (oldItem != null) hero.unequip(oldItem);
                     hero.equip(newItem);
                 }
                 else
@@ -1274,7 +1279,8 @@ namespace E7_Gear_Optimizer
                 Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
                 if (newItem != null)
                 {
-                    hero.unequip(hero.getItem(ItemType.Boots));
+                    Item oldItem = hero.getItem(ItemType.Boots);
+                    if (oldItem != null) hero.unequip(oldItem);
                     hero.equip(newItem);
                 }
                 else
@@ -1605,9 +1611,27 @@ namespace E7_Gear_Optimizer
                 filter[8] = (tb_MinEhp.Text != "" ? decimal.Parse(tb_MinEhp.Text) : 0, tb_MaxEhp.Text != "" ? decimal.Parse(tb_MaxEhp.Text) : decimal.MaxValue);
                 filter[9] = (tb_MinDmg.Text != "" ? decimal.Parse(tb_MinDmg.Text) : 0, tb_MaxDmg.Text != "" ? decimal.Parse(tb_MaxDmg.Text) : decimal.MaxValue);
 
-                IProgress<int> progress = new Progress<int>(x => pB_Optimize.Value = x);
+                long numResults = weapons.Count * helmets.Count * armors.Count * necklaces.Count * rings.Count * boots.Count;
+                decimal counter = 0;
+                IProgress<int> progress = new Progress<int>(x =>
+                {
+                    counter += x;
+                    pB_Optimize.Value = (int)(counter / numResults * 100);
+                });
                 pB_Optimize.Show();
                 combinations = await Task.Run(() => calculate(weapons, helmets, armors, necklaces, rings, boots, hero, filter, setFocus, progress));
+                /*List<Task<List<(List<Item>, Dictionary<Stats, decimal>)>>> tasks = new List<Task<List<(List<Item>, Dictionary<Stats, decimal>)>>>();
+                foreach (Item w in weapons)
+                {
+                    foreach (Item h in helmets)
+                    {
+                        foreach (Item a in armors)
+                        {
+                            tasks.Add(Task.Run(() => calculate(w, h, a, necklaces, rings, boots, hero, filter, setFocus, progress)));
+                        }
+                    }
+                }
+                combinations = (await Task.WhenAll(tasks)).Aggregate((a, b) => { a.AddRange(b); return a; });*/
                 pB_Optimize.Hide();
                 pB_Optimize.Value = 0;
                 //Display the first page of results. Each page consists of 100 results
@@ -1625,8 +1649,6 @@ namespace E7_Gear_Optimizer
                                                                         IProgress<int> progress)
         {
             List<(List<Item>, Dictionary<Stats, decimal>)> combinations = new List<(List<Item>, Dictionary<Stats, decimal>)>();
-            decimal counter = 0;
-            long numResults = weapons.Count * helmets.Count * armors.Count * necklaces.Count * rings.Count * boots.Count;
             foreach (Item w in weapons)
             {
                 foreach (Item h in helmets)
@@ -1660,11 +1682,51 @@ namespace E7_Gear_Optimizer
                                     {
                                         combinations.Add((new List<Item> { w, h, a, n, r, b }, stats));
                                     }
-                                    counter += 1;
-                                    progress.Report((int)(counter / numResults * 100));
+                                    progress.Report(1);
                                 }
                             }
                         }
+                    }
+                }
+            }
+            return combinations;
+        }
+
+        private List<(List<Item>, Dictionary<Stats, decimal>)> calculate(Item weapon, Item helmet,
+                                                                        Item armor, List<Item> necklaces,
+                                                                        List<Item> rings, List<Item> boots, Hero hero,
+                                                                        (decimal, decimal)[] filter, List<Set> setFocus,
+                                                                        IProgress<int> progress)
+        {
+            List<(List<Item>, Dictionary<Stats, decimal>)> combinations = new List<(List<Item>, Dictionary<Stats, decimal>)>();
+            foreach (Item n in necklaces)
+            {
+                foreach (Item r in rings)
+                {
+                    foreach (Item b in boots)
+                    {
+                        List<Set> activeSets;
+                        Dictionary<Stats, decimal> stats = hero.calcStatsWithGear(new List<Item> { weapon, helmet, armor, n, r, b }, out activeSets, nud_CritBonus.Value / 100m);
+                        bool valid = true;
+                        valid = valid && stats[Stats.ATK] >= filter[0].Item1 && stats[Stats.ATK] <= filter[0].Item2;
+                        valid = valid && stats[Stats.SPD] >= filter[1].Item1 && stats[Stats.SPD] <= filter[1].Item2;
+                        valid = valid && stats[Stats.Crit] >= filter[2].Item1 && stats[Stats.Crit] <= filter[2].Item2;
+                        valid = valid && stats[Stats.CritDmg] >= filter[3].Item1 && stats[Stats.CritDmg] <= filter[3].Item2;
+                        valid = valid && stats[Stats.HP] >= filter[4].Item1 && stats[Stats.HP] <= filter[4].Item2;
+                        valid = valid && stats[Stats.DEF] >= filter[5].Item1 && stats[Stats.DEF] <= filter[5].Item2;
+                        valid = valid && stats[Stats.EFF] >= filter[6].Item1 && stats[Stats.EFF] <= filter[6].Item2;
+                        valid = valid && stats[Stats.RES] >= filter[7].Item1 && stats[Stats.RES] <= filter[7].Item2;
+                        valid = valid && stats[Stats.EHP] >= filter[8].Item1 && stats[Stats.EHP] <= filter[8].Item2;
+                        valid = valid && stats[Stats.DMG] >= filter[9].Item1 && stats[Stats.DMG] <= filter[9].Item2;
+                        foreach (Set s in setFocus)
+                        {
+                            valid = valid && activeSets.Contains(s);
+                        }
+                        if (valid)
+                        {
+                            combinations.Add((new List<Item> { weapon, helmet, armor, n, r, b }, stats));
+                        }
+                        progress.Report(1);
                     }
                 }
             }

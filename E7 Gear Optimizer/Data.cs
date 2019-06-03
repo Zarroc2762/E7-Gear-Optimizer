@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
@@ -36,15 +37,16 @@ namespace E7_Gear_Optimizer
             Items.Clear();
             Heroes.Clear();
             string json = File.ReadAllText(path);
+            Dictionary<string, string> IDConverter = new Dictionary<string, string>();
             try
             {
                 JToken items = JObject.Parse(json)["items"];
-                Dictionary<string, string> IDConverter = new Dictionary<string, string>();
                 int length = items.Count();
                 for (int i = 0; i < length; i++)
                 {
                     JToken item = items[i];
-                    int enhance = item.Value<int>("ability");
+                    int enhance;
+                    enhance = item.Value<int>("ability");
                     int ilvl = item.Value<int>("level");
                     Set set = (Set)Enum.Parse(typeof(Set), item.Value<string>("set").Replace("Critical", "Crit").Replace("Defense", "Def"));
                     ItemType type = (ItemType)Enum.Parse(typeof(ItemType), item.Value<string>("slot"));
@@ -80,8 +82,16 @@ namespace E7_Gear_Optimizer
                         progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return (false, 0, 0);
+            }
+            try
+            {
                 JToken heroes = JObject.Parse(json)["heroes"];
-                length = heroes.Count();
+                int length = heroes.Count();
                 for (int i = 0; i < length; i++)
                 {
                     JToken hero = heroes[i];
@@ -91,7 +101,7 @@ namespace E7_Gear_Optimizer
                     Item artifact = new Item("", ItemType.Artifact, Set.Attack, Grade.Epic, 0, 0, new Stat(), new Stat[] { new Stat(Stats.ATK, atk), new Stat(Stats.HP, hp) }, null, false);
                     string[] nameParts = hero.Value<string>("name").Split(' ');
                     string name = "";
-                    for (int k = 0; k < nameParts.Length -1; k++)
+                    for (int k = 0; k < nameParts.Length - 1; k++)
                     {
                         name += " " + nameParts[k];
                     }
@@ -138,6 +148,10 @@ namespace E7_Gear_Optimizer
                     else
                     {
                         progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                    }
+                    if (i == 45)
+                    {
+                        Thread.Sleep(30000);
                     }
                 }
                 return (true, Heroes.Count, Items.Count);
@@ -213,14 +227,19 @@ namespace E7_Gear_Optimizer
                     {
                         progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
                     }
+                    if (i == 45)
+                    {
+                        Thread.Sleep(30000);
+                    }
                 }
                 JToken IDs = JObject.Parse(json);
                 currentItemID = IDs.Value<string>("currentItemID");
                 currentHeroID = IDs.Value<string>("currentHeroID");
                 return (true, Heroes.Count, Items.Count);
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return (false, 0, 0);
             }
         }
