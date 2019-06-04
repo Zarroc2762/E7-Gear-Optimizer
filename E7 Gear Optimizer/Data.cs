@@ -53,7 +53,7 @@ namespace E7_Gear_Optimizer
                     Grade grade = (Grade)Enum.Parse(typeof(Grade), item.Value<string>("rarity"));
                     JToken mainStat = item["mainStat"];
                     Stats main = (Stats)Enum.Parse(typeof(Stats), mainStat.Value<string>(0).ToUpper().Replace("ATKP", "ATKPercent").Replace("HPP", "HPPercent").Replace("DEFP", "DEFPercent").Replace("CCHANCE", "Crit").Replace("CDMG", "CritDmg"));
-                    decimal stat = Util.percentStats.Contains(main) ? mainStat.Value<decimal>(1) / 100m : mainStat.Value<decimal>(1);
+                    float stat = Util.percentStats.Contains(main) ? mainStat.Value<float>(1) / 100f : mainStat.Value<float>(1);
                     Stat main_Stat = new Stat(main, stat);
                     bool locked = item.Value<bool>("locked");
                     List<Stat> subStats = new List<Stat>();
@@ -63,7 +63,7 @@ namespace E7_Gear_Optimizer
                         if (subStat != null)
                         {
                             Stats name = (Stats)Enum.Parse(typeof(Stats), subStat.Value<string>(0).ToUpper().Replace("ATKP", "ATKPercent").Replace("HPP", "HPPercent").Replace("DEFP", "DEFPercent").Replace("CCHANCE", "Crit").Replace("CDMG", "CritDmg"));
-                            decimal value = Util.percentStats.Contains(name) ? subStat.Value<decimal>(1) / 100m : subStat.Value<decimal>(1);
+                            float value = Util.percentStats.Contains(name) ? subStat.Value<float>(1) / 100f : subStat.Value<float>(1);
                             if (value > 0)
                             {
                                 subStats.Add(new Stat(name, value));
@@ -79,7 +79,7 @@ namespace E7_Gear_Optimizer
                     }
                     else
                     {
-                        progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                        progress.Report((int)((float)i / ((float)length - 1) * 100));
                     }
                 }
             }
@@ -96,8 +96,8 @@ namespace E7_Gear_Optimizer
                 {
                     JToken hero = heroes[i];
                     JToken artifactStats = hero["artifactStats"];
-                    decimal atk = artifactStats.Value<decimal>("atk");
-                    decimal hp = artifactStats.Value<decimal>("hp");
+                    float atk = artifactStats.Value<float>("atk");
+                    float hp = artifactStats.Value<float>("hp");
                     Item artifact = new Item("", ItemType.Artifact, Set.Attack, Grade.Epic, 0, 0, new Stat(), new Stat[] { new Stat(Stats.ATK, atk), new Stat(Stats.HP, hp) }, null, false);
                     string[] nameParts = hero.Value<string>("name").Split(' ');
                     string name = "";
@@ -147,9 +147,9 @@ namespace E7_Gear_Optimizer
                     }
                     else
                     {
-                        progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                        progress.Report((int)((float)i / ((float)length - 1) * 100));
                     }
-                    if (i == 45)
+                    if (i > 0 && i % 45 == 0)
                     {
                         Thread.Sleep(30000);
                     }
@@ -182,13 +182,13 @@ namespace E7_Gear_Optimizer
                     Grade grade = (Grade)item.Value<int>("Grade");
                     int ilvl = item.Value<int>("Ilvl");
                     int enhance = item.Value<int>("Enhance");
-                    Stat mainStat = new Stat((Stats)item["Main"].Value<int>("Name"), item["Main"].Value<decimal>("Value"));
+                    Stat mainStat = new Stat((Stats)item["Main"].Value<int>("Name"), item["Main"].Value<float>("Value"));
                     JToken subStats = item["SubStats"];
                     int subLength = subStats.Count();
                     List<Stat> subs = new List<Stat>();
                     for (int j = 0; j < subLength; j++)
                     {
-                        subs.Add(new Stat((Stats)subStats[j].Value<int>("Name"), subStats[j].Value<decimal>("Value")));
+                        subs.Add(new Stat((Stats)subStats[j].Value<int>("Name"), subStats[j].Value<float>("Value")));
                     }
                     bool locked = item.Value<bool>("Locked");
                     Items.Add(new Item(id, type, set, grade, ilvl, enhance, mainStat, subs.ToArray(), null, locked));
@@ -198,7 +198,7 @@ namespace E7_Gear_Optimizer
                     }
                     else
                     {
-                        progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                        progress.Report((int)((float)i / ((float)length - 1) * 100));
                     }
                 }
                 JToken heroes = JObject.Parse(json)["heroes"];
@@ -215,7 +215,7 @@ namespace E7_Gear_Optimizer
                     {
                         gearList.Add(Items.Find(x => x.ID == gear[j].Value<string>("ID")));
                     }
-                    Item artifact = new Item("", ItemType.Artifact, Set.Attack, Grade.Epic, 0, 0, new Stat(), new Stat[] { new Stat(Stats.ATK, hero["Artifact"].Value<decimal>("ATK")), new Stat(Stats.HP, hero["Artifact"].Value<decimal>("HP")) }, null, false);
+                    Item artifact = new Item("", ItemType.Artifact, Set.Attack, Grade.Epic, 0, 0, new Stat(), new Stat[] { new Stat(Stats.ATK, hero["Artifact"].Value<float>("ATK")), new Stat(Stats.HP, hero["Artifact"].Value<float>("HP")) }, null, false);
                     int lvl = hero.Value<int>("Lvl");
                     int awakening = hero.Value<int>("Awakening");
                     Heroes.Add(new Hero(id, name, gearList, artifact, lvl, awakening));
@@ -225,9 +225,9 @@ namespace E7_Gear_Optimizer
                     }
                     else
                     {
-                        progress.Report((int)((decimal)i / ((decimal)length - 1) * 100));
+                        progress.Report((int)((float)i / ((float)length - 1) * 100));
                     }
-                    if (i == 45)
+                    if (i > 0 && i % 45 == 0)
                     {
                         Thread.Sleep(30000);
                     }

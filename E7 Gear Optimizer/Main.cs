@@ -19,7 +19,7 @@ namespace E7_Gear_Optimizer
     {
         private Data data = new Data();
         private bool Locked = false;
-        List<(List<Item>, Dictionary<Stats, decimal>)> combinations = new List<(List<Item>, Dictionary<Stats, decimal>)>();
+        List<(List<Item>, Dictionary<Stats, float>)> combinations = new List<(List<Item>, Dictionary<Stats, float>)>();
         int optimizePage = 1;
         int sortColumn = -1;
         public Main()
@@ -278,7 +278,7 @@ namespace E7_Gear_Optimizer
                     }
                 }
                 values[15] = (5 + (count * 4)) + "%";
-                Dictionary<Stats, decimal> stats = hero.CurrentStats;
+                Dictionary<Stats, float> stats = hero.CurrentStats;
                 values[7] = (int)stats[Stats.ATK];
                 values[8] = (int)stats[Stats.SPD];
                 values[9] = stats[Stats.Crit].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
@@ -343,9 +343,9 @@ namespace E7_Gear_Optimizer
             ((RadioButton)p_Type.Controls.Find("rb_" + ((ItemType)row.Cells[20].Value).ToString() + "Type", false)[0]).Checked = true;
             ((RadioButton)p_Grade.Controls.Find("rb_" + row.Cells[2].Value + "Grade", false)[0]).Checked = true;
             nud_ILvl.Value = (int)row.Cells[3].Value;
-            nud_Enhance.Value = (int)decimal.Parse(((string)row.Cells[4].Value).Substring(1));
+            nud_Enhance.Value = (int)float.Parse(((string)row.Cells[4].Value).Substring(1));
             lb_Main.SelectedIndex = lb_Main.FindStringExact((string)row.Cells[5].Value);
-            nud_Main.Value = (int)decimal.Parse(((string)row.Cells[6].Value).Replace("%",""));
+            nud_Main.Value = (int)float.Parse(((string)row.Cells[6].Value).Replace("%",""));
             int subStat = 0;
             for (int i = 7; i < 18; i++)
             {
@@ -353,7 +353,7 @@ namespace E7_Gear_Optimizer
                 {
                     ListBox lb = (ListBox)tb_Inventory.Controls.Find("lb_Sub" + (subStat + 1) , false)[0];
                     lb.SelectedIndex = lb.FindStringExact(dgv_Inventory.Columns[i].HeaderText);
-                    ((NumericUpDown)tb_Inventory.Controls.Find("nud_Sub" + (subStat+1), false)[0]).Value = (int)decimal.Parse(((string)row.Cells[i].Value).Replace("%", ""));
+                    ((NumericUpDown)tb_Inventory.Controls.Find("nud_Sub" + (subStat+1), false)[0]).Value = (int)float.Parse(((string)row.Cells[i].Value).Replace("%", ""));
                     subStat++;
                 }
             }
@@ -600,7 +600,7 @@ namespace E7_Gear_Optimizer
             Stat main;
             if (lb_Main.SelectedItem.ToString() != "")
             {
-                main = new Stat((Stats)Enum.Parse(typeof(Stats), lb_Main.SelectedItem.ToString().Replace("%", "Percent")), (decimal)nud_Main.Value);
+                main = new Stat((Stats)Enum.Parse(typeof(Stats), lb_Main.SelectedItem.ToString().Replace("%", "Percent")), (float)nud_Main.Value);
             }
             else
             {
@@ -610,13 +610,13 @@ namespace E7_Gear_Optimizer
 
             List<Stat> substats = new List<Stat>();
             string selection = lb_Sub1.SelectedItem.ToString();
-            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (decimal)nud_Sub1.Value));
+            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub1.Value));
             selection = lb_Sub2.SelectedItem.ToString();
-            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (decimal)nud_Sub2.Value));
+            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub2.Value));
             selection = lb_Sub3.SelectedItem.ToString();
-            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (decimal)nud_Sub3.Value));
+            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub3.Value));
             selection = lb_Sub4.SelectedItem.ToString();
-            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (decimal)nud_Sub4.Value));
+            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub4.Value));
 
             int ilvl = (int)nud_ILvl.Value;
             int enh = (int)nud_Enhance.Value;
@@ -646,7 +646,7 @@ namespace E7_Gear_Optimizer
             Stat main;
             if (lb_Main.SelectedItem.ToString() != "")
             {
-                main = new Stat((Stats)Enum.Parse(typeof(Stats), lb_Main.SelectedItem.ToString().Replace("%", "Percent")), (decimal)nud_Main.Value);
+                main = new Stat((Stats)Enum.Parse(typeof(Stats), lb_Main.SelectedItem.ToString().Replace("%", "Percent")), (float)nud_Main.Value);
             }
             else
             {
@@ -656,13 +656,13 @@ namespace E7_Gear_Optimizer
 
             List<Stat> substats = new List<Stat>();
             string selection = lb_Sub1.SelectedItem.ToString();
-            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (decimal)nud_Sub1.Value));
+            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub1.Value));
             selection = lb_Sub2.SelectedItem.ToString();
-            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (decimal)nud_Sub2.Value));
+            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub2.Value));
             selection = lb_Sub3.SelectedItem.ToString();
-            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (decimal)nud_Sub3.Value));
+            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub3.Value));
             selection = lb_Sub4.SelectedItem.ToString();
-            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (decimal)nud_Sub4.Value));
+            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub4.Value));
 
             int ilvl = (int)nud_ILvl.Value;
             int enh = (int)nud_Enhance.Value;
@@ -704,7 +704,7 @@ namespace E7_Gear_Optimizer
 
                 if (lb_Main.SelectedItem.ToString() != "")
                 {
-                    item.Main = new Stat((Stats)Enum.Parse(typeof(Stats), lb_Main.SelectedItem.ToString().Replace("%", "Percent")), (decimal)nud_Main.Value);
+                    item.Main = new Stat((Stats)Enum.Parse(typeof(Stats), lb_Main.SelectedItem.ToString().Replace("%", "Percent")), (float)nud_Main.Value);
                 }
                 else
                 {
@@ -714,13 +714,13 @@ namespace E7_Gear_Optimizer
 
                 List<Stat> substats = new List<Stat>();
                 string selection = lb_Sub1.SelectedItem.ToString();
-                if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (decimal)nud_Sub1.Value));
+                if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub1.Value));
                 selection = lb_Sub2.SelectedItem.ToString();
-                if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (decimal)nud_Sub2.Value));
+                if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub2.Value));
                 selection = lb_Sub3.SelectedItem.ToString();
-                if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (decimal)nud_Sub3.Value));
+                if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub3.Value));
                 selection = lb_Sub4.SelectedItem.ToString();
-                if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (decimal)nud_Sub4.Value));
+                if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub4.Value));
                 item.SubStats = substats.ToArray();
 
                 item.ILvl = (int)nud_ILvl.Value;
@@ -787,7 +787,7 @@ namespace E7_Gear_Optimizer
                 //create new hero object and equip gear if base hero changed
                 if (cb_Hero.Text != hero.Name)
                 {
-                    Item artifact = new Item("", ItemType.Artifact, Set.Attack, Grade.Epic, 0, 0, new Stat(), new Stat[] { new Stat(Stats.ATK, (decimal)nud_ArtifactAttack.Value), new Stat(Stats.HP, (decimal)nud_ArtifactHealth.Value) }, null, false);
+                    Item artifact = new Item("", ItemType.Artifact, Set.Attack, Grade.Epic, 0, 0, new Stat(), new Stat[] { new Stat(Stats.ATK, (float)nud_ArtifactAttack.Value), new Stat(Stats.HP, (float)nud_ArtifactHealth.Value) }, null, false);
                     Hero newHero = new Hero(data.incrementHeroID(), cb_Hero.Text, new List<Item>(), artifact, int.Parse(cb_HeroLvl.Text), int.Parse(cb_HeroAwakening.Text));
                     List<Item> eq = hero.getGear();
                     hero.unequipAll();
@@ -804,7 +804,7 @@ namespace E7_Gear_Optimizer
                         hero.Awakening = hero.Lvl / 10;
                     }
 
-                    Item artifact = new Item("", ItemType.Artifact, Set.Attack, Grade.Epic, 0, 0, new Stat(), new Stat[] { new Stat(Stats.ATK, (decimal)nud_ArtifactAttack.Value), new Stat(Stats.HP, (decimal)nud_ArtifactHealth.Value) }, null, false);
+                    Item artifact = new Item("", ItemType.Artifact, Set.Attack, Grade.Epic, 0, 0, new Stat(), new Stat[] { new Stat(Stats.ATK, (float)nud_ArtifactAttack.Value), new Stat(Stats.HP, (float)nud_ArtifactHealth.Value) }, null, false);
                     hero.Artifact = artifact;
                     hero.updateBaseStats();
                     hero.calcAwakeningStats();
@@ -1075,7 +1075,7 @@ namespace E7_Gear_Optimizer
             if (cb_Hero.Text != "" && cb_HeroLvl.Text != "" && cb_HeroAwakening.Text != "")
             {
                 //Artifacts only consist of an ATK and a HP stat for the purpose of hero stat calculation. So the ID, type, set etc. is irrelevant
-                Item artifact = new Item("", ItemType.Artifact, Set.Attack, Grade.Epic, 0, 0, new Stat(), new Stat[] { new Stat(Stats.ATK, (decimal)nud_ArtifactAttack.Value), new Stat(Stats.HP, (decimal)nud_ArtifactHealth.Value) }, null, false);
+                Item artifact = new Item("", ItemType.Artifact, Set.Attack, Grade.Epic, 0, 0, new Stat(), new Stat[] { new Stat(Stats.ATK, (float)nud_ArtifactAttack.Value), new Stat(Stats.HP, (float)nud_ArtifactHealth.Value) }, null, false);
                 Hero newHero = new Hero(data.incrementHeroID(), cb_Hero.Text, new List<Item>(), artifact, int.Parse(cb_HeroLvl.Text), int.Parse(cb_HeroAwakening.Text));
                 data.Heroes.Add(newHero);
                 updateHeroList();
@@ -1403,7 +1403,7 @@ namespace E7_Gear_Optimizer
                 Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Items[cb_OptimizeHero.SelectedIndex].ToString().Split().Last());
                 values[0] = (int)hero.CurrentStats[Stats.ATK];
                 values[1] = (int)hero.CurrentStats[Stats.SPD];
-                decimal crit = hero.CurrentStats[Stats.Crit] + (nud_CritBonus.Value / 100m);
+                float crit = hero.CurrentStats[Stats.Crit] + ((float)nud_CritBonus.Value / 100f);
                 crit = crit > 1 ? 1 : crit;
                 values[2] = crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[3] = hero.CurrentStats[Stats.CritDmg].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
@@ -1599,20 +1599,20 @@ namespace E7_Gear_Optimizer
                     setFocus.Add((Set)Enum.Parse(typeof(Set), cb_Set2.Items[cb_Set2.SelectedIndex].ToString()));
                 if (cb_Set3.SelectedIndex != -1 && cb_Set3.Items[cb_Set3.SelectedIndex].ToString() != "")
                     setFocus.Add((Set)Enum.Parse(typeof(Set), cb_Set3.Items[cb_Set3.SelectedIndex].ToString()));
-                (decimal, decimal)[] filter = new (decimal, decimal)[10];
-                filter[0] = (tb_MinAttack.Text != "" ? decimal.Parse(tb_MinAttack.Text) : 0, tb_MaxAttack.Text != "" ? decimal.Parse(tb_MaxAttack.Text) : decimal.MaxValue);
-                filter[1] = (tb_MinSpeed.Text != "" ? decimal.Parse(tb_MinSpeed.Text) : 0, tb_MaxSpeed.Text != "" ? decimal.Parse(tb_MaxSpeed.Text) : decimal.MaxValue);
-                filter[2] = (tb_MinCrit.Text != "" ? decimal.Parse(tb_MinCrit.Text) / 100 : 0, tb_MaxCrit.Text != "" ? decimal.Parse(tb_MaxCrit.Text) / 100 : decimal.MaxValue);
-                filter[3] = (tb_MinCritDmg.Text != "" ? decimal.Parse(tb_MinCritDmg.Text) / 100 : 0, tb_MaxCritDmg.Text != "" ? decimal.Parse(tb_MaxCritDmg.Text) / 100 : decimal.MaxValue);
-                filter[4] = (tb_MinHealth.Text != "" ? decimal.Parse(tb_MinHealth.Text) : 0, tb_MaxHealth.Text != "" ? decimal.Parse(tb_MaxHealth.Text) : decimal.MaxValue);
-                filter[5] = (tb_MinDefense.Text != "" ? decimal.Parse(tb_MinDefense.Text) : 0, tb_MaxDefense.Text != "" ? decimal.Parse(tb_MaxDefense.Text) : decimal.MaxValue);
-                filter[6] = (tb_MinEff.Text != "" ? decimal.Parse(tb_MinEff.Text) / 100 : 0, tb_MaxEff.Text != "" ? decimal.Parse(tb_MaxEff.Text) / 100 : decimal.MaxValue);
-                filter[7] = (tb_MinRes.Text != "" ? decimal.Parse(tb_MinRes.Text) / 100 : 0, tb_MaxRes.Text != "" ? decimal.Parse(tb_MaxRes.Text) / 100 : decimal.MaxValue);
-                filter[8] = (tb_MinEhp.Text != "" ? decimal.Parse(tb_MinEhp.Text) : 0, tb_MaxEhp.Text != "" ? decimal.Parse(tb_MaxEhp.Text) : decimal.MaxValue);
-                filter[9] = (tb_MinDmg.Text != "" ? decimal.Parse(tb_MinDmg.Text) : 0, tb_MaxDmg.Text != "" ? decimal.Parse(tb_MaxDmg.Text) : decimal.MaxValue);
+                (float, float)[] filter = new (float, float)[10];
+                filter[0] = (tb_MinAttack.Text != "" ? float.Parse(tb_MinAttack.Text) : 0, tb_MaxAttack.Text != "" ? float.Parse(tb_MaxAttack.Text) : float.MaxValue);
+                filter[1] = (tb_MinSpeed.Text != "" ? float.Parse(tb_MinSpeed.Text) : 0, tb_MaxSpeed.Text != "" ? float.Parse(tb_MaxSpeed.Text) : float.MaxValue);
+                filter[2] = (tb_MinCrit.Text != "" ? float.Parse(tb_MinCrit.Text) / 100 : 0, tb_MaxCrit.Text != "" ? float.Parse(tb_MaxCrit.Text) / 100 : float.MaxValue);
+                filter[3] = (tb_MinCritDmg.Text != "" ? float.Parse(tb_MinCritDmg.Text) / 100 : 0, tb_MaxCritDmg.Text != "" ? float.Parse(tb_MaxCritDmg.Text) / 100 : float.MaxValue);
+                filter[4] = (tb_MinHealth.Text != "" ? float.Parse(tb_MinHealth.Text) : 0, tb_MaxHealth.Text != "" ? float.Parse(tb_MaxHealth.Text) : float.MaxValue);
+                filter[5] = (tb_MinDefense.Text != "" ? float.Parse(tb_MinDefense.Text) : 0, tb_MaxDefense.Text != "" ? float.Parse(tb_MaxDefense.Text) : float.MaxValue);
+                filter[6] = (tb_MinEff.Text != "" ? float.Parse(tb_MinEff.Text) / 100 : 0, tb_MaxEff.Text != "" ? float.Parse(tb_MaxEff.Text) / 100 : float.MaxValue);
+                filter[7] = (tb_MinRes.Text != "" ? float.Parse(tb_MinRes.Text) / 100 : 0, tb_MaxRes.Text != "" ? float.Parse(tb_MaxRes.Text) / 100 : float.MaxValue);
+                filter[8] = (tb_MinEhp.Text != "" ? float.Parse(tb_MinEhp.Text) : 0, tb_MaxEhp.Text != "" ? float.Parse(tb_MaxEhp.Text) : float.MaxValue);
+                filter[9] = (tb_MinDmg.Text != "" ? float.Parse(tb_MinDmg.Text) : 0, tb_MaxDmg.Text != "" ? float.Parse(tb_MaxDmg.Text) : float.MaxValue);
 
                 long numResults = weapons.Count * helmets.Count * armors.Count * necklaces.Count * rings.Count * boots.Count;
-                decimal counter = 0;
+                float counter = 0;
                 IProgress<int> progress = new Progress<int>(x =>
                 {
                     counter += x;
@@ -1620,7 +1620,7 @@ namespace E7_Gear_Optimizer
                 });
                 pB_Optimize.Show();
                 combinations = await Task.Run(() => calculate(weapons, helmets, armors, necklaces, rings, boots, hero, filter, setFocus, progress));
-                /*List<Task<List<(List<Item>, Dictionary<Stats, decimal>)>>> tasks = new List<Task<List<(List<Item>, Dictionary<Stats, decimal>)>>>();
+                /*List<Task<List<(List<Item>, Dictionary<Stats, float>)>>> tasks = new List<Task<List<(List<Item>, Dictionary<Stats, float>)>>>();
                 foreach (Item w in weapons)
                 {
                     foreach (Item h in helmets)
@@ -1642,13 +1642,13 @@ namespace E7_Gear_Optimizer
         }
 
         //Calculate all possible gear combinations and check whether they satisfy the given filters
-        private List<(List<Item>, Dictionary<Stats, decimal>)> calculate(List<Item> weapons, List<Item> helmets,
+        private List<(List<Item>, Dictionary<Stats, float>)> calculate(List<Item> weapons, List<Item> helmets,
                                                                         List<Item> armors, List<Item> necklaces,
                                                                         List<Item> rings, List<Item> boots, Hero hero,
-                                                                        (decimal, decimal)[] filter, List<Set> setFocus,
+                                                                        (float, float)[] filter, List<Set> setFocus,
                                                                         IProgress<int> progress)
         {
-            List<(List<Item>, Dictionary<Stats, decimal>)> combinations = new List<(List<Item>, Dictionary<Stats, decimal>)>();
+            List<(List<Item>, Dictionary<Stats, float>)> combinations = new List<(List<Item>, Dictionary<Stats, float>)>();
             foreach (Item w in weapons)
             {
                 foreach (Item h in helmets)
@@ -1662,7 +1662,7 @@ namespace E7_Gear_Optimizer
                                 foreach (Item b in boots)
                                 {
                                     List<Set> activeSets;
-                                    Dictionary<Stats, decimal> stats = hero.calcStatsWithGear(new List<Item> { w, h, a, n, r, b }, out activeSets, nud_CritBonus.Value / 100m);
+                                    Dictionary<Stats, float> stats = hero.calcStatsWithGear(new List<Item> { w, h, a, n, r, b }, out activeSets, (float)nud_CritBonus.Value / 100f);
                                     bool valid = true;
                                     valid = valid && stats[Stats.ATK] >= filter[0].Item1 && stats[Stats.ATK] <= filter[0].Item2;
                                     valid = valid && stats[Stats.SPD] >= filter[1].Item1 && stats[Stats.SPD] <= filter[1].Item2;
@@ -1692,13 +1692,13 @@ namespace E7_Gear_Optimizer
             return combinations;
         }
 
-        private List<(List<Item>, Dictionary<Stats, decimal>)> calculate(Item weapon, Item helmet,
+        private List<(List<Item>, Dictionary<Stats, float>)> calculate(Item weapon, Item helmet,
                                                                         Item armor, List<Item> necklaces,
                                                                         List<Item> rings, List<Item> boots, Hero hero,
-                                                                        (decimal, decimal)[] filter, List<Set> setFocus,
+                                                                        (float, float)[] filter, List<Set> setFocus,
                                                                         IProgress<int> progress)
         {
-            List<(List<Item>, Dictionary<Stats, decimal>)> combinations = new List<(List<Item>, Dictionary<Stats, decimal>)>();
+            List<(List<Item>, Dictionary<Stats, float>)> combinations = new List<(List<Item>, Dictionary<Stats, float>)>();
             foreach (Item n in necklaces)
             {
                 foreach (Item r in rings)
@@ -1706,7 +1706,7 @@ namespace E7_Gear_Optimizer
                     foreach (Item b in boots)
                     {
                         List<Set> activeSets;
-                        Dictionary<Stats, decimal> stats = hero.calcStatsWithGear(new List<Item> { weapon, helmet, armor, n, r, b }, out activeSets, nud_CritBonus.Value / 100m);
+                        Dictionary<Stats, float> stats = hero.calcStatsWithGear(new List<Item> { weapon, helmet, armor, n, r, b }, out activeSets, (float)nud_CritBonus.Value / 100f);
                         bool valid = true;
                         valid = valid && stats[Stats.ATK] >= filter[0].Item1 && stats[Stats.ATK] <= filter[0].Item2;
                         valid = valid && stats[Stats.SPD] >= filter[1].Item1 && stats[Stats.SPD] <= filter[1].Item2;
@@ -2356,7 +2356,7 @@ namespace E7_Gear_Optimizer
                 Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Items[cb_OptimizeHero.SelectedIndex].ToString().Split().Last());
                 values[0] = (int)hero.CurrentStats[Stats.ATK];
                 values[1] = (int)hero.CurrentStats[Stats.SPD];
-                decimal crit = hero.CurrentStats[Stats.Crit] + (nud_CritBonus.Value / 100m);
+                float crit = hero.CurrentStats[Stats.Crit] + ((float)nud_CritBonus.Value / 100f);
                 crit = crit > 1 ? 1 : crit;
                 values[2] = crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[3] = hero.CurrentStats[Stats.CritDmg].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));

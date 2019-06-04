@@ -28,10 +28,10 @@ namespace E7_Gear_Optimizer
         private Image stars;
         public Image Stars { get => stars; }
 
-        private Dictionary<Stats, decimal> baseStats;
-        public Dictionary<Stats, decimal> BaseStats { get => baseStats; }
-        private Dictionary<Stats, decimal> currentStats;
-        private Dictionary<Stats, decimal> AwakeningStats { get; set; }
+        private Dictionary<Stats, float> baseStats;
+        public Dictionary<Stats, float> BaseStats { get => baseStats; }
+        private Dictionary<Stats, float> currentStats;
+        private Dictionary<Stats, float> AwakeningStats { get; set; }
 
         public Hero(string ID, string name, List<Item> gear, Item artifact, int lvl, int awakening)
         {
@@ -73,7 +73,7 @@ namespace E7_Gear_Optimizer
             get => awakening;
             set => awakening = value > -1 && value < 7 ? value : awakening;
         }
-        public Dictionary<Stats, decimal> CurrentStats { get => currentStats; }
+        public Dictionary<Stats, float> CurrentStats { get => currentStats; }
 
         //Fetch the portrait of the hero from EpicSevenDB
         private Image getPortrait(string name)
@@ -108,7 +108,7 @@ namespace E7_Gear_Optimizer
         }
 
         //Parse JSON data from EpicSevenDB to get the base stats of the hero at lvl 50 or 60
-        private Dictionary<Stats,decimal> getBaseStats(string json)
+        private Dictionary<Stats,float> getBaseStats(string json)
         {
             if (json == null)
             {
@@ -116,7 +116,7 @@ namespace E7_Gear_Optimizer
             }
             JToken statsJson = JObject.Parse(json)["results"][0]["stats"];
             statsJson = lvl == 50 ? statsJson["lv50FiveStarNoAwaken"] : statsJson["lv60SixStarNoAwaken"];
-            Dictionary<Stats,decimal> baseStats = new Dictionary<Stats, decimal>();
+            Dictionary<Stats,float> baseStats = new Dictionary<Stats, float>();
             var stats = statsJson.Children().GetEnumerator();
             stats.MoveNext();
             stats.MoveNext();
@@ -125,7 +125,7 @@ namespace E7_Gear_Optimizer
                 JProperty stat = (JProperty)stats.Current;
                 if (stat.Name.ToUpper() != "DAC")
                 {
-                    baseStats[(Stats)Enum.Parse(typeof(Stats), stat.Name.ToUpper().Replace("CHC", "Crit").Replace("CHD", "CritDmg").Replace("EFR", "RES"))] = (decimal)stat.Value;
+                    baseStats[(Stats)Enum.Parse(typeof(Stats), stat.Name.ToUpper().Replace("CHC", "Crit").Replace("CHD", "CritDmg").Replace("EFR", "RES"))] = (float)stat.Value;
                 }
             } while (stats.MoveNext());
             return baseStats;
@@ -139,10 +139,10 @@ namespace E7_Gear_Optimizer
         }
 
         //Parse JSON data from EpicSevenDB to get the stats of an awakened hero
-        private Dictionary<Stats,decimal> getAwakeningStats(string json)
+        private Dictionary<Stats,float> getAwakeningStats(string json)
         {
             JToken statsJson = JObject.Parse(json)["results"][0]["awakening"];
-            Dictionary<Stats, decimal> awakeningStats = new Dictionary<Stats, decimal>();
+            Dictionary<Stats, float> awakeningStats = new Dictionary<Stats, float>();
             for (int i = 0; i < Awakening ;i++)
             {
                 JToken stats = statsJson[i]["statsIncrease"];
@@ -151,12 +151,12 @@ namespace E7_Gear_Optimizer
                     JProperty stat = (JProperty)stats[j].First;
                     string name = stat.Name.ToUpper();
                     Stat s;
-                    if ((name == "ATK" || name == "HP" || name == "DEF") && (decimal)stat.Value < 1)
+                    if ((name == "ATK" || name == "HP" || name == "DEF") && (float)stat.Value < 1)
                     {
-                        s = new Stat((Stats)Enum.Parse(typeof(Stats), stat.Name.ToUpper() + "Percent"), (decimal)stat.Value);
+                        s = new Stat((Stats)Enum.Parse(typeof(Stats), stat.Name.ToUpper() + "Percent"), (float)stat.Value);
                     } else
                     {
-                        s = new Stat((Stats)Enum.Parse(typeof(Stats), stat.Name.ToUpper().Replace("CHC", "Crit").Replace("CHD", "CritDmg").Replace("EFR", "RES")), (decimal)stat.Value);
+                        s = new Stat((Stats)Enum.Parse(typeof(Stats), stat.Name.ToUpper().Replace("CHC", "Crit").Replace("CHD", "CritDmg").Replace("EFR", "RES")), (float)stat.Value);
                     }
                     if (awakeningStats.ContainsKey(s.Name))
                     {
@@ -192,9 +192,9 @@ namespace E7_Gear_Optimizer
         }
 
         //Calculates the current stats of a hero
-        public Dictionary<Stats, decimal> calcStats()
+        public Dictionary<Stats, float> calcStats()
         {
-            Dictionary<Stats, decimal> itemStats = new Dictionary<Stats, decimal>();
+            Dictionary<Stats, float> itemStats = new Dictionary<Stats, float>();
             foreach (Stats s in Enum.GetValues(typeof(Stats)))
             {
                 itemStats[s] = 0;
@@ -207,8 +207,8 @@ namespace E7_Gear_Optimizer
                     itemStats[s.Name] += s.Value;
                 }
             }
-            Dictionary<Stats, decimal> setBonusStats = this.setBonusStats();
-            Dictionary<Stats, decimal> calculatedStats = new Dictionary<Stats, decimal>();
+            Dictionary<Stats, float> setBonusStats = this.setBonusStats();
+            Dictionary<Stats, float> calculatedStats = new Dictionary<Stats, float>();
             calculatedStats[Stats.ATK] = (BaseStats[Stats.ATK] * (1 + (AwakeningStats.ContainsKey(Stats.ATKPercent) ? AwakeningStats[Stats.ATKPercent] : 0))) + (AwakeningStats.ContainsKey(Stats.ATK) ? AwakeningStats[Stats.ATK] : 0);
             calculatedStats[Stats.ATK] = (calculatedStats[Stats.ATK] * (1 + itemStats[Stats.ATKPercent] + setBonusStats[Stats.ATKPercent])) + itemStats[Stats.ATK] + Artifact.SubStats[0].Value;
             calculatedStats[Stats.HP] = (BaseStats[Stats.HP] * (1 + (AwakeningStats.ContainsKey(Stats.HPPercent) ? AwakeningStats[Stats.HPPercent] : 0))) + (AwakeningStats.ContainsKey(Stats.HP) ? AwakeningStats[Stats.HP] : 0);
@@ -233,9 +233,9 @@ namespace E7_Gear_Optimizer
         }
 
         //Calculates the stats of a hero with a given set of gear
-        public Dictionary<Stats, decimal> calcStatsWithGear(List<Item> gear, out List<Set> aS, decimal critbonus)
+        public Dictionary<Stats, float> calcStatsWithGear(List<Item> gear, out List<Set> aS, float critbonus)
         {
-            Dictionary<Stats, decimal> itemStats = new Dictionary<Stats, decimal>();
+            Dictionary<Stats, float> itemStats = new Dictionary<Stats, float>();
             foreach (Stats s in Enum.GetValues(typeof(Stats)))
             {
                 itemStats[s] = 0;
@@ -248,8 +248,8 @@ namespace E7_Gear_Optimizer
                     itemStats[s.Name] += s.Value;
                 }
             }
-            Dictionary<Stats, decimal> setBonusStats = this.setBonusStatsWithGear(gear, out aS);
-            Dictionary<Stats, decimal> calculatedStats = new Dictionary<Stats, decimal>();
+            Dictionary<Stats, float> setBonusStats = this.setBonusStatsWithGear(gear, out aS);
+            Dictionary<Stats, float> calculatedStats = new Dictionary<Stats, float>();
             calculatedStats[Stats.ATK] = (BaseStats[Stats.ATK] * (1 + (AwakeningStats.ContainsKey(Stats.ATKPercent) ? AwakeningStats[Stats.ATKPercent] : 0))) + AwakeningStats[Stats.ATK];
             calculatedStats[Stats.ATK] = (calculatedStats[Stats.ATK] * (1 + itemStats[Stats.ATKPercent] + setBonusStats[Stats.ATKPercent])) + itemStats[Stats.ATK] + Artifact.SubStats[0].Value;
             calculatedStats[Stats.HP] = (BaseStats[Stats.HP] * (1 + (AwakeningStats.ContainsKey(Stats.HPPercent) ? AwakeningStats[Stats.HPPercent] : 0))) + AwakeningStats[Stats.HP];
@@ -268,16 +268,16 @@ namespace E7_Gear_Optimizer
             calculatedStats[Stats.RES] = BaseStats[Stats.RES] + (AwakeningStats.ContainsKey(Stats.RES) ? AwakeningStats[Stats.RES] : 0);
             calculatedStats[Stats.RES] = calculatedStats[Stats.RES] + itemStats[Stats.RES] + setBonusStats[Stats.RES];
             calculatedStats[Stats.EHP] = calculatedStats[Stats.HP] * (1 + (calculatedStats[Stats.DEF] / 300));
-            decimal crit = calculatedStats[Stats.Crit] > 1 ? 1 : calculatedStats[Stats.Crit];
+            float crit = calculatedStats[Stats.Crit] > 1 ? 1 : calculatedStats[Stats.Crit];
             calculatedStats[Stats.DMG] = (calculatedStats[Stats.ATK] * (1 - crit)) + (calculatedStats[Stats.ATK] * crit * calculatedStats[Stats.CritDmg]);
             return calculatedStats;
         }
 
         //Calculates the stats from set bonuses
-        public Dictionary<Stats, decimal> setBonusStats()
+        public Dictionary<Stats, float> setBonusStats()
         {
             List<Set> activeSets = this.activeSets();
-            Dictionary<Stats, decimal> stats = new Dictionary<Stats, decimal>();
+            Dictionary<Stats, float> stats = new Dictionary<Stats, float>();
             foreach (Stats s in Enum.GetValues(typeof(Stats)))
             {
                 stats[s] = 0;
@@ -287,28 +287,28 @@ namespace E7_Gear_Optimizer
                 switch (set)
                 {
                     case Set.Attack:
-                        stats[Stats.ATKPercent] += 0.35m;
+                        stats[Stats.ATKPercent] += 0.35f;
                         break;
                     case Set.Crit:
-                        stats[Stats.Crit] += 0.12m;
+                        stats[Stats.Crit] += 0.12f;
                         break;
                     case Set.Def:
-                        stats[Stats.DEFPercent] += 0.15m;
+                        stats[Stats.DEFPercent] += 0.15f;
                         break;
                     case Set.Destruction:
-                        stats[Stats.CritDmg] += 0.4m;
+                        stats[Stats.CritDmg] += 0.4f;
                         break;
                     case Set.Health:
-                        stats[Stats.HPPercent] += 0.15m;
+                        stats[Stats.HPPercent] += 0.15f;
                         break;
                     case Set.Hit:
-                        stats[Stats.EFF] += 0.2m;
+                        stats[Stats.EFF] += 0.2f;
                         break;
                     case Set.Resist:
-                        stats[Stats.RES] += 0.2m;
+                        stats[Stats.RES] += 0.2f;
                         break;
                     case Set.Speed:
-                        stats[Stats.SPD] += 0.25m;
+                        stats[Stats.SPD] += 0.25f;
                         break;
                     default:
                         break;
@@ -318,10 +318,10 @@ namespace E7_Gear_Optimizer
         }
 
         //Calculates the stats from set bonuses with a given set of gear
-        public Dictionary<Stats, decimal> setBonusStatsWithGear(List<Item> gear, out List<Set> aS)
+        public Dictionary<Stats, float> setBonusStatsWithGear(List<Item> gear, out List<Set> aS)
         {
             List<Set> activeSets = this.activeSetsWithGear(gear);
-            Dictionary<Stats, decimal> stats = new Dictionary<Stats, decimal>();
+            Dictionary<Stats, float> stats = new Dictionary<Stats, float>();
             foreach (Stats s in Enum.GetValues(typeof(Stats)))
             {
                 stats[s] = 0;
@@ -331,28 +331,28 @@ namespace E7_Gear_Optimizer
                 switch (set)
                 {
                     case Set.Attack:
-                        stats[Stats.ATKPercent] += 0.35m;
+                        stats[Stats.ATKPercent] += 0.35f;
                         break;
                     case Set.Crit:
-                        stats[Stats.Crit] += 0.12m;
+                        stats[Stats.Crit] += 0.12f;
                         break;
                     case Set.Def:
-                        stats[Stats.DEFPercent] += 0.15m;
+                        stats[Stats.DEFPercent] += 0.15f;
                         break;
                     case Set.Destruction:
-                        stats[Stats.CritDmg] += 0.4m;
+                        stats[Stats.CritDmg] += 0.4f;
                         break;
                     case Set.Health:
-                        stats[Stats.HPPercent] += 0.15m;
+                        stats[Stats.HPPercent] += 0.15f;
                         break;
                     case Set.Hit:
-                        stats[Stats.EFF] += 0.2m;
+                        stats[Stats.EFF] += 0.2f;
                         break;
                     case Set.Resist:
-                        stats[Stats.RES] += 0.2m;
+                        stats[Stats.RES] += 0.2f;
                         break;
                     case Set.Speed:
-                        stats[Stats.SPD] += 0.25m;
+                        stats[Stats.SPD] += 0.25f;
                         break;
                     default:
                         break;

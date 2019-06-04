@@ -9,16 +9,16 @@ namespace E7_Gear_Optimizer
     public struct Stat
     {
         private Stats name;
-        private decimal value;
+        private float value;
 
-        public Stat(Stats name, decimal value)
+        public Stat(Stats name, float value)
         {
             this.name = name;
             this.value = name != Stats.ATK && name != Stats.DEF && name != Stats.HP && name != Stats.SPD && value >= 1 ? value / 100 : value;
         }
 
         public Stats Name { get => name; set => name = value; }
-        public decimal Value
+        public float Value
         {
             get => value;
             set

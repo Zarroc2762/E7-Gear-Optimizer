@@ -102,12 +102,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Correction.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Correction.Designer.cs">
-      <DependentUpon>Correction.cs</DependentUpon>
-    </Compile>
     <Compile Include="Data.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="Import.cs">
@@ -138,9 +132,6 @@
       <DependentUpon>SelectItemDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Stat.cs" />
-    <EmbeddedResource Include="Correction.resx">
-      <DependentUpon>Correction.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Import.resx">
       <DependentUpon>Import.cs</DependentUpon>
     </EmbeddedResource>
