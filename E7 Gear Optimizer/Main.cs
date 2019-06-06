@@ -1619,19 +1619,59 @@ namespace E7_Gear_Optimizer
                     pB_Optimize.Value = (int)(counter / numResults * 100);
                 });
                 pB_Optimize.Show();
-                combinations = await Task.Run(() => calculate(weapons, helmets, armors, necklaces, rings, boots, hero, filter, setFocus, progress));
-                /*List<Task<List<(List<Item>, Dictionary<Stats, float>)>>> tasks = new List<Task<List<(List<Item>, Dictionary<Stats, float>)>>>();
+                //combinations = await Task.Run(() => calculate(weapons, helmets, armors, necklaces, rings, boots, hero, filter, setFocus, progress));
+                List<Task<List<(List<Item>, Dictionary<Stats, float>)>>> tasks = new List<Task<List<(List<Item>, Dictionary<Stats, float>)>>>();
+                Dictionary<Stats, float> itemStats = new Dictionary<Stats, float>();
+                Dictionary<Stats, float> heroStats = hero.calcStatsWithoutGear((float)nud_CritBonus.Value / 100f);
+                foreach (Stats s in Enum.GetValues(typeof(Stats)))
+                {
+                    itemStats[s] = 0;
+                }
                 foreach (Item w in weapons)
                 {
+                    itemStats[w.Main.Name] += w.Main.Value;
+                    foreach (Stat stat in w.SubStats)
+                    {
+                        itemStats[stat.Name] += stat.Value;
+                    }
                     foreach (Item h in helmets)
                     {
+                        itemStats[h.Main.Name] += h.Main.Value;
+                        foreach (Stat stat in h.SubStats)
+                        {
+                            itemStats[stat.Name] += stat.Value;
+                        }
                         foreach (Item a in armors)
                         {
-                            tasks.Add(Task.Run(() => calculate(w, h, a, necklaces, rings, boots, hero, filter, setFocus, progress)));
+                            itemStats[a.Main.Name] += a.Main.Value;
+                            foreach (Stat stat in a.SubStats)
+                            {
+                                itemStats[stat.Name] += stat.Value;
+                            }
+
+                            Dictionary<Stats,float> temp = new Dictionary<Stats, float>(itemStats);
+
+                            tasks.Add(Task.Run(() => calculate(w, h, a, necklaces, rings, boots, hero, heroStats, filter, setFocus, progress, temp)));
+
+                            itemStats[a.Main.Name] -= a.Main.Value;
+                            foreach (Stat stat in a.SubStats)
+                            {
+                                itemStats[stat.Name] -= stat.Value;
+                            }
+                        }
+                        itemStats[h.Main.Name] -= h.Main.Value;
+                        foreach (Stat stat in h.SubStats)
+                        {
+                            itemStats[stat.Name] -= stat.Value;
                         }
                     }
+                    itemStats[w.Main.Name] -= w.Main.Value;
+                    foreach (Stat stat in w.SubStats)
+                    {
+                        itemStats[stat.Name] -= stat.Value;
+                    }
                 }
-                combinations = (await Task.WhenAll(tasks)).Aggregate((a, b) => { a.AddRange(b); return a; });*/
+                combinations = (await Task.WhenAll(tasks)).Aggregate((a, b) => { a.AddRange(b); return a; });
                 pB_Optimize.Hide();
                 pB_Optimize.Value = 0;
                 //Display the first page of results. Each page consists of 100 results
@@ -1642,71 +1682,53 @@ namespace E7_Gear_Optimizer
         }
 
         //Calculate all possible gear combinations and check whether they satisfy the given filters
-        private List<(List<Item>, Dictionary<Stats, float>)> calculate(List<Item> weapons, List<Item> helmets,
-                                                                        List<Item> armors, List<Item> necklaces,
-                                                                        List<Item> rings, List<Item> boots, Hero hero,
-                                                                        (float, float)[] filter, List<Set> setFocus,
-                                                                        IProgress<int> progress)
-        {
-            List<(List<Item>, Dictionary<Stats, float>)> combinations = new List<(List<Item>, Dictionary<Stats, float>)>();
-            foreach (Item w in weapons)
-            {
-                foreach (Item h in helmets)
-                {
-                    foreach (Item a in armors)
-                    {
-                        foreach (Item n in necklaces)
-                        {
-                            foreach (Item r in rings)
-                            {
-                                foreach (Item b in boots)
-                                {
-                                    List<Set> activeSets;
-                                    Dictionary<Stats, float> stats = hero.calcStatsWithGear(new List<Item> { w, h, a, n, r, b }, out activeSets, (float)nud_CritBonus.Value / 100f);
-                                    bool valid = true;
-                                    valid = valid && stats[Stats.ATK] >= filter[0].Item1 && stats[Stats.ATK] <= filter[0].Item2;
-                                    valid = valid && stats[Stats.SPD] >= filter[1].Item1 && stats[Stats.SPD] <= filter[1].Item2;
-                                    valid = valid && stats[Stats.Crit] >= filter[2].Item1 && stats[Stats.Crit] <= filter[2].Item2;
-                                    valid = valid && stats[Stats.CritDmg] >= filter[3].Item1 && stats[Stats.CritDmg] <= filter[3].Item2;
-                                    valid = valid && stats[Stats.HP] >= filter[4].Item1 && stats[Stats.HP] <= filter[4].Item2;
-                                    valid = valid && stats[Stats.DEF] >= filter[5].Item1 && stats[Stats.DEF] <= filter[5].Item2;
-                                    valid = valid && stats[Stats.EFF] >= filter[6].Item1 && stats[Stats.EFF] <= filter[6].Item2;
-                                    valid = valid && stats[Stats.RES] >= filter[7].Item1 && stats[Stats.RES] <= filter[7].Item2;
-                                    valid = valid && stats[Stats.EHP] >= filter[8].Item1 && stats[Stats.EHP] <= filter[8].Item2;
-                                    valid = valid && stats[Stats.DMG] >= filter[9].Item1 && stats[Stats.DMG] <= filter[9].Item2;
-                                    foreach (Set s in setFocus)
-                                    {
-                                        valid = valid && activeSets.Contains(s);
-                                    }
-                                    if (valid)
-                                    {
-                                        combinations.Add((new List<Item> { w, h, a, n, r, b }, stats));
-                                    }
-                                    progress.Report(1);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            return combinations;
-        }
 
         private List<(List<Item>, Dictionary<Stats, float>)> calculate(Item weapon, Item helmet,
                                                                         Item armor, List<Item> necklaces,
-                                                                        List<Item> rings, List<Item> boots, Hero hero,
+                                                                        List<Item> rings, List<Item> boots, Hero hero, 
+                                                                        Dictionary<Stats, float> stats,
                                                                         (float, float)[] filter, List<Set> setFocus,
-                                                                        IProgress<int> progress)
+                                                                        IProgress<int> progress, Dictionary<Stats, float> itemStats)
         {
             List<(List<Item>, Dictionary<Stats, float>)> combinations = new List<(List<Item>, Dictionary<Stats, float>)>();
+            int count = 0;
             foreach (Item n in necklaces)
             {
+                itemStats[n.Main.Name] += n.Main.Value;
+                foreach (Stat stat in n.SubStats)
+                {
+                    itemStats[stat.Name] += stat.Value;
+                }
                 foreach (Item r in rings)
                 {
+                    itemStats[r.Main.Name] += r.Main.Value;
+                    foreach (Stat stat in r.SubStats)
+                    {
+                        itemStats[stat.Name] += stat.Value;
+                    }
                     foreach (Item b in boots)
                     {
+                        itemStats[b.Main.Name] += b.Main.Value;
+                        foreach (Stat stat in b.SubStats)
+                        {
+                            itemStats[stat.Name] += stat.Value;
+                        }
                         List<Set> activeSets;
-                        Dictionary<Stats, float> stats = hero.calcStatsWithGear(new List<Item> { weapon, helmet, armor, n, r, b }, out activeSets, (float)nud_CritBonus.Value / 100f);
+                        List<Item> items = new List<Item> { weapon, helmet, armor, n, r, b };
+                        Dictionary<Stats, float> setBonusStats = hero.setBonusStatsWithGear(items, out activeSets);
+                        Dictionary<Stats, float> calculatedStats = new Dictionary<Stats, float>();
+                        calculatedStats[Stats.ATK] = (stats[Stats.ATK] * (1 + itemStats[Stats.ATKPercent] + setBonusStats[Stats.ATKPercent])) + itemStats[Stats.ATK] + hero.Artifact.SubStats[0].Value;
+                        calculatedStats[Stats.HP] = (stats[Stats.HP] * (1 + itemStats[Stats.HPPercent] + setBonusStats[Stats.HPPercent])) + itemStats[Stats.HP] + hero.Artifact.SubStats[1].Value;
+                        calculatedStats[Stats.DEF] = (stats[Stats.DEF] * (1 + itemStats[Stats.DEFPercent] + setBonusStats[Stats.DEFPercent])) + itemStats[Stats.DEF];
+                        calculatedStats[Stats.SPD] = (stats[Stats.SPD] * (1 + setBonusStats[Stats.SPD])) + itemStats[Stats.SPD];
+                        calculatedStats[Stats.Crit] = stats[Stats.Crit] + itemStats[Stats.Crit] + setBonusStats[Stats.Crit];
+                        calculatedStats[Stats.CritDmg] = stats[Stats.CritDmg] + itemStats[Stats.CritDmg] + setBonusStats[Stats.CritDmg];
+                        calculatedStats[Stats.EFF] = stats[Stats.EFF] + itemStats[Stats.EFF] + setBonusStats[Stats.EFF];
+                        calculatedStats[Stats.RES] = stats[Stats.RES] + itemStats[Stats.RES] + setBonusStats[Stats.RES];
+                        calculatedStats[Stats.EHP] = calculatedStats[Stats.HP] * (1 + (calculatedStats[Stats.DEF] / 300));
+                        float crit = calculatedStats[Stats.Crit] > 1 ? 1 : calculatedStats[Stats.Crit];
+                        calculatedStats[Stats.DMG] = (calculatedStats[Stats.ATK] * (1 - crit)) + (calculatedStats[Stats.ATK] * crit * calculatedStats[Stats.CritDmg]);
+
                         bool valid = true;
                         valid = valid && stats[Stats.ATK] >= filter[0].Item1 && stats[Stats.ATK] <= filter[0].Item2;
                         valid = valid && stats[Stats.SPD] >= filter[1].Item1 && stats[Stats.SPD] <= filter[1].Item2;
@@ -1724,12 +1746,31 @@ namespace E7_Gear_Optimizer
                         }
                         if (valid)
                         {
-                            combinations.Add((new List<Item> { weapon, helmet, armor, n, r, b }, stats));
+                            combinations.Add((new List<Item> { weapon, helmet, armor, n, r, b }, calculatedStats));
                         }
-                        progress.Report(1);
+                        count++;
+
+                        itemStats[b.Main.Name] -= b.Main.Value;
+                        foreach (Stat stat in b.SubStats)
+                        {
+                            itemStats[stat.Name] -= stat.Value;
+                        }
+                    }
+
+                    itemStats[r.Main.Name] -= r.Main.Value;
+                    foreach (Stat stat in r.SubStats)
+                    {
+                        itemStats[stat.Name] -= stat.Value;
                     }
                 }
+
+                itemStats[n.Main.Name] -= n.Main.Value;
+                foreach (Stat stat in n.SubStats)
+                {
+                    itemStats[stat.Name] -= stat.Value;
+                }
             }
+            progress.Report(count);
             return combinations;
         }
 

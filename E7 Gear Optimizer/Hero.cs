@@ -232,45 +232,22 @@ namespace E7_Gear_Optimizer
             return calculatedStats;
         }
 
-        //Calculates the stats of a hero with a given set of gear
-        public Dictionary<Stats, float> calcStatsWithGear(List<Item> gear, out List<Set> aS, float critbonus)
+        public Dictionary<Stats, float> calcStatsWithoutGear(float critbonus)
         {
-            Dictionary<Stats, float> itemStats = new Dictionary<Stats, float>();
+            Dictionary<Stats, float> stats = new Dictionary<Stats, float>();
             foreach (Stats s in Enum.GetValues(typeof(Stats)))
             {
-                itemStats[s] = 0;
+                stats[s] = 0;
             }
-            foreach (Item item in gear)
-            {
-                itemStats[item.Main.Name] += item.Main.Value;
-                foreach (Stat s in item.SubStats)
-                {
-                    itemStats[s.Name] += s.Value;
-                }
-            }
-            Dictionary<Stats, float> setBonusStats = this.setBonusStatsWithGear(gear, out aS);
-            Dictionary<Stats, float> calculatedStats = new Dictionary<Stats, float>();
-            calculatedStats[Stats.ATK] = (BaseStats[Stats.ATK] * (1 + (AwakeningStats.ContainsKey(Stats.ATKPercent) ? AwakeningStats[Stats.ATKPercent] : 0))) + AwakeningStats[Stats.ATK];
-            calculatedStats[Stats.ATK] = (calculatedStats[Stats.ATK] * (1 + itemStats[Stats.ATKPercent] + setBonusStats[Stats.ATKPercent])) + itemStats[Stats.ATK] + Artifact.SubStats[0].Value;
-            calculatedStats[Stats.HP] = (BaseStats[Stats.HP] * (1 + (AwakeningStats.ContainsKey(Stats.HPPercent) ? AwakeningStats[Stats.HPPercent] : 0))) + AwakeningStats[Stats.HP];
-            calculatedStats[Stats.HP] = (calculatedStats[Stats.HP] * (1 + itemStats[Stats.HPPercent] + setBonusStats[Stats.HPPercent])) + itemStats[Stats.HP] + Artifact.SubStats[1].Value;
-            calculatedStats[Stats.DEF] = BaseStats[Stats.DEF] * (1 + (AwakeningStats.ContainsKey(Stats.DEFPercent) ? AwakeningStats[Stats.DEFPercent] : 0));
-            calculatedStats[Stats.DEF] = (calculatedStats[Stats.DEF] * (1 + itemStats[Stats.DEFPercent] + setBonusStats[Stats.DEFPercent])) + itemStats[Stats.DEF];
-            calculatedStats[Stats.SPD] = BaseStats[Stats.SPD] + (AwakeningStats.ContainsKey(Stats.SPD) ? AwakeningStats[Stats.SPD] : 0);
-            calculatedStats[Stats.SPD] = (calculatedStats[Stats.SPD] * (1 + setBonusStats[Stats.SPD])) + itemStats[Stats.SPD];
-            calculatedStats[Stats.Crit] = BaseStats[Stats.Crit] + (AwakeningStats.ContainsKey(Stats.Crit) ? AwakeningStats[Stats.Crit] : 0);
-            calculatedStats[Stats.Crit] = calculatedStats[Stats.Crit] + itemStats[Stats.Crit] + setBonusStats[Stats.Crit] + critbonus;
-            //calculatedStats[Stats.Crit] = calculatedStats[Stats.Crit] > 1 ? 1 : calculatedStats[Stats.Crit];
-            calculatedStats[Stats.CritDmg] = BaseStats[Stats.CritDmg] + (AwakeningStats.ContainsKey(Stats.CritDmg) ? AwakeningStats[Stats.CritDmg] : 0);
-            calculatedStats[Stats.CritDmg] = calculatedStats[Stats.CritDmg] + itemStats[Stats.CritDmg] + setBonusStats[Stats.CritDmg];
-            calculatedStats[Stats.EFF] = BaseStats[Stats.EFF] + (AwakeningStats.ContainsKey(Stats.EFF) ? AwakeningStats[Stats.EFF] : 0);
-            calculatedStats[Stats.EFF] = calculatedStats[Stats.EFF] + itemStats[Stats.EFF] + setBonusStats[Stats.EFF];
-            calculatedStats[Stats.RES] = BaseStats[Stats.RES] + (AwakeningStats.ContainsKey(Stats.RES) ? AwakeningStats[Stats.RES] : 0);
-            calculatedStats[Stats.RES] = calculatedStats[Stats.RES] + itemStats[Stats.RES] + setBonusStats[Stats.RES];
-            calculatedStats[Stats.EHP] = calculatedStats[Stats.HP] * (1 + (calculatedStats[Stats.DEF] / 300));
-            float crit = calculatedStats[Stats.Crit] > 1 ? 1 : calculatedStats[Stats.Crit];
-            calculatedStats[Stats.DMG] = (calculatedStats[Stats.ATK] * (1 - crit)) + (calculatedStats[Stats.ATK] * crit * calculatedStats[Stats.CritDmg]);
-            return calculatedStats;
+            stats[Stats.ATK] = (BaseStats[Stats.ATK] * (1 + (AwakeningStats.ContainsKey(Stats.ATKPercent) ? AwakeningStats[Stats.ATKPercent] : 0))) + AwakeningStats[Stats.ATK];
+            stats[Stats.HP] = (BaseStats[Stats.HP] * (1 + (AwakeningStats.ContainsKey(Stats.HPPercent) ? AwakeningStats[Stats.HPPercent] : 0))) + AwakeningStats[Stats.HP];
+            stats[Stats.DEF] = BaseStats[Stats.DEF] * (1 + (AwakeningStats.ContainsKey(Stats.DEFPercent) ? AwakeningStats[Stats.DEFPercent] : 0));
+            stats[Stats.SPD] = BaseStats[Stats.SPD] + (AwakeningStats.ContainsKey(Stats.SPD) ? AwakeningStats[Stats.SPD] : 0);
+            stats[Stats.Crit] = BaseStats[Stats.Crit] + (AwakeningStats.ContainsKey(Stats.Crit) ? AwakeningStats[Stats.Crit] : 0) + critbonus;
+            stats[Stats.CritDmg] = BaseStats[Stats.CritDmg] + (AwakeningStats.ContainsKey(Stats.CritDmg) ? AwakeningStats[Stats.CritDmg] : 0);
+            stats[Stats.EFF] = BaseStats[Stats.EFF] + (AwakeningStats.ContainsKey(Stats.EFF) ? AwakeningStats[Stats.EFF] : 0);
+            stats[Stats.RES] = BaseStats[Stats.RES] + (AwakeningStats.ContainsKey(Stats.RES) ? AwakeningStats[Stats.RES] : 0);
+            return stats;
         }
 
         //Calculates the stats from set bonuses
