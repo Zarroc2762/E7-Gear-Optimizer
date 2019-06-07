@@ -22,6 +22,7 @@ namespace E7_Gear_Optimizer
         List<(List<Item>, Dictionary<Stats, float>)> combinations = new List<(List<Item>, Dictionary<Stats, float>)>();
         int optimizePage = 1;
         int sortColumn = -1;
+        Dictionary<Stats, (float,float)> forceStats = new Dictionary<Stats, (float,float)>();
         public Main()
         {
             InitializeComponent();
@@ -41,6 +42,11 @@ namespace E7_Gear_Optimizer
             catch (WebException ex)
             {
                 MessageBox.Show("Could not connect to epicsevendb.com. Please check your internet connection.");
+            }
+
+            foreach (Stats stat in (Stats[])Enum.GetValues(typeof(Stats)))
+            {
+                forceStats[stat] = (0, float.MaxValue);
             }
 
             //load assets
@@ -1468,38 +1474,78 @@ namespace E7_Gear_Optimizer
             if (neckFocus != "")
             {
                 Stats stat = (Stats)Enum.Parse(typeof(Stats), neckFocus.Replace("%", "Percent"));
-                necklaces = Base.Where(x => x.Type == ItemType.Necklace).Where(x => x.Main.Name == stat).Count();
+                necklaces = Base.Where(x => x.Type == ItemType.Necklace).Where(x => x.Main.Name == stat).Where(x => checkForceStats(x)).Count();
             }
             else
             {
-                necklaces = Base.Where(x => x.Type == ItemType.Necklace).Count();
+                necklaces = Base.Where(x => x.Type == ItemType.Necklace).Where(x => checkForceStats(x)).Count();
             }
             string ringFocus = cb_RingFocus.SelectedIndex> -1 ? cb_RingFocus.Items[cb_RingFocus.SelectedIndex].ToString(): "";
             long rings;
             if (ringFocus != "")
             {
                 Stats stat = (Stats)Enum.Parse(typeof(Stats), ringFocus.Replace("%", "Percent"));
-                rings = Base.Where(x => x.Type == ItemType.Ring).Where(x => x.Main.Name == stat).Count();
+                rings = Base.Where(x => x.Type == ItemType.Ring).Where(x => x.Main.Name == stat).Where(x => checkForceStats(x)).Count();
             }
             else
             {
-                rings = Base.Where(x => x.Type == ItemType.Ring).Count();
+                rings = Base.Where(x => x.Type == ItemType.Ring).Where(x => checkForceStats(x)).Count();
             }
             string bootsFocus = cb_BootsFocus.SelectedIndex > -1 ? cb_BootsFocus.Items[cb_BootsFocus.SelectedIndex].ToString() : "";
             long boots;
             if (bootsFocus != "")
             {
                 Stats stat = (Stats)Enum.Parse(typeof(Stats), bootsFocus.Replace("%", "Percent"));
-                boots = Base.Where(x => x.Type == ItemType.Boots).Where(x => x.Main.Name == stat).Count();
+                boots = Base.Where(x => x.Type == ItemType.Boots).Where(x => x.Main.Name == stat).Where(x => checkForceStats(x)).Count();
             }
             else
             {
-                boots = Base.Where(x => x.Type == ItemType.Boots).Count();
+                boots = Base.Where(x => x.Type == ItemType.Boots).Where(x => checkForceStats(x)).Count();
             }
-            long weapons = Base.Where(x => x.Type == ItemType.Weapon).Count();
-            long helmets = Base.Where(x => x.Type == ItemType.Helmet).Count();
-            long armors = Base.Where(x => x.Type == ItemType.Armor).Count();
+            long weapons = Base.Where(x => x.Type == ItemType.Weapon).Where(x => checkForceStats(x)).Count();
+            long helmets = Base.Where(x => x.Type == ItemType.Helmet).Where(x => checkForceStats(x)).Count();
+            long armors = Base.Where(x => x.Type == ItemType.Armor).Where(x => checkForceStats(x)).Count();
             return weapons * helmets * armors * necklaces * rings * boots;
+        }
+
+        private bool checkForceStats(Item item)
+        {
+            bool pass = true;
+            foreach (Stats stat in (Stats[])Enum.GetValues(typeof(Stats)))
+            {
+                (float, float) filter = forceStats[stat];
+                if (stat == item.Main.Name)
+                {
+                    pass = pass && filter.Item1 <= item.Main.Value && filter.Item2 >= item.Main.Value;
+                }
+                else
+                {
+                    if (filter.Item1 > 0)
+                    {
+                        bool exists = false;
+                        foreach(Stat sub in item.SubStats)
+                        {
+                            if (sub.Name == stat)
+                            {
+                                exists = true;
+                                pass = pass && filter.Item1 <= sub.Value;
+                            }
+                        }
+                        pass = pass && exists;
+                    }
+                    if (filter.Item1 < float.MaxValue)
+                    {
+                        foreach (Stat sub in item.SubStats)
+                        {
+                            if (sub.Name == stat)
+                            {
+                                pass = pass && filter.Item1 <= sub.Value;
+                            }
+                        }
+                    }
+                }
+            }
+            return pass;
         }
 
         private void Chb_Locked_CheckedChanged(object sender, EventArgs e)
@@ -2276,6 +2322,7 @@ namespace E7_Gear_Optimizer
         {
             List<Item> items = combinations[dgv_OptimizeResults.SelectedCells[0].RowIndex + ((optimizePage - 1) * 100)].Item1;
             Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split(' ').Last());
+            hero.unequipAll();
             hero.equip(items);
             dgv_CurrentGear.Rows.Clear();
             object[] values = new object[dgv_CurrentGear.ColumnCount];
@@ -2469,6 +2516,60 @@ namespace E7_Gear_Optimizer
             {
                 item.Locked = false;
             }
+        }
+
+        private void Dgv_Inventory_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
+        {
+            if (Util.percentageColumns.Contains(e.Column.Name))
+            {
+                int cell1 = 0;
+                int cell2 = 0;
+                int.TryParse(e.CellValue1.ToString().Replace("%","").Replace("+", ""), out cell1);
+                int.TryParse(e.CellValue2.ToString().Replace("%", "").Replace("+", ""), out cell2);
+                e.SortResult = cell1.CompareTo(cell2);
+                e.Handled = true;
+            }
+        }
+
+        private void Tb_Force_TextChanged(object sender, EventArgs e)
+        {
+            float value = 0;
+            TextBox tb = (TextBox)sender;
+            if (tb.Text != "" && float.TryParse(tb.Text, out value))
+            {
+                if (tb.Name.Contains("Min"))
+                {
+                    Stats stat = (Stats)Enum.Parse(typeof(Stats), tb.Name.Replace("tb_Min", "").Replace("Force", ""));
+                    if (Util.percentStats.Contains(stat))
+                    {
+                        value = value / 100f;
+                    }
+                    forceStats[stat] = (value, forceStats[stat].Item2);
+                }
+                else
+                {
+                    Stats stat = (Stats)Enum.Parse(typeof(Stats), tb.Name.Replace("tb_Max", "").Replace("Force", ""));
+                    if (Util.percentStats.Contains(stat))
+                    {
+                        value = value / 100f;
+                    }
+                    forceStats[stat] = (forceStats[stat].Item1, value);
+                }
+            }
+            else if (tb.Text == "")
+            {
+                if (tb.Name.Contains("Min"))
+                {
+                    Stats stat = (Stats)Enum.Parse(typeof(Stats), tb.Name.Replace("tb_Min", "").Replace("Force", ""));
+                    forceStats[stat] = (0, forceStats[stat].Item2);
+                }
+                else
+                {
+                    Stats stat = (Stats)Enum.Parse(typeof(Stats), tb.Name.Replace("tb_Max", "").Replace("Force", ""));
+                    forceStats[stat] = (forceStats[stat].Item1, float.MaxValue);
+                }
+            }
+            l_Results.Text = numberOfResults().ToString();
         }
     }
 }

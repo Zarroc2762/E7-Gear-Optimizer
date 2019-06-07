@@ -62,12 +62,17 @@ namespace E7_Gear_Optimizer
                         JToken subStat = item["subStat" + j.ToString()];
                         if (subStat != null)
                         {
-                            Stats name = (Stats)Enum.Parse(typeof(Stats), subStat.Value<string>(0).ToUpper().Replace("ATKP", "ATKPercent").Replace("HPP", "HPPercent").Replace("DEFP", "DEFPercent").Replace("CCHANCE", "Crit").Replace("CDMG", "CritDmg"));
-                            float value = Util.percentStats.Contains(name) ? subStat.Value<float>(1) / 100f : subStat.Value<float>(1);
-                            if (value > 0)
+                            try
                             {
-                                subStats.Add(new Stat(name, value));
+                                Stats name = (Stats)Enum.Parse(typeof(Stats), subStat.Value<string>(0).ToUpper().Replace("ATKP", "ATKPercent").Replace("HPP", "HPPercent").Replace("DEFP", "DEFPercent").Replace("CCHANCE", "Crit").Replace("CDMG", "CritDmg"));
+                                float value = Util.percentStats.Contains(name) ? subStat.Value<float>(1) / 100f : subStat.Value<float>(1);
+                                if (value > 0)
+                                {
+                                    subStats.Add(new Stat(name, value));
+                                }
                             }
+                            catch
+                            { }
                         }
                     }
                     string id = incrementItemID();
