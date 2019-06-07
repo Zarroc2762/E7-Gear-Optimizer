@@ -1730,16 +1730,16 @@ namespace E7_Gear_Optimizer
                         calculatedStats[Stats.DMG] = (calculatedStats[Stats.ATK] * (1 - crit)) + (calculatedStats[Stats.ATK] * crit * calculatedStats[Stats.CritDmg]);
 
                         bool valid = true;
-                        valid = valid && stats[Stats.ATK] >= filter[0].Item1 && stats[Stats.ATK] <= filter[0].Item2;
-                        valid = valid && stats[Stats.SPD] >= filter[1].Item1 && stats[Stats.SPD] <= filter[1].Item2;
-                        valid = valid && stats[Stats.Crit] >= filter[2].Item1 && stats[Stats.Crit] <= filter[2].Item2;
-                        valid = valid && stats[Stats.CritDmg] >= filter[3].Item1 && stats[Stats.CritDmg] <= filter[3].Item2;
-                        valid = valid && stats[Stats.HP] >= filter[4].Item1 && stats[Stats.HP] <= filter[4].Item2;
-                        valid = valid && stats[Stats.DEF] >= filter[5].Item1 && stats[Stats.DEF] <= filter[5].Item2;
-                        valid = valid && stats[Stats.EFF] >= filter[6].Item1 && stats[Stats.EFF] <= filter[6].Item2;
-                        valid = valid && stats[Stats.RES] >= filter[7].Item1 && stats[Stats.RES] <= filter[7].Item2;
-                        valid = valid && stats[Stats.EHP] >= filter[8].Item1 && stats[Stats.EHP] <= filter[8].Item2;
-                        valid = valid && stats[Stats.DMG] >= filter[9].Item1 && stats[Stats.DMG] <= filter[9].Item2;
+                        valid = valid && calculatedStats[Stats.ATK] >= filter[0].Item1 && calculatedStats[Stats.ATK] <= filter[0].Item2;
+                        valid = valid && calculatedStats[Stats.SPD] >= filter[1].Item1 && calculatedStats[Stats.SPD] <= filter[1].Item2;
+                        valid = valid && calculatedStats[Stats.Crit] >= filter[2].Item1 && calculatedStats[Stats.Crit] <= filter[2].Item2;
+                        valid = valid && calculatedStats[Stats.CritDmg] >= filter[3].Item1 && calculatedStats[Stats.CritDmg] <= filter[3].Item2;
+                        valid = valid && calculatedStats[Stats.HP] >= filter[4].Item1 && calculatedStats[Stats.HP] <= filter[4].Item2;
+                        valid = valid && calculatedStats[Stats.DEF] >= filter[5].Item1 && calculatedStats[Stats.DEF] <= filter[5].Item2;
+                        valid = valid && calculatedStats[Stats.EFF] >= filter[6].Item1 && calculatedStats[Stats.EFF] <= filter[6].Item2;
+                        valid = valid && calculatedStats[Stats.RES] >= filter[7].Item1 && calculatedStats[Stats.RES] <= filter[7].Item2;
+                        valid = valid && calculatedStats[Stats.EHP] >= filter[8].Item1 && calculatedStats[Stats.EHP] <= filter[8].Item2;
+                        valid = valid && calculatedStats[Stats.DMG] >= filter[9].Item1 && calculatedStats[Stats.DMG] <= filter[9].Item2;
                         foreach (Set s in setFocus)
                         {
                             valid = valid && activeSets.Contains(s);
