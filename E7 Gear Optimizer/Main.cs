@@ -725,14 +725,6 @@ namespace E7_Gear_Optimizer
 
                 item.ILvl = (int)nud_ILvl.Value;
                 item.Enhance = (int)nud_Enhance.Value;
-                if (Locked)
-                {
-                    item.Locked = true;
-                }
-                else
-                {
-                    item.Locked = false;
-                }
 
                 Hero newHero = data.Heroes.Find(x => x.Name == String.Join(" ", cb_Eq.Text.Split(' ').Reverse().Skip(1).Reverse()));
                 if (item.Equipped != null && newHero != item.Equipped)
@@ -1378,7 +1370,7 @@ namespace E7_Gear_Optimizer
 
         private void Pb_ItemLocked_Click(object sender, EventArgs e)
         {
-            if (Locked)
+            /*if (Locked)
             {
                 pb_ItemLocked.Image = Properties.Resources.unlocked;
                 Locked = false;
@@ -1387,6 +1379,14 @@ namespace E7_Gear_Optimizer
             {
                 pb_ItemLocked.Image = Properties.Resources.locked;
                 Locked = true;
+            }*/
+            if (dgv_Inventory.SelectedRows.Count > 0)
+            {
+                string ID = (string)dgv_Inventory.SelectedRows[0].Cells[21].Value;
+                Item item = data.Items.Find(x => x.ID == ID);
+                item.Locked = !item.Locked;
+                Locked = !Locked;
+                updateItemList();
             }
         }
 
@@ -1730,16 +1730,16 @@ namespace E7_Gear_Optimizer
                         calculatedStats[Stats.DMG] = (calculatedStats[Stats.ATK] * (1 - crit)) + (calculatedStats[Stats.ATK] * crit * calculatedStats[Stats.CritDmg]);
 
                         bool valid = true;
-                        valid = valid && stats[Stats.ATK] >= filter[0].Item1 && stats[Stats.ATK] <= filter[0].Item2;
-                        valid = valid && stats[Stats.SPD] >= filter[1].Item1 && stats[Stats.SPD] <= filter[1].Item2;
-                        valid = valid && stats[Stats.Crit] >= filter[2].Item1 && stats[Stats.Crit] <= filter[2].Item2;
-                        valid = valid && stats[Stats.CritDmg] >= filter[3].Item1 && stats[Stats.CritDmg] <= filter[3].Item2;
-                        valid = valid && stats[Stats.HP] >= filter[4].Item1 && stats[Stats.HP] <= filter[4].Item2;
-                        valid = valid && stats[Stats.DEF] >= filter[5].Item1 && stats[Stats.DEF] <= filter[5].Item2;
-                        valid = valid && stats[Stats.EFF] >= filter[6].Item1 && stats[Stats.EFF] <= filter[6].Item2;
-                        valid = valid && stats[Stats.RES] >= filter[7].Item1 && stats[Stats.RES] <= filter[7].Item2;
-                        valid = valid && stats[Stats.EHP] >= filter[8].Item1 && stats[Stats.EHP] <= filter[8].Item2;
-                        valid = valid && stats[Stats.DMG] >= filter[9].Item1 && stats[Stats.DMG] <= filter[9].Item2;
+                        valid = valid && calculatedStats[Stats.ATK] >= filter[0].Item1 && calculatedStats[Stats.ATK] <= filter[0].Item2;
+                        valid = valid && calculatedStats[Stats.SPD] >= filter[1].Item1 && calculatedStats[Stats.SPD] <= filter[1].Item2;
+                        valid = valid && calculatedStats[Stats.Crit] >= filter[2].Item1 && calculatedStats[Stats.Crit] <= filter[2].Item2;
+                        valid = valid && calculatedStats[Stats.CritDmg] >= filter[3].Item1 && calculatedStats[Stats.CritDmg] <= filter[3].Item2;
+                        valid = valid && calculatedStats[Stats.HP] >= filter[4].Item1 && calculatedStats[Stats.HP] <= filter[4].Item2;
+                        valid = valid && calculatedStats[Stats.DEF] >= filter[5].Item1 && calculatedStats[Stats.DEF] <= filter[5].Item2;
+                        valid = valid && calculatedStats[Stats.EFF] >= filter[6].Item1 && calculatedStats[Stats.EFF] <= filter[6].Item2;
+                        valid = valid && calculatedStats[Stats.RES] >= filter[7].Item1 && calculatedStats[Stats.RES] <= filter[7].Item2;
+                        valid = valid && calculatedStats[Stats.EHP] >= filter[8].Item1 && calculatedStats[Stats.EHP] <= filter[8].Item2;
+                        valid = valid && calculatedStats[Stats.DMG] >= filter[9].Item1 && calculatedStats[Stats.DMG] <= filter[9].Item2;
                         foreach (Set s in setFocus)
                         {
                             valid = valid && activeSets.Contains(s);
@@ -2451,6 +2451,24 @@ namespace E7_Gear_Optimizer
             updateHeroList();
         }
 
-        
+        private void B_LockAll_Click(object sender, EventArgs e)
+        {
+            Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
+            List<Item> gear = hero.getGear();
+            foreach (Item item in gear)
+            {
+                item.Locked = true;
+            }
+        }
+
+        private void B_UnlockAll_Click(object sender, EventArgs e)
+        {
+            Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
+            List<Item> gear = hero.getGear();
+            foreach (Item item in gear)
+            {
+                item.Locked = false;
+            }
+        }
     }
 }
