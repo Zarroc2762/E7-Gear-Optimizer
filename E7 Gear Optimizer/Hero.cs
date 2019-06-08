@@ -295,9 +295,8 @@ namespace E7_Gear_Optimizer
         }
 
         //Calculates the stats from set bonuses with a given set of gear
-        public Dictionary<Stats, float> setBonusStatsWithGear(List<Item> gear, out List<Set> aS)
+        public Dictionary<Stats, float> setBonusStats(List<Set> activeSets)
         {
-            List<Set> activeSets = this.activeSetsWithGear(gear);
             Dictionary<Stats, float> stats = new Dictionary<Stats, float>();
             foreach (Stats s in Enum.GetValues(typeof(Stats)))
             {
@@ -335,42 +334,12 @@ namespace E7_Gear_Optimizer
                         break;
                 }
             }
-            aS = activeSets;
             return stats;
         }
 
         public List<Set> activeSets()
         {
             return Util.activeSet(gear.Values.ToList());
-        }
-
-        public List<Set> activeSetsWithGear(List<Item> gear)
-        {
-            List<Set> activeSets = new List<Set>();
-            Dictionary<Set, int> setCounter = new Dictionary<Set, int>();
-            foreach (Set s in Enum.GetValues(typeof(Set)))
-            {
-                setCounter[s] = 0;
-            }
-            foreach (Item item in gear)
-            {
-                setCounter[item.Set] += 1;
-            }
-            foreach (Set set in Enum.GetValues(typeof(Set)))
-            {
-                if (Util.fourPieceSets.Contains(set) && setCounter[set] / 4 > 0)
-                {
-                    activeSets.Add(set);
-                }
-                else if (!Util.fourPieceSets.Contains(set))
-                {
-                    for (int i = 0; i < setCounter[set] / 2; i++)
-                    {
-                        activeSets.Add(set);
-                    }
-                }
-            }
-            return activeSets;
         }
 
         public void unequip(Item item)

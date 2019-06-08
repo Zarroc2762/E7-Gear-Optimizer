@@ -1462,6 +1462,13 @@ namespace E7_Gear_Optimizer
         private long numberOfResults()
         {
             Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split().Last());
+            List<Set> setFocus = new List<Set>();
+            if (cb_Set1.SelectedIndex != -1 && cb_Set1.Items[cb_Set1.SelectedIndex].ToString() != "")
+                setFocus.Add((Set)Enum.Parse(typeof(Set), cb_Set1.Items[cb_Set1.SelectedIndex].ToString()));
+            if (cb_Set2.SelectedIndex != -1 && cb_Set2.Items[cb_Set2.SelectedIndex].ToString() != "")
+                setFocus.Add((Set)Enum.Parse(typeof(Set), cb_Set2.Items[cb_Set2.SelectedIndex].ToString()));
+            if (cb_Set3.SelectedIndex != -1 && cb_Set3.Items[cb_Set3.SelectedIndex].ToString() != "")
+                setFocus.Add((Set)Enum.Parse(typeof(Set), cb_Set3.Items[cb_Set3.SelectedIndex].ToString()));
             List<Item> Base = data.Items;
             if (!chb_Equipped.Checked)
             {
@@ -1476,37 +1483,38 @@ namespace E7_Gear_Optimizer
             if (neckFocus != "")
             {
                 Stats stat = (Stats)Enum.Parse(typeof(Stats), neckFocus.Replace("%", "Percent"));
-                necklaces = Base.Where(x => x.Type == ItemType.Necklace).Where(x => x.Main.Name == stat).Where(x => checkForceStats(x)).Count();
+                necklaces = Base.Where(x => x.Type == ItemType.Necklace).Where(x => x.Main.Name == stat).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
             }
             else
             {
-                necklaces = Base.Where(x => x.Type == ItemType.Necklace).Where(x => checkForceStats(x)).Count();
+                necklaces = Base.Where(x => x.Type == ItemType.Necklace).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
             }
             string ringFocus = cb_RingFocus.SelectedIndex> -1 ? cb_RingFocus.Items[cb_RingFocus.SelectedIndex].ToString(): "";
             long rings;
             if (ringFocus != "")
             {
                 Stats stat = (Stats)Enum.Parse(typeof(Stats), ringFocus.Replace("%", "Percent"));
-                rings = Base.Where(x => x.Type == ItemType.Ring).Where(x => x.Main.Name == stat).Where(x => checkForceStats(x)).Count();
+                rings = Base.Where(x => x.Type == ItemType.Ring).Where(x => x.Main.Name == stat).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
             }
             else
             {
-                rings = Base.Where(x => x.Type == ItemType.Ring).Where(x => checkForceStats(x)).Count();
+                rings = Base.Where(x => x.Type == ItemType.Ring).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
             }
             string bootsFocus = cb_BootsFocus.SelectedIndex > -1 ? cb_BootsFocus.Items[cb_BootsFocus.SelectedIndex].ToString() : "";
             long boots;
             if (bootsFocus != "")
             {
                 Stats stat = (Stats)Enum.Parse(typeof(Stats), bootsFocus.Replace("%", "Percent"));
-                boots = Base.Where(x => x.Type == ItemType.Boots).Where(x => x.Main.Name == stat).Where(x => checkForceStats(x)).Count();
+                boots = Base.Where(x => x.Type == ItemType.Boots).Where(x => x.Main.Name == stat).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
             }
             else
             {
-                boots = Base.Where(x => x.Type == ItemType.Boots).Where(x => checkForceStats(x)).Count();
+                boots = Base.Where(x => x.Type == ItemType.Boots).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
             }
-            long weapons = Base.Where(x => x.Type == ItemType.Weapon).Where(x => checkForceStats(x)).Count();
-            long helmets = Base.Where(x => x.Type == ItemType.Helmet).Where(x => checkForceStats(x)).Count();
-            long armors = Base.Where(x => x.Type == ItemType.Armor).Where(x => checkForceStats(x)).Count();
+            long weapons = Base.Where(x => x.Type == ItemType.Weapon).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
+            long helmets = Base.Where(x => x.Type == ItemType.Helmet).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
+            long armors = Base.Where(x => x.Type == ItemType.Armor).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
+
             return weapons * helmets * armors * necklaces * rings * boots;
         }
 
@@ -1515,37 +1523,55 @@ namespace E7_Gear_Optimizer
             bool pass = true;
             foreach (Stats stat in (Stats[])Enum.GetValues(typeof(Stats)))
             {
-                (float, float) filter = forceStats[stat];
-                if (stat == item.Main.Name)
+                if (Util.rollableStats[item.Type].Contains(stat))
                 {
-                    pass = pass && filter.Item1 <= item.Main.Value && filter.Item2 >= item.Main.Value;
-                }
-                else
-                {
-                    if (filter.Item1 > 0)
+                    (float, float) filter = forceStats[stat];
+                    if (stat == item.Main.Name)
                     {
-                        bool exists = false;
-                        foreach(Stat sub in item.SubStats)
+                        pass = pass && filter.Item1 <= item.Main.Value && filter.Item2 >= item.Main.Value;
+                    }
+                    else
+                    {
+                        if (filter.Item1 > 0)
                         {
-                            if (sub.Name == stat)
+                            bool exists = false;
+                            foreach (Stat sub in item.SubStats)
                             {
-                                exists = true;
-                                pass = pass && filter.Item1 <= sub.Value;
+                                if (sub.Name == stat)
+                                {
+                                    exists = true;
+                                    pass = pass && filter.Item1 <= sub.Value;
+                                }
+                            }
+                            pass = pass && exists;
+                        }
+                        if (filter.Item1 < float.MaxValue)
+                        {
+                            foreach (Stat sub in item.SubStats)
+                            {
+                                if (sub.Name == stat)
+                                {
+                                    pass = pass && filter.Item1 <= sub.Value;
+                                }
                             }
                         }
-                        pass = pass && exists;
-                    }
-                    if (filter.Item1 < float.MaxValue)
-                    {
-                        foreach (Stat sub in item.SubStats)
-                        {
-                            if (sub.Name == stat)
-                            {
-                                pass = pass && filter.Item1 <= sub.Value;
-                            }
-                        }
                     }
                 }
+            }
+            return pass;
+        }
+
+        private bool checkSets(Item item, List<Set> setFocus)
+        {
+            bool pass = true;
+            int slots = Util.setSlots(setFocus);
+            if (slots == 6)
+            {
+                pass = setFocus.Contains(item.Set);
+            }
+            else if (slots > 6)
+            {
+                pass = false;
             }
             return pass;
         }
@@ -1647,6 +1673,14 @@ namespace E7_Gear_Optimizer
                     setFocus.Add((Set)Enum.Parse(typeof(Set), cb_Set2.Items[cb_Set2.SelectedIndex].ToString()));
                 if (cb_Set3.SelectedIndex != -1 && cb_Set3.Items[cb_Set3.SelectedIndex].ToString() != "")
                     setFocus.Add((Set)Enum.Parse(typeof(Set), cb_Set3.Items[cb_Set3.SelectedIndex].ToString()));
+
+                weapons = weapons.Where(x => checkSets(x, setFocus)).Where(x => checkForceStats(x)).ToList();
+                helmets = helmets.Where(x => checkSets(x, setFocus)).Where(x => checkForceStats(x)).ToList();
+                armors = armors.Where(x => checkSets(x, setFocus)).Where(x => checkForceStats(x)).ToList();
+                necklaces = necklaces.Where(x => checkSets(x, setFocus)).Where(x => checkForceStats(x)).ToList();
+                rings = rings.Where(x => checkSets(x, setFocus)).Where(x => checkForceStats(x)).ToList();
+                boots = boots.Where(x => checkSets(x, setFocus)).Where(x => checkForceStats(x)).ToList();
+
                 (float, float)[] filter = new (float, float)[10];
                 filter[0] = (tb_MinAttack.Text != "" ? float.Parse(tb_MinAttack.Text) : 0, tb_MaxAttack.Text != "" ? float.Parse(tb_MaxAttack.Text) : float.MaxValue);
                 filter[1] = (tb_MinSpeed.Text != "" ? float.Parse(tb_MinSpeed.Text) : 0, tb_MaxSpeed.Text != "" ? float.Parse(tb_MaxSpeed.Text) : float.MaxValue);
@@ -1719,7 +1753,10 @@ namespace E7_Gear_Optimizer
                         itemStats[stat.Name] -= stat.Value;
                     }
                 }
-                combinations = (await Task.WhenAll(tasks)).Aggregate((a, b) => { a.AddRange(b); return a; });
+                if (tasks.Count > 0)
+                {
+                    combinations = (await Task.WhenAll(tasks)).Aggregate((a, b) => { a.AddRange(b); return a; });
+                }
                 pB_Optimize.Hide();
                 pB_Optimize.Value = 0;
                 //Display the first page of results. Each page consists of 100 results
@@ -1761,43 +1798,45 @@ namespace E7_Gear_Optimizer
                         {
                             itemStats[stat.Name] += stat.Value;
                         }
-                        List<Set> activeSets;
                         List<Item> items = new List<Item> { weapon, helmet, armor, n, r, b };
-                        Dictionary<Stats, float> setBonusStats = hero.setBonusStatsWithGear(items, out activeSets);
-                        Dictionary<Stats, float> calculatedStats = new Dictionary<Stats, float>();
-                        calculatedStats[Stats.ATK] = (stats[Stats.ATK] * (1 + itemStats[Stats.ATKPercent] + setBonusStats[Stats.ATKPercent])) + itemStats[Stats.ATK] + hero.Artifact.SubStats[0].Value;
-                        calculatedStats[Stats.HP] = (stats[Stats.HP] * (1 + itemStats[Stats.HPPercent] + setBonusStats[Stats.HPPercent])) + itemStats[Stats.HP] + hero.Artifact.SubStats[1].Value;
-                        calculatedStats[Stats.DEF] = (stats[Stats.DEF] * (1 + itemStats[Stats.DEFPercent] + setBonusStats[Stats.DEFPercent])) + itemStats[Stats.DEF];
-                        calculatedStats[Stats.SPD] = (stats[Stats.SPD] * (1 + setBonusStats[Stats.SPD])) + itemStats[Stats.SPD];
-                        calculatedStats[Stats.Crit] = stats[Stats.Crit] + itemStats[Stats.Crit] + setBonusStats[Stats.Crit];
-                        calculatedStats[Stats.CritDmg] = stats[Stats.CritDmg] + itemStats[Stats.CritDmg] + setBonusStats[Stats.CritDmg];
-                        calculatedStats[Stats.EFF] = stats[Stats.EFF] + itemStats[Stats.EFF] + setBonusStats[Stats.EFF];
-                        calculatedStats[Stats.RES] = stats[Stats.RES] + itemStats[Stats.RES] + setBonusStats[Stats.RES];
-                        calculatedStats[Stats.EHP] = calculatedStats[Stats.HP] * (1 + (calculatedStats[Stats.DEF] / 300));
-                        float crit = calculatedStats[Stats.Crit] > 1 ? 1 : calculatedStats[Stats.Crit];
-                        calculatedStats[Stats.DMG] = (calculatedStats[Stats.ATK] * (1 - crit)) + (calculatedStats[Stats.ATK] * crit * calculatedStats[Stats.CritDmg]);
-
+                        List<Set> activeSets = Util.activeSet(items);
                         bool valid = true;
-                        valid = valid && calculatedStats[Stats.ATK] >= filter[0].Item1 && calculatedStats[Stats.ATK] <= filter[0].Item2;
-                        valid = valid && calculatedStats[Stats.SPD] >= filter[1].Item1 && calculatedStats[Stats.SPD] <= filter[1].Item2;
-                        valid = valid && calculatedStats[Stats.Crit] >= filter[2].Item1 && calculatedStats[Stats.Crit] <= filter[2].Item2;
-                        valid = valid && calculatedStats[Stats.CritDmg] >= filter[3].Item1 && calculatedStats[Stats.CritDmg] <= filter[3].Item2;
-                        valid = valid && calculatedStats[Stats.HP] >= filter[4].Item1 && calculatedStats[Stats.HP] <= filter[4].Item2;
-                        valid = valid && calculatedStats[Stats.DEF] >= filter[5].Item1 && calculatedStats[Stats.DEF] <= filter[5].Item2;
-                        valid = valid && calculatedStats[Stats.EFF] >= filter[6].Item1 && calculatedStats[Stats.EFF] <= filter[6].Item2;
-                        valid = valid && calculatedStats[Stats.RES] >= filter[7].Item1 && calculatedStats[Stats.RES] <= filter[7].Item2;
-                        valid = valid && calculatedStats[Stats.EHP] >= filter[8].Item1 && calculatedStats[Stats.EHP] <= filter[8].Item2;
-                        valid = valid && calculatedStats[Stats.DMG] >= filter[9].Item1 && calculatedStats[Stats.DMG] <= filter[9].Item2;
                         foreach (Set s in setFocus)
                         {
                             valid = valid && activeSets.Contains(s);
                         }
                         if (valid)
                         {
-                            combinations.Add((new List<Item> { weapon, helmet, armor, n, r, b }, calculatedStats));
-                        }
-                        count++;
+                            Dictionary<Stats, float> setBonusStats = hero.setBonusStats(activeSets);
+                            Dictionary<Stats, float> calculatedStats = new Dictionary<Stats, float>();
+                            calculatedStats[Stats.ATK] = (stats[Stats.ATK] * (1 + itemStats[Stats.ATKPercent] + setBonusStats[Stats.ATKPercent])) + itemStats[Stats.ATK] + hero.Artifact.SubStats[0].Value;
+                            calculatedStats[Stats.HP] = (stats[Stats.HP] * (1 + itemStats[Stats.HPPercent] + setBonusStats[Stats.HPPercent])) + itemStats[Stats.HP] + hero.Artifact.SubStats[1].Value;
+                            calculatedStats[Stats.DEF] = (stats[Stats.DEF] * (1 + itemStats[Stats.DEFPercent] + setBonusStats[Stats.DEFPercent])) + itemStats[Stats.DEF];
+                            calculatedStats[Stats.SPD] = (stats[Stats.SPD] * (1 + setBonusStats[Stats.SPD])) + itemStats[Stats.SPD];
+                            calculatedStats[Stats.Crit] = stats[Stats.Crit] + itemStats[Stats.Crit] + setBonusStats[Stats.Crit];
+                            calculatedStats[Stats.CritDmg] = stats[Stats.CritDmg] + itemStats[Stats.CritDmg] + setBonusStats[Stats.CritDmg];
+                            calculatedStats[Stats.EFF] = stats[Stats.EFF] + itemStats[Stats.EFF] + setBonusStats[Stats.EFF];
+                            calculatedStats[Stats.RES] = stats[Stats.RES] + itemStats[Stats.RES] + setBonusStats[Stats.RES];
+                            calculatedStats[Stats.EHP] = calculatedStats[Stats.HP] * (1 + (calculatedStats[Stats.DEF] / 300));
+                            float crit = calculatedStats[Stats.Crit] > 1 ? 1 : calculatedStats[Stats.Crit];
+                            calculatedStats[Stats.DMG] = (calculatedStats[Stats.ATK] * (1 - crit)) + (calculatedStats[Stats.ATK] * crit * calculatedStats[Stats.CritDmg]);
 
+                            valid = valid && calculatedStats[Stats.ATK] >= filter[0].Item1 && calculatedStats[Stats.ATK] <= filter[0].Item2;
+                            valid = valid && calculatedStats[Stats.SPD] >= filter[1].Item1 && calculatedStats[Stats.SPD] <= filter[1].Item2;
+                            valid = valid && calculatedStats[Stats.Crit] >= filter[2].Item1 && calculatedStats[Stats.Crit] <= filter[2].Item2;
+                            valid = valid && calculatedStats[Stats.CritDmg] >= filter[3].Item1 && calculatedStats[Stats.CritDmg] <= filter[3].Item2;
+                            valid = valid && calculatedStats[Stats.HP] >= filter[4].Item1 && calculatedStats[Stats.HP] <= filter[4].Item2;
+                            valid = valid && calculatedStats[Stats.DEF] >= filter[5].Item1 && calculatedStats[Stats.DEF] <= filter[5].Item2;
+                            valid = valid && calculatedStats[Stats.EFF] >= filter[6].Item1 && calculatedStats[Stats.EFF] <= filter[6].Item2;
+                            valid = valid && calculatedStats[Stats.RES] >= filter[7].Item1 && calculatedStats[Stats.RES] <= filter[7].Item2;
+                            valid = valid && calculatedStats[Stats.EHP] >= filter[8].Item1 && calculatedStats[Stats.EHP] <= filter[8].Item2;
+                            valid = valid && calculatedStats[Stats.DMG] >= filter[9].Item1 && calculatedStats[Stats.DMG] <= filter[9].Item2;
+                            if (valid)
+                            {
+                                combinations.Add((new List<Item> { weapon, helmet, armor, n, r, b }, calculatedStats));
+                            }
+                            count++;
+                        }
                         itemStats[b.Main.Name] -= b.Main.Value;
                         foreach (Stat stat in b.SubStats)
                         {
