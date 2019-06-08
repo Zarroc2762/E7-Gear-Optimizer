@@ -395,7 +395,7 @@ namespace E7_Gear_Optimizer
         {
             foreach (Item item in items)
             {
-                if (gear[item.Type] != null)
+                if (gear.ContainsKey(item.Type))
                 {
                     gear[item.Type].Equipped = null;
                 }
@@ -407,7 +407,7 @@ namespace E7_Gear_Optimizer
 
         public void equip(Item item)
         {
-            if (gear[item.Type] != null)
+            if (gear.ContainsKey(item.Type))
             {
                 gear[item.Type].Equipped = null;
             }
