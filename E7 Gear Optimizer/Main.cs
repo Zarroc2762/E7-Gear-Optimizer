@@ -733,9 +733,9 @@ namespace E7_Gear_Optimizer
                 item.Enhance = (int)nud_Enhance.Value;
 
                 Hero newHero = data.Heroes.Find(x => x.Name == String.Join(" ", cb_Eq.Text.Split(' ').Reverse().Skip(1).Reverse()));
-                if (item.Equipped != null && newHero != item.Equipped)
+                if (newHero != item.Equipped)
                 {
-                    item.Equipped.unequip(item);
+                    if (item.Equipped != null) item.Equipped.unequip(item);
                     if (newHero != null)
                     {
                         newHero.equip(item);
@@ -743,6 +743,7 @@ namespace E7_Gear_Optimizer
                 }
                 else if (newHero != null)
                 {
+                    if (item.Equipped != null) item.Equipped.unequip(item);
                     newHero.equip(item);
                 }
                 updateItemList();
@@ -1460,14 +1461,15 @@ namespace E7_Gear_Optimizer
         //and whether locked/equipped items are included because set and stat filters can only be applied after a combination of items has been calculated.
         private long numberOfResults()
         {
+            Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split().Last());
             List<Item> Base = data.Items;
             if (!chb_Equipped.Checked)
             {
-                Base = Base.Where(x => x.Equipped == null).ToList();
+                Base = Base.Where(x => x.Equipped == null || x.Equipped == hero).ToList();
             }
             if (!chb_Locked.Checked)
             {
-                Base = Base.Where(x => !x.Locked).ToList();
+                Base = Base.Where(x => !x.Locked || x.Equipped == hero).ToList();
             }
             string neckFocus = cb_NecklaceFocus.SelectedIndex > -1 ? cb_NecklaceFocus.Items[cb_NecklaceFocus.SelectedIndex].ToString() : "";
             long necklaces;
@@ -1621,21 +1623,21 @@ namespace E7_Gear_Optimizer
                 }
                 if (!chb_Equipped.Checked)
                 {
-                    weapons = weapons.Where(x => x.Equipped == null).ToList();
-                    helmets = helmets.Where(x => x.Equipped == null).ToList();
-                    armors = armors.Where(x => x.Equipped == null).ToList();
-                    necklaces = necklaces.Where(x => x.Equipped == null).ToList();
-                    rings = rings.Where(x => x.Equipped == null).ToList();
-                    boots = boots.Where(x => x.Equipped == null).ToList();
+                    weapons = weapons.Where(x => x.Equipped == null || x.Equipped == hero).ToList();
+                    helmets = helmets.Where(x => x.Equipped == null || x.Equipped == hero).ToList();
+                    armors = armors.Where(x => x.Equipped == null || x.Equipped == hero).ToList();
+                    necklaces = necklaces.Where(x => x.Equipped == null || x.Equipped == hero).ToList();
+                    rings = rings.Where(x => x.Equipped == null || x.Equipped == hero).ToList();
+                    boots = boots.Where(x => x.Equipped == null || x.Equipped == hero).ToList();
                 }
                 if (!chb_Locked.Checked)
                 {
-                    weapons = weapons.Where(x => !x.Locked).ToList();
-                    helmets = helmets.Where(x => !x.Locked).ToList();
-                    armors = armors.Where(x => !x.Locked).ToList();
-                    necklaces = necklaces.Where(x => !x.Locked).ToList();
-                    rings = rings.Where(x => !x.Locked).ToList();
-                    boots = boots.Where(x => !x.Locked).ToList();
+                    weapons = weapons.Where(x => !x.Locked || x.Equipped == hero).ToList();
+                    helmets = helmets.Where(x => !x.Locked || x.Equipped == hero).ToList();
+                    armors = armors.Where(x => !x.Locked || x.Equipped == hero).ToList();
+                    necklaces = necklaces.Where(x => !x.Locked || x.Equipped == hero).ToList();
+                    rings = rings.Where(x => !x.Locked || x.Equipped == hero).ToList();
+                    boots = boots.Where(x => !x.Locked || x.Equipped == hero).ToList();
                 }
 
                 List<Set> setFocus = new List<Set>();

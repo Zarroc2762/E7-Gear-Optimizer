@@ -395,6 +395,10 @@ namespace E7_Gear_Optimizer
         {
             foreach (Item item in items)
             {
+                if (gear[item.Type] != null)
+                {
+                    gear[item.Type].Equipped = null;
+                }
                 gear[item.Type] = item;
                 item.Equipped = this;
             }
@@ -403,6 +407,10 @@ namespace E7_Gear_Optimizer
 
         public void equip(Item item)
         {
+            if (gear[item.Type] != null)
+            {
+                gear[item.Type].Equipped = null;
+            }
             gear[item.Type] = item;
             item.Equipped = this;
             calcStats();
