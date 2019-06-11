@@ -161,7 +161,7 @@ namespace E7_Gear_Optimizer
             Stats.RES
         };
 
-        public static List<Set> fourPieceSets = new List<Set>() { Set.Attack, Set.Destruction, Set.Lifesteal, Set.Rage, Set.Speed };
+        public static List<Set> fourPieceSets = new List<Set>() { Set.Attack, Set.Destruction, Set.Lifesteal, Set.Rage, Set.Speed, Set.Counter };
 
         //Calculate the active Sets in a given gear combination
         public static List<Set> activeSet(List<Item> gear)
