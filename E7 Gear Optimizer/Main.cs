@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,7 @@ namespace E7_Gear_Optimizer
     {
         private Data data = new Data();
         private bool Locked = false;
-        List<(List<Item>, Dictionary<Stats, float>)> combinations = new List<(List<Item>, Dictionary<Stats, float>)>();
+        List<(List<Item>, List<(Stats, float)>)> combinations = new List<(List<Item>, List<(Stats, float)>)>();
         int optimizePage = 1;
         int sortColumn = -1;
         Dictionary<Stats, (float,float)> forceStats = new Dictionary<Stats, (float,float)>();
@@ -63,6 +64,10 @@ namespace E7_Gear_Optimizer
             Sets.Images.Add(Properties.Resources.set_rage);
             Sets.Images.Add(Properties.Resources.set_immunity);
             Sets.Images.Add(Properties.Resources.set_unity);
+            for (int i = 1; i < tc_InventorySets.TabPages.Count; i++)
+            {
+                tc_InventorySets.TabPages[i].ImageIndex = i - 1;
+            }
             Elements.Images.Add(Properties.Resources.fire);
             Elements.Images.Add(Properties.Resources.earth);
             Elements.Images.Add(Properties.Resources.ice);
@@ -82,6 +87,8 @@ namespace E7_Gear_Optimizer
             cb_Set3.Items.Add("");
             cb_Eq.Items.Add("");
             dgv_OptimizeResults.RowCount = 0;
+            dgv_Inventory.Columns[0].SortMode = DataGridViewColumnSortMode.Programmatic;
+            cb_keepEquip.Text = "Keep currently\nequipped items";
             richTextBox1.SelectionFont = new Font(FontFamily.GenericSansSerif, 15, FontStyle.Bold); 
             richTextBox1.SelectedText = "How to use: \n\n";
             richTextBox1.SelectionBullet = true;
@@ -185,6 +192,8 @@ namespace E7_Gear_Optimizer
                 {
                     cb_OptimizeHero.Items.Add(hero.Name + " " + hero.ID);
                 }
+                l_Results.Text = numberOfResults().ToString();
+                updatecurrentGear();
             }
         }
 
@@ -200,6 +209,8 @@ namespace E7_Gear_Optimizer
             //calculate new list of items based on the selected type filter
             ItemType filter = tc_Inventory.SelectedIndex == 0 ? ItemType.All : (ItemType)(tc_Inventory.SelectedIndex - 1);
             var filteredList = (filter == ItemType.All) ? data.Items : data.Items.Where(x => x.Type == filter);
+            Set? setFilter = tc_InventorySets.SelectedIndex == 0 ? null : (Set?)(tc_InventorySets.SelectedIndex - 1);
+            filteredList = setFilter == null ? filteredList : filteredList.Where(x => x.Set == setFilter);
             foreach (Item item in filteredList)
             {
                 object[] values = new object[dgv_Inventory.ColumnCount];
@@ -1403,58 +1414,7 @@ namespace E7_Gear_Optimizer
         //Calculate and display the current stats of the selected hero
         private void Cb_OptimizeHero_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgv_CurrentGear.Rows.Clear();
-            object[] values = new object[dgv_CurrentGear.ColumnCount];
-            if (cb_OptimizeHero.Items[cb_OptimizeHero.SelectedIndex].ToString() != "")
-            {
-                Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Items[cb_OptimizeHero.SelectedIndex].ToString().Split().Last());
-                values[0] = (int)hero.CurrentStats[Stats.ATK];
-                values[1] = (int)hero.CurrentStats[Stats.SPD];
-                float crit = hero.CurrentStats[Stats.Crit] + ((float)nud_CritBonus.Value / 100f);
-                crit = crit > 1 ? 1 : crit;
-                values[2] = crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[3] = hero.CurrentStats[Stats.CritDmg].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[4] = (int)hero.CurrentStats[Stats.HP];
-                values[5] = (int)hero.CurrentStats[Stats.DEF];
-                values[6] = hero.CurrentStats[Stats.EFF].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[7] = hero.CurrentStats[Stats.RES].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                List<Set> activeSets = hero.activeSets();
-                int count = 0;
-                if (activeSets.Contains(Set.Unity))
-                {
-                    foreach (Set set in activeSets)
-                    {
-                        count += set == Set.Unity ? 1 : 0;
-                    }
-                }
-                values[8] = (5 + (count * 4)) + "%";
-                if (activeSets.Count > 0)
-                {
-                    Bitmap sets = new Bitmap(activeSets.Count * 25, 25, PixelFormat.Format32bppArgb);
-                    Graphics g = Graphics.FromImage(sets);
-                    for (int i = 0; i < activeSets.Count; i++)
-                    {
-                        g.DrawImage(Util.ResizeImage((Image)Properties.Resources.ResourceManager.GetObject("set " + activeSets[i].ToString().ToLower().Replace("def", "defense")), 25, 25), i * 25, 0);
-                    }
-                    values[9] = sets;
-                }
-                else
-                {
-                    values[9] = null;
-                }
-                values[10] = (int)hero.CurrentStats[Stats.EHP];
-                values[11] = (int)((hero.CurrentStats[Stats.ATK] * (1 - crit)) + (hero.CurrentStats[Stats.ATK] * crit * hero.CurrentStats[Stats.CritDmg]));
-                l_Results.Text = numberOfResults().ToString();
-            }
-            else
-            {
-                for(int i = 0; i < values.Length; i++)
-                {
-                    values[i] = null;
-                }
-                l_Results.Text = "0";
-            }
-            dgv_CurrentGear.Rows.Add(values);
+            updatecurrentGear();
         }
 
         //Estimate the number of results with the currenty selected criteria. This method only takes account of focus options for right side gear 
@@ -1514,6 +1474,37 @@ namespace E7_Gear_Optimizer
             long weapons = Base.Where(x => x.Type == ItemType.Weapon).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
             long helmets = Base.Where(x => x.Type == ItemType.Helmet).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
             long armors = Base.Where(x => x.Type == ItemType.Armor).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
+
+            if (cb_keepEquip.Checked)
+            {
+                List<Item> gear = hero.getGear();
+                foreach (Item item in gear)
+                {
+                    switch (item.Type)
+                    {
+                        case ItemType.Armor:
+                            armors = 1;
+                            break;
+                        case ItemType.Boots:
+                            boots = 1;
+                            break;
+                        case ItemType.Helmet:
+                            helmets = 1;
+                            break;
+                        case ItemType.Necklace:
+                            necklaces = 1;
+                            break;
+                        case ItemType.Ring:
+                            rings = 1;
+                            break;
+                        case ItemType.Weapon:
+                            weapons = 1;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
 
             return weapons * helmets * armors * necklaces * rings * boots;
         }
@@ -1681,6 +1672,43 @@ namespace E7_Gear_Optimizer
                 rings = rings.Where(x => checkSets(x, setFocus)).Where(x => checkForceStats(x)).ToList();
                 boots = boots.Where(x => checkSets(x, setFocus)).Where(x => checkForceStats(x)).ToList();
 
+                if (cb_keepEquip.Checked)
+                {
+                    List<Item> gear = hero.getGear();
+                    foreach (Item item in gear)
+                    {
+                        switch (item.Type)
+                        {
+                            case ItemType.Armor:
+                                armors.Clear();
+                                armors.Add(item);
+                                break;
+                            case ItemType.Boots:
+                                boots.Clear();
+                                boots.Add(item);
+                                break;
+                            case ItemType.Helmet:
+                                helmets.Clear();
+                                helmets.Add(item);
+                                break;
+                            case ItemType.Necklace:
+                                necklaces.Clear();
+                                necklaces.Add(item);
+                                break;
+                            case ItemType.Ring:
+                                rings.Clear();
+                                rings.Add(item);
+                                break;
+                            case ItemType.Weapon:
+                                weapons.Clear();
+                                weapons.Add(item);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+
                 (float, float)[] filter = new (float, float)[10];
                 filter[0] = (tb_MinAttack.Text != "" ? float.Parse(tb_MinAttack.Text) : 0, tb_MaxAttack.Text != "" ? float.Parse(tb_MaxAttack.Text) : float.MaxValue);
                 filter[1] = (tb_MinSpeed.Text != "" ? float.Parse(tb_MinSpeed.Text) : 0, tb_MaxSpeed.Text != "" ? float.Parse(tb_MaxSpeed.Text) : float.MaxValue);
@@ -1702,7 +1730,7 @@ namespace E7_Gear_Optimizer
                 });
                 pB_Optimize.Show();
                 //combinations = await Task.Run(() => calculate(weapons, helmets, armors, necklaces, rings, boots, hero, filter, setFocus, progress));
-                List<Task<List<(List<Item>, Dictionary<Stats, float>)>>> tasks = new List<Task<List<(List<Item>, Dictionary<Stats, float>)>>>();
+                List<Task<List<(List<Item>, List<(Stats, float)>)>>> tasks = new List<Task<List<(List<Item>, List<(Stats, float)>)>>>();
                 Dictionary<Stats, float> itemStats = new Dictionary<Stats, float>();
                 Dictionary<Stats, float> heroStats = hero.calcStatsWithoutGear((float)nud_CritBonus.Value / 100f);
                 foreach (Stats s in Enum.GetValues(typeof(Stats)))
@@ -1768,14 +1796,14 @@ namespace E7_Gear_Optimizer
 
         //Calculate all possible gear combinations and check whether they satisfy the given filters
 
-        private List<(List<Item>, Dictionary<Stats, float>)> calculate(Item weapon, Item helmet,
+        private List<(List<Item>, List<(Stats, float)>)> calculate(Item weapon, Item helmet,
                                                                         Item armor, List<Item> necklaces,
                                                                         List<Item> rings, List<Item> boots, Hero hero, 
                                                                         Dictionary<Stats, float> stats,
                                                                         (float, float)[] filter, List<Set> setFocus,
                                                                         IProgress<int> progress, Dictionary<Stats, float> itemStats)
         {
-            List<(List<Item>, Dictionary<Stats, float>)> combinations = new List<(List<Item>, Dictionary<Stats, float>)>();
+            List<(List<Item>, List<(Stats, float)>)> combinations = new List<(List<Item>, List<(Stats, float)>)>();
             int count = 0;
             foreach (Item n in necklaces)
             {
@@ -1833,7 +1861,12 @@ namespace E7_Gear_Optimizer
                             valid = valid && calculatedStats[Stats.DMG] >= filter[9].Item1 && calculatedStats[Stats.DMG] <= filter[9].Item2;
                             if (valid)
                             {
-                                combinations.Add((new List<Item> { weapon, helmet, armor, n, r, b }, calculatedStats));
+                                List<(Stats, float)> statList = new List<(Stats, float)>();
+                                foreach(Stats s in calculatedStats.Keys)
+                                {
+                                    statList.Add((s, calculatedStats[s]));
+                                }
+                                combinations.Add((new List<Item> { weapon, helmet, armor, n, r, b }, statList));
                             }
                             count++;
                         }
@@ -1870,28 +1903,28 @@ namespace E7_Gear_Optimizer
             switch (e.ColumnIndex)
             {
                 case 0:
-                    e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage -1)].Item2[Stats.ATK];
+                    e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage -1)].Item2.Find(x => x.Item1 == Stats.ATK).Item2;
                     break;
                 case 1:
-                    e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2[Stats.SPD];
+                    e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.SPD).Item2;
                     break;
                 case 2:
-                    e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2[Stats.Crit].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                    e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.Crit).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                     break;
                 case 3:
-                    e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2[Stats.CritDmg].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                    e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.CritDmg).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                     break;
                 case 4:
-                    e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2[Stats.HP];
+                    e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.HP).Item2;
                     break;
                 case 5:
-                    e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2[Stats.DEF];
+                    e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.DEF).Item2;
                     break;
                 case 6:
-                    e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2[Stats.EFF].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                    e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.EFF).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                     break;
                 case 7:
-                    e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2[Stats.RES].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                    e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.RES).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                     break;
                 case 8:
                     int count = 0;
@@ -1923,10 +1956,10 @@ namespace E7_Gear_Optimizer
                     }
                     break;
                 case 10:
-                    e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2[Stats.EHP];
+                    e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.EHP).Item2;
                     break;
                 case 11:
-                    e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2[Stats.DMG];
+                    e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.DMG).Item2;
                     break;
 
             }
@@ -1969,96 +2002,96 @@ namespace E7_Gear_Optimizer
                 case 0:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2[Stats.ATK]).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.ATK).Item2).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2[Stats.ATK]).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.ATK).Item2).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 1:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2[Stats.SPD]).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.SPD).Item2).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2[Stats.SPD]).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.SPD).Item2).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 2:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2[Stats.Crit]).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.Crit).Item2).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2[Stats.Crit]).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.Crit).Item2).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 3:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2[Stats.CritDmg]).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.CritDmg).Item2).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2[Stats.CritDmg]).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.CritDmg).Item2).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 4:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2[Stats.HP]).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.HP).Item2).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2[Stats.HP]).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.HP).Item2).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 5:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2[Stats.DEF]).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.DEF).Item2).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2[Stats.DEF]).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.DEF).Item2).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 6:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2[Stats.EFF]).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.EFF).Item2).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2[Stats.EFF]).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.EFF).Item2).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 7:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2[Stats.RES]).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.RES).Item2).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2[Stats.RES]).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.RES).Item2).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
@@ -2069,24 +2102,24 @@ namespace E7_Gear_Optimizer
                 case 10:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2[Stats.EHP]).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.EHP).Item2).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2[Stats.EHP]).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.EHP).Item2).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 11:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2[Stats.DMG]).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.DMG).Item2).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2[Stats.DMG]).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.DMG).Item2).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
@@ -2365,55 +2398,7 @@ namespace E7_Gear_Optimizer
             Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split(' ').Last());
             hero.unequipAll();
             hero.equip(items);
-            dgv_CurrentGear.Rows.Clear();
-            object[] values = new object[dgv_CurrentGear.ColumnCount];
-            if (cb_OptimizeHero.Text != "")
-            {
-                values[0] = (int)hero.CurrentStats[Stats.ATK];
-                values[1] = (int)hero.CurrentStats[Stats.SPD];
-                values[2] = hero.CurrentStats[Stats.Crit].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[3] = hero.CurrentStats[Stats.CritDmg].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[4] = (int)hero.CurrentStats[Stats.HP];
-                values[5] = (int)hero.CurrentStats[Stats.DEF];
-                values[6] = hero.CurrentStats[Stats.EFF].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[7] = hero.CurrentStats[Stats.RES].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                List<Set> activeSets = hero.activeSets();
-                int count = 0;
-                if (activeSets.Contains(Set.Unity))
-                {
-                    foreach (Set set in activeSets)
-                    {
-                        count += set == Set.Unity ? 1 : 0;
-                    }
-                }
-                values[8] = (5 + (count * 4)) + "%";
-                if (activeSets.Count > 0)
-                {
-                    Bitmap sets = new Bitmap(activeSets.Count * 25, 25, PixelFormat.Format32bppArgb);
-                    Graphics g = Graphics.FromImage(sets);
-                    for (int i = 0; i < activeSets.Count; i++)
-                    {
-                        g.DrawImage(Util.ResizeImage((Image)Properties.Resources.ResourceManager.GetObject("set " + activeSets[i].ToString().ToLower().Replace("def", "defense")), 25, 25), i * 25, 0);
-                    }
-                    values[9] = sets;
-                }
-                else
-                {
-                    values[9] = null;
-                }
-                values[10] = (int)hero.CurrentStats[Stats.EHP];
-                values[11] = (int)hero.CurrentStats[Stats.DMG];
-                l_Results.Text = numberOfResults().ToString();
-            }
-            else
-            {
-                for (int i = 0; i < values.Length; i++)
-                {
-                    values[i] = null;
-                }
-                l_Results.Text = "0";
-            }
-            dgv_CurrentGear.Rows.Add(values);
+            updatecurrentGear();
         }
 
         private void B_Export_Click(object sender, EventArgs e)
@@ -2570,6 +2555,13 @@ namespace E7_Gear_Optimizer
                 e.SortResult = cell1.CompareTo(cell2);
                 e.Handled = true;
             }
+            else if (e.Column.Index == 0)
+            {
+                Set cell1 = (Set)dgv_Inventory["c_SetID", e.RowIndex1].Value;
+                Set cell2 = (Set)dgv_Inventory["c_SetID", e.RowIndex2].Value;
+                e.SortResult = cell1.CompareTo(cell2);
+                e.Handled = true;
+            }
         }
 
         private void Tb_Force_TextChanged(object sender, EventArgs e)
@@ -2611,6 +2603,68 @@ namespace E7_Gear_Optimizer
                 }
             }
             l_Results.Text = numberOfResults().ToString();
+        }
+
+        private void tc_InventorySets_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateItemList();
+        }
+
+        private void Dgv_Inventory_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                dgv_Inventory.Sort(dgv_Inventory.Columns[e.ColumnIndex], dgv_Inventory.SortOrder == SortOrder.Ascending ? ListSortDirection.Descending : ListSortDirection.Ascending);
+                dgv_Inventory.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = dgv_Inventory.SortOrder;
+            }
+        }
+
+        private void updatecurrentGear()
+        {
+            dgv_CurrentGear.Rows.Clear();
+            if (cb_OptimizeHero.Text != "")
+            {
+                object[] values = new object[dgv_CurrentGear.ColumnCount];
+                Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split().Last());
+                values[0] = (int)hero.CurrentStats[Stats.ATK];
+                values[1] = (int)hero.CurrentStats[Stats.SPD];
+                float crit = hero.CurrentStats[Stats.Crit] + ((float)nud_CritBonus.Value / 100f);
+                crit = crit > 1 ? 1 : crit;
+                values[2] = crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                values[3] = hero.CurrentStats[Stats.CritDmg].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                values[4] = (int)hero.CurrentStats[Stats.HP];
+                values[5] = (int)hero.CurrentStats[Stats.DEF];
+                values[6] = hero.CurrentStats[Stats.EFF].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                values[7] = hero.CurrentStats[Stats.RES].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                List<Set> activeSets = hero.activeSets();
+                int count = 0;
+                if (activeSets.Contains(Set.Unity))
+                {
+                    foreach (Set set in activeSets)
+                    {
+                        count += set == Set.Unity ? 1 : 0;
+                    }
+                }
+                values[8] = (5 + (count * 4)) + "%";
+                if (activeSets.Count > 0)
+                {
+                    Bitmap sets = new Bitmap(activeSets.Count * 25, 25, PixelFormat.Format32bppArgb);
+                    Graphics g = Graphics.FromImage(sets);
+                    for (int i = 0; i < activeSets.Count; i++)
+                    {
+                        g.DrawImage(Util.ResizeImage((Image)Properties.Resources.ResourceManager.GetObject("set " + activeSets[i].ToString().ToLower().Replace("def", "defense")), 25, 25), i * 25, 0);
+                    }
+                    values[9] = sets;
+                }
+                else
+                {
+                    values[9] = null;
+                }
+                values[10] = (int)hero.CurrentStats[Stats.EHP];
+                values[11] = (int)((hero.CurrentStats[Stats.ATK] * (1 - crit)) + (hero.CurrentStats[Stats.ATK] * crit * hero.CurrentStats[Stats.CritDmg]));
+                l_Results.Text = numberOfResults().ToString();
+                dgv_CurrentGear.Rows.Add(values);
+            }
         }
     }
 }

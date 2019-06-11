@@ -30,16 +30,32 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tb_Inventory = new System.Windows.Forms.TabPage();
+            this.tc_InventorySets = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.tabPage17 = new System.Windows.Forms.TabPage();
+            this.tabPage25 = new System.Windows.Forms.TabPage();
+            this.tabPage26 = new System.Windows.Forms.TabPage();
+            this.tabPage27 = new System.Windows.Forms.TabPage();
+            this.tabPage28 = new System.Windows.Forms.TabPage();
+            this.tabPage29 = new System.Windows.Forms.TabPage();
+            this.tabPage30 = new System.Windows.Forms.TabPage();
+            this.tabPage31 = new System.Windows.Forms.TabPage();
+            this.tabPage32 = new System.Windows.Forms.TabPage();
+            this.tabPage33 = new System.Windows.Forms.TabPage();
+            this.tabPage34 = new System.Windows.Forms.TabPage();
+            this.tabPage35 = new System.Windows.Forms.TabPage();
+            this.Sets = new System.Windows.Forms.ImageList(this.components);
             this.b_NewItemEquipped = new System.Windows.Forms.Button();
             this.pb_ItemLocked = new System.Windows.Forms.PictureBox();
             this.b_RemoveItem = new System.Windows.Forms.Button();
@@ -127,7 +143,6 @@
             this.Types = new System.Windows.Forms.ImageList(this.components);
             this.b_EditItem = new System.Windows.Forms.Button();
             this.b_NewItem = new System.Windows.Forms.Button();
-            this.Sets = new System.Windows.Forms.ImageList(this.components);
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.b_Export = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -324,6 +339,7 @@
             this.b_EditHero = new System.Windows.Forms.Button();
             this.b_AddHero = new System.Windows.Forms.Button();
             this.tb_Optimize = new System.Windows.Forms.TabPage();
+            this.cb_keepEquip = new System.Windows.Forms.CheckBox();
             this.label60 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
@@ -580,6 +596,7 @@
             this.ofd_import = new System.Windows.Forms.OpenFileDialog();
             this.sfd_export = new System.Windows.Forms.SaveFileDialog();
             this.tb_Inventory.SuspendLayout();
+            this.tc_InventorySets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ItemLocked)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Equipped)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Sub4)).BeginInit();
@@ -649,6 +666,7 @@
             // 
             // tb_Inventory
             // 
+            this.tb_Inventory.Controls.Add(this.tc_InventorySets);
             this.tb_Inventory.Controls.Add(this.b_NewItemEquipped);
             this.tb_Inventory.Controls.Add(this.pb_ItemLocked);
             this.tb_Inventory.Controls.Add(this.b_RemoveItem);
@@ -685,6 +703,163 @@
             this.tb_Inventory.TabIndex = 1;
             this.tb_Inventory.Text = "Inventory";
             this.tb_Inventory.UseVisualStyleBackColor = true;
+            // 
+            // tc_InventorySets
+            // 
+            this.tc_InventorySets.Appearance = System.Windows.Forms.TabAppearance.Buttons;
+            this.tc_InventorySets.Controls.Add(this.tabPage3);
+            this.tc_InventorySets.Controls.Add(this.tabPage11);
+            this.tc_InventorySets.Controls.Add(this.tabPage17);
+            this.tc_InventorySets.Controls.Add(this.tabPage25);
+            this.tc_InventorySets.Controls.Add(this.tabPage26);
+            this.tc_InventorySets.Controls.Add(this.tabPage27);
+            this.tc_InventorySets.Controls.Add(this.tabPage28);
+            this.tc_InventorySets.Controls.Add(this.tabPage29);
+            this.tc_InventorySets.Controls.Add(this.tabPage30);
+            this.tc_InventorySets.Controls.Add(this.tabPage31);
+            this.tc_InventorySets.Controls.Add(this.tabPage32);
+            this.tc_InventorySets.Controls.Add(this.tabPage33);
+            this.tc_InventorySets.Controls.Add(this.tabPage34);
+            this.tc_InventorySets.Controls.Add(this.tabPage35);
+            this.tc_InventorySets.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tc_InventorySets.ImageList = this.Sets;
+            this.tc_InventorySets.ItemSize = new System.Drawing.Size(28, 28);
+            this.tc_InventorySets.Location = new System.Drawing.Point(6, 38);
+            this.tc_InventorySets.Name = "tc_InventorySets";
+            this.tc_InventorySets.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tc_InventorySets.SelectedIndex = 0;
+            this.tc_InventorySets.Size = new System.Drawing.Size(753, 28);
+            this.tc_InventorySets.TabIndex = 32;
+            this.tc_InventorySets.SelectedIndexChanged += new System.EventHandler(this.tc_InventorySets_SelectedIndexChanged);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.SystemColors.Window;
+            this.tabPage3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage3.Location = new System.Drawing.Point(4, 32);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tabPage3.Size = new System.Drawing.Size(745, 0);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "All";
+            // 
+            // tabPage11
+            // 
+            this.tabPage11.ImageIndex = 0;
+            this.tabPage11.Location = new System.Drawing.Point(4, 32);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage11.Size = new System.Drawing.Size(745, 0);
+            this.tabPage11.TabIndex = 1;
+            this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // tabPage17
+            // 
+            this.tabPage17.ImageIndex = 1;
+            this.tabPage17.Location = new System.Drawing.Point(4, 32);
+            this.tabPage17.Name = "tabPage17";
+            this.tabPage17.Size = new System.Drawing.Size(745, 0);
+            this.tabPage17.TabIndex = 2;
+            this.tabPage17.UseVisualStyleBackColor = true;
+            // 
+            // tabPage25
+            // 
+            this.tabPage25.ImageIndex = 2;
+            this.tabPage25.Location = new System.Drawing.Point(4, 32);
+            this.tabPage25.Name = "tabPage25";
+            this.tabPage25.Size = new System.Drawing.Size(745, 0);
+            this.tabPage25.TabIndex = 3;
+            this.tabPage25.UseVisualStyleBackColor = true;
+            // 
+            // tabPage26
+            // 
+            this.tabPage26.ImageIndex = 3;
+            this.tabPage26.Location = new System.Drawing.Point(4, 32);
+            this.tabPage26.Name = "tabPage26";
+            this.tabPage26.Size = new System.Drawing.Size(745, 0);
+            this.tabPage26.TabIndex = 4;
+            this.tabPage26.UseVisualStyleBackColor = true;
+            // 
+            // tabPage27
+            // 
+            this.tabPage27.ImageIndex = 4;
+            this.tabPage27.Location = new System.Drawing.Point(4, 32);
+            this.tabPage27.Name = "tabPage27";
+            this.tabPage27.Size = new System.Drawing.Size(745, 0);
+            this.tabPage27.TabIndex = 5;
+            this.tabPage27.UseVisualStyleBackColor = true;
+            // 
+            // tabPage28
+            // 
+            this.tabPage28.ImageIndex = 5;
+            this.tabPage28.Location = new System.Drawing.Point(4, 32);
+            this.tabPage28.Name = "tabPage28";
+            this.tabPage28.Size = new System.Drawing.Size(745, 0);
+            this.tabPage28.TabIndex = 6;
+            this.tabPage28.UseVisualStyleBackColor = true;
+            // 
+            // tabPage29
+            // 
+            this.tabPage29.Location = new System.Drawing.Point(4, 32);
+            this.tabPage29.Name = "tabPage29";
+            this.tabPage29.Size = new System.Drawing.Size(745, 0);
+            this.tabPage29.TabIndex = 7;
+            this.tabPage29.UseVisualStyleBackColor = true;
+            // 
+            // tabPage30
+            // 
+            this.tabPage30.Location = new System.Drawing.Point(4, 32);
+            this.tabPage30.Name = "tabPage30";
+            this.tabPage30.Size = new System.Drawing.Size(745, 0);
+            this.tabPage30.TabIndex = 8;
+            this.tabPage30.UseVisualStyleBackColor = true;
+            // 
+            // tabPage31
+            // 
+            this.tabPage31.Location = new System.Drawing.Point(4, 32);
+            this.tabPage31.Name = "tabPage31";
+            this.tabPage31.Size = new System.Drawing.Size(745, 0);
+            this.tabPage31.TabIndex = 9;
+            this.tabPage31.UseVisualStyleBackColor = true;
+            // 
+            // tabPage32
+            // 
+            this.tabPage32.Location = new System.Drawing.Point(4, 32);
+            this.tabPage32.Name = "tabPage32";
+            this.tabPage32.Size = new System.Drawing.Size(745, 0);
+            this.tabPage32.TabIndex = 10;
+            this.tabPage32.UseVisualStyleBackColor = true;
+            // 
+            // tabPage33
+            // 
+            this.tabPage33.Location = new System.Drawing.Point(4, 32);
+            this.tabPage33.Name = "tabPage33";
+            this.tabPage33.Size = new System.Drawing.Size(745, 0);
+            this.tabPage33.TabIndex = 11;
+            this.tabPage33.UseVisualStyleBackColor = true;
+            // 
+            // tabPage34
+            // 
+            this.tabPage34.Location = new System.Drawing.Point(4, 32);
+            this.tabPage34.Name = "tabPage34";
+            this.tabPage34.Size = new System.Drawing.Size(745, 0);
+            this.tabPage34.TabIndex = 12;
+            this.tabPage34.UseVisualStyleBackColor = true;
+            // 
+            // tabPage35
+            // 
+            this.tabPage35.Location = new System.Drawing.Point(4, 32);
+            this.tabPage35.Name = "tabPage35";
+            this.tabPage35.Size = new System.Drawing.Size(745, 0);
+            this.tabPage35.TabIndex = 13;
+            this.tabPage35.UseVisualStyleBackColor = true;
+            // 
+            // Sets
+            // 
+            this.Sets.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.Sets.ImageSize = new System.Drawing.Size(25, 25);
+            this.Sets.TransparentColor = System.Drawing.Color.White;
             // 
             // b_NewItemEquipped
             // 
@@ -1405,14 +1580,14 @@
             this.dgv_Inventory.AllowUserToDeleteRows = false;
             this.dgv_Inventory.AllowUserToOrderColumns = true;
             this.dgv_Inventory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Inventory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Inventory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgv_Inventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Inventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.c_set,
@@ -1438,23 +1613,24 @@
             this.c_TypeID,
             this.c_ItemID,
             this.c_Locked});
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Inventory.DefaultCellStyle = dataGridViewCellStyle29;
-            this.dgv_Inventory.Location = new System.Drawing.Point(6, 44);
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Inventory.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dgv_Inventory.Location = new System.Drawing.Point(6, 75);
             this.dgv_Inventory.MultiSelect = false;
             this.dgv_Inventory.Name = "dgv_Inventory";
             this.dgv_Inventory.ReadOnly = true;
             this.dgv_Inventory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv_Inventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Inventory.Size = new System.Drawing.Size(1232, 439);
+            this.dgv_Inventory.Size = new System.Drawing.Size(1232, 408);
             this.dgv_Inventory.TabIndex = 1;
             this.dgv_Inventory.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_Inventory_CellFormatting);
+            this.dgv_Inventory.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dgv_Inventory_ColumnHeaderMouseClick);
             this.dgv_Inventory.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Inventory_RowEnter);
             this.dgv_Inventory.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.Dgv_Inventory_SortCompare);
             // 
@@ -1633,6 +1809,7 @@
             // 
             // c_Locked
             // 
+            this.c_Locked.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.c_Locked.HeaderText = "locked";
             this.c_Locked.Name = "c_Locked";
             this.c_Locked.ReadOnly = true;
@@ -1757,12 +1934,6 @@
             this.b_NewItem.TabIndex = 2;
             this.b_NewItem.UseVisualStyleBackColor = true;
             this.b_NewItem.Click += new System.EventHandler(this.B_NewItem_Click);
-            // 
-            // Sets
-            // 
-            this.Sets.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.Sets.ImageSize = new System.Drawing.Size(25, 25);
-            this.Sets.TransparentColor = System.Drawing.Color.White;
             // 
             // tabPage1
             // 
@@ -3518,14 +3689,14 @@
             this.dgv_Heroes.AllowUserToOrderColumns = true;
             this.dgv_Heroes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_Heroes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Heroes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Heroes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgv_Heroes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Heroes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.c_Portrait,
@@ -3547,14 +3718,14 @@
             this.c_EHP,
             this.c_DMG,
             this.c_HeroID});
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Heroes.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Heroes.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgv_Heroes.Location = new System.Drawing.Point(6, 76);
             this.dgv_Heroes.MultiSelect = false;
             this.dgv_Heroes.Name = "dgv_Heroes";
@@ -3952,6 +4123,7 @@
             // 
             // tb_Optimize
             // 
+            this.tb_Optimize.Controls.Add(this.cb_keepEquip);
             this.tb_Optimize.Controls.Add(this.label60);
             this.tb_Optimize.Controls.Add(this.label61);
             this.tb_Optimize.Controls.Add(this.label62);
@@ -4052,6 +4224,16 @@
             this.tb_Optimize.TabIndex = 2;
             this.tb_Optimize.Text = "Optimization";
             this.tb_Optimize.UseVisualStyleBackColor = true;
+            // 
+            // cb_keepEquip
+            // 
+            this.cb_keepEquip.AutoSize = true;
+            this.cb_keepEquip.Location = new System.Drawing.Point(6, 91);
+            this.cb_keepEquip.Name = "cb_keepEquip";
+            this.cb_keepEquip.Size = new System.Drawing.Size(15, 14);
+            this.cb_keepEquip.TabIndex = 130;
+            this.cb_keepEquip.UseVisualStyleBackColor = true;
+            this.cb_keepEquip.CheckedChanged += new System.EventHandler(this.Chb_Equipped_CheckedChanged);
             // 
             // label60
             // 
@@ -4551,7 +4733,7 @@
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(3, 109);
+            this.label49.Location = new System.Drawing.Point(3, 131);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(127, 26);
             this.label49.TabIndex = 113;
@@ -4559,7 +4741,7 @@
             // 
             // nud_CritBonus
             // 
-            this.nud_CritBonus.Location = new System.Drawing.Point(6, 138);
+            this.nud_CritBonus.Location = new System.Drawing.Point(6, 160);
             this.nud_CritBonus.Name = "nud_CritBonus";
             this.nud_CritBonus.Size = new System.Drawing.Size(46, 20);
             this.nud_CritBonus.TabIndex = 112;
@@ -5988,14 +6170,14 @@
             this.dgv_OptimizeResults.AllowUserToDeleteRows = false;
             this.dgv_OptimizeResults.AllowUserToOrderColumns = true;
             this.dgv_OptimizeResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_OptimizeResults.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_OptimizeResults.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgv_OptimizeResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_OptimizeResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -6010,14 +6192,14 @@
             this.dataGridViewImageColumn1,
             this.dataGridViewTextBoxColumn18,
             this.dataGridViewTextBoxColumn19});
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_OptimizeResults.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_OptimizeResults.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgv_OptimizeResults.Location = new System.Drawing.Point(6, 389);
             this.dgv_OptimizeResults.MultiSelect = false;
             this.dgv_OptimizeResults.Name = "dgv_OptimizeResults";
@@ -6106,10 +6288,10 @@
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle31.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle31.NullValue")));
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle13.NullValue")));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewImageColumn1.HeaderText = "Sets";
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
@@ -6148,14 +6330,14 @@
             this.dgv_CurrentGear.AllowUserToOrderColumns = true;
             this.dgv_CurrentGear.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_CurrentGear.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_CurrentGear.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_CurrentGear.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgv_CurrentGear.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_CurrentGear.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3,
@@ -6170,14 +6352,14 @@
             this.dataGridViewImageColumn5,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12});
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_CurrentGear.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_CurrentGear.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgv_CurrentGear.Location = new System.Drawing.Point(6, 307);
             this.dgv_CurrentGear.MultiSelect = false;
             this.dgv_CurrentGear.Name = "dgv_CurrentGear";
@@ -6789,6 +6971,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.tb_Inventory.ResumeLayout(false);
             this.tb_Inventory.PerformLayout();
+            this.tc_InventorySets.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_ItemLocked)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Equipped)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Sub4)).EndInit();
@@ -7106,29 +7289,6 @@
         private System.Windows.Forms.Button b_EquipHelmet;
         private System.Windows.Forms.Button b_EditHelmet;
         private System.Windows.Forms.PictureBox pb_ItemLocked;
-        private System.Windows.Forms.DataGridViewImageColumn c_set;
-        private System.Windows.Forms.DataGridViewImageColumn c_Type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_Grade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_ILvl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_Enhance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_Main;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_Value;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_ATKPer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_ATK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_SPD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_CHC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_CHD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_HPPer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_HP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_DEFPer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_DEF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_EFF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_RES;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_Eq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_SetID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_TypeID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_ItemID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_Locked;
         private System.Windows.Forms.SaveFileDialog sfd_export;
         private System.Windows.Forms.Button b_Export;
         private System.Windows.Forms.Label label18;
@@ -7420,6 +7580,45 @@
         private System.Windows.Forms.Label label78;
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.TextBox tb_MinATKPercentForce;
+        private System.Windows.Forms.TabControl tc_InventorySets;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage11;
+        private System.Windows.Forms.TabPage tabPage17;
+        private System.Windows.Forms.TabPage tabPage25;
+        private System.Windows.Forms.TabPage tabPage26;
+        private System.Windows.Forms.TabPage tabPage27;
+        private System.Windows.Forms.TabPage tabPage28;
+        private System.Windows.Forms.TabPage tabPage29;
+        private System.Windows.Forms.TabPage tabPage30;
+        private System.Windows.Forms.TabPage tabPage31;
+        private System.Windows.Forms.TabPage tabPage32;
+        private System.Windows.Forms.TabPage tabPage33;
+        private System.Windows.Forms.TabPage tabPage34;
+        private System.Windows.Forms.TabPage tabPage35;
+        private System.Windows.Forms.DataGridViewImageColumn c_set;
+        private System.Windows.Forms.DataGridViewImageColumn c_Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_Grade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_ILvl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_Enhance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_Value;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_ATKPer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_ATK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_SPD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_CHC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_CHD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_HPPer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_HP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_DEFPer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_DEF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_EFF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_RES;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_Eq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_SetID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_TypeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_ItemID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_Locked;
+        private System.Windows.Forms.CheckBox cb_keepEquip;
     }
 }
 
