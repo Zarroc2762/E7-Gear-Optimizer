@@ -18,6 +18,7 @@ namespace E7_Gear_Optimizer
         public SelectItemDialog()
         {
             InitializeComponent();
+            dgv_Inventory.Columns[0].SortMode = DataGridViewColumnSortMode.Programmatic;
 
         }
 
@@ -25,6 +26,7 @@ namespace E7_Gear_Optimizer
         {
             InitializeComponent();
             this.items = items;
+            dgv_Inventory.Columns[0].SortMode = DataGridViewColumnSortMode.Programmatic;
         }
 
         private void SelectItemDialog_KeyPress(object sender, KeyPressEventArgs e)
@@ -72,9 +74,65 @@ namespace E7_Gear_Optimizer
             }
         }
 
-        private void Dgv_Inventory_DoubleClick(object sender, EventArgs e)
+        private void Dgv_Inventory_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            button1.PerformClick();
+            if (e.ColumnIndex == 0)
+            {
+                dgv_Inventory.Sort(dgv_Inventory.Columns[e.ColumnIndex], dgv_Inventory.SortOrder == SortOrder.Ascending ? ListSortDirection.Descending : ListSortDirection.Ascending);
+                dgv_Inventory.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = dgv_Inventory.SortOrder;
+            }
+        }
+
+        private void Dgv_Inventory_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
+        {
+            if (Util.percentageColumns.Contains(e.Column.Name))
+            {
+                int cell1 = 0;
+                int cell2 = 0;
+                int.TryParse(e.CellValue1.ToString().Replace("%", "").Replace("+", ""), out cell1);
+                int.TryParse(e.CellValue2.ToString().Replace("%", "").Replace("+", ""), out cell2);
+                e.SortResult = cell1.CompareTo(cell2);
+                e.Handled = true;
+            }
+            else if (e.Column.Index == 0)
+            {
+                Set cell1 = (Set)dgv_Inventory["c_SetID", e.RowIndex1].Value;
+                Set cell2 = (Set)dgv_Inventory["c_SetID", e.RowIndex2].Value;
+                e.SortResult = cell1.CompareTo(cell2);
+                e.Handled = true;
+            }
+        }
+
+        private void Dgv_Inventory_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgv_Inventory.Columns[e.ColumnIndex].HeaderText == "Grade")
+            {
+                switch (e.Value.ToString())
+                {
+                    case "Epic":
+                        e.CellStyle.ForeColor = Color.Red;
+                        break;
+                    case "Heroic":
+                        e.CellStyle.ForeColor = Color.Purple;
+                        break;
+                    case "Rare":
+                        e.CellStyle.ForeColor = Color.Blue;
+                        break;
+                    case "Good":
+                        e.CellStyle.ForeColor = Color.Green;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void Dgv_Inventory_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                button1.PerformClick();
+            }
         }
     }
 }
