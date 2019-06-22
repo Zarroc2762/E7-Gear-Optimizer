@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Globalization;
@@ -24,11 +25,24 @@ namespace E7_Gear_Optimizer
         int optimizePage = 1;
         int sortColumn = -1;
         Dictionary<Stats, (float,float)> forceStats = new Dictionary<Stats, (float,float)>();
+        string[] args = Environment.GetCommandLineArgs();
+
         public Main()
         {
             InitializeComponent();
-            Icon = Icon.FromHandle(Util.ResizeImage(Properties.Resources.bookmark, 19,18).GetHicon());
 
+            Icon = Icon.FromHandle(Util.ResizeImage(Properties.Resources.bookmark, 19,18).GetHicon());
+            if (args.Length == 1)
+            {
+                try
+                {
+                    Process.Start("E7 Optimizer Updater.exe");
+                }
+                catch
+                {
+                    MessageBox.Show("Could not find E7 optimizer Updater.exe");
+                }
+            }
             //Read list of heroes from epicsevendb.com
             try
             {
@@ -121,7 +135,7 @@ namespace E7_Gear_Optimizer
             richTextBox1.SelectionBullet = false;
             richTextBox1.SelectionIndent = 8;
             richTextBox1.SelectionFont = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Regular);
-            richTextBox1.SelectedText = "Select the hero to optimize. Enter your stat requirements. Select which main stat to focus on for the right side of your equipment. It is recommended to keep the estimated results < 5,000,000 to not use too much RAM. 5,000,000 results equal about 3.5 GB RAM usage.\n\n";
+            richTextBox1.SelectedText = "Select the hero to optimize. Enter your stat requirements. Select which main stat to focus on for the right side of your equipment. It is recommended to keep the estimated results < 10,000,000 to not use too much RAM. 10,000,000 results equal about 4 GB RAM usage.\n\n";
             richTextBox1.SelectionBullet = true;
             richTextBox1.SelectionIndent = 0;
             richTextBox1.SelectionFont = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold);
@@ -2160,7 +2174,8 @@ namespace E7_Gear_Optimizer
                             ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
                         }
                     }
-                    l_WeaponEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
+                    //l_WeaponEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
+                    pb_OptimizeWeaponEquipped.Image = item.Equipped?.Portrait;
                 }
                 else
                 {
@@ -2170,7 +2185,8 @@ namespace E7_Gear_Optimizer
                     l_WeaponMainOptimize.Text = "";
                     l_WeaponMainStatOptimize.Text = "";
                     l_WeaponSetOptimize.Text = "";
-                    l_WeaponEquippedOptimize.Text = "";
+                    //l_WeaponEquippedOptimize.Text = "";
+                    pb_OptimizeWeaponEquipped = null;
                     pb_WeaponSetOptimize.Image = Util.error;
                     for (int i = 0; i < 4; i++)
                     {
@@ -2202,7 +2218,8 @@ namespace E7_Gear_Optimizer
                             ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
                         }
                     }
-                    l_HelmetEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
+                    //l_HelmetEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
+                    pb_OptimizeHelmetEquipped.Image = item.Equipped?.Portrait;
                 }
                 else
                 {
@@ -2212,7 +2229,8 @@ namespace E7_Gear_Optimizer
                     l_HelmetMainOptimize.Text = "";
                     l_HelmetMainStatOptimize.Text = "";
                     l_HelmetSetOptimize.Text = "";
-                    l_HelmetEquippedOptimize.Text = "";
+                    //l_HelmetEquippedOptimize.Text = "";
+                    pb_OptimizeHelmetEquipped = null;
                     pb_HelmetSetOptimize.Image = Util.error;
                     for (int i = 0; i < 4; i++)
                     {
@@ -2244,7 +2262,8 @@ namespace E7_Gear_Optimizer
                             ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
                         }
                     }
-                    l_ArmorEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
+                    //l_ArmorEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
+                    pb_OptimizeArmorEquipped.Image = item.Equipped?.Portrait;
                 }
                 else
                 {
@@ -2254,7 +2273,8 @@ namespace E7_Gear_Optimizer
                     l_ArmorMainOptimize.Text = "";
                     l_ArmorMainStatOptimize.Text = "";
                     l_ArmorSetOptimize.Text = "";
-                    l_ArmorEquippedOptimize.Text = "";
+                    //l_ArmorEquippedOptimize.Text = "";
+                    pb_OptimizeArmorEquipped = null;
                     pb_ArmorSetOptimize.Image = Util.error;
                     for (int i = 0; i < 4; i++)
                     {
@@ -2286,7 +2306,8 @@ namespace E7_Gear_Optimizer
                             ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
                         }
                     }
-                    l_NecklaceEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
+                    //l_NecklaceEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
+                    pb_OptimizeNecklaceEquipped.Image = item.Equipped?.Portrait;
                 }
                 else
                 {
@@ -2296,7 +2317,8 @@ namespace E7_Gear_Optimizer
                     l_NecklaceMainOptimize.Text = "";
                     l_NecklaceMainStatOptimize.Text = "";
                     l_NecklaceSetOptimize.Text = "";
-                    l_NecklaceEquippedOptimize.Text = "";
+                    //l_NecklaceEquippedOptimize.Text = "";
+                    pb_OptimizeNecklaceEquipped = null;
                     pb_NecklaceSetOptimize.Image = Util.error;
                     for (int i = 0; i < 4; i++)
                     {
@@ -2328,7 +2350,8 @@ namespace E7_Gear_Optimizer
                             ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
                         }
                     }
-                    l_RingEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
+                    //l_RingEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
+                    pb_OptimizeRingEquipped.Image = item.Equipped?.Portrait;
                 }
                 else
                 {
@@ -2338,7 +2361,8 @@ namespace E7_Gear_Optimizer
                     l_RingMainOptimize.Text = "";
                     l_RingMainStatOptimize.Text = "";
                     l_RingSetOptimize.Text = "";
-                    l_RingEquippedOptimize.Text = "";
+                    //l_RingEquippedOptimize.Text = "";
+                    pb_OptimizeRingEquipped = null;
                     pb_RingSetOptimize.Image = Util.error;
                     for (int i = 0; i < 4; i++)
                     {
@@ -2370,7 +2394,8 @@ namespace E7_Gear_Optimizer
                             ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
                         }
                     }
-                    l_BootsEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
+                    //l_BootsEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
+                    pb_OptimizeBootsEquipped.Image = item.Equipped?.Portrait;
                 }
                 else
                 {
@@ -2380,7 +2405,8 @@ namespace E7_Gear_Optimizer
                     l_BootsMainOptimize.Text = "";
                     l_BootsMainStatOptimize.Text = "";
                     l_BootsSetOptimize.Text = "";
-                    l_BootsEquippedOptimize.Text = "";
+                    //l_BootsEquippedOptimize.Text = "";
+                    pb_OptimizeBootsEquipped = null;
                     pb_BootsSetOptimize.Image = Util.error;
                     for (int i = 0; i < 4; i++)
                     {
@@ -2397,6 +2423,13 @@ namespace E7_Gear_Optimizer
             List<Item> items = combinations[dgv_OptimizeResults.SelectedCells[0].RowIndex + ((optimizePage - 1) * 100)].Item1;
             Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split(' ').Last());
             hero.unequipAll();
+            foreach (Item item in items)
+            {
+                if (item.Equipped != null)
+                {
+                    item.Equipped.unequip(item);
+                }
+            }
             hero.equip(items);
             updatecurrentGear();
         }
@@ -2664,6 +2697,14 @@ namespace E7_Gear_Optimizer
                 values[11] = (int)((hero.CurrentStats[Stats.ATK] * (1 - crit)) + (hero.CurrentStats[Stats.ATK] * crit * hero.CurrentStats[Stats.CritDmg]));
                 l_Results.Text = numberOfResults().ToString();
                 dgv_CurrentGear.Rows.Add(values);
+            }
+        }
+
+        private void Main_Shown(object sender, EventArgs e)
+        {
+            if (args.Length == 1)
+            {
+            //    Application.Exit();
             }
         }
     }
