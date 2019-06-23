@@ -2598,6 +2598,38 @@ namespace E7_Gear_Optimizer
                 e.SortResult = cell1.CompareTo(cell2);
                 e.Handled = true;
             }
+            else if (e.Column.Name == "c_Grade")
+            {
+                string cell1 = e.CellValue1.ToString();
+                string cell2 = e.CellValue2.ToString();
+                switch (cell1)
+                {
+                    case "Epic":
+                        if (cell2 != "Epic") e.SortResult = -1;
+                        else e.SortResult = 0;
+                        break;
+                    case "Heroic":
+                        if (cell2 == "Epic") e.SortResult = 1;
+                        else if (cell2 == "Heroic") e.SortResult = 0;
+                        else e.SortResult = -1;
+                        break;
+                    case "Rare":
+                        if (cell2 == "Epic" || cell2 == "Heroic") e.SortResult = 1;
+                        else if (cell2 == "Rare") e.SortResult = 0;
+                        else e.SortResult = -1;
+                        break;
+                    case "Good":
+                        if (cell2 == "Normal") e.SortResult = -1;
+                        else if (cell2 == "Good") e.SortResult = 0;
+                        else e.SortResult = 1;
+                        break;
+                    case "Normal":
+                        if (cell2 != "Normal") e.SortResult = 1;
+                        else e.SortResult = 0;
+                        break;
+                }
+                e.Handled = true;
+            }
         }
 
         private void Tb_Force_TextChanged(object sender, EventArgs e)
@@ -2652,6 +2684,10 @@ namespace E7_Gear_Optimizer
             {
                 dgv_Inventory.Sort(dgv_Inventory.Columns[e.ColumnIndex], dgv_Inventory.SortOrder == SortOrder.Ascending ? ListSortDirection.Descending : ListSortDirection.Ascending);
                 dgv_Inventory.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = dgv_Inventory.SortOrder;
+            }
+            else
+            {
+                dgv_Inventory.Columns[0].HeaderCell.SortGlyphDirection = SortOrder.None;
             }
         }
 
