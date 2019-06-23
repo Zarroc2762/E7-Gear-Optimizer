@@ -112,6 +112,12 @@
       <DependentUpon>Import.cs</DependentUpon>
     </Compile>
     <Compile Include="Item.cs" />
+    <Compile Include="updated.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updated.Designer.cs">
+      <DependentUpon>updated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SelectItemDialog.resx">
       <DependentUpon>SelectItemDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updated.resx">
+      <DependentUpon>updated.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="E7 Gear Optimizer_TemporaryKey.pfx" />
     <None Include="packages.config" />

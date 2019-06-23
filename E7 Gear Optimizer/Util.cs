@@ -86,6 +86,8 @@ namespace E7_Gear_Optimizer
     {
         public static string ApiUrl = System.Configuration.ConfigurationManager.AppSettings["ApiUrl"];
         public static string AssetUrl = System.Configuration.ConfigurationManager.AppSettings["AssetUrl"];
+        public static string GitHubUrl = System.Configuration.ConfigurationManager.AppSettings["GitHubUrl"];
+        public static string ver = System.Configuration.ConfigurationManager.AppSettings["Version"];
         public static Bitmap error = Properties.Resources.error;
         public static Bitmap star = Properties.Resources.star;
         public static Bitmap star_j = Properties.Resources.star_j;
