@@ -33,7 +33,11 @@ namespace E7_Gear_Optimizer
         public Main()
         {
             InitializeComponent();
-
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls
+                   | SecurityProtocolType.Tls11
+                   | SecurityProtocolType.Tls12
+                   | SecurityProtocolType.Ssl3;
             Icon = Icon.FromHandle(Util.ResizeImage(Properties.Resources.bookmark, 19,18).GetHicon());
             if (args.Length == 1)
             {
