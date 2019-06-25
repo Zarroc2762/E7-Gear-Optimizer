@@ -1437,6 +1437,7 @@ namespace E7_Gear_Optimizer
         private void Cb_OptimizeHero_SelectedIndexChanged(object sender, EventArgs e)
         {
             updatecurrentGear();
+            l_Results.Text = numberOfResults().ToString();
         }
 
         //Estimate the number of results with the currenty selected criteria. This method only takes account of focus options for right side gear 
@@ -1451,7 +1452,7 @@ namespace E7_Gear_Optimizer
                 setFocus.Add((Set)Enum.Parse(typeof(Set), cb_Set2.Items[cb_Set2.SelectedIndex].ToString()));
             if (cb_Set3.SelectedIndex != -1 && cb_Set3.Items[cb_Set3.SelectedIndex].ToString() != "")
                 setFocus.Add((Set)Enum.Parse(typeof(Set), cb_Set3.Items[cb_Set3.SelectedIndex].ToString()));
-            List<Item> Base = data.Items;
+            List<Item> Base = data.Items.Where(x => x.Enhance >= nud_EnhanceFocus.Value).ToList();
             if (!chb_Equipped.Checked)
             {
                 Base = Base.Where(x => x.Equipped == null || x.Equipped == hero).ToList();
@@ -1625,9 +1626,9 @@ namespace E7_Gear_Optimizer
             Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split().Last());
             if (hero != null)
             {
-                List<Item> weapons = data.Items.Where(x => x.Type == ItemType.Weapon).ToList();
-                List<Item> helmets = data.Items.Where(x => x.Type == ItemType.Helmet).ToList();
-                List<Item> armors = data.Items.Where(x => x.Type == ItemType.Armor).ToList();
+                List<Item> weapons = data.Items.Where(x => x.Type == ItemType.Weapon && x.Enhance >= nud_EnhanceFocus.Value).ToList();
+                List<Item> helmets = data.Items.Where(x => x.Type == ItemType.Helmet && x.Enhance >= nud_EnhanceFocus.Value).ToList();
+                List<Item> armors = data.Items.Where(x => x.Type == ItemType.Armor && x.Enhance >= nud_EnhanceFocus.Value).ToList();
                 List<Item> necklaces;
                 List<Item> rings;
                 List<Item> boots;
@@ -1635,31 +1636,31 @@ namespace E7_Gear_Optimizer
                 if (neckFocus != "")
                 {
                     Stats stat = (Stats)Enum.Parse(typeof(Stats), neckFocus.Replace("%", "Percent"));
-                    necklaces = data.Items.Where(x => x.Type == ItemType.Necklace).Where(x => x.Main.Name == stat).ToList();
+                    necklaces = data.Items.Where(x => x.Type == ItemType.Necklace && x.Enhance >= nud_EnhanceFocus.Value).Where(x => x.Main.Name == stat).ToList();
                 }
                 else
                 {
-                    necklaces = data.Items.Where(x => x.Type == ItemType.Necklace).ToList();
+                    necklaces = data.Items.Where(x => x.Type == ItemType.Necklace && x.Enhance >= nud_EnhanceFocus.Value).ToList();
                 }
                 string ringFocus = cb_RingFocus.SelectedIndex > -1 ? cb_RingFocus.Items[cb_RingFocus.SelectedIndex].ToString() : "";
                 if (ringFocus != "")
                 {
                     Stats stat = (Stats)Enum.Parse(typeof(Stats), ringFocus.Replace("%", "Percent"));
-                    rings = data.Items.Where(x => x.Type == ItemType.Ring).Where(x => x.Main.Name == stat).ToList();
+                    rings = data.Items.Where(x => x.Type == ItemType.Ring && x.Enhance >= nud_EnhanceFocus.Value).Where(x => x.Main.Name == stat).ToList();
                 }
                 else
                 {
-                    rings = data.Items.Where(x => x.Type == ItemType.Ring).ToList();
+                    rings = data.Items.Where(x => x.Type == ItemType.Ring && x.Enhance >= nud_EnhanceFocus.Value).ToList();
                 }
                 string bootsFocus = cb_BootsFocus.SelectedIndex > -1 ? cb_BootsFocus.Items[cb_BootsFocus.SelectedIndex].ToString() : "";
                 if (bootsFocus != "")
                 {
                     Stats stat = (Stats)Enum.Parse(typeof(Stats), bootsFocus.Replace("%", "Percent"));
-                    boots = data.Items.Where(x => x.Type == ItemType.Boots).Where(x => x.Main.Name == stat).ToList();
+                    boots = data.Items.Where(x => x.Type == ItemType.Boots && x.Enhance >= nud_EnhanceFocus.Value).Where(x => x.Main.Name == stat).ToList();
                 }
                 else
                 {
-                    boots = data.Items.Where(x => x.Type == ItemType.Boots).ToList();
+                    boots = data.Items.Where(x => x.Type == ItemType.Boots && x.Enhance >= nud_EnhanceFocus.Value).ToList();
                 }
                 if (!chb_Equipped.Checked)
                 {
@@ -2991,6 +2992,11 @@ namespace E7_Gear_Optimizer
             {
                 MessageBox.Show("Please select the source to import from!");
             }
+        }
+
+        private void Nud_EnhanceFocus_ValueChanged(object sender, EventArgs e)
+        {
+            l_Results.Text = numberOfResults().ToString();
         }
     }
 }
