@@ -333,6 +333,7 @@
             this.b_EditHero = new System.Windows.Forms.Button();
             this.b_AddHero = new System.Windows.Forms.Button();
             this.tb_Optimize = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.pb_OptimizeBootsEquipped = new System.Windows.Forms.PictureBox();
             this.pb_OptimizeRingEquipped = new System.Windows.Forms.PictureBox();
             this.pb_OptimizeNecklaceEquipped = new System.Windows.Forms.PictureBox();
@@ -583,7 +584,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.ofd_import = new System.Windows.Forms.OpenFileDialog();
             this.sfd_export = new System.Windows.Forms.SaveFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tb_Inventory.SuspendLayout();
             this.tc_InventorySets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ItemLocked)).BeginInit();
@@ -1925,6 +1926,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.b_Export);
             this.tabPage1.Controls.Add(this.richTextBox1);
             this.tabPage1.Controls.Add(this.b_import);
@@ -1960,7 +1962,7 @@
             // 
             // b_import
             // 
-            this.b_import.Location = new System.Drawing.Point(152, 407);
+            this.b_import.Location = new System.Drawing.Point(100, 407);
             this.b_import.Name = "b_import";
             this.b_import.Size = new System.Drawing.Size(101, 23);
             this.b_import.TabIndex = 2;
@@ -4131,6 +4133,16 @@
             this.tb_Optimize.Text = "Optimization";
             this.tb_Optimize.UseVisualStyleBackColor = true;
             this.tb_Optimize.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(28, 205);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 36);
+            this.button1.TabIndex = 136;
+            this.button1.Text = "Filter current results";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // pb_OptimizeBootsEquipped
             // 
@@ -6825,15 +6837,15 @@
             this.sfd_export.FileName = "E7 Gear Optimizer.json";
             this.sfd_export.Filter = "JSON|*.json";
             // 
-            // button1
+            // button2
             // 
-            this.button1.Location = new System.Drawing.Point(28, 205);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 36);
-            this.button1.TabIndex = 136;
-            this.button1.Text = "Filter current results";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.button2.Location = new System.Drawing.Point(218, 407);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(101, 23);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Append";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // Main
             // 
@@ -7493,6 +7505,7 @@
         private System.Windows.Forms.PictureBox pb_OptimizeArmorEquipped;
         private System.Windows.Forms.PictureBox pb_OptimizeHelmetEquipped;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

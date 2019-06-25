@@ -2615,9 +2615,10 @@ namespace E7_Gear_Optimizer
                                                        select new JObject(
                                                             new JProperty("Name", s.Name),
                                                             new JProperty("Value", s.Value)))),
-                                       new JProperty("Locked", i.Locked)))),
-                    new JProperty("currentItemID", data.CurrentItemID),
-                    new JProperty("currentHeroID", data.CurrentHeroID));
+                                       new JProperty("Locked", i.Locked))))
+                    //new JProperty("currentItemID", data.CurrentItemID),
+                    //new JProperty("currentHeroID", data.CurrentHeroID)
+                    );
             return json;
         }
 
@@ -2950,6 +2951,46 @@ namespace E7_Gear_Optimizer
             dgv_OptimizeResults.Refresh();
             dgv_OptimizeResults.AutoResizeColumns();
             l_Pages.Text = "1 / " + ((filteredCombinations.Count + 99) / 100);
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            if (rb_import_this.Checked)
+            {
+                if (ofd_import.ShowDialog() == DialogResult.OK)
+                {
+                    Import importForm = new Import(data, ofd_import.FileName, false, true);
+                    importForm.ShowDialog();
+                    if (!importForm.result)
+                    {
+                        MessageBox.Show("Corrupted or wrong file format. Please select a JSON file exported by this application!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        updateHeroList();
+                    }
+                }
+            }
+            else if (rb_import_web.Checked)
+            {
+                if (ofd_import.ShowDialog() == DialogResult.OK)
+                {
+                    Import importForm = new Import(data, ofd_import.FileName, true, true);
+                    importForm.ShowDialog();
+                    if (!importForm.result)
+                    {
+                        MessageBox.Show("Corrupted or wrong file format. Please select a JSON file exported by /u/HyrTheWinter's Equipment Optimizer!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        updateHeroList();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select the source to import from!");
+            }
         }
     }
 }

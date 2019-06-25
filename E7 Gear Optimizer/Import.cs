@@ -17,6 +17,7 @@ namespace E7_Gear_Optimizer
         public Data data;
         public string fileName;
         public bool web;
+        public bool append = false;
 
         public Import()
         {
@@ -31,17 +32,26 @@ namespace E7_Gear_Optimizer
             this.web = web;
         }
 
+        public Import(Data data, string fileName, bool web, bool append)
+        {
+            InitializeComponent();
+            this.data = data;
+            this.fileName = fileName;
+            this.web = web;
+            this.append = append;
+        }
+
         private async void Import_Shown(object sender, EventArgs e)
         {
             Progress<int> progress = new Progress<int>(x => progressBar1.Value = x);
             (bool, int, int) results;
             if (web)
             {
-                results = await Task.Run(() => data.importFromWeb(fileName, progress));
+                results = await Task.Run(() => data.importFromWeb(fileName, progress, append));
             }
             else
             {
-                results = await Task.Run(() => data.importFromThis(fileName, progress));
+                results = await Task.Run(() => data.importFromThis(fileName, progress, append));
             }
             result = results.Item1;
             label4.Text = results.Item2.ToString();
