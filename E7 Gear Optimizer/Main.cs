@@ -2895,6 +2895,10 @@ namespace E7_Gear_Optimizer
 
         private void Main_Shown(object sender, EventArgs e)
         {
+            if (args.Length == 1 && File.Exists("E7 Optimizer Updater.exe"))
+            {
+                Application.Exit();
+            }
             if (Application.ProductVersion != Util.ver)
             {
                 updated updated = new updated();
@@ -2903,10 +2907,6 @@ namespace E7_Gear_Optimizer
                 config.AppSettings.Settings.Remove("Version");
                 config.AppSettings.Settings.Add("Version", Application.ProductVersion);
                 config.Save(ConfigurationSaveMode.Full);
-            }
-            if (args.Length == 1 && File.Exists("E7 Optimizer Updater.exe"))
-            {
-                Application.Exit();
             }
         }
 
