@@ -11,6 +11,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
@@ -28,6 +29,7 @@ namespace E7_Gear_Optimizer
         int sortColumn = -1;
         Dictionary<Stats, (float,float)> forceStats = new Dictionary<Stats, (float,float)>();
         Dictionary<Stats, (float, float)> filterStats = new Dictionary<Stats, (float, float)>();
+        CancellationTokenSource tokenSource;
         string[] args = Environment.GetCommandLineArgs();
 
         public Main()
@@ -261,6 +263,7 @@ namespace E7_Gear_Optimizer
                 values[22] = item.Locked.ToString();
                 dgv_Inventory.Rows.Add(values);
             }
+            l_ItemCount.Text = filteredList.Count().ToString();
             //restore previous sorting and select previously selected cell
             if (order != SortOrder.None) dgv_Inventory.Sort(sortColumn, (ListSortDirection)Enum.Parse(typeof(ListSortDirection), order.ToString()));
             if (cell.X > -1 && cell.Y > -1 && cell.X < dgv_Inventory.ColumnCount && cell.Y < dgv_Inventory.RowCount)
@@ -1741,8 +1744,10 @@ namespace E7_Gear_Optimizer
                     pB_Optimize.Value = (int)(counter / numResults * 100);
                 });
                 pB_Optimize.Show();
+                b_CancelOptimize.Show();
                 //combinations = await Task.Run(() => calculate(weapons, helmets, armors, necklaces, rings, boots, hero, filter, setFocus, progress));
                 List<Task<List<(List<Item>, List<(Stats, float)>)>>> tasks = new List<Task<List<(List<Item>, List<(Stats, float)>)>>>();
+                tokenSource = new CancellationTokenSource();
                 Dictionary<Stats, float> itemStats = new Dictionary<Stats, float>();
                 Dictionary<Stats, float> heroStats = hero.calcStatsWithoutGear((float)nud_CritBonus.Value / 100f);
                 foreach (Stats s in Enum.GetValues(typeof(Stats)))
@@ -1773,7 +1778,7 @@ namespace E7_Gear_Optimizer
 
                             Dictionary<Stats,float> temp = new Dictionary<Stats, float>(itemStats);
 
-                            tasks.Add(Task.Run(() => calculate(w, h, a, necklaces, rings, boots, hero, heroStats, filterStats, setFocus, progress, temp)));
+                            tasks.Add(Task.Run(() => calculate(w, h, a, necklaces, rings, boots, hero, heroStats, filterStats, setFocus, progress, temp, cb_Broken.Checked, tokenSource.Token), tokenSource.Token));
 
                             itemStats[a.Main.Name] -= a.Main.Value;
                             foreach (Stat stat in a.SubStats)
@@ -1793,27 +1798,41 @@ namespace E7_Gear_Optimizer
                         itemStats[stat.Name] -= stat.Value;
                     }
                 }
-                if (tasks.Count > 0)
+                try
                 {
-                    combinations = (await Task.WhenAll(tasks)).Aggregate((a, b) => { a.AddRange(b); return a; });
+                    if (tasks.Count > 0)
+                    {
+                        combinations = (await Task.WhenAll(tasks)).Aggregate((a, b) => { a.AddRange(b); return a; });
+                    }
+                    b_CancelOptimize.Hide();
+                    pB_Optimize.Hide();
+                    pB_Optimize.Value = 0;
+                    //Display the first page of results. Each page consists of 100 results
+                    dgv_OptimizeResults.RowCount = 100;
+                    optimizePage = 1;
+                    l_Pages.Text = "1 / " + ((combinations.Count + 99) / 100);
                 }
-                pB_Optimize.Hide();
-                pB_Optimize.Value = 0;
-                //Display the first page of results. Each page consists of 100 results
-                dgv_OptimizeResults.RowCount = 100;
-                optimizePage = 1;
-                l_Pages.Text = "1 / " + ((combinations.Count + 99) / 100);
+                catch (OperationCanceledException)
+                {
+                    dgv_OptimizeResults.RowCount = 100;
+                    optimizePage = 1;
+                    l_Pages.Text = "1 / " + ((combinations.Count + 99) / 100);
+                    b_CancelOptimize.Hide();
+                    pB_Optimize.Hide();
+                    pB_Optimize.Value = 0;
+                }
             }
         }
 
         //Calculate all possible gear combinations and check whether they satisfy the given filters
 
-        private List<(List<Item>, List<(Stats, float)>)> calculate(Item weapon, Item helmet,
+        private static List<(List<Item>, List<(Stats, float)>)> calculate(Item weapon, Item helmet,
                                                                         Item armor, List<Item> necklaces,
                                                                         List<Item> rings, List<Item> boots, Hero hero, 
                                                                         Dictionary<Stats, float> stats,
                                                                         Dictionary<Stats, (float, float)> filter, List<Set> setFocus,
-                                                                        IProgress<int> progress, Dictionary<Stats, float> itemStats)
+                                                                        IProgress<int> progress, Dictionary<Stats, float> itemStats,
+                                                                        bool brokenSets, CancellationToken ct)
         {
             List<(List<Item>, List<(Stats, float)>)> combinations = new List<(List<Item>, List<(Stats, float)>)>();
             int count = 0;
@@ -1833,6 +1852,7 @@ namespace E7_Gear_Optimizer
                     }
                     foreach (Item b in boots)
                     {
+                        ct.ThrowIfCancellationRequested();
                         itemStats[b.Main.Name] += b.Main.Value;
                         foreach (Stat stat in b.SubStats)
                         {
@@ -1844,6 +1864,10 @@ namespace E7_Gear_Optimizer
                         foreach (Set s in setFocus)
                         {
                             valid = valid && activeSets.Contains(s);
+                        }
+                        if (!brokenSets)
+                        {
+                            valid = valid && (Util.setSlots(activeSets) == 6);
                         }
                         if (valid)
                         {
@@ -1886,8 +1910,8 @@ namespace E7_Gear_Optimizer
                                 }
                                 combinations.Add((new List<Item> { weapon, helmet, armor, n, r, b }, statList));
                             }
-                            count++;
                         }
+                        count++;
                         itemStats[b.Main.Name] -= b.Main.Value;
                         foreach (Stat stat in b.SubStats)
                         {
@@ -2245,6 +2269,8 @@ namespace E7_Gear_Optimizer
             optimizePage = 1;
             dgv_OptimizeResults.Refresh();
             dgv_OptimizeResults.AutoResizeColumns();
+            dgv_OptimizeResults.CurrentCell = dgv_OptimizeResults.Rows[1].Cells[e.ColumnIndex];
+            dgv_OptimizeResults.CurrentCell = dgv_OptimizeResults.Rows[0].Cells[e.ColumnIndex];
             if (filteredCombinations.Count > 0)
             {
                 l_Pages.Text = "1 / " + ((filteredCombinations.Count + 99) / 100);
@@ -2997,6 +3023,11 @@ namespace E7_Gear_Optimizer
         private void Nud_EnhanceFocus_ValueChanged(object sender, EventArgs e)
         {
             l_Results.Text = numberOfResults().ToString();
+        }
+
+        private void B_CancelOptimize_Click(object sender, EventArgs e)
+        {
+            tokenSource.Cancel();
         }
     }
 }

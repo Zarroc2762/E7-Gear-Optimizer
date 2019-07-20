@@ -50,6 +50,7 @@ namespace E7_Gear_Optimizer
             {
                 string json = Util.client.DownloadString(Util.ApiUrl + "/hero/" + Util.toAPIUrl(Name));
                 json = Encoding.UTF8.GetString(Encoding.Default.GetBytes(json)).Replace("✰", "");
+                json = json.Remove(json.IndexOf("\"skills\":")) + json.Substring(json.IndexOf("\"awakening\":"));
                 baseStats = getBaseStats(json);
                 Element = getElement(json);
                 Class = getClass(json);
@@ -137,6 +138,7 @@ namespace E7_Gear_Optimizer
         {
             string json = Util.client.DownloadString(Util.ApiUrl + "/hero/" + Util.toAPIUrl(Name));
             json = Encoding.UTF8.GetString(Encoding.Default.GetBytes(json)).Replace("✰", "");
+            json = json.Remove(json.IndexOf("\"skills\":")) + json.Substring(json.IndexOf("\"awakening\":"));
             baseStats = getBaseStats(json);
         }
 
@@ -178,6 +180,7 @@ namespace E7_Gear_Optimizer
         {
             string json = Util.client.DownloadString(Util.ApiUrl + "/hero/" + Util.toAPIUrl(Name));
             json = Encoding.UTF8.GetString(Encoding.Default.GetBytes(json)).Replace("✰", "");
+            json = json.Remove(json.IndexOf("\"skills\":")) + json.Substring(json.IndexOf("\"awakening\":"));
             AwakeningStats = getAwakeningStats(json);
             stars = getStars(lvl, awakening);
         }
