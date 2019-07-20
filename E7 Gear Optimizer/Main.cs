@@ -2899,7 +2899,7 @@ namespace E7_Gear_Optimizer
             {
                 Application.Exit();
             }
-            if (Application.ProductVersion != Util.ver)
+            else if (Application.ProductVersion != Util.ver)
             {
                 updated updated = new updated();
                 updated.ShowDialog();
