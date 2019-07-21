@@ -1811,13 +1811,13 @@ namespace E7_Gear_Optimizer
                     pB_Optimize.Hide();
                     pB_Optimize.Value = 0;
                     //Display the first page of results. Each page consists of 100 results
-                    dgv_OptimizeResults.RowCount = 100;
+                    dgv_OptimizeResults.RowCount = Math.Min(100, combinations.Count);
                     optimizePage = 1;
                     l_Pages.Text = "1 / " + ((combinations.Count + 99) / 100);
                 }
                 catch (OperationCanceledException)
                 {
-                    dgv_OptimizeResults.RowCount = 100;
+                    dgv_OptimizeResults.RowCount = Math.Min(100, combinations.Count);
                     optimizePage = 1;
                     l_Pages.Text = "1 / " + ((combinations.Count + 99) / 100);
                     b_CancelOptimize.Hide();
@@ -2108,9 +2108,10 @@ namespace E7_Gear_Optimizer
                 if (optimizePage != ((filteredCombinations.Count + 99) / 100))
                 {
                     optimizePage++;
+                    dgv_OptimizeResults.RowCount = Math.Min(filteredCombinations.Count - 100 * (optimizePage - 1), 100);
                     dgv_OptimizeResults.Refresh();
                     dgv_OptimizeResults.AutoResizeColumns();
-                    l_Pages.Text = "1 / " + ((filteredCombinations.Count + 99) / 100);
+                    l_Pages.Text = optimizePage + " / " + ((filteredCombinations.Count + 99) / 100);
                 }
             }
             else
@@ -2118,9 +2119,10 @@ namespace E7_Gear_Optimizer
                 if (optimizePage != ((combinations.Count + 99) / 100))
                 {
                     optimizePage++;
+                    dgv_OptimizeResults.RowCount = Math.Min(combinations.Count - 100 * (optimizePage - 1), 100);
                     dgv_OptimizeResults.Refresh();
                     dgv_OptimizeResults.AutoResizeColumns();
-                    l_Pages.Text = "1 / " + ((combinations.Count + 99) / 100);
+                    l_Pages.Text = optimizePage + " / " + ((combinations.Count + 99) / 100);
                 }
             }
         }
@@ -2132,9 +2134,10 @@ namespace E7_Gear_Optimizer
                 if (optimizePage > 1)
                 {
                     optimizePage--;
+                    dgv_OptimizeResults.RowCount = Math.Min(filteredCombinations.Count - 100 * (optimizePage - 1), 100);
                     dgv_OptimizeResults.Refresh();
                     dgv_OptimizeResults.AutoResizeColumns();
-                    l_Pages.Text = "1 / " + ((filteredCombinations.Count + 99) / 100);
+                    l_Pages.Text = optimizePage + " / " + ((filteredCombinations.Count + 99) / 100);
                 }
             }
             else
@@ -2142,9 +2145,10 @@ namespace E7_Gear_Optimizer
                 if (optimizePage > 1)
                 {
                     optimizePage--;
+                    dgv_OptimizeResults.RowCount = Math.Min(combinations.Count - 100 * (optimizePage - 1), 100);
                     dgv_OptimizeResults.Refresh();
                     dgv_OptimizeResults.AutoResizeColumns();
-                    l_Pages.Text = "1 / " + ((combinations.Count + 99) / 100);
+                    l_Pages.Text = optimizePage + " / " + ((combinations.Count + 99) / 100);
                 }
             }
         }
@@ -3038,6 +3042,7 @@ namespace E7_Gear_Optimizer
                     filteredCombinations.Add(i);
                 }
             }
+            dgv_OptimizeResults.RowCount = Math.Min(filteredCombinations.Count, 100);
             dgv_OptimizeResults.Refresh();
             dgv_OptimizeResults.AutoResizeColumns();
             l_Pages.Text = "1 / " + ((filteredCombinations.Count + 99) / 100);

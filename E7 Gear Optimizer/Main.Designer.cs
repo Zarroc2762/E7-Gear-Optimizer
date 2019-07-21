@@ -36,9 +36,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tb_Inventory = new System.Windows.Forms.TabPage();
             this.l_ItemCount = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -294,6 +294,28 @@
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.Elements = new System.Windows.Forms.ImageList(this.components);
             this.dgv_Heroes = new System.Windows.Forms.DataGridView();
+            this.c_Portrait = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Element = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Class = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Lvl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Awakening = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Sets = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_ATKHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_SPDHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_CritHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_CritDmgHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HPHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HPpSHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DEFHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_EFFHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_RESHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DACHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_EHP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_EHPpSHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DMG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DMGpS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HeroID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.b_EditBoots = new System.Windows.Forms.Button();
             this.b_EditRing = new System.Windows.Forms.Button();
             this.b_EditNecklace = new System.Windows.Forms.Button();
@@ -317,10 +339,27 @@
             this.b_EditHero = new System.Windows.Forms.Button();
             this.b_AddHero = new System.Windows.Forms.Button();
             this.tb_Optimize = new System.Windows.Forms.TabPage();
+            this.label38 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.cb_Broken = new System.Windows.Forms.CheckBox();
-            this.b_CancelOptimize = new System.Windows.Forms.Button();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
             this.nud_EnhanceFocus = new System.Windows.Forms.NumericUpDown();
+            this.label43 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.cb_NecklaceFocus = new System.Windows.Forms.ComboBox();
+            this.cb_RingFocus = new System.Windows.Forms.ComboBox();
+            this.cb_BootsFocus = new System.Windows.Forms.ComboBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.cb_Set1 = new System.Windows.Forms.ComboBox();
+            this.cb_Set2 = new System.Windows.Forms.ComboBox();
+            this.cb_Set3 = new System.Windows.Forms.ComboBox();
+            this.b_Optimize = new System.Windows.Forms.Button();
+            this.label47 = new System.Windows.Forms.Label();
+            this.l_Results = new System.Windows.Forms.Label();
+            this.b_CancelOptimize = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pb_OptimizeBootsEquipped = new System.Windows.Forms.PictureBox();
             this.pb_OptimizeRingEquipped = new System.Windows.Forms.PictureBox();
@@ -478,25 +517,39 @@
             this.label48 = new System.Windows.Forms.Label();
             this.chb_Equipped = new System.Windows.Forms.CheckBox();
             this.chb_Locked = new System.Windows.Forms.CheckBox();
-            this.l_Results = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.b_Optimize = new System.Windows.Forms.Button();
-            this.cb_Set3 = new System.Windows.Forms.ComboBox();
-            this.cb_Set2 = new System.Windows.Forms.ComboBox();
-            this.cb_Set1 = new System.Windows.Forms.ComboBox();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.cb_BootsFocus = new System.Windows.Forms.ComboBox();
-            this.cb_RingFocus = new System.Windows.Forms.ComboBox();
-            this.cb_NecklaceFocus = new System.Windows.Forms.ComboBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
             this.dgv_OptimizeResults = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label37 = new System.Windows.Forms.Label();
             this.dgv_CurrentGear = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_OptimizeEFF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_OptimizeRES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_OptimizeDAC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label36 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -535,6 +588,12 @@
             this.tb_MinHPpS = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
             this.tb_MaxHPpS = new System.Windows.Forms.TextBox();
+            this.tb_MaxEHPpS = new System.Windows.Forms.TextBox();
+            this.tb_MaxDMGpS = new System.Windows.Forms.TextBox();
+            this.tb_MinEHPpS = new System.Windows.Forms.TextBox();
+            this.tb_MinDMGpS = new System.Windows.Forms.TextBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.cb_OptimizeHero = new System.Windows.Forms.ComboBox();
             this.pb_RingSetOptimize = new System.Windows.Forms.PictureBox();
@@ -551,65 +610,6 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.ofd_import = new System.Windows.Forms.OpenFileDialog();
             this.sfd_export = new System.Windows.Forms.SaveFileDialog();
-            this.tb_MaxEHPpS = new System.Windows.Forms.TextBox();
-            this.tb_MaxDMGpS = new System.Windows.Forms.TextBox();
-            this.tb_MinEHPpS = new System.Windows.Forms.TextBox();
-            this.tb_MinDMGpS = new System.Windows.Forms.TextBox();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.c_Portrait = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Element = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Class = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Lvl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Awakening = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Sets = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_ATKHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_SPDHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_CritHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_CritDmgHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HPHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HPpSHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DEFHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_EFFHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_RESHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DACHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_EHP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_EHPpSHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DMG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DMGpS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HeroID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_OptimizeEFF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_OptimizeRES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_OptimizeDAC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tb_Inventory.SuspendLayout();
             this.tc_InventorySets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ItemLocked)).BeginInit();
@@ -654,6 +654,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_WeaponSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tb_Optimize.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_EnhanceFocus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_OptimizeBootsEquipped)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_OptimizeRingEquipped)).BeginInit();
@@ -684,7 +685,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_WeaponSetOptimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tb_Inventory
@@ -725,7 +725,7 @@
             this.tb_Inventory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_Inventory.Name = "tb_Inventory";
             this.tb_Inventory.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tb_Inventory.Size = new System.Drawing.Size(1996, 1072);
+            this.tb_Inventory.Size = new System.Drawing.Size(2187, 1147);
             this.tb_Inventory.TabIndex = 1;
             this.tb_Inventory.Text = "Inventory";
             this.tb_Inventory.UseVisualStyleBackColor = true;
@@ -2096,7 +2096,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage1.Size = new System.Drawing.Size(2152, 1147);
+            this.tabPage1.Size = new System.Drawing.Size(2187, 1147);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -3970,6 +3970,191 @@
             this.dgv_Heroes.TabIndex = 0;
             this.dgv_Heroes.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Heroes_RowEnter);
             // 
+            // c_Portrait
+            // 
+            this.c_Portrait.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Portrait.HeaderText = "Portrait";
+            this.c_Portrait.MinimumWidth = 8;
+            this.c_Portrait.Name = "c_Portrait";
+            this.c_Portrait.ReadOnly = true;
+            this.c_Portrait.Width = 70;
+            // 
+            // c_Name
+            // 
+            this.c_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Name.HeaderText = "Name";
+            this.c_Name.MinimumWidth = 8;
+            this.c_Name.Name = "c_Name";
+            this.c_Name.ReadOnly = true;
+            this.c_Name.Width = 89;
+            // 
+            // c_Element
+            // 
+            this.c_Element.HeaderText = "Element";
+            this.c_Element.MinimumWidth = 8;
+            this.c_Element.Name = "c_Element";
+            this.c_Element.ReadOnly = true;
+            this.c_Element.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.c_Element.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.c_Element.Width = 106;
+            // 
+            // c_Class
+            // 
+            this.c_Class.HeaderText = "Class";
+            this.c_Class.MinimumWidth = 8;
+            this.c_Class.Name = "c_Class";
+            this.c_Class.ReadOnly = true;
+            this.c_Class.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.c_Class.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.c_Class.Width = 88;
+            // 
+            // c_Lvl
+            // 
+            this.c_Lvl.HeaderText = "Lvl";
+            this.c_Lvl.MinimumWidth = 8;
+            this.c_Lvl.Name = "c_Lvl";
+            this.c_Lvl.ReadOnly = true;
+            this.c_Lvl.Width = 67;
+            // 
+            // c_Awakening
+            // 
+            this.c_Awakening.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Awakening.HeaderText = "Awakening";
+            this.c_Awakening.MinimumWidth = 8;
+            this.c_Awakening.Name = "c_Awakening";
+            this.c_Awakening.ReadOnly = true;
+            this.c_Awakening.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.c_Awakening.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.c_Awakening.Width = 125;
+            // 
+            // c_Sets
+            // 
+            this.c_Sets.HeaderText = "Sets";
+            this.c_Sets.MinimumWidth = 8;
+            this.c_Sets.Name = "c_Sets";
+            this.c_Sets.ReadOnly = true;
+            this.c_Sets.Width = 49;
+            // 
+            // c_ATKHero
+            // 
+            this.c_ATKHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_ATKHero.HeaderText = "ATK";
+            this.c_ATKHero.MinimumWidth = 8;
+            this.c_ATKHero.Name = "c_ATKHero";
+            this.c_ATKHero.ReadOnly = true;
+            // 
+            // c_SPDHero
+            // 
+            this.c_SPDHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_SPDHero.HeaderText = "SPD";
+            this.c_SPDHero.MinimumWidth = 8;
+            this.c_SPDHero.Name = "c_SPDHero";
+            this.c_SPDHero.ReadOnly = true;
+            // 
+            // c_CritHero
+            // 
+            this.c_CritHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_CritHero.HeaderText = "Crit";
+            this.c_CritHero.MinimumWidth = 8;
+            this.c_CritHero.Name = "c_CritHero";
+            this.c_CritHero.ReadOnly = true;
+            // 
+            // c_CritDmgHero
+            // 
+            this.c_CritDmgHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_CritDmgHero.HeaderText = "CritDmg";
+            this.c_CritDmgHero.MinimumWidth = 8;
+            this.c_CritDmgHero.Name = "c_CritDmgHero";
+            this.c_CritDmgHero.ReadOnly = true;
+            // 
+            // c_HPHero
+            // 
+            this.c_HPHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_HPHero.HeaderText = "HP";
+            this.c_HPHero.MinimumWidth = 8;
+            this.c_HPHero.Name = "c_HPHero";
+            this.c_HPHero.ReadOnly = true;
+            // 
+            // c_HPpSHero
+            // 
+            this.c_HPpSHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_HPpSHero.HeaderText = "HP/SPD";
+            this.c_HPpSHero.MinimumWidth = 8;
+            this.c_HPpSHero.Name = "c_HPpSHero";
+            this.c_HPpSHero.ReadOnly = true;
+            // 
+            // c_DEFHero
+            // 
+            this.c_DEFHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DEFHero.HeaderText = "DEF";
+            this.c_DEFHero.MinimumWidth = 8;
+            this.c_DEFHero.Name = "c_DEFHero";
+            this.c_DEFHero.ReadOnly = true;
+            // 
+            // c_EFFHero
+            // 
+            this.c_EFFHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_EFFHero.HeaderText = "EFF";
+            this.c_EFFHero.MinimumWidth = 8;
+            this.c_EFFHero.Name = "c_EFFHero";
+            this.c_EFFHero.ReadOnly = true;
+            // 
+            // c_RESHero
+            // 
+            this.c_RESHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_RESHero.HeaderText = "RES";
+            this.c_RESHero.MinimumWidth = 8;
+            this.c_RESHero.Name = "c_RESHero";
+            this.c_RESHero.ReadOnly = true;
+            // 
+            // c_DACHero
+            // 
+            this.c_DACHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DACHero.HeaderText = "DAC";
+            this.c_DACHero.MinimumWidth = 8;
+            this.c_DACHero.Name = "c_DACHero";
+            this.c_DACHero.ReadOnly = true;
+            // 
+            // c_EHP
+            // 
+            this.c_EHP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_EHP.HeaderText = "EHP";
+            this.c_EHP.MinimumWidth = 8;
+            this.c_EHP.Name = "c_EHP";
+            this.c_EHP.ReadOnly = true;
+            // 
+            // c_EHPpSHero
+            // 
+            this.c_EHPpSHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_EHPpSHero.HeaderText = "EHP/DPS";
+            this.c_EHPpSHero.MinimumWidth = 8;
+            this.c_EHPpSHero.Name = "c_EHPpSHero";
+            this.c_EHPpSHero.ReadOnly = true;
+            // 
+            // c_DMG
+            // 
+            this.c_DMG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DMG.HeaderText = "DMG";
+            this.c_DMG.MinimumWidth = 8;
+            this.c_DMG.Name = "c_DMG";
+            this.c_DMG.ReadOnly = true;
+            // 
+            // c_DMGpS
+            // 
+            this.c_DMGpS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DMGpS.HeaderText = "DMG/SPD";
+            this.c_DMGpS.MinimumWidth = 8;
+            this.c_DMGpS.Name = "c_DMGpS";
+            this.c_DMGpS.ReadOnly = true;
+            // 
+            // c_HeroID
+            // 
+            this.c_HeroID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_HeroID.HeaderText = "ID";
+            this.c_HeroID.MinimumWidth = 8;
+            this.c_HeroID.Name = "c_HeroID";
+            this.c_HeroID.ReadOnly = true;
+            // 
             // b_EditBoots
             // 
             this.b_EditBoots.BackgroundImage = global::E7_Gear_Optimizer.Properties.Resources.Edit;
@@ -4314,6 +4499,42 @@
             this.tb_Optimize.UseVisualStyleBackColor = true;
             this.tb_Optimize.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(1059, 0);
+            this.label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(60, 20);
+            this.label38.TabIndex = 10;
+            this.label38.Text = "Focus";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.cb_Broken);
+            this.panel1.Controls.Add(this.label39);
+            this.panel1.Controls.Add(this.label41);
+            this.panel1.Controls.Add(this.nud_EnhanceFocus);
+            this.panel1.Controls.Add(this.label43);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.cb_NecklaceFocus);
+            this.panel1.Controls.Add(this.cb_RingFocus);
+            this.panel1.Controls.Add(this.cb_BootsFocus);
+            this.panel1.Controls.Add(this.label46);
+            this.panel1.Controls.Add(this.label45);
+            this.panel1.Controls.Add(this.label44);
+            this.panel1.Controls.Add(this.cb_Set1);
+            this.panel1.Controls.Add(this.cb_Set2);
+            this.panel1.Controls.Add(this.cb_Set3);
+            this.panel1.Controls.Add(this.b_Optimize);
+            this.panel1.Controls.Add(this.label47);
+            this.panel1.Controls.Add(this.l_Results);
+            this.panel1.Location = new System.Drawing.Point(1063, 30);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(310, 475);
+            this.panel1.TabIndex = 141;
+            // 
             // cb_Broken
             // 
             this.cb_Broken.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -4327,17 +4548,25 @@
             this.cb_Broken.Text = "Broken Sets";
             this.cb_Broken.UseVisualStyleBackColor = true;
             // 
-            // b_CancelOptimize
+            // label39
             // 
-            this.b_CancelOptimize.Location = new System.Drawing.Point(617, 908);
-            this.b_CancelOptimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.b_CancelOptimize.Name = "b_CancelOptimize";
-            this.b_CancelOptimize.Size = new System.Drawing.Size(222, 62);
-            this.b_CancelOptimize.TabIndex = 139;
-            this.b_CancelOptimize.Text = "Cancel";
-            this.b_CancelOptimize.UseVisualStyleBackColor = true;
-            this.b_CancelOptimize.Visible = false;
-            this.b_CancelOptimize.Click += new System.EventHandler(this.B_CancelOptimize_Click);
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(4, 31);
+            this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(74, 20);
+            this.label39.TabIndex = 11;
+            this.label39.Text = "Necklace";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(4, 71);
+            this.label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(42, 20);
+            this.label41.TabIndex = 12;
+            this.label41.Text = "Ring";
             // 
             // nud_EnhanceFocus
             // 
@@ -4353,6 +4582,16 @@
             this.nud_EnhanceFocus.TabIndex = 138;
             this.nud_EnhanceFocus.ValueChanged += new System.EventHandler(this.Nud_EnhanceFocus_ValueChanged);
             // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(4, 113);
+            this.label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(51, 20);
+            this.label43.TabIndex = 13;
+            this.label43.Text = "Boots";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -4362,6 +4601,207 @@
             this.label10.Size = new System.Drawing.Size(102, 20);
             this.label10.TabIndex = 137;
             this.label10.Text = "Min Enhance";
+            // 
+            // cb_NecklaceFocus
+            // 
+            this.cb_NecklaceFocus.FormattingEnabled = true;
+            this.cb_NecklaceFocus.Items.AddRange(new object[] {
+            "ATK%",
+            "ATK",
+            "Crit",
+            "CritDmg",
+            "HP%",
+            "HP",
+            "DEF%",
+            "DEF"});
+            this.cb_NecklaceFocus.Location = new System.Drawing.Point(92, 27);
+            this.cb_NecklaceFocus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_NecklaceFocus.Name = "cb_NecklaceFocus";
+            this.cb_NecklaceFocus.Size = new System.Drawing.Size(180, 28);
+            this.cb_NecklaceFocus.TabIndex = 7;
+            this.cb_NecklaceFocus.SelectedIndexChanged += new System.EventHandler(this.Cb_NecklaceFocus_SelectedIndexChanged);
+            // 
+            // cb_RingFocus
+            // 
+            this.cb_RingFocus.FormattingEnabled = true;
+            this.cb_RingFocus.Items.AddRange(new object[] {
+            "ATK%",
+            "ATK",
+            "HP%",
+            "HP",
+            "DEF%",
+            "DEF",
+            "EFF",
+            "RES"});
+            this.cb_RingFocus.Location = new System.Drawing.Point(92, 67);
+            this.cb_RingFocus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_RingFocus.Name = "cb_RingFocus";
+            this.cb_RingFocus.Size = new System.Drawing.Size(180, 28);
+            this.cb_RingFocus.TabIndex = 8;
+            this.cb_RingFocus.SelectedIndexChanged += new System.EventHandler(this.Cb_RingFocus_SelectedIndexChanged);
+            // 
+            // cb_BootsFocus
+            // 
+            this.cb_BootsFocus.FormattingEnabled = true;
+            this.cb_BootsFocus.Items.AddRange(new object[] {
+            "ATK%",
+            "ATK",
+            "SPD",
+            "HP%",
+            "HP",
+            "DEF%",
+            "DEF"});
+            this.cb_BootsFocus.Location = new System.Drawing.Point(92, 108);
+            this.cb_BootsFocus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_BootsFocus.Name = "cb_BootsFocus";
+            this.cb_BootsFocus.Size = new System.Drawing.Size(180, 28);
+            this.cb_BootsFocus.TabIndex = 9;
+            this.cb_BootsFocus.SelectedIndexChanged += new System.EventHandler(this.Cb_BootsFocus_SelectedIndexChanged);
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(4, 196);
+            this.label46.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(43, 20);
+            this.label46.TabIndex = 17;
+            this.label46.Text = "Set1";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(4, 236);
+            this.label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(43, 20);
+            this.label45.TabIndex = 18;
+            this.label45.Text = "Set2";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(4, 277);
+            this.label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(43, 20);
+            this.label44.TabIndex = 19;
+            this.label44.Text = "Set3";
+            // 
+            // cb_Set1
+            // 
+            this.cb_Set1.FormattingEnabled = true;
+            this.cb_Set1.Items.AddRange(new object[] {
+            "Speed",
+            "Hit",
+            "Crit",
+            "Def",
+            "Health",
+            "Attack",
+            "Counter",
+            "Lifesteal",
+            "Destruction",
+            "Resist",
+            "Rage",
+            "Immunity",
+            "Unity"});
+            this.cb_Set1.Location = new System.Drawing.Point(92, 191);
+            this.cb_Set1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_Set1.Name = "cb_Set1";
+            this.cb_Set1.Size = new System.Drawing.Size(180, 28);
+            this.cb_Set1.TabIndex = 10;
+            this.cb_Set1.SelectedIndexChanged += new System.EventHandler(this.Cb_NecklaceFocus_SelectedIndexChanged);
+            // 
+            // cb_Set2
+            // 
+            this.cb_Set2.FormattingEnabled = true;
+            this.cb_Set2.Items.AddRange(new object[] {
+            "Speed",
+            "Hit",
+            "Crit",
+            "Def",
+            "Health",
+            "Attack",
+            "Counter",
+            "Lifesteal",
+            "Destruction",
+            "Resist",
+            "Rage",
+            "Immunity",
+            "Unity"});
+            this.cb_Set2.Location = new System.Drawing.Point(92, 231);
+            this.cb_Set2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_Set2.Name = "cb_Set2";
+            this.cb_Set2.Size = new System.Drawing.Size(180, 28);
+            this.cb_Set2.TabIndex = 11;
+            this.cb_Set2.SelectedIndexChanged += new System.EventHandler(this.Chb_Locked_CheckedChanged);
+            // 
+            // cb_Set3
+            // 
+            this.cb_Set3.FormattingEnabled = true;
+            this.cb_Set3.Items.AddRange(new object[] {
+            "Speed",
+            "Hit",
+            "Crit",
+            "Def",
+            "Health",
+            "Attack",
+            "Counter",
+            "Lifesteal",
+            "Destruction",
+            "Reist",
+            "Rage",
+            "Immunity",
+            "Unity"});
+            this.cb_Set3.Location = new System.Drawing.Point(92, 273);
+            this.cb_Set3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_Set3.Name = "cb_Set3";
+            this.cb_Set3.Size = new System.Drawing.Size(180, 28);
+            this.cb_Set3.TabIndex = 12;
+            this.cb_Set3.SelectedIndexChanged += new System.EventHandler(this.Chb_Locked_CheckedChanged);
+            // 
+            // b_Optimize
+            // 
+            this.b_Optimize.Location = new System.Drawing.Point(8, 404);
+            this.b_Optimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_Optimize.Name = "b_Optimize";
+            this.b_Optimize.Size = new System.Drawing.Size(266, 60);
+            this.b_Optimize.TabIndex = 13;
+            this.b_Optimize.Text = "Optimize";
+            this.b_Optimize.UseVisualStyleBackColor = true;
+            this.b_Optimize.Click += new System.EventHandler(this.B_Optimize_Click);
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(4, 347);
+            this.label47.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(143, 20);
+            this.label47.TabIndex = 24;
+            this.label47.Text = "Estimated Results:";
+            // 
+            // l_Results
+            // 
+            this.l_Results.AutoSize = true;
+            this.l_Results.Location = new System.Drawing.Point(187, 345);
+            this.l_Results.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_Results.Name = "l_Results";
+            this.l_Results.Size = new System.Drawing.Size(18, 20);
+            this.l_Results.TabIndex = 25;
+            this.l_Results.Text = "0";
+            // 
+            // b_CancelOptimize
+            // 
+            this.b_CancelOptimize.Location = new System.Drawing.Point(617, 908);
+            this.b_CancelOptimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_CancelOptimize.Name = "b_CancelOptimize";
+            this.b_CancelOptimize.Size = new System.Drawing.Size(222, 62);
+            this.b_CancelOptimize.TabIndex = 139;
+            this.b_CancelOptimize.Text = "Cancel";
+            this.b_CancelOptimize.UseVisualStyleBackColor = true;
+            this.b_CancelOptimize.Visible = false;
+            this.b_CancelOptimize.Click += new System.EventHandler(this.B_CancelOptimize_Click);
             // 
             // button1
             // 
@@ -6217,236 +6657,6 @@
             this.chb_Locked.UseVisualStyleBackColor = true;
             this.chb_Locked.CheckedChanged += new System.EventHandler(this.Chb_Locked_CheckedChanged);
             // 
-            // l_Results
-            // 
-            this.l_Results.AutoSize = true;
-            this.l_Results.Location = new System.Drawing.Point(187, 345);
-            this.l_Results.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.l_Results.Name = "l_Results";
-            this.l_Results.Size = new System.Drawing.Size(18, 20);
-            this.l_Results.TabIndex = 25;
-            this.l_Results.Text = "0";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(4, 347);
-            this.label47.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(143, 20);
-            this.label47.TabIndex = 24;
-            this.label47.Text = "Estimated Results:";
-            // 
-            // b_Optimize
-            // 
-            this.b_Optimize.Location = new System.Drawing.Point(8, 404);
-            this.b_Optimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.b_Optimize.Name = "b_Optimize";
-            this.b_Optimize.Size = new System.Drawing.Size(266, 60);
-            this.b_Optimize.TabIndex = 13;
-            this.b_Optimize.Text = "Optimize";
-            this.b_Optimize.UseVisualStyleBackColor = true;
-            this.b_Optimize.Click += new System.EventHandler(this.B_Optimize_Click);
-            // 
-            // cb_Set3
-            // 
-            this.cb_Set3.FormattingEnabled = true;
-            this.cb_Set3.Items.AddRange(new object[] {
-            "Speed",
-            "Hit",
-            "Crit",
-            "Def",
-            "Health",
-            "Attack",
-            "Counter",
-            "Lifesteal",
-            "Destruction",
-            "Reist",
-            "Rage",
-            "Immunity",
-            "Unity"});
-            this.cb_Set3.Location = new System.Drawing.Point(92, 273);
-            this.cb_Set3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cb_Set3.Name = "cb_Set3";
-            this.cb_Set3.Size = new System.Drawing.Size(180, 28);
-            this.cb_Set3.TabIndex = 12;
-            this.cb_Set3.SelectedIndexChanged += new System.EventHandler(this.Chb_Locked_CheckedChanged);
-            // 
-            // cb_Set2
-            // 
-            this.cb_Set2.FormattingEnabled = true;
-            this.cb_Set2.Items.AddRange(new object[] {
-            "Speed",
-            "Hit",
-            "Crit",
-            "Def",
-            "Health",
-            "Attack",
-            "Counter",
-            "Lifesteal",
-            "Destruction",
-            "Resist",
-            "Rage",
-            "Immunity",
-            "Unity"});
-            this.cb_Set2.Location = new System.Drawing.Point(92, 231);
-            this.cb_Set2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cb_Set2.Name = "cb_Set2";
-            this.cb_Set2.Size = new System.Drawing.Size(180, 28);
-            this.cb_Set2.TabIndex = 11;
-            this.cb_Set2.SelectedIndexChanged += new System.EventHandler(this.Chb_Locked_CheckedChanged);
-            // 
-            // cb_Set1
-            // 
-            this.cb_Set1.FormattingEnabled = true;
-            this.cb_Set1.Items.AddRange(new object[] {
-            "Speed",
-            "Hit",
-            "Crit",
-            "Def",
-            "Health",
-            "Attack",
-            "Counter",
-            "Lifesteal",
-            "Destruction",
-            "Resist",
-            "Rage",
-            "Immunity",
-            "Unity"});
-            this.cb_Set1.Location = new System.Drawing.Point(92, 191);
-            this.cb_Set1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cb_Set1.Name = "cb_Set1";
-            this.cb_Set1.Size = new System.Drawing.Size(180, 28);
-            this.cb_Set1.TabIndex = 10;
-            this.cb_Set1.SelectedIndexChanged += new System.EventHandler(this.Cb_NecklaceFocus_SelectedIndexChanged);
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(4, 277);
-            this.label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(43, 20);
-            this.label44.TabIndex = 19;
-            this.label44.Text = "Set3";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(4, 236);
-            this.label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(43, 20);
-            this.label45.TabIndex = 18;
-            this.label45.Text = "Set2";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(4, 196);
-            this.label46.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(43, 20);
-            this.label46.TabIndex = 17;
-            this.label46.Text = "Set1";
-            // 
-            // cb_BootsFocus
-            // 
-            this.cb_BootsFocus.FormattingEnabled = true;
-            this.cb_BootsFocus.Items.AddRange(new object[] {
-            "ATK%",
-            "ATK",
-            "SPD",
-            "HP%",
-            "HP",
-            "DEF%",
-            "DEF"});
-            this.cb_BootsFocus.Location = new System.Drawing.Point(92, 108);
-            this.cb_BootsFocus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cb_BootsFocus.Name = "cb_BootsFocus";
-            this.cb_BootsFocus.Size = new System.Drawing.Size(180, 28);
-            this.cb_BootsFocus.TabIndex = 9;
-            this.cb_BootsFocus.SelectedIndexChanged += new System.EventHandler(this.Cb_BootsFocus_SelectedIndexChanged);
-            // 
-            // cb_RingFocus
-            // 
-            this.cb_RingFocus.FormattingEnabled = true;
-            this.cb_RingFocus.Items.AddRange(new object[] {
-            "ATK%",
-            "ATK",
-            "HP%",
-            "HP",
-            "DEF%",
-            "DEF",
-            "EFF",
-            "RES"});
-            this.cb_RingFocus.Location = new System.Drawing.Point(92, 67);
-            this.cb_RingFocus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cb_RingFocus.Name = "cb_RingFocus";
-            this.cb_RingFocus.Size = new System.Drawing.Size(180, 28);
-            this.cb_RingFocus.TabIndex = 8;
-            this.cb_RingFocus.SelectedIndexChanged += new System.EventHandler(this.Cb_RingFocus_SelectedIndexChanged);
-            // 
-            // cb_NecklaceFocus
-            // 
-            this.cb_NecklaceFocus.FormattingEnabled = true;
-            this.cb_NecklaceFocus.Items.AddRange(new object[] {
-            "ATK%",
-            "ATK",
-            "Crit",
-            "CritDmg",
-            "HP%",
-            "HP",
-            "DEF%",
-            "DEF"});
-            this.cb_NecklaceFocus.Location = new System.Drawing.Point(92, 27);
-            this.cb_NecklaceFocus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cb_NecklaceFocus.Name = "cb_NecklaceFocus";
-            this.cb_NecklaceFocus.Size = new System.Drawing.Size(180, 28);
-            this.cb_NecklaceFocus.TabIndex = 7;
-            this.cb_NecklaceFocus.SelectedIndexChanged += new System.EventHandler(this.Cb_NecklaceFocus_SelectedIndexChanged);
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(4, 113);
-            this.label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(51, 20);
-            this.label43.TabIndex = 13;
-            this.label43.Text = "Boots";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(4, 71);
-            this.label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(42, 20);
-            this.label41.TabIndex = 12;
-            this.label41.Text = "Ring";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(4, 31);
-            this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(74, 20);
-            this.label39.TabIndex = 11;
-            this.label39.Text = "Necklace";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(1059, 0);
-            this.label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(60, 20);
-            this.label38.TabIndex = 10;
-            this.label38.Text = "Focus";
-            // 
             // dgv_OptimizeResults
             // 
             this.dgv_OptimizeResults.AllowUserToAddRows = false;
@@ -6493,7 +6703,7 @@
             this.dgv_OptimizeResults.ReadOnly = true;
             this.dgv_OptimizeResults.RowHeadersWidth = 62;
             this.dgv_OptimizeResults.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgv_OptimizeResults.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgv_OptimizeResults.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgv_OptimizeResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_OptimizeResults.Size = new System.Drawing.Size(1362, 452);
             this.dgv_OptimizeResults.TabIndex = 101;
@@ -6501,6 +6711,115 @@
             this.dgv_OptimizeResults.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.Dgv_OptimizeResults_CellValueNeeded);
             this.dgv_OptimizeResults.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dgv_OptimizeResults_ColumnHeaderMouseClick);
             this.dgv_OptimizeResults.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_OptimizeResults_RowEnter);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "ATK";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "SPD";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "Crit";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "CritDmg";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.HeaderText = "HP";
+            this.dataGridViewTextBoxColumn13.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.HeaderText = "HP/SPD";
+            this.dataGridViewTextBoxColumn23.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.HeaderText = "DEF";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.HeaderText = "EFF";
+            this.dataGridViewTextBoxColumn15.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.HeaderText = "RES";
+            this.dataGridViewTextBoxColumn16.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.HeaderText = "DAC";
+            this.dataGridViewTextBoxColumn17.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle6.NullValue")));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewImageColumn1.HeaderText = "Sets";
+            this.dataGridViewImageColumn1.MinimumWidth = 8;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.HeaderText = "EHP";
+            this.dataGridViewTextBoxColumn18.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.HeaderText = "EHP/SPD";
+            this.dataGridViewTextBoxColumn24.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.HeaderText = "DMG";
+            this.dataGridViewTextBoxColumn19.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.HeaderText = "DMG/SPD";
+            this.dataGridViewTextBoxColumn25.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.ReadOnly = true;
             // 
             // label37
             // 
@@ -6563,6 +6882,111 @@
             this.dgv_CurrentGear.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_CurrentGear.Size = new System.Drawing.Size(1362, 89);
             this.dgv_CurrentGear.TabIndex = 100;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "ATK";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "SPD";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Crit";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "CritDmg";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "HP";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.HeaderText = "HP/SPD";
+            this.dataGridViewTextBoxColumn20.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "DEF";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // c_OptimizeEFF
+            // 
+            this.c_OptimizeEFF.HeaderText = "EFF";
+            this.c_OptimizeEFF.MinimumWidth = 8;
+            this.c_OptimizeEFF.Name = "c_OptimizeEFF";
+            this.c_OptimizeEFF.ReadOnly = true;
+            // 
+            // c_OptimizeRES
+            // 
+            this.c_OptimizeRES.HeaderText = "RES";
+            this.c_OptimizeRES.MinimumWidth = 8;
+            this.c_OptimizeRES.Name = "c_OptimizeRES";
+            this.c_OptimizeRES.ReadOnly = true;
+            // 
+            // c_OptimizeDAC
+            // 
+            this.c_OptimizeDAC.HeaderText = "DAC";
+            this.c_OptimizeDAC.MinimumWidth = 8;
+            this.c_OptimizeDAC.Name = "c_OptimizeDAC";
+            this.c_OptimizeDAC.ReadOnly = true;
+            // 
+            // dataGridViewImageColumn5
+            // 
+            this.dataGridViewImageColumn5.HeaderText = "Sets";
+            this.dataGridViewImageColumn5.MinimumWidth = 8;
+            this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
+            this.dataGridViewImageColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "EHP";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.HeaderText = "EHP/SPD";
+            this.dataGridViewTextBoxColumn21.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.HeaderText = "DMG";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.HeaderText = "DMG/SPD";
+            this.dataGridViewTextBoxColumn22.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.ReadOnly = true;
             // 
             // label36
             // 
@@ -6999,6 +7423,7 @@
             this.tb_MinHPpS.Name = "tb_MinHPpS";
             this.tb_MinHPpS.Size = new System.Drawing.Size(125, 26);
             this.tb_MinHPpS.TabIndex = 10;
+            this.tb_MinHPpS.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // label42
             // 
@@ -7020,6 +7445,68 @@
             this.tb_MaxHPpS.Name = "tb_MaxHPpS";
             this.tb_MaxHPpS.Size = new System.Drawing.Size(126, 26);
             this.tb_MaxHPpS.TabIndex = 11;
+            // 
+            // tb_MaxEHPpS
+            // 
+            this.tb_MaxEHPpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxEHPpS.Location = new System.Drawing.Point(270, 345);
+            this.tb_MaxEHPpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxEHPpS.Name = "tb_MaxEHPpS";
+            this.tb_MaxEHPpS.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxEHPpS.TabIndex = 21;
+            // 
+            // tb_MaxDMGpS
+            // 
+            this.tb_MaxDMGpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxDMGpS.Location = new System.Drawing.Point(270, 416);
+            this.tb_MaxDMGpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxDMGpS.Name = "tb_MaxDMGpS";
+            this.tb_MaxDMGpS.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxDMGpS.TabIndex = 25;
+            // 
+            // tb_MinEHPpS
+            // 
+            this.tb_MinEHPpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinEHPpS.Location = new System.Drawing.Point(4, 345);
+            this.tb_MinEHPpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinEHPpS.Name = "tb_MinEHPpS";
+            this.tb_MinEHPpS.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinEHPpS.TabIndex = 20;
+            this.tb_MinEHPpS.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
+            // 
+            // tb_MinDMGpS
+            // 
+            this.tb_MinDMGpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinDMGpS.Location = new System.Drawing.Point(4, 416);
+            this.tb_MinDMGpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinDMGpS.Name = "tb_MinDMGpS";
+            this.tb_MinDMGpS.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinDMGpS.TabIndex = 24;
+            this.tb_MinDMGpS.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
+            // 
+            // label51
+            // 
+            this.label51.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(137, 347);
+            this.label51.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(125, 20);
+            this.label51.TabIndex = 10;
+            this.label51.Text = "EHP/SPD";
+            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label52
+            // 
+            this.label52.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(137, 419);
+            this.label52.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(125, 20);
+            this.label52.TabIndex = 12;
+            this.label52.Text = "DMG/SPD";
+            this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label18
             // 
@@ -7191,490 +7678,6 @@
             this.sfd_export.FileName = "E7 Gear Optimizer.json";
             this.sfd_export.Filter = "JSON|*.json";
             // 
-            // tb_MaxEHPpS
-            // 
-            this.tb_MaxEHPpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxEHPpS.Location = new System.Drawing.Point(270, 345);
-            this.tb_MaxEHPpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tb_MaxEHPpS.Name = "tb_MaxEHPpS";
-            this.tb_MaxEHPpS.Size = new System.Drawing.Size(126, 26);
-            this.tb_MaxEHPpS.TabIndex = 21;
-            // 
-            // tb_MaxDMGpS
-            // 
-            this.tb_MaxDMGpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxDMGpS.Location = new System.Drawing.Point(270, 416);
-            this.tb_MaxDMGpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tb_MaxDMGpS.Name = "tb_MaxDMGpS";
-            this.tb_MaxDMGpS.Size = new System.Drawing.Size(126, 26);
-            this.tb_MaxDMGpS.TabIndex = 25;
-            // 
-            // tb_MinEHPpS
-            // 
-            this.tb_MinEHPpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinEHPpS.Location = new System.Drawing.Point(4, 345);
-            this.tb_MinEHPpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tb_MinEHPpS.Name = "tb_MinEHPpS";
-            this.tb_MinEHPpS.Size = new System.Drawing.Size(125, 26);
-            this.tb_MinEHPpS.TabIndex = 20;
-            // 
-            // tb_MinDMGpS
-            // 
-            this.tb_MinDMGpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinDMGpS.Location = new System.Drawing.Point(4, 416);
-            this.tb_MinDMGpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tb_MinDMGpS.Name = "tb_MinDMGpS";
-            this.tb_MinDMGpS.Size = new System.Drawing.Size(125, 26);
-            this.tb_MinDMGpS.TabIndex = 24;
-            // 
-            // label51
-            // 
-            this.label51.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(137, 347);
-            this.label51.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(125, 20);
-            this.label51.TabIndex = 10;
-            this.label51.Text = "EHP/SPD";
-            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label52
-            // 
-            this.label52.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(137, 419);
-            this.label52.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(125, 20);
-            this.label52.TabIndex = 12;
-            this.label52.Text = "DMG/SPD";
-            this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // c_Portrait
-            // 
-            this.c_Portrait.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Portrait.HeaderText = "Portrait";
-            this.c_Portrait.MinimumWidth = 8;
-            this.c_Portrait.Name = "c_Portrait";
-            this.c_Portrait.ReadOnly = true;
-            this.c_Portrait.Width = 70;
-            // 
-            // c_Name
-            // 
-            this.c_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Name.HeaderText = "Name";
-            this.c_Name.MinimumWidth = 8;
-            this.c_Name.Name = "c_Name";
-            this.c_Name.ReadOnly = true;
-            this.c_Name.Width = 89;
-            // 
-            // c_Element
-            // 
-            this.c_Element.HeaderText = "Element";
-            this.c_Element.MinimumWidth = 8;
-            this.c_Element.Name = "c_Element";
-            this.c_Element.ReadOnly = true;
-            this.c_Element.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.c_Element.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.c_Element.Width = 106;
-            // 
-            // c_Class
-            // 
-            this.c_Class.HeaderText = "Class";
-            this.c_Class.MinimumWidth = 8;
-            this.c_Class.Name = "c_Class";
-            this.c_Class.ReadOnly = true;
-            this.c_Class.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.c_Class.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.c_Class.Width = 88;
-            // 
-            // c_Lvl
-            // 
-            this.c_Lvl.HeaderText = "Lvl";
-            this.c_Lvl.MinimumWidth = 8;
-            this.c_Lvl.Name = "c_Lvl";
-            this.c_Lvl.ReadOnly = true;
-            this.c_Lvl.Width = 67;
-            // 
-            // c_Awakening
-            // 
-            this.c_Awakening.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Awakening.HeaderText = "Awakening";
-            this.c_Awakening.MinimumWidth = 8;
-            this.c_Awakening.Name = "c_Awakening";
-            this.c_Awakening.ReadOnly = true;
-            this.c_Awakening.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.c_Awakening.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.c_Awakening.Width = 125;
-            // 
-            // c_Sets
-            // 
-            this.c_Sets.HeaderText = "Sets";
-            this.c_Sets.MinimumWidth = 8;
-            this.c_Sets.Name = "c_Sets";
-            this.c_Sets.ReadOnly = true;
-            this.c_Sets.Width = 49;
-            // 
-            // c_ATKHero
-            // 
-            this.c_ATKHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_ATKHero.HeaderText = "ATK";
-            this.c_ATKHero.MinimumWidth = 8;
-            this.c_ATKHero.Name = "c_ATKHero";
-            this.c_ATKHero.ReadOnly = true;
-            // 
-            // c_SPDHero
-            // 
-            this.c_SPDHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_SPDHero.HeaderText = "SPD";
-            this.c_SPDHero.MinimumWidth = 8;
-            this.c_SPDHero.Name = "c_SPDHero";
-            this.c_SPDHero.ReadOnly = true;
-            // 
-            // c_CritHero
-            // 
-            this.c_CritHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_CritHero.HeaderText = "Crit";
-            this.c_CritHero.MinimumWidth = 8;
-            this.c_CritHero.Name = "c_CritHero";
-            this.c_CritHero.ReadOnly = true;
-            // 
-            // c_CritDmgHero
-            // 
-            this.c_CritDmgHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_CritDmgHero.HeaderText = "CritDmg";
-            this.c_CritDmgHero.MinimumWidth = 8;
-            this.c_CritDmgHero.Name = "c_CritDmgHero";
-            this.c_CritDmgHero.ReadOnly = true;
-            // 
-            // c_HPHero
-            // 
-            this.c_HPHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_HPHero.HeaderText = "HP";
-            this.c_HPHero.MinimumWidth = 8;
-            this.c_HPHero.Name = "c_HPHero";
-            this.c_HPHero.ReadOnly = true;
-            // 
-            // c_HPpSHero
-            // 
-            this.c_HPpSHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_HPpSHero.HeaderText = "HP/SPD";
-            this.c_HPpSHero.MinimumWidth = 8;
-            this.c_HPpSHero.Name = "c_HPpSHero";
-            this.c_HPpSHero.ReadOnly = true;
-            // 
-            // c_DEFHero
-            // 
-            this.c_DEFHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DEFHero.HeaderText = "DEF";
-            this.c_DEFHero.MinimumWidth = 8;
-            this.c_DEFHero.Name = "c_DEFHero";
-            this.c_DEFHero.ReadOnly = true;
-            // 
-            // c_EFFHero
-            // 
-            this.c_EFFHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_EFFHero.HeaderText = "EFF";
-            this.c_EFFHero.MinimumWidth = 8;
-            this.c_EFFHero.Name = "c_EFFHero";
-            this.c_EFFHero.ReadOnly = true;
-            // 
-            // c_RESHero
-            // 
-            this.c_RESHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_RESHero.HeaderText = "RES";
-            this.c_RESHero.MinimumWidth = 8;
-            this.c_RESHero.Name = "c_RESHero";
-            this.c_RESHero.ReadOnly = true;
-            // 
-            // c_DACHero
-            // 
-            this.c_DACHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DACHero.HeaderText = "DAC";
-            this.c_DACHero.MinimumWidth = 8;
-            this.c_DACHero.Name = "c_DACHero";
-            this.c_DACHero.ReadOnly = true;
-            // 
-            // c_EHP
-            // 
-            this.c_EHP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_EHP.HeaderText = "EHP";
-            this.c_EHP.MinimumWidth = 8;
-            this.c_EHP.Name = "c_EHP";
-            this.c_EHP.ReadOnly = true;
-            // 
-            // c_EHPpSHero
-            // 
-            this.c_EHPpSHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_EHPpSHero.HeaderText = "EHP/DPS";
-            this.c_EHPpSHero.MinimumWidth = 8;
-            this.c_EHPpSHero.Name = "c_EHPpSHero";
-            this.c_EHPpSHero.ReadOnly = true;
-            // 
-            // c_DMG
-            // 
-            this.c_DMG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DMG.HeaderText = "DMG";
-            this.c_DMG.MinimumWidth = 8;
-            this.c_DMG.Name = "c_DMG";
-            this.c_DMG.ReadOnly = true;
-            // 
-            // c_DMGpS
-            // 
-            this.c_DMGpS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DMGpS.HeaderText = "DMG/SPD";
-            this.c_DMGpS.MinimumWidth = 8;
-            this.c_DMGpS.Name = "c_DMGpS";
-            this.c_DMGpS.ReadOnly = true;
-            // 
-            // c_HeroID
-            // 
-            this.c_HeroID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_HeroID.HeaderText = "ID";
-            this.c_HeroID.MinimumWidth = 8;
-            this.c_HeroID.Name = "c_HeroID";
-            this.c_HeroID.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "ATK";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "SPD";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Crit";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "CritDmg";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "HP";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.HeaderText = "HP/SPD";
-            this.dataGridViewTextBoxColumn20.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "DEF";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // c_OptimizeEFF
-            // 
-            this.c_OptimizeEFF.HeaderText = "EFF";
-            this.c_OptimizeEFF.MinimumWidth = 8;
-            this.c_OptimizeEFF.Name = "c_OptimizeEFF";
-            this.c_OptimizeEFF.ReadOnly = true;
-            // 
-            // c_OptimizeRES
-            // 
-            this.c_OptimizeRES.HeaderText = "RES";
-            this.c_OptimizeRES.MinimumWidth = 8;
-            this.c_OptimizeRES.Name = "c_OptimizeRES";
-            this.c_OptimizeRES.ReadOnly = true;
-            // 
-            // c_OptimizeDAC
-            // 
-            this.c_OptimizeDAC.HeaderText = "DAC";
-            this.c_OptimizeDAC.MinimumWidth = 8;
-            this.c_OptimizeDAC.Name = "c_OptimizeDAC";
-            this.c_OptimizeDAC.ReadOnly = true;
-            // 
-            // dataGridViewImageColumn5
-            // 
-            this.dataGridViewImageColumn5.HeaderText = "Sets";
-            this.dataGridViewImageColumn5.MinimumWidth = 8;
-            this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
-            this.dataGridViewImageColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "EHP";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.HeaderText = "EHP/SPD";
-            this.dataGridViewTextBoxColumn21.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.HeaderText = "DMG";
-            this.dataGridViewTextBoxColumn12.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn22
-            // 
-            this.dataGridViewTextBoxColumn22.HeaderText = "DMG/SPD";
-            this.dataGridViewTextBoxColumn22.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-            this.dataGridViewTextBoxColumn22.ReadOnly = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.cb_Broken);
-            this.panel1.Controls.Add(this.label39);
-            this.panel1.Controls.Add(this.label41);
-            this.panel1.Controls.Add(this.nud_EnhanceFocus);
-            this.panel1.Controls.Add(this.label43);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.cb_NecklaceFocus);
-            this.panel1.Controls.Add(this.cb_RingFocus);
-            this.panel1.Controls.Add(this.cb_BootsFocus);
-            this.panel1.Controls.Add(this.label46);
-            this.panel1.Controls.Add(this.label45);
-            this.panel1.Controls.Add(this.label44);
-            this.panel1.Controls.Add(this.cb_Set1);
-            this.panel1.Controls.Add(this.cb_Set2);
-            this.panel1.Controls.Add(this.cb_Set3);
-            this.panel1.Controls.Add(this.b_Optimize);
-            this.panel1.Controls.Add(this.label47);
-            this.panel1.Controls.Add(this.l_Results);
-            this.panel1.Location = new System.Drawing.Point(1063, 30);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(310, 475);
-            this.panel1.TabIndex = 141;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "ATK";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "SPD";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Crit";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "CritDmg";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.HeaderText = "HP";
-            this.dataGridViewTextBoxColumn13.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.HeaderText = "HP/SPD";
-            this.dataGridViewTextBoxColumn23.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.HeaderText = "DEF";
-            this.dataGridViewTextBoxColumn14.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.HeaderText = "EFF";
-            this.dataGridViewTextBoxColumn15.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.HeaderText = "RES";
-            this.dataGridViewTextBoxColumn16.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.HeaderText = "DAC";
-            this.dataGridViewTextBoxColumn17.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle6.NullValue")));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewImageColumn1.HeaderText = "Sets";
-            this.dataGridViewImageColumn1.MinimumWidth = 8;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.HeaderText = "EHP";
-            this.dataGridViewTextBoxColumn18.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            this.dataGridViewTextBoxColumn24.HeaderText = "EHP/SPD";
-            this.dataGridViewTextBoxColumn24.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            this.dataGridViewTextBoxColumn24.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.HeaderText = "DMG";
-            this.dataGridViewTextBoxColumn19.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn25
-            // 
-            this.dataGridViewTextBoxColumn25.HeaderText = "DMG/SPD";
-            this.dataGridViewTextBoxColumn25.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
-            this.dataGridViewTextBoxColumn25.ReadOnly = true;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -7746,6 +7749,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tb_Optimize.ResumeLayout(false);
             this.tb_Optimize.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_EnhanceFocus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_OptimizeBootsEquipped)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_OptimizeRingEquipped)).EndInit();
@@ -7784,8 +7789,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_WeaponSetOptimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
