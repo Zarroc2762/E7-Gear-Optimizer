@@ -54,12 +54,15 @@ namespace E7_Gear_Optimizer
         CritDmg,
         HPPercent,
         HP,
+        HPpS,
         DEFPercent,
         DEF,
         EFF,
         RES,
         EHP,
-        DMG
+        EHPpS,
+        DMG,
+        DMGpS
     }
 
     public enum Element
@@ -149,7 +152,10 @@ namespace E7_Gear_Optimizer
             [Stats.HP] = "Health",
             [Stats.HPPercent] = "Health",
             [Stats.RES] = "Effect Resistance",
-            [Stats.SPD] = "Speed"
+            [Stats.SPD] = "Speed",
+            [Stats.HPpS] = "HP Per Speed",
+            [Stats.EHPpS] = "Effective HP Per Speed",
+            [Stats.DMGpS] = "Damage Per Speed"
         };
 
         public static List<Stats> percentStats = new List<Stats>()

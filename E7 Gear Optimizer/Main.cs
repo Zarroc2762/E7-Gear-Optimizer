@@ -319,18 +319,21 @@ namespace E7_Gear_Optimizer
                         count += set == Set.Unity ? 1 : 0;
                     }
                 }
-                values[15] = (5 + (count * 4)) + "%";
+                values[16] = (5 + (count * 4)) + "%";
                 Dictionary<Stats, float> stats = hero.CurrentStats;
                 values[7] = (int)stats[Stats.ATK];
                 values[8] = (int)stats[Stats.SPD];
                 values[9] = stats[Stats.Crit].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[10] = stats[Stats.CritDmg].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[11] = (int)stats[Stats.HP];
-                values[12] = (int)stats[Stats.DEF];
-                values[13] = stats[Stats.EFF].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[14] = stats[Stats.RES].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[16] = (int)stats[Stats.EHP];
-                values[17] = (int)stats[Stats.DMG];
+                values[12] = (int)stats[Stats.HPpS];
+                values[13] = (int)stats[Stats.DEF];
+                values[14] = stats[Stats.EFF].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                values[15] = stats[Stats.RES].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                values[17] = (int)stats[Stats.EHP];
+                values[18] = (int)stats[Stats.EHPpS];
+                values[19] = (int)stats[Stats.DMG];
+                values[20] = (int)stats[Stats.DMGpS];
                 dgv_Heroes.Rows.Add(values);
             }
 
