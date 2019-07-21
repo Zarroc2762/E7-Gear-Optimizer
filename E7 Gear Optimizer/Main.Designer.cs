@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tb_Inventory = new System.Windows.Forms.TabPage();
             this.l_ItemCount = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -294,6 +294,28 @@
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.Elements = new System.Windows.Forms.ImageList(this.components);
             this.dgv_Heroes = new System.Windows.Forms.DataGridView();
+            this.c_Portrait = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Element = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Class = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Lvl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Awakening = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Sets = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_ATKHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_SPDHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_CritHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_CritDmgHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HPHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HPpSHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DEFHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_EFFHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_RESHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DACHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_EHP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_EHPpSHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DMG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DMGpS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HeroID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.b_EditBoots = new System.Windows.Forms.Button();
             this.b_EditRing = new System.Windows.Forms.Button();
             this.b_EditNecklace = new System.Windows.Forms.Button();
@@ -556,6 +578,9 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.tb_MinATK = new System.Windows.Forms.TextBox();
+            this.tb_MinHPpS = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.tb_MaxHPpS = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.cb_OptimizeHero = new System.Windows.Forms.ComboBox();
             this.pb_RingSetOptimize = new System.Windows.Forms.PictureBox();
@@ -572,28 +597,12 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.ofd_import = new System.Windows.Forms.OpenFileDialog();
             this.sfd_export = new System.Windows.Forms.SaveFileDialog();
-            this.c_Portrait = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Element = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Class = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Lvl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Awakening = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Sets = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_ATKHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_SPDHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_CritHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_CritDmgHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HPHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HPpSHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DEFHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_EFFHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_RESHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DACHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_EHP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_EHPpSHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DMG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DMGpS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HeroID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tb_MaxEHPpS = new System.Windows.Forms.TextBox();
+            this.tb_MaxDMGpS = new System.Windows.Forms.TextBox();
+            this.tb_MinEHPpS = new System.Windows.Forms.TextBox();
+            this.tb_MinDMGpS = new System.Windows.Forms.TextBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
             this.tb_Inventory.SuspendLayout();
             this.tc_InventorySets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ItemLocked)).BeginInit();
@@ -1681,14 +1690,14 @@
             this.dgv_Inventory.AllowUserToDeleteRows = false;
             this.dgv_Inventory.AllowUserToOrderColumns = true;
             this.dgv_Inventory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Inventory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Inventory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dgv_Inventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Inventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.c_set,
@@ -1714,14 +1723,14 @@
             this.c_TypeID,
             this.c_ItemID,
             this.c_Locked});
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Inventory.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Inventory.DefaultCellStyle = dataGridViewCellStyle20;
             this.dgv_Inventory.Location = new System.Drawing.Point(9, 62);
             this.dgv_Inventory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgv_Inventory.MultiSelect = false;
@@ -2163,7 +2172,7 @@
             this.tc_Main.Margin = new System.Windows.Forms.Padding(0);
             this.tc_Main.Name = "tc_Main";
             this.tc_Main.SelectedIndex = 0;
-            this.tc_Main.Size = new System.Drawing.Size(2004, 1108);
+            this.tc_Main.Size = new System.Drawing.Size(2004, 1183);
             this.tc_Main.TabIndex = 0;
             this.tc_Main.SelectedIndexChanged += new System.EventHandler(this.tc_Main_SelectedIndexChanged);
             // 
@@ -3902,14 +3911,14 @@
             this.dgv_Heroes.AllowUserToOrderColumns = true;
             this.dgv_Heroes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_Heroes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Heroes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Heroes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.dgv_Heroes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Heroes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.c_Portrait,
@@ -3934,14 +3943,14 @@
             this.c_DMG,
             this.c_DMGpS,
             this.c_HeroID});
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Heroes.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Heroes.DefaultCellStyle = dataGridViewCellStyle27;
             this.dgv_Heroes.Location = new System.Drawing.Point(10, 68);
             this.dgv_Heroes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgv_Heroes.MultiSelect = false;
@@ -3952,6 +3961,191 @@
             this.dgv_Heroes.Size = new System.Drawing.Size(1978, 505);
             this.dgv_Heroes.TabIndex = 0;
             this.dgv_Heroes.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Heroes_RowEnter);
+            // 
+            // c_Portrait
+            // 
+            this.c_Portrait.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Portrait.HeaderText = "Portrait";
+            this.c_Portrait.MinimumWidth = 8;
+            this.c_Portrait.Name = "c_Portrait";
+            this.c_Portrait.ReadOnly = true;
+            this.c_Portrait.Width = 70;
+            // 
+            // c_Name
+            // 
+            this.c_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Name.HeaderText = "Name";
+            this.c_Name.MinimumWidth = 8;
+            this.c_Name.Name = "c_Name";
+            this.c_Name.ReadOnly = true;
+            this.c_Name.Width = 89;
+            // 
+            // c_Element
+            // 
+            this.c_Element.HeaderText = "Element";
+            this.c_Element.MinimumWidth = 8;
+            this.c_Element.Name = "c_Element";
+            this.c_Element.ReadOnly = true;
+            this.c_Element.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.c_Element.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.c_Element.Width = 106;
+            // 
+            // c_Class
+            // 
+            this.c_Class.HeaderText = "Class";
+            this.c_Class.MinimumWidth = 8;
+            this.c_Class.Name = "c_Class";
+            this.c_Class.ReadOnly = true;
+            this.c_Class.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.c_Class.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.c_Class.Width = 88;
+            // 
+            // c_Lvl
+            // 
+            this.c_Lvl.HeaderText = "Lvl";
+            this.c_Lvl.MinimumWidth = 8;
+            this.c_Lvl.Name = "c_Lvl";
+            this.c_Lvl.ReadOnly = true;
+            this.c_Lvl.Width = 67;
+            // 
+            // c_Awakening
+            // 
+            this.c_Awakening.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Awakening.HeaderText = "Awakening";
+            this.c_Awakening.MinimumWidth = 8;
+            this.c_Awakening.Name = "c_Awakening";
+            this.c_Awakening.ReadOnly = true;
+            this.c_Awakening.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.c_Awakening.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.c_Awakening.Width = 125;
+            // 
+            // c_Sets
+            // 
+            this.c_Sets.HeaderText = "Sets";
+            this.c_Sets.MinimumWidth = 8;
+            this.c_Sets.Name = "c_Sets";
+            this.c_Sets.ReadOnly = true;
+            this.c_Sets.Width = 49;
+            // 
+            // c_ATKHero
+            // 
+            this.c_ATKHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_ATKHero.HeaderText = "ATK";
+            this.c_ATKHero.MinimumWidth = 8;
+            this.c_ATKHero.Name = "c_ATKHero";
+            this.c_ATKHero.ReadOnly = true;
+            // 
+            // c_SPDHero
+            // 
+            this.c_SPDHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_SPDHero.HeaderText = "SPD";
+            this.c_SPDHero.MinimumWidth = 8;
+            this.c_SPDHero.Name = "c_SPDHero";
+            this.c_SPDHero.ReadOnly = true;
+            // 
+            // c_CritHero
+            // 
+            this.c_CritHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_CritHero.HeaderText = "Crit";
+            this.c_CritHero.MinimumWidth = 8;
+            this.c_CritHero.Name = "c_CritHero";
+            this.c_CritHero.ReadOnly = true;
+            // 
+            // c_CritDmgHero
+            // 
+            this.c_CritDmgHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_CritDmgHero.HeaderText = "CritDmg";
+            this.c_CritDmgHero.MinimumWidth = 8;
+            this.c_CritDmgHero.Name = "c_CritDmgHero";
+            this.c_CritDmgHero.ReadOnly = true;
+            // 
+            // c_HPHero
+            // 
+            this.c_HPHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_HPHero.HeaderText = "HP";
+            this.c_HPHero.MinimumWidth = 8;
+            this.c_HPHero.Name = "c_HPHero";
+            this.c_HPHero.ReadOnly = true;
+            // 
+            // c_HPpSHero
+            // 
+            this.c_HPpSHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_HPpSHero.HeaderText = "HPpS";
+            this.c_HPpSHero.MinimumWidth = 8;
+            this.c_HPpSHero.Name = "c_HPpSHero";
+            this.c_HPpSHero.ReadOnly = true;
+            // 
+            // c_DEFHero
+            // 
+            this.c_DEFHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DEFHero.HeaderText = "DEF";
+            this.c_DEFHero.MinimumWidth = 8;
+            this.c_DEFHero.Name = "c_DEFHero";
+            this.c_DEFHero.ReadOnly = true;
+            // 
+            // c_EFFHero
+            // 
+            this.c_EFFHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_EFFHero.HeaderText = "EFF";
+            this.c_EFFHero.MinimumWidth = 8;
+            this.c_EFFHero.Name = "c_EFFHero";
+            this.c_EFFHero.ReadOnly = true;
+            // 
+            // c_RESHero
+            // 
+            this.c_RESHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_RESHero.HeaderText = "RES";
+            this.c_RESHero.MinimumWidth = 8;
+            this.c_RESHero.Name = "c_RESHero";
+            this.c_RESHero.ReadOnly = true;
+            // 
+            // c_DACHero
+            // 
+            this.c_DACHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DACHero.HeaderText = "DAC";
+            this.c_DACHero.MinimumWidth = 8;
+            this.c_DACHero.Name = "c_DACHero";
+            this.c_DACHero.ReadOnly = true;
+            // 
+            // c_EHP
+            // 
+            this.c_EHP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_EHP.HeaderText = "EHP";
+            this.c_EHP.MinimumWidth = 8;
+            this.c_EHP.Name = "c_EHP";
+            this.c_EHP.ReadOnly = true;
+            // 
+            // c_EHPpSHero
+            // 
+            this.c_EHPpSHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_EHPpSHero.HeaderText = "EHPpS";
+            this.c_EHPpSHero.MinimumWidth = 8;
+            this.c_EHPpSHero.Name = "c_EHPpSHero";
+            this.c_EHPpSHero.ReadOnly = true;
+            // 
+            // c_DMG
+            // 
+            this.c_DMG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DMG.HeaderText = "DMG";
+            this.c_DMG.MinimumWidth = 8;
+            this.c_DMG.Name = "c_DMG";
+            this.c_DMG.ReadOnly = true;
+            // 
+            // c_DMGpS
+            // 
+            this.c_DMGpS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DMGpS.HeaderText = "DMGpS";
+            this.c_DMGpS.MinimumWidth = 8;
+            this.c_DMGpS.Name = "c_DMGpS";
+            this.c_DMGpS.ReadOnly = true;
+            // 
+            // c_HeroID
+            // 
+            this.c_HeroID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_HeroID.HeaderText = "ID";
+            this.c_HeroID.MinimumWidth = 8;
+            this.c_HeroID.Name = "c_HeroID";
+            this.c_HeroID.ReadOnly = true;
             // 
             // b_EditBoots
             // 
@@ -4308,7 +4502,7 @@
             this.tb_Optimize.Location = new System.Drawing.Point(4, 32);
             this.tb_Optimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_Optimize.Name = "tb_Optimize";
-            this.tb_Optimize.Size = new System.Drawing.Size(1996, 1072);
+            this.tb_Optimize.Size = new System.Drawing.Size(1996, 1147);
             this.tb_Optimize.TabIndex = 2;
             this.tb_Optimize.Text = "Optimization";
             this.tb_Optimize.UseVisualStyleBackColor = true;
@@ -4329,7 +4523,7 @@
             // 
             // b_CancelOptimize
             // 
-            this.b_CancelOptimize.Location = new System.Drawing.Point(416, 837);
+            this.b_CancelOptimize.Location = new System.Drawing.Point(416, 912);
             this.b_CancelOptimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.b_CancelOptimize.Name = "b_CancelOptimize";
             this.b_CancelOptimize.Size = new System.Drawing.Size(222, 62);
@@ -4376,7 +4570,7 @@
             // 
             // pb_OptimizeBootsEquipped
             // 
-            this.pb_OptimizeBootsEquipped.Location = new System.Drawing.Point(1584, 729);
+            this.pb_OptimizeBootsEquipped.Location = new System.Drawing.Point(1584, 802);
             this.pb_OptimizeBootsEquipped.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pb_OptimizeBootsEquipped.Name = "pb_OptimizeBootsEquipped";
             this.pb_OptimizeBootsEquipped.Size = new System.Drawing.Size(105, 108);
@@ -4386,7 +4580,7 @@
             // 
             // pb_OptimizeRingEquipped
             // 
-            this.pb_OptimizeRingEquipped.Location = new System.Drawing.Point(1584, 363);
+            this.pb_OptimizeRingEquipped.Location = new System.Drawing.Point(1584, 402);
             this.pb_OptimizeRingEquipped.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pb_OptimizeRingEquipped.Name = "pb_OptimizeRingEquipped";
             this.pb_OptimizeRingEquipped.Size = new System.Drawing.Size(105, 108);
@@ -4416,7 +4610,7 @@
             // 
             // pb_OptimizeArmorEquipped
             // 
-            this.pb_OptimizeArmorEquipped.Location = new System.Drawing.Point(1192, 729);
+            this.pb_OptimizeArmorEquipped.Location = new System.Drawing.Point(1192, 802);
             this.pb_OptimizeArmorEquipped.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pb_OptimizeArmorEquipped.Name = "pb_OptimizeArmorEquipped";
             this.pb_OptimizeArmorEquipped.Size = new System.Drawing.Size(105, 108);
@@ -4426,7 +4620,7 @@
             // 
             // pb_OptimizeHelmetEquipped
             // 
-            this.pb_OptimizeHelmetEquipped.Location = new System.Drawing.Point(1192, 365);
+            this.pb_OptimizeHelmetEquipped.Location = new System.Drawing.Point(1192, 402);
             this.pb_OptimizeHelmetEquipped.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pb_OptimizeHelmetEquipped.Name = "pb_OptimizeHelmetEquipped";
             this.pb_OptimizeHelmetEquipped.Size = new System.Drawing.Size(105, 108);
@@ -4530,51 +4724,56 @@
             this.tlb_Force.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
             this.tlb_Force.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
             this.tlb_Force.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tlb_Force.Size = new System.Drawing.Size(300, 375);
+            this.tlb_Force.Size = new System.Drawing.Size(300, 450);
             this.tlb_Force.TabIndex = 6;
             // 
             // tb_MaxDEFPercentForce
             // 
-            this.tb_MaxDEFPercentForce.Location = new System.Drawing.Point(203, 277);
+            this.tb_MaxDEFPercentForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxDEFPercentForce.Location = new System.Drawing.Point(203, 327);
             this.tb_MaxDEFPercentForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxDEFPercentForce.Name = "tb_MaxDEFPercentForce";
-            this.tb_MaxDEFPercentForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MaxDEFPercentForce.Size = new System.Drawing.Size(93, 26);
             this.tb_MaxDEFPercentForce.TabIndex = 17;
             this.tb_MaxDEFPercentForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MinDEFPercentForce
             // 
-            this.tb_MinDEFPercentForce.Location = new System.Drawing.Point(4, 277);
+            this.tb_MinDEFPercentForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinDEFPercentForce.Location = new System.Drawing.Point(4, 327);
             this.tb_MinDEFPercentForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinDEFPercentForce.Name = "tb_MinDEFPercentForce";
-            this.tb_MinDEFPercentForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MinDEFPercentForce.Size = new System.Drawing.Size(91, 26);
             this.tb_MinDEFPercentForce.TabIndex = 16;
             this.tb_MinDEFPercentForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxHPPercentForce
             // 
-            this.tb_MaxHPPercentForce.Location = new System.Drawing.Point(203, 209);
+            this.tb_MaxHPPercentForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxHPPercentForce.Location = new System.Drawing.Point(203, 247);
             this.tb_MaxHPPercentForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxHPPercentForce.Name = "tb_MaxHPPercentForce";
-            this.tb_MaxHPPercentForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MaxHPPercentForce.Size = new System.Drawing.Size(93, 26);
             this.tb_MaxHPPercentForce.TabIndex = 13;
             this.tb_MaxHPPercentForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MinHPPercentForce
             // 
-            this.tb_MinHPPercentForce.Location = new System.Drawing.Point(4, 209);
+            this.tb_MinHPPercentForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinHPPercentForce.Location = new System.Drawing.Point(4, 247);
             this.tb_MinHPPercentForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinHPPercentForce.Name = "tb_MinHPPercentForce";
-            this.tb_MinHPPercentForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MinHPPercentForce.Size = new System.Drawing.Size(91, 26);
             this.tb_MinHPPercentForce.TabIndex = 12;
             this.tb_MinHPPercentForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxATKPercentForce
             // 
-            this.tb_MaxATKPercentForce.Location = new System.Drawing.Point(203, 39);
+            this.tb_MaxATKPercentForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxATKPercentForce.Location = new System.Drawing.Point(203, 47);
             this.tb_MaxATKPercentForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxATKPercentForce.Name = "tb_MaxATKPercentForce";
-            this.tb_MaxATKPercentForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MaxATKPercentForce.Size = new System.Drawing.Size(93, 26);
             this.tb_MaxATKPercentForce.TabIndex = 3;
             this.tb_MaxATKPercentForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
@@ -4582,7 +4781,7 @@
             // 
             this.label78.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(103, 211);
+            this.label78.Location = new System.Drawing.Point(103, 250);
             this.label78.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label78.Name = "label78";
             this.label78.Size = new System.Drawing.Size(92, 20);
@@ -4594,7 +4793,7 @@
             // 
             this.label77.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(103, 41);
+            this.label77.Location = new System.Drawing.Point(103, 50);
             this.label77.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label77.Name = "label77";
             this.label77.Size = new System.Drawing.Size(92, 20);
@@ -4606,7 +4805,7 @@
             // 
             this.label75.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(103, 245);
+            this.label75.Location = new System.Drawing.Point(103, 290);
             this.label75.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(92, 20);
@@ -4616,28 +4815,31 @@
             // 
             // tb_MinCritDmgForce
             // 
-            this.tb_MinCritDmgForce.Location = new System.Drawing.Point(4, 141);
+            this.tb_MinCritDmgForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinCritDmgForce.Location = new System.Drawing.Point(4, 167);
             this.tb_MinCritDmgForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinCritDmgForce.Name = "tb_MinCritDmgForce";
-            this.tb_MinCritDmgForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MinCritDmgForce.Size = new System.Drawing.Size(91, 26);
             this.tb_MinCritDmgForce.TabIndex = 8;
             this.tb_MinCritDmgForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxATKForce
             // 
-            this.tb_MaxATKForce.Location = new System.Drawing.Point(203, 5);
+            this.tb_MaxATKForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxATKForce.Location = new System.Drawing.Point(203, 7);
             this.tb_MaxATKForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxATKForce.Name = "tb_MaxATKForce";
-            this.tb_MaxATKForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MaxATKForce.Size = new System.Drawing.Size(93, 26);
             this.tb_MaxATKForce.TabIndex = 1;
             this.tb_MaxATKForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MinCritForce
             // 
-            this.tb_MinCritForce.Location = new System.Drawing.Point(4, 107);
+            this.tb_MinCritForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinCritForce.Location = new System.Drawing.Point(4, 127);
             this.tb_MinCritForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinCritForce.Name = "tb_MinCritForce";
-            this.tb_MinCritForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MinCritForce.Size = new System.Drawing.Size(91, 26);
             this.tb_MinCritForce.TabIndex = 6;
             this.tb_MinCritForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
@@ -4645,7 +4847,7 @@
             // 
             this.label63.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(103, 7);
+            this.label63.Location = new System.Drawing.Point(103, 10);
             this.label63.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(92, 20);
@@ -4655,10 +4857,11 @@
             // 
             // tb_MinATKForce
             // 
-            this.tb_MinATKForce.Location = new System.Drawing.Point(4, 5);
+            this.tb_MinATKForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinATKForce.Location = new System.Drawing.Point(4, 7);
             this.tb_MinATKForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinATKForce.Name = "tb_MinATKForce";
-            this.tb_MinATKForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MinATKForce.Size = new System.Drawing.Size(91, 26);
             this.tb_MinATKForce.TabIndex = 0;
             this.tb_MinATKForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
@@ -4666,7 +4869,7 @@
             // 
             this.label74.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label74.AutoSize = true;
-            this.label74.Location = new System.Drawing.Point(103, 347);
+            this.label74.Location = new System.Drawing.Point(103, 415);
             this.label74.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label74.Name = "label74";
             this.label74.Size = new System.Drawing.Size(92, 20);
@@ -4676,19 +4879,21 @@
             // 
             // tb_MinRESForce
             // 
-            this.tb_MinRESForce.Location = new System.Drawing.Point(4, 345);
+            this.tb_MinRESForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinRESForce.Location = new System.Drawing.Point(4, 412);
             this.tb_MinRESForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinRESForce.Name = "tb_MinRESForce";
-            this.tb_MinRESForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MinRESForce.Size = new System.Drawing.Size(91, 26);
             this.tb_MinRESForce.TabIndex = 20;
             this.tb_MinRESForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxRESForce
             // 
-            this.tb_MaxRESForce.Location = new System.Drawing.Point(203, 345);
+            this.tb_MaxRESForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxRESForce.Location = new System.Drawing.Point(203, 412);
             this.tb_MaxRESForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxRESForce.Name = "tb_MaxRESForce";
-            this.tb_MaxRESForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MaxRESForce.Size = new System.Drawing.Size(93, 26);
             this.tb_MaxRESForce.TabIndex = 21;
             this.tb_MaxRESForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
@@ -4696,7 +4901,7 @@
             // 
             this.label73.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(103, 313);
+            this.label73.Location = new System.Drawing.Point(103, 370);
             this.label73.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label73.Name = "label73";
             this.label73.Size = new System.Drawing.Size(92, 20);
@@ -4706,19 +4911,21 @@
             // 
             // tb_MinEFFForce
             // 
-            this.tb_MinEFFForce.Location = new System.Drawing.Point(4, 311);
+            this.tb_MinEFFForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinEFFForce.Location = new System.Drawing.Point(4, 367);
             this.tb_MinEFFForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinEFFForce.Name = "tb_MinEFFForce";
-            this.tb_MinEFFForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MinEFFForce.Size = new System.Drawing.Size(91, 26);
             this.tb_MinEFFForce.TabIndex = 18;
             this.tb_MinEFFForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxEFFForce
             // 
-            this.tb_MaxEFFForce.Location = new System.Drawing.Point(203, 311);
+            this.tb_MaxEFFForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxEFFForce.Location = new System.Drawing.Point(203, 367);
             this.tb_MaxEFFForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxEFFForce.Name = "tb_MaxEFFForce";
-            this.tb_MaxEFFForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MaxEFFForce.Size = new System.Drawing.Size(93, 26);
             this.tb_MaxEFFForce.TabIndex = 19;
             this.tb_MaxEFFForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
@@ -4726,7 +4933,7 @@
             // 
             this.label71.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(103, 279);
+            this.label71.Location = new System.Drawing.Point(103, 330);
             this.label71.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(92, 20);
@@ -4738,7 +4945,7 @@
             // 
             this.label69.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(103, 177);
+            this.label69.Location = new System.Drawing.Point(103, 210);
             this.label69.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label69.Name = "label69";
             this.label69.Size = new System.Drawing.Size(92, 20);
@@ -4750,7 +4957,7 @@
             // 
             this.label68.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(103, 143);
+            this.label68.Location = new System.Drawing.Point(103, 170);
             this.label68.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label68.Name = "label68";
             this.label68.Size = new System.Drawing.Size(92, 20);
@@ -4762,7 +4969,7 @@
             // 
             this.label67.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(103, 109);
+            this.label67.Location = new System.Drawing.Point(103, 130);
             this.label67.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label67.Name = "label67";
             this.label67.Size = new System.Drawing.Size(92, 20);
@@ -4774,7 +4981,7 @@
             // 
             this.label66.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(103, 75);
+            this.label66.Location = new System.Drawing.Point(103, 90);
             this.label66.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(92, 20);
@@ -4784,82 +4991,91 @@
             // 
             // tb_MinSPDForce
             // 
-            this.tb_MinSPDForce.Location = new System.Drawing.Point(4, 73);
+            this.tb_MinSPDForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinSPDForce.Location = new System.Drawing.Point(4, 87);
             this.tb_MinSPDForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinSPDForce.Name = "tb_MinSPDForce";
-            this.tb_MinSPDForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MinSPDForce.Size = new System.Drawing.Size(91, 26);
             this.tb_MinSPDForce.TabIndex = 4;
             this.tb_MinSPDForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MinATKPercentForce
             // 
-            this.tb_MinATKPercentForce.Location = new System.Drawing.Point(4, 39);
+            this.tb_MinATKPercentForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinATKPercentForce.Location = new System.Drawing.Point(4, 47);
             this.tb_MinATKPercentForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinATKPercentForce.Name = "tb_MinATKPercentForce";
-            this.tb_MinATKPercentForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MinATKPercentForce.Size = new System.Drawing.Size(91, 26);
             this.tb_MinATKPercentForce.TabIndex = 2;
             this.tb_MinATKPercentForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MinHPForce
             // 
-            this.tb_MinHPForce.Location = new System.Drawing.Point(4, 175);
+            this.tb_MinHPForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinHPForce.Location = new System.Drawing.Point(4, 207);
             this.tb_MinHPForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinHPForce.Name = "tb_MinHPForce";
-            this.tb_MinHPForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MinHPForce.Size = new System.Drawing.Size(91, 26);
             this.tb_MinHPForce.TabIndex = 10;
             this.tb_MinHPForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MinDEFForce
             // 
-            this.tb_MinDEFForce.Location = new System.Drawing.Point(4, 243);
+            this.tb_MinDEFForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinDEFForce.Location = new System.Drawing.Point(4, 287);
             this.tb_MinDEFForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinDEFForce.Name = "tb_MinDEFForce";
-            this.tb_MinDEFForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MinDEFForce.Size = new System.Drawing.Size(91, 26);
             this.tb_MinDEFForce.TabIndex = 14;
             this.tb_MinDEFForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxHPForce
             // 
-            this.tb_MaxHPForce.Location = new System.Drawing.Point(203, 175);
+            this.tb_MaxHPForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxHPForce.Location = new System.Drawing.Point(203, 207);
             this.tb_MaxHPForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxHPForce.Name = "tb_MaxHPForce";
-            this.tb_MaxHPForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MaxHPForce.Size = new System.Drawing.Size(93, 26);
             this.tb_MaxHPForce.TabIndex = 11;
             this.tb_MaxHPForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxCritDmgForce
             // 
-            this.tb_MaxCritDmgForce.Location = new System.Drawing.Point(203, 141);
+            this.tb_MaxCritDmgForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxCritDmgForce.Location = new System.Drawing.Point(203, 167);
             this.tb_MaxCritDmgForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxCritDmgForce.Name = "tb_MaxCritDmgForce";
-            this.tb_MaxCritDmgForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MaxCritDmgForce.Size = new System.Drawing.Size(93, 26);
             this.tb_MaxCritDmgForce.TabIndex = 9;
             this.tb_MaxCritDmgForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxCritForce
             // 
-            this.tb_MaxCritForce.Location = new System.Drawing.Point(203, 107);
+            this.tb_MaxCritForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxCritForce.Location = new System.Drawing.Point(203, 127);
             this.tb_MaxCritForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxCritForce.Name = "tb_MaxCritForce";
-            this.tb_MaxCritForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MaxCritForce.Size = new System.Drawing.Size(93, 26);
             this.tb_MaxCritForce.TabIndex = 7;
             this.tb_MaxCritForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxSPDForce
             // 
-            this.tb_MaxSPDForce.Location = new System.Drawing.Point(203, 73);
+            this.tb_MaxSPDForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxSPDForce.Location = new System.Drawing.Point(203, 87);
             this.tb_MaxSPDForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxSPDForce.Name = "tb_MaxSPDForce";
-            this.tb_MaxSPDForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MaxSPDForce.Size = new System.Drawing.Size(93, 26);
             this.tb_MaxSPDForce.TabIndex = 5;
             this.tb_MaxSPDForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxDEFForce
             // 
-            this.tb_MaxDEFForce.Location = new System.Drawing.Point(203, 243);
+            this.tb_MaxDEFForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxDEFForce.Location = new System.Drawing.Point(203, 287);
             this.tb_MaxDEFForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxDEFForce.Name = "tb_MaxDEFForce";
-            this.tb_MaxDEFForce.Size = new System.Drawing.Size(88, 26);
+            this.tb_MaxDEFForce.Size = new System.Drawing.Size(93, 26);
             this.tb_MaxDEFForce.TabIndex = 15;
             this.tb_MaxDEFForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
@@ -4884,7 +5100,7 @@
             // 
             // pB_Optimize
             // 
-            this.pB_Optimize.Location = new System.Drawing.Point(232, 749);
+            this.pB_Optimize.Location = new System.Drawing.Point(232, 824);
             this.pB_Optimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pB_Optimize.Name = "pB_Optimize";
             this.pB_Optimize.Size = new System.Drawing.Size(610, 62);
@@ -5013,7 +5229,7 @@
             // 
             // b_EquipOptimize
             // 
-            this.b_EquipOptimize.Location = new System.Drawing.Point(1066, 1026);
+            this.b_EquipOptimize.Location = new System.Drawing.Point(1066, 1101);
             this.b_EquipOptimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.b_EquipOptimize.Name = "b_EquipOptimize";
             this.b_EquipOptimize.Size = new System.Drawing.Size(112, 35);
@@ -5049,7 +5265,7 @@
             this.tlp_RingOptimize.Controls.Add(this.l_RingMainOptimize, 0, 1);
             this.tlp_RingOptimize.Controls.Add(this.l_RingMainStatOptimize, 1, 1);
             this.tlp_RingOptimize.Controls.Add(this.label140, 0, 2);
-            this.tlp_RingOptimize.Location = new System.Drawing.Point(1694, 435);
+            this.tlp_RingOptimize.Location = new System.Drawing.Point(1694, 472);
             this.tlp_RingOptimize.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.tlp_RingOptimize.Name = "tlp_RingOptimize";
             this.tlp_RingOptimize.RowCount = 7;
@@ -5415,7 +5631,7 @@
             this.tlp_BootsOptimize.Controls.Add(this.l_BootsMainOptimize, 0, 1);
             this.tlp_BootsOptimize.Controls.Add(this.l_BootsMainStatOptimize, 1, 1);
             this.tlp_BootsOptimize.Controls.Add(this.label112, 0, 2);
-            this.tlp_BootsOptimize.Location = new System.Drawing.Point(1694, 800);
+            this.tlp_BootsOptimize.Location = new System.Drawing.Point(1694, 872);
             this.tlp_BootsOptimize.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.tlp_BootsOptimize.Name = "tlp_BootsOptimize";
             this.tlp_BootsOptimize.RowCount = 7;
@@ -5598,7 +5814,7 @@
             this.tlp_ArmorOptimize.Controls.Add(this.l_ArmorMainOptimize, 0, 1);
             this.tlp_ArmorOptimize.Controls.Add(this.l_ArmorMainStatOptimize, 1, 1);
             this.tlp_ArmorOptimize.Controls.Add(this.label98, 0, 2);
-            this.tlp_ArmorOptimize.Location = new System.Drawing.Point(1302, 800);
+            this.tlp_ArmorOptimize.Location = new System.Drawing.Point(1302, 872);
             this.tlp_ArmorOptimize.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.tlp_ArmorOptimize.Name = "tlp_ArmorOptimize";
             this.tlp_ArmorOptimize.RowCount = 7;
@@ -5781,7 +5997,7 @@
             this.tlp_HelmetOptimize.Controls.Add(this.l_HelmetMainOptimize, 0, 1);
             this.tlp_HelmetOptimize.Controls.Add(this.l_HelmetMainStatOptimize, 1, 1);
             this.tlp_HelmetOptimize.Controls.Add(this.label82, 0, 2);
-            this.tlp_HelmetOptimize.Location = new System.Drawing.Point(1302, 435);
+            this.tlp_HelmetOptimize.Location = new System.Drawing.Point(1302, 472);
             this.tlp_HelmetOptimize.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.tlp_HelmetOptimize.Name = "tlp_HelmetOptimize";
             this.tlp_HelmetOptimize.RowCount = 7;
@@ -6122,7 +6338,7 @@
             // 
             // b_PreviousPage
             // 
-            this.b_PreviousPage.Location = new System.Drawing.Point(454, 1026);
+            this.b_PreviousPage.Location = new System.Drawing.Point(454, 1101);
             this.b_PreviousPage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.b_PreviousPage.Name = "b_PreviousPage";
             this.b_PreviousPage.Size = new System.Drawing.Size(58, 35);
@@ -6133,7 +6349,7 @@
             // 
             // b_NextPage
             // 
-            this.b_NextPage.Location = new System.Drawing.Point(626, 1026);
+            this.b_NextPage.Location = new System.Drawing.Point(626, 1101);
             this.b_NextPage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.b_NextPage.Name = "b_NextPage";
             this.b_NextPage.Size = new System.Drawing.Size(58, 35);
@@ -6145,7 +6361,7 @@
             // l_Pages
             // 
             this.l_Pages.AutoSize = true;
-            this.l_Pages.Location = new System.Drawing.Point(572, 1034);
+            this.l_Pages.Location = new System.Drawing.Point(572, 1109);
             this.l_Pages.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_Pages.Name = "l_Pages";
             this.l_Pages.Size = new System.Drawing.Size(39, 20);
@@ -6156,7 +6372,7 @@
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(522, 1034);
+            this.label48.Location = new System.Drawing.Point(522, 1109);
             this.label48.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(46, 20);
@@ -6209,7 +6425,7 @@
             // 
             // b_Optimize
             // 
-            this.b_Optimize.Location = new System.Drawing.Point(880, 369);
+            this.b_Optimize.Location = new System.Drawing.Point(880, 444);
             this.b_Optimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.b_Optimize.Name = "b_Optimize";
             this.b_Optimize.Size = new System.Drawing.Size(266, 60);
@@ -6423,14 +6639,14 @@
             this.dgv_OptimizeResults.AllowUserToDeleteRows = false;
             this.dgv_OptimizeResults.AllowUserToOrderColumns = true;
             this.dgv_OptimizeResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_OptimizeResults.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_OptimizeResults.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dgv_OptimizeResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_OptimizeResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -6445,15 +6661,15 @@
             this.dataGridViewImageColumn1,
             this.dataGridViewTextBoxColumn18,
             this.dataGridViewTextBoxColumn19});
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_OptimizeResults.DefaultCellStyle = dataGridViewCellStyle32;
-            this.dgv_OptimizeResults.Location = new System.Drawing.Point(9, 565);
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_OptimizeResults.DefaultCellStyle = dataGridViewCellStyle23;
+            this.dgv_OptimizeResults.Location = new System.Drawing.Point(9, 640);
             this.dgv_OptimizeResults.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgv_OptimizeResults.MultiSelect = false;
             this.dgv_OptimizeResults.Name = "dgv_OptimizeResults";
@@ -6552,10 +6768,10 @@
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle31.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle31.NullValue")));
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle22.NullValue")));
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridViewImageColumn1.HeaderText = "Sets";
             this.dataGridViewImageColumn1.MinimumWidth = 8;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
@@ -6584,7 +6800,7 @@
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(4, 540);
+            this.label37.Location = new System.Drawing.Point(4, 615);
             this.label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(73, 20);
@@ -6598,14 +6814,14 @@
             this.dgv_CurrentGear.AllowUserToOrderColumns = true;
             this.dgv_CurrentGear.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_CurrentGear.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_CurrentGear.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_CurrentGear.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dgv_CurrentGear.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_CurrentGear.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3,
@@ -6620,15 +6836,15 @@
             this.dataGridViewImageColumn5,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12});
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_CurrentGear.DefaultCellStyle = dataGridViewCellStyle34;
-            this.dgv_CurrentGear.Location = new System.Drawing.Point(9, 438);
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_CurrentGear.DefaultCellStyle = dataGridViewCellStyle25;
+            this.dgv_CurrentGear.Location = new System.Drawing.Point(9, 513);
             this.dgv_CurrentGear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgv_CurrentGear.MultiSelect = false;
             this.dgv_CurrentGear.Name = "dgv_CurrentGear";
@@ -6748,7 +6964,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(4, 414);
+            this.label36.Location = new System.Drawing.Point(4, 489);
             this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(119, 20);
@@ -6789,19 +7005,19 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel1.Controls.Add(this.tb_MaxDMG, 2, 9);
-            this.tableLayoutPanel1.Controls.Add(this.tb_MinDMG, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.tb_MaxEHP, 2, 8);
-            this.tableLayoutPanel1.Controls.Add(this.tb_MinEHP, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.tb_MaxRES, 2, 7);
-            this.tableLayoutPanel1.Controls.Add(this.tb_MinRES, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.tb_MaxEFF, 2, 6);
-            this.tableLayoutPanel1.Controls.Add(this.tb_MinEFF, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.tb_MaxDEF, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.tb_MinDEF, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.tb_MaxDMG, 2, 11);
+            this.tableLayoutPanel1.Controls.Add(this.tb_MinDMG, 0, 11);
+            this.tableLayoutPanel1.Controls.Add(this.tb_MaxEHP, 2, 9);
+            this.tableLayoutPanel1.Controls.Add(this.tb_MinEHP, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.tb_MaxRES, 2, 8);
+            this.tableLayoutPanel1.Controls.Add(this.tb_MinRES, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.tb_MaxEFF, 2, 7);
+            this.tableLayoutPanel1.Controls.Add(this.tb_MinEFF, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.tb_MaxDEF, 2, 6);
+            this.tableLayoutPanel1.Controls.Add(this.tb_MinDEF, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.tb_MaxHP, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.tb_MinHP, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.tb_MaxCritDmg, 2, 3);
@@ -6816,197 +7032,228 @@
             this.tableLayoutPanel1.Controls.Add(this.label24, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label26, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label28, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label29, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label30, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.label31, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label32, 1, 8);
-            this.tableLayoutPanel1.Controls.Add(this.label33, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.label29, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label30, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.label31, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.label32, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.label33, 1, 11);
             this.tableLayoutPanel1.Controls.Add(this.tb_MinATK, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tb_MinHPpS, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label42, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.tb_MaxHPpS, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.tb_MaxEHPpS, 2, 10);
+            this.tableLayoutPanel1.Controls.Add(this.tb_MaxDMGpS, 2, 12);
+            this.tableLayoutPanel1.Controls.Add(this.tb_MinEHPpS, 0, 10);
+            this.tableLayoutPanel1.Controls.Add(this.tb_MinDMGpS, 0, 12);
+            this.tableLayoutPanel1.Controls.Add(this.label51, 1, 10);
+            this.tableLayoutPanel1.Controls.Add(this.label52, 1, 12);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(213, 54);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 10;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 375);
+            this.tableLayoutPanel1.RowCount = 13;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692425F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692425F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692425F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692425F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692425F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692425F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692425F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692425F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692425F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692425F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.691657F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692425F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.691657F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 450);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // tb_MaxDMG
             // 
-            this.tb_MaxDMG.Location = new System.Drawing.Point(203, 338);
+            this.tb_MaxDMG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxDMG.Location = new System.Drawing.Point(203, 379);
             this.tb_MaxDMG.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxDMG.Name = "tb_MaxDMG";
-            this.tb_MaxDMG.Size = new System.Drawing.Size(88, 26);
-            this.tb_MaxDMG.TabIndex = 19;
+            this.tb_MaxDMG.Size = new System.Drawing.Size(93, 26);
+            this.tb_MaxDMG.TabIndex = 23;
             this.tb_MaxDMG.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinDMG
             // 
-            this.tb_MinDMG.Location = new System.Drawing.Point(4, 338);
+            this.tb_MinDMG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinDMG.Location = new System.Drawing.Point(4, 379);
             this.tb_MinDMG.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinDMG.Name = "tb_MinDMG";
-            this.tb_MinDMG.Size = new System.Drawing.Size(88, 26);
-            this.tb_MinDMG.TabIndex = 18;
+            this.tb_MinDMG.Size = new System.Drawing.Size(91, 26);
+            this.tb_MinDMG.TabIndex = 22;
             this.tb_MinDMG.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MaxEHP
             // 
-            this.tb_MaxEHP.Location = new System.Drawing.Point(203, 301);
+            this.tb_MaxEHP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxEHP.Location = new System.Drawing.Point(203, 311);
             this.tb_MaxEHP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxEHP.Name = "tb_MaxEHP";
-            this.tb_MaxEHP.Size = new System.Drawing.Size(88, 26);
-            this.tb_MaxEHP.TabIndex = 17;
+            this.tb_MaxEHP.Size = new System.Drawing.Size(93, 26);
+            this.tb_MaxEHP.TabIndex = 19;
             this.tb_MaxEHP.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinEHP
             // 
-            this.tb_MinEHP.Location = new System.Drawing.Point(4, 301);
+            this.tb_MinEHP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinEHP.Location = new System.Drawing.Point(4, 311);
             this.tb_MinEHP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinEHP.Name = "tb_MinEHP";
-            this.tb_MinEHP.Size = new System.Drawing.Size(88, 26);
-            this.tb_MinEHP.TabIndex = 16;
+            this.tb_MinEHP.Size = new System.Drawing.Size(91, 26);
+            this.tb_MinEHP.TabIndex = 18;
             this.tb_MinEHP.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MaxRES
             // 
-            this.tb_MaxRES.Location = new System.Drawing.Point(203, 264);
+            this.tb_MaxRES.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxRES.Location = new System.Drawing.Point(203, 277);
             this.tb_MaxRES.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxRES.Name = "tb_MaxRES";
-            this.tb_MaxRES.Size = new System.Drawing.Size(88, 26);
-            this.tb_MaxRES.TabIndex = 15;
+            this.tb_MaxRES.Size = new System.Drawing.Size(93, 26);
+            this.tb_MaxRES.TabIndex = 17;
             this.tb_MaxRES.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinRES
             // 
-            this.tb_MinRES.Location = new System.Drawing.Point(4, 264);
+            this.tb_MinRES.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinRES.Location = new System.Drawing.Point(4, 277);
             this.tb_MinRES.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinRES.Name = "tb_MinRES";
-            this.tb_MinRES.Size = new System.Drawing.Size(88, 26);
-            this.tb_MinRES.TabIndex = 14;
+            this.tb_MinRES.Size = new System.Drawing.Size(91, 26);
+            this.tb_MinRES.TabIndex = 16;
             this.tb_MinRES.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MaxEFF
             // 
-            this.tb_MaxEFF.Location = new System.Drawing.Point(203, 227);
+            this.tb_MaxEFF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxEFF.Location = new System.Drawing.Point(203, 243);
             this.tb_MaxEFF.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxEFF.Name = "tb_MaxEFF";
-            this.tb_MaxEFF.Size = new System.Drawing.Size(88, 26);
-            this.tb_MaxEFF.TabIndex = 13;
+            this.tb_MaxEFF.Size = new System.Drawing.Size(93, 26);
+            this.tb_MaxEFF.TabIndex = 15;
             this.tb_MaxEFF.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinEFF
             // 
-            this.tb_MinEFF.Location = new System.Drawing.Point(4, 227);
+            this.tb_MinEFF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinEFF.Location = new System.Drawing.Point(4, 243);
             this.tb_MinEFF.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinEFF.Name = "tb_MinEFF";
-            this.tb_MinEFF.Size = new System.Drawing.Size(88, 26);
-            this.tb_MinEFF.TabIndex = 12;
+            this.tb_MinEFF.Size = new System.Drawing.Size(91, 26);
+            this.tb_MinEFF.TabIndex = 14;
             this.tb_MinEFF.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MaxDEF
             // 
-            this.tb_MaxDEF.Location = new System.Drawing.Point(203, 190);
+            this.tb_MaxDEF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxDEF.Location = new System.Drawing.Point(203, 209);
             this.tb_MaxDEF.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxDEF.Name = "tb_MaxDEF";
-            this.tb_MaxDEF.Size = new System.Drawing.Size(88, 26);
-            this.tb_MaxDEF.TabIndex = 11;
+            this.tb_MaxDEF.Size = new System.Drawing.Size(93, 26);
+            this.tb_MaxDEF.TabIndex = 13;
             this.tb_MaxDEF.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinDEF
             // 
-            this.tb_MinDEF.Location = new System.Drawing.Point(4, 190);
+            this.tb_MinDEF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinDEF.Location = new System.Drawing.Point(4, 209);
             this.tb_MinDEF.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinDEF.Name = "tb_MinDEF";
-            this.tb_MinDEF.Size = new System.Drawing.Size(88, 26);
-            this.tb_MinDEF.TabIndex = 10;
+            this.tb_MinDEF.Size = new System.Drawing.Size(91, 26);
+            this.tb_MinDEF.TabIndex = 12;
             this.tb_MinDEF.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MaxHP
             // 
-            this.tb_MaxHP.Location = new System.Drawing.Point(203, 153);
+            this.tb_MaxHP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxHP.Location = new System.Drawing.Point(203, 141);
             this.tb_MaxHP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxHP.Name = "tb_MaxHP";
-            this.tb_MaxHP.Size = new System.Drawing.Size(88, 26);
+            this.tb_MaxHP.Size = new System.Drawing.Size(93, 26);
             this.tb_MaxHP.TabIndex = 9;
             this.tb_MaxHP.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinHP
             // 
-            this.tb_MinHP.Location = new System.Drawing.Point(4, 153);
+            this.tb_MinHP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinHP.Location = new System.Drawing.Point(4, 141);
             this.tb_MinHP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinHP.Name = "tb_MinHP";
-            this.tb_MinHP.Size = new System.Drawing.Size(88, 26);
+            this.tb_MinHP.Size = new System.Drawing.Size(91, 26);
             this.tb_MinHP.TabIndex = 8;
             this.tb_MinHP.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MaxCritDmg
             // 
-            this.tb_MaxCritDmg.Location = new System.Drawing.Point(203, 116);
+            this.tb_MaxCritDmg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxCritDmg.Location = new System.Drawing.Point(203, 107);
             this.tb_MaxCritDmg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxCritDmg.Name = "tb_MaxCritDmg";
-            this.tb_MaxCritDmg.Size = new System.Drawing.Size(88, 26);
+            this.tb_MaxCritDmg.Size = new System.Drawing.Size(93, 26);
             this.tb_MaxCritDmg.TabIndex = 7;
             this.tb_MaxCritDmg.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinCritDmg
             // 
-            this.tb_MinCritDmg.Location = new System.Drawing.Point(4, 116);
+            this.tb_MinCritDmg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinCritDmg.Location = new System.Drawing.Point(4, 107);
             this.tb_MinCritDmg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinCritDmg.Name = "tb_MinCritDmg";
-            this.tb_MinCritDmg.Size = new System.Drawing.Size(88, 26);
+            this.tb_MinCritDmg.Size = new System.Drawing.Size(91, 26);
             this.tb_MinCritDmg.TabIndex = 6;
             this.tb_MinCritDmg.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MaxCrit
             // 
-            this.tb_MaxCrit.Location = new System.Drawing.Point(203, 79);
+            this.tb_MaxCrit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxCrit.Location = new System.Drawing.Point(203, 73);
             this.tb_MaxCrit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxCrit.Name = "tb_MaxCrit";
-            this.tb_MaxCrit.Size = new System.Drawing.Size(88, 26);
+            this.tb_MaxCrit.Size = new System.Drawing.Size(93, 26);
             this.tb_MaxCrit.TabIndex = 5;
             this.tb_MaxCrit.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinCrit
             // 
-            this.tb_MinCrit.Location = new System.Drawing.Point(4, 79);
+            this.tb_MinCrit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinCrit.Location = new System.Drawing.Point(4, 73);
             this.tb_MinCrit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinCrit.Name = "tb_MinCrit";
-            this.tb_MinCrit.Size = new System.Drawing.Size(88, 26);
+            this.tb_MinCrit.Size = new System.Drawing.Size(91, 26);
             this.tb_MinCrit.TabIndex = 4;
             this.tb_MinCrit.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MaxSPD
             // 
-            this.tb_MaxSPD.Location = new System.Drawing.Point(203, 42);
+            this.tb_MaxSPD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxSPD.Location = new System.Drawing.Point(203, 39);
             this.tb_MaxSPD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxSPD.Name = "tb_MaxSPD";
-            this.tb_MaxSPD.Size = new System.Drawing.Size(88, 26);
+            this.tb_MaxSPD.Size = new System.Drawing.Size(93, 26);
             this.tb_MaxSPD.TabIndex = 3;
             this.tb_MaxSPD.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinSPD
             // 
-            this.tb_MinSPD.Location = new System.Drawing.Point(4, 42);
+            this.tb_MinSPD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinSPD.Location = new System.Drawing.Point(4, 39);
             this.tb_MinSPD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinSPD.Name = "tb_MinSPD";
-            this.tb_MinSPD.Size = new System.Drawing.Size(88, 26);
+            this.tb_MinSPD.Size = new System.Drawing.Size(91, 26);
             this.tb_MinSPD.TabIndex = 2;
             this.tb_MinSPD.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MaxATK
             // 
+            this.tb_MaxATK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_MaxATK.Location = new System.Drawing.Point(203, 5);
             this.tb_MaxATK.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MaxATK.Name = "tb_MaxATK";
-            this.tb_MaxATK.Size = new System.Drawing.Size(88, 26);
+            this.tb_MaxATK.Size = new System.Drawing.Size(93, 26);
             this.tb_MaxATK.TabIndex = 1;
             this.tb_MaxATK.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
@@ -7014,7 +7261,7 @@
             // 
             this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(103, 8);
+            this.label22.Location = new System.Drawing.Point(103, 7);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(92, 20);
@@ -7026,7 +7273,7 @@
             // 
             this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(103, 45);
+            this.label23.Location = new System.Drawing.Point(103, 41);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(92, 20);
@@ -7038,7 +7285,7 @@
             // 
             this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(103, 82);
+            this.label24.Location = new System.Drawing.Point(103, 75);
             this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(92, 20);
@@ -7050,7 +7297,7 @@
             // 
             this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(103, 119);
+            this.label26.Location = new System.Drawing.Point(103, 109);
             this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(92, 20);
@@ -7062,7 +7309,7 @@
             // 
             this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(103, 156);
+            this.label28.Location = new System.Drawing.Point(103, 143);
             this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(92, 20);
@@ -7074,11 +7321,11 @@
             // 
             this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(103, 193);
+            this.label29.Location = new System.Drawing.Point(103, 211);
             this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(92, 20);
-            this.label29.TabIndex = 5;
+            this.label29.TabIndex = 6;
             this.label29.Text = "Defense";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -7086,11 +7333,11 @@
             // 
             this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(103, 230);
+            this.label30.Location = new System.Drawing.Point(103, 245);
             this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(92, 20);
-            this.label30.TabIndex = 6;
+            this.label30.TabIndex = 7;
             this.label30.Text = "Eff";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -7098,11 +7345,11 @@
             // 
             this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(103, 267);
+            this.label31.Location = new System.Drawing.Point(103, 279);
             this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(92, 20);
-            this.label31.TabIndex = 7;
+            this.label31.TabIndex = 8;
             this.label31.Text = "Resist";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -7110,11 +7357,11 @@
             // 
             this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(103, 304);
+            this.label32.Location = new System.Drawing.Point(103, 313);
             this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(92, 20);
-            this.label32.TabIndex = 8;
+            this.label32.TabIndex = 9;
             this.label32.Text = "EHP";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -7122,22 +7369,53 @@
             // 
             this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(103, 344);
+            this.label33.Location = new System.Drawing.Point(103, 381);
             this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(92, 20);
-            this.label33.TabIndex = 9;
+            this.label33.TabIndex = 11;
             this.label33.Text = "DMG";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tb_MinATK
             // 
+            this.tb_MinATK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_MinATK.Location = new System.Drawing.Point(4, 5);
             this.tb_MinATK.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_MinATK.Name = "tb_MinATK";
-            this.tb_MinATK.Size = new System.Drawing.Size(88, 26);
+            this.tb_MinATK.Size = new System.Drawing.Size(91, 26);
             this.tb_MinATK.TabIndex = 0;
             this.tb_MinATK.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
+            // 
+            // tb_MinHPpS
+            // 
+            this.tb_MinHPpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinHPpS.Location = new System.Drawing.Point(4, 175);
+            this.tb_MinHPpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinHPpS.Name = "tb_MinHPpS";
+            this.tb_MinHPpS.Size = new System.Drawing.Size(91, 26);
+            this.tb_MinHPpS.TabIndex = 10;
+            // 
+            // label42
+            // 
+            this.label42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(103, 177);
+            this.label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(92, 20);
+            this.label42.TabIndex = 5;
+            this.label42.Text = "HP/SPD";
+            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tb_MaxHPpS
+            // 
+            this.tb_MaxHPpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxHPpS.Location = new System.Drawing.Point(203, 175);
+            this.tb_MaxHPpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxHPpS.Name = "tb_MaxHPpS";
+            this.tb_MaxHPpS.Size = new System.Drawing.Size(93, 26);
+            this.tb_MaxHPpS.TabIndex = 11;
             // 
             // label18
             // 
@@ -7164,7 +7442,7 @@
             // 
             this.pb_RingSetOptimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_RingSetOptimize.InitialImage = null;
-            this.pb_RingSetOptimize.Location = new System.Drawing.Point(1694, 642);
+            this.pb_RingSetOptimize.Location = new System.Drawing.Point(1694, 679);
             this.pb_RingSetOptimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pb_RingSetOptimize.Name = "pb_RingSetOptimize";
             this.pb_RingSetOptimize.Size = new System.Drawing.Size(45, 46);
@@ -7175,7 +7453,7 @@
             // pictureBox18
             // 
             this.pictureBox18.Image = global::E7_Gear_Optimizer.Properties.Resources.ring;
-            this.pictureBox18.Location = new System.Drawing.Point(1702, 365);
+            this.pictureBox18.Location = new System.Drawing.Point(1702, 402);
             this.pictureBox18.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.Size = new System.Drawing.Size(60, 62);
@@ -7210,7 +7488,7 @@
             // 
             this.pb_BootsSetOptimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_BootsSetOptimize.InitialImage = null;
-            this.pb_BootsSetOptimize.Location = new System.Drawing.Point(1694, 1006);
+            this.pb_BootsSetOptimize.Location = new System.Drawing.Point(1694, 1079);
             this.pb_BootsSetOptimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pb_BootsSetOptimize.Name = "pb_BootsSetOptimize";
             this.pb_BootsSetOptimize.Size = new System.Drawing.Size(45, 46);
@@ -7221,7 +7499,7 @@
             // pictureBox14
             // 
             this.pictureBox14.Image = global::E7_Gear_Optimizer.Properties.Resources.boots;
-            this.pictureBox14.Location = new System.Drawing.Point(1702, 729);
+            this.pictureBox14.Location = new System.Drawing.Point(1702, 802);
             this.pictureBox14.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(60, 62);
@@ -7233,7 +7511,7 @@
             // 
             this.pb_ArmorSetOptimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_ArmorSetOptimize.InitialImage = null;
-            this.pb_ArmorSetOptimize.Location = new System.Drawing.Point(1302, 1006);
+            this.pb_ArmorSetOptimize.Location = new System.Drawing.Point(1302, 1079);
             this.pb_ArmorSetOptimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pb_ArmorSetOptimize.Name = "pb_ArmorSetOptimize";
             this.pb_ArmorSetOptimize.Size = new System.Drawing.Size(45, 46);
@@ -7244,7 +7522,7 @@
             // pictureBox12
             // 
             this.pictureBox12.Image = global::E7_Gear_Optimizer.Properties.Resources.armor;
-            this.pictureBox12.Location = new System.Drawing.Point(1311, 729);
+            this.pictureBox12.Location = new System.Drawing.Point(1311, 802);
             this.pictureBox12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(60, 62);
@@ -7256,7 +7534,7 @@
             // 
             this.pb_HelmetSetOptimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_HelmetSetOptimize.InitialImage = null;
-            this.pb_HelmetSetOptimize.Location = new System.Drawing.Point(1302, 642);
+            this.pb_HelmetSetOptimize.Location = new System.Drawing.Point(1302, 679);
             this.pb_HelmetSetOptimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pb_HelmetSetOptimize.Name = "pb_HelmetSetOptimize";
             this.pb_HelmetSetOptimize.Size = new System.Drawing.Size(45, 46);
@@ -7267,7 +7545,7 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = global::E7_Gear_Optimizer.Properties.Resources.helmet;
-            this.pictureBox8.Location = new System.Drawing.Point(1311, 365);
+            this.pictureBox8.Location = new System.Drawing.Point(1311, 402);
             this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(60, 62);
@@ -7309,197 +7587,72 @@
             this.sfd_export.FileName = "E7 Gear Optimizer.json";
             this.sfd_export.Filter = "JSON|*.json";
             // 
-            // c_Portrait
+            // tb_MaxEHPpS
             // 
-            this.c_Portrait.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Portrait.HeaderText = "Portrait";
-            this.c_Portrait.MinimumWidth = 8;
-            this.c_Portrait.Name = "c_Portrait";
-            this.c_Portrait.ReadOnly = true;
-            this.c_Portrait.Width = 70;
+            this.tb_MaxEHPpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxEHPpS.Location = new System.Drawing.Point(203, 345);
+            this.tb_MaxEHPpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxEHPpS.Name = "tb_MaxEHPpS";
+            this.tb_MaxEHPpS.Size = new System.Drawing.Size(93, 26);
+            this.tb_MaxEHPpS.TabIndex = 21;
             // 
-            // c_Name
+            // tb_MaxDMGpS
             // 
-            this.c_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Name.HeaderText = "Name";
-            this.c_Name.MinimumWidth = 8;
-            this.c_Name.Name = "c_Name";
-            this.c_Name.ReadOnly = true;
-            this.c_Name.Width = 89;
+            this.tb_MaxDMGpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MaxDMGpS.Location = new System.Drawing.Point(203, 416);
+            this.tb_MaxDMGpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxDMGpS.Name = "tb_MaxDMGpS";
+            this.tb_MaxDMGpS.Size = new System.Drawing.Size(93, 26);
+            this.tb_MaxDMGpS.TabIndex = 25;
             // 
-            // c_Element
+            // tb_MinEHPpS
             // 
-            this.c_Element.HeaderText = "Element";
-            this.c_Element.MinimumWidth = 8;
-            this.c_Element.Name = "c_Element";
-            this.c_Element.ReadOnly = true;
-            this.c_Element.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.c_Element.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.c_Element.Width = 106;
+            this.tb_MinEHPpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinEHPpS.Location = new System.Drawing.Point(4, 345);
+            this.tb_MinEHPpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinEHPpS.Name = "tb_MinEHPpS";
+            this.tb_MinEHPpS.Size = new System.Drawing.Size(91, 26);
+            this.tb_MinEHPpS.TabIndex = 20;
             // 
-            // c_Class
+            // tb_MinDMGpS
             // 
-            this.c_Class.HeaderText = "Class";
-            this.c_Class.MinimumWidth = 8;
-            this.c_Class.Name = "c_Class";
-            this.c_Class.ReadOnly = true;
-            this.c_Class.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.c_Class.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.c_Class.Width = 88;
+            this.tb_MinDMGpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_MinDMGpS.Location = new System.Drawing.Point(4, 416);
+            this.tb_MinDMGpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinDMGpS.Name = "tb_MinDMGpS";
+            this.tb_MinDMGpS.Size = new System.Drawing.Size(91, 26);
+            this.tb_MinDMGpS.TabIndex = 24;
             // 
-            // c_Lvl
+            // label51
             // 
-            this.c_Lvl.HeaderText = "Lvl";
-            this.c_Lvl.MinimumWidth = 8;
-            this.c_Lvl.Name = "c_Lvl";
-            this.c_Lvl.ReadOnly = true;
-            this.c_Lvl.Width = 67;
+            this.label51.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(103, 347);
+            this.label51.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(92, 20);
+            this.label51.TabIndex = 10;
+            this.label51.Text = "EHP/SPD";
+            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // c_Awakening
+            // label52
             // 
-            this.c_Awakening.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Awakening.HeaderText = "Awakening";
-            this.c_Awakening.MinimumWidth = 8;
-            this.c_Awakening.Name = "c_Awakening";
-            this.c_Awakening.ReadOnly = true;
-            this.c_Awakening.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.c_Awakening.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.c_Awakening.Width = 125;
-            // 
-            // c_Sets
-            // 
-            this.c_Sets.HeaderText = "Sets";
-            this.c_Sets.MinimumWidth = 8;
-            this.c_Sets.Name = "c_Sets";
-            this.c_Sets.ReadOnly = true;
-            this.c_Sets.Width = 49;
-            // 
-            // c_ATKHero
-            // 
-            this.c_ATKHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_ATKHero.HeaderText = "ATK";
-            this.c_ATKHero.MinimumWidth = 8;
-            this.c_ATKHero.Name = "c_ATKHero";
-            this.c_ATKHero.ReadOnly = true;
-            // 
-            // c_SPDHero
-            // 
-            this.c_SPDHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_SPDHero.HeaderText = "SPD";
-            this.c_SPDHero.MinimumWidth = 8;
-            this.c_SPDHero.Name = "c_SPDHero";
-            this.c_SPDHero.ReadOnly = true;
-            // 
-            // c_CritHero
-            // 
-            this.c_CritHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_CritHero.HeaderText = "Crit";
-            this.c_CritHero.MinimumWidth = 8;
-            this.c_CritHero.Name = "c_CritHero";
-            this.c_CritHero.ReadOnly = true;
-            // 
-            // c_CritDmgHero
-            // 
-            this.c_CritDmgHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_CritDmgHero.HeaderText = "CritDmg";
-            this.c_CritDmgHero.MinimumWidth = 8;
-            this.c_CritDmgHero.Name = "c_CritDmgHero";
-            this.c_CritDmgHero.ReadOnly = true;
-            // 
-            // c_HPHero
-            // 
-            this.c_HPHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_HPHero.HeaderText = "HP";
-            this.c_HPHero.MinimumWidth = 8;
-            this.c_HPHero.Name = "c_HPHero";
-            this.c_HPHero.ReadOnly = true;
-            // 
-            // c_HPpSHero
-            // 
-            this.c_HPpSHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_HPpSHero.HeaderText = "HPpS";
-            this.c_HPpSHero.MinimumWidth = 8;
-            this.c_HPpSHero.Name = "c_HPpSHero";
-            this.c_HPpSHero.ReadOnly = true;
-            // 
-            // c_DEFHero
-            // 
-            this.c_DEFHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DEFHero.HeaderText = "DEF";
-            this.c_DEFHero.MinimumWidth = 8;
-            this.c_DEFHero.Name = "c_DEFHero";
-            this.c_DEFHero.ReadOnly = true;
-            // 
-            // c_EFFHero
-            // 
-            this.c_EFFHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_EFFHero.HeaderText = "EFF";
-            this.c_EFFHero.MinimumWidth = 8;
-            this.c_EFFHero.Name = "c_EFFHero";
-            this.c_EFFHero.ReadOnly = true;
-            // 
-            // c_RESHero
-            // 
-            this.c_RESHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_RESHero.HeaderText = "RES";
-            this.c_RESHero.MinimumWidth = 8;
-            this.c_RESHero.Name = "c_RESHero";
-            this.c_RESHero.ReadOnly = true;
-            // 
-            // c_DACHero
-            // 
-            this.c_DACHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DACHero.HeaderText = "DAC";
-            this.c_DACHero.MinimumWidth = 8;
-            this.c_DACHero.Name = "c_DACHero";
-            this.c_DACHero.ReadOnly = true;
-            // 
-            // c_EHP
-            // 
-            this.c_EHP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_EHP.HeaderText = "EHP";
-            this.c_EHP.MinimumWidth = 8;
-            this.c_EHP.Name = "c_EHP";
-            this.c_EHP.ReadOnly = true;
-            // 
-            // c_EHPpSHero
-            // 
-            this.c_EHPpSHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_EHPpSHero.HeaderText = "EHPpS";
-            this.c_EHPpSHero.MinimumWidth = 8;
-            this.c_EHPpSHero.Name = "c_EHPpSHero";
-            this.c_EHPpSHero.ReadOnly = true;
-            // 
-            // c_DMG
-            // 
-            this.c_DMG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DMG.HeaderText = "DMG";
-            this.c_DMG.MinimumWidth = 8;
-            this.c_DMG.Name = "c_DMG";
-            this.c_DMG.ReadOnly = true;
-            // 
-            // c_DMGpS
-            // 
-            this.c_DMGpS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DMGpS.HeaderText = "DMGpS";
-            this.c_DMGpS.MinimumWidth = 8;
-            this.c_DMGpS.Name = "c_DMGpS";
-            this.c_DMGpS.ReadOnly = true;
-            // 
-            // c_HeroID
-            // 
-            this.c_HeroID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_HeroID.HeaderText = "ID";
-            this.c_HeroID.MinimumWidth = 8;
-            this.c_HeroID.Name = "c_HeroID";
-            this.c_HeroID.ReadOnly = true;
+            this.label52.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(103, 419);
+            this.label52.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(92, 20);
+            this.label52.TabIndex = 12;
+            this.label52.Text = "DMG/SPD";
+            this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(2025, 1122);
+            this.ClientSize = new System.Drawing.Size(2025, 1197);
             this.Controls.Add(this.tc_Main);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -8164,6 +8317,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn c_DMG;
         private System.Windows.Forms.DataGridViewTextBoxColumn c_DMGpS;
         private System.Windows.Forms.DataGridViewTextBoxColumn c_HeroID;
+        private System.Windows.Forms.TextBox tb_MinHPpS;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.TextBox tb_MaxHPpS;
+        private System.Windows.Forms.TextBox tb_MaxEHPpS;
+        private System.Windows.Forms.TextBox tb_MaxDMGpS;
+        private System.Windows.Forms.TextBox tb_MinEHPpS;
+        private System.Windows.Forms.TextBox tb_MinDMGpS;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label52;
     }
 }
 
