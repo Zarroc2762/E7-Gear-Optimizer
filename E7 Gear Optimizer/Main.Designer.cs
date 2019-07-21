@@ -594,13 +594,14 @@
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -609,7 +610,6 @@
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.tb_Inventory.SuspendLayout();
             this.tc_InventorySets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ItemLocked)).BeginInit();
@@ -2264,7 +2264,7 @@
             this.tb_Heroes.Location = new System.Drawing.Point(4, 32);
             this.tb_Heroes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_Heroes.Name = "tb_Heroes";
-            this.tb_Heroes.Size = new System.Drawing.Size(2152, 1147);
+            this.tb_Heroes.Size = new System.Drawing.Size(2187, 1147);
             this.tb_Heroes.TabIndex = 3;
             this.tb_Heroes.Text = "Heroes";
             this.tb_Heroes.UseVisualStyleBackColor = true;
@@ -4916,7 +4916,7 @@
             // l_BootsEnhanceOptimize
             // 
             this.l_BootsEnhanceOptimize.AutoSize = true;
-            this.l_BootsEnhanceOptimize.Location = new System.Drawing.Point(1772, 729);
+            this.l_BootsEnhanceOptimize.Location = new System.Drawing.Point(1965, 802);
             this.l_BootsEnhanceOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_BootsEnhanceOptimize.Name = "l_BootsEnhanceOptimize";
             this.l_BootsEnhanceOptimize.Size = new System.Drawing.Size(0, 20);
@@ -4925,7 +4925,7 @@
             // l_RingEnhanceOptimize
             // 
             this.l_RingEnhanceOptimize.AutoSize = true;
-            this.l_RingEnhanceOptimize.Location = new System.Drawing.Point(1772, 365);
+            this.l_RingEnhanceOptimize.Location = new System.Drawing.Point(1965, 402);
             this.l_RingEnhanceOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_RingEnhanceOptimize.Name = "l_RingEnhanceOptimize";
             this.l_RingEnhanceOptimize.Size = new System.Drawing.Size(0, 20);
@@ -4934,7 +4934,8 @@
             // l_NecklaceEnhanceOptimize
             // 
             this.l_NecklaceEnhanceOptimize.AutoSize = true;
-            this.l_NecklaceEnhanceOptimize.Location = new System.Drawing.Point(1764, 2);
+            this.l_NecklaceEnhanceOptimize.BackColor = System.Drawing.Color.Transparent;
+            this.l_NecklaceEnhanceOptimize.Location = new System.Drawing.Point(1965, 2);
             this.l_NecklaceEnhanceOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_NecklaceEnhanceOptimize.Name = "l_NecklaceEnhanceOptimize";
             this.l_NecklaceEnhanceOptimize.Size = new System.Drawing.Size(0, 20);
@@ -4943,7 +4944,7 @@
             // l_ArmorEnhanceOptimize
             // 
             this.l_ArmorEnhanceOptimize.AutoSize = true;
-            this.l_ArmorEnhanceOptimize.Location = new System.Drawing.Point(1380, 729);
+            this.l_ArmorEnhanceOptimize.Location = new System.Drawing.Point(1573, 802);
             this.l_ArmorEnhanceOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_ArmorEnhanceOptimize.Name = "l_ArmorEnhanceOptimize";
             this.l_ArmorEnhanceOptimize.Size = new System.Drawing.Size(0, 20);
@@ -4952,7 +4953,8 @@
             // l_HelmetEnhanceOptimize
             // 
             this.l_HelmetEnhanceOptimize.AutoSize = true;
-            this.l_HelmetEnhanceOptimize.Location = new System.Drawing.Point(1380, 365);
+            this.l_HelmetEnhanceOptimize.BackColor = System.Drawing.Color.Transparent;
+            this.l_HelmetEnhanceOptimize.Location = new System.Drawing.Point(1573, 402);
             this.l_HelmetEnhanceOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_HelmetEnhanceOptimize.Name = "l_HelmetEnhanceOptimize";
             this.l_HelmetEnhanceOptimize.Size = new System.Drawing.Size(0, 20);
@@ -4961,7 +4963,7 @@
             // l_WeaponEnhanceOptimize
             // 
             this.l_WeaponEnhanceOptimize.AutoSize = true;
-            this.l_WeaponEnhanceOptimize.Location = new System.Drawing.Point(1380, 2);
+            this.l_WeaponEnhanceOptimize.Location = new System.Drawing.Point(1573, 2);
             this.l_WeaponEnhanceOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_WeaponEnhanceOptimize.Name = "l_WeaponEnhanceOptimize";
             this.l_WeaponEnhanceOptimize.Size = new System.Drawing.Size(0, 20);
@@ -4970,9 +4972,10 @@
             // l_BootsIlvlOptimize
             // 
             this.l_BootsIlvlOptimize.AutoSize = true;
+            this.l_BootsIlvlOptimize.BackColor = System.Drawing.Color.Transparent;
             this.l_BootsIlvlOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_BootsIlvlOptimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
-            this.l_BootsIlvlOptimize.Location = new System.Drawing.Point(1698, 729);
+            this.l_BootsIlvlOptimize.Location = new System.Drawing.Point(1895, 802);
             this.l_BootsIlvlOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_BootsIlvlOptimize.Name = "l_BootsIlvlOptimize";
             this.l_BootsIlvlOptimize.Size = new System.Drawing.Size(0, 20);
@@ -4981,9 +4984,10 @@
             // l_RingIlvlOptimize
             // 
             this.l_RingIlvlOptimize.AutoSize = true;
+            this.l_RingIlvlOptimize.BackColor = System.Drawing.Color.Transparent;
             this.l_RingIlvlOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_RingIlvlOptimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
-            this.l_RingIlvlOptimize.Location = new System.Drawing.Point(1698, 365);
+            this.l_RingIlvlOptimize.Location = new System.Drawing.Point(1895, 402);
             this.l_RingIlvlOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_RingIlvlOptimize.Name = "l_RingIlvlOptimize";
             this.l_RingIlvlOptimize.Size = new System.Drawing.Size(0, 20);
@@ -4992,9 +4996,10 @@
             // l_NecklaceIlvlOptimize
             // 
             this.l_NecklaceIlvlOptimize.AutoSize = true;
+            this.l_NecklaceIlvlOptimize.BackColor = System.Drawing.Color.Transparent;
             this.l_NecklaceIlvlOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_NecklaceIlvlOptimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
-            this.l_NecklaceIlvlOptimize.Location = new System.Drawing.Point(1690, 2);
+            this.l_NecklaceIlvlOptimize.Location = new System.Drawing.Point(1895, 2);
             this.l_NecklaceIlvlOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_NecklaceIlvlOptimize.Name = "l_NecklaceIlvlOptimize";
             this.l_NecklaceIlvlOptimize.Size = new System.Drawing.Size(0, 20);
@@ -5003,9 +5008,10 @@
             // l_ArmorIlvlOptimize
             // 
             this.l_ArmorIlvlOptimize.AutoSize = true;
+            this.l_ArmorIlvlOptimize.BackColor = System.Drawing.Color.Transparent;
             this.l_ArmorIlvlOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_ArmorIlvlOptimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
-            this.l_ArmorIlvlOptimize.Location = new System.Drawing.Point(1306, 729);
+            this.l_ArmorIlvlOptimize.Location = new System.Drawing.Point(1503, 802);
             this.l_ArmorIlvlOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_ArmorIlvlOptimize.Name = "l_ArmorIlvlOptimize";
             this.l_ArmorIlvlOptimize.Size = new System.Drawing.Size(0, 20);
@@ -5014,9 +5020,10 @@
             // l_HelmetIlvlOptimize
             // 
             this.l_HelmetIlvlOptimize.AutoSize = true;
+            this.l_HelmetIlvlOptimize.BackColor = System.Drawing.Color.Transparent;
             this.l_HelmetIlvlOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_HelmetIlvlOptimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
-            this.l_HelmetIlvlOptimize.Location = new System.Drawing.Point(1306, 365);
+            this.l_HelmetIlvlOptimize.Location = new System.Drawing.Point(1503, 402);
             this.l_HelmetIlvlOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_HelmetIlvlOptimize.Name = "l_HelmetIlvlOptimize";
             this.l_HelmetIlvlOptimize.Size = new System.Drawing.Size(0, 20);
@@ -5025,9 +5032,10 @@
             // l_WeaponIlvlOptimize
             // 
             this.l_WeaponIlvlOptimize.AutoSize = true;
+            this.l_WeaponIlvlOptimize.BackColor = System.Drawing.Color.Transparent;
             this.l_WeaponIlvlOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_WeaponIlvlOptimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
-            this.l_WeaponIlvlOptimize.Location = new System.Drawing.Point(1306, 2);
+            this.l_WeaponIlvlOptimize.Location = new System.Drawing.Point(1503, 2);
             this.l_WeaponIlvlOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_WeaponIlvlOptimize.Name = "l_WeaponIlvlOptimize";
             this.l_WeaponIlvlOptimize.Size = new System.Drawing.Size(0, 20);
@@ -5048,7 +5056,7 @@
             // 
             this.l_RingSetOptimize.AutoSize = true;
             this.l_RingSetOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_RingSetOptimize.Location = new System.Drawing.Point(1748, 651);
+            this.l_RingSetOptimize.Location = new System.Drawing.Point(1951, 688);
             this.l_RingSetOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_RingSetOptimize.Name = "l_RingSetOptimize";
             this.l_RingSetOptimize.Size = new System.Drawing.Size(0, 24);
@@ -5221,7 +5229,7 @@
             // 
             this.l_RingGradeOptimize.AutoSize = true;
             this.l_RingGradeOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_RingGradeOptimize.Location = new System.Drawing.Point(1772, 385);
+            this.l_RingGradeOptimize.Location = new System.Drawing.Point(1965, 422);
             this.l_RingGradeOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_RingGradeOptimize.Name = "l_RingGradeOptimize";
             this.l_RingGradeOptimize.Size = new System.Drawing.Size(0, 20);
@@ -5231,7 +5239,7 @@
             // 
             this.l_NecklaceSetOptimize.AutoSize = true;
             this.l_NecklaceSetOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_NecklaceSetOptimize.Location = new System.Drawing.Point(1748, 288);
+            this.l_NecklaceSetOptimize.Location = new System.Drawing.Point(1951, 288);
             this.l_NecklaceSetOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_NecklaceSetOptimize.Name = "l_NecklaceSetOptimize";
             this.l_NecklaceSetOptimize.Size = new System.Drawing.Size(0, 24);
@@ -5404,7 +5412,7 @@
             // 
             this.l_NecklaceGradeOptimize.AutoSize = true;
             this.l_NecklaceGradeOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_NecklaceGradeOptimize.Location = new System.Drawing.Point(1772, 22);
+            this.l_NecklaceGradeOptimize.Location = new System.Drawing.Point(1965, 22);
             this.l_NecklaceGradeOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_NecklaceGradeOptimize.Name = "l_NecklaceGradeOptimize";
             this.l_NecklaceGradeOptimize.Size = new System.Drawing.Size(0, 20);
@@ -5414,7 +5422,7 @@
             // 
             this.l_BootsSetOptimize.AutoSize = true;
             this.l_BootsSetOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_BootsSetOptimize.Location = new System.Drawing.Point(1748, 1015);
+            this.l_BootsSetOptimize.Location = new System.Drawing.Point(1951, 1088);
             this.l_BootsSetOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_BootsSetOptimize.Name = "l_BootsSetOptimize";
             this.l_BootsSetOptimize.Size = new System.Drawing.Size(0, 24);
@@ -5587,7 +5595,7 @@
             // 
             this.l_BootsGradeOptimize.AutoSize = true;
             this.l_BootsGradeOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_BootsGradeOptimize.Location = new System.Drawing.Point(1772, 749);
+            this.l_BootsGradeOptimize.Location = new System.Drawing.Point(1965, 822);
             this.l_BootsGradeOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_BootsGradeOptimize.Name = "l_BootsGradeOptimize";
             this.l_BootsGradeOptimize.Size = new System.Drawing.Size(0, 20);
@@ -5597,7 +5605,7 @@
             // 
             this.l_ArmorSetOptimize.AutoSize = true;
             this.l_ArmorSetOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_ArmorSetOptimize.Location = new System.Drawing.Point(1356, 1015);
+            this.l_ArmorSetOptimize.Location = new System.Drawing.Point(1559, 1088);
             this.l_ArmorSetOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_ArmorSetOptimize.Name = "l_ArmorSetOptimize";
             this.l_ArmorSetOptimize.Size = new System.Drawing.Size(0, 24);
@@ -5770,7 +5778,7 @@
             // 
             this.l_ArmorGradeOptimize.AutoSize = true;
             this.l_ArmorGradeOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_ArmorGradeOptimize.Location = new System.Drawing.Point(1380, 749);
+            this.l_ArmorGradeOptimize.Location = new System.Drawing.Point(1573, 822);
             this.l_ArmorGradeOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_ArmorGradeOptimize.Name = "l_ArmorGradeOptimize";
             this.l_ArmorGradeOptimize.Size = new System.Drawing.Size(0, 20);
@@ -5780,7 +5788,7 @@
             // 
             this.l_HelmetSetOptimize.AutoSize = true;
             this.l_HelmetSetOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_HelmetSetOptimize.Location = new System.Drawing.Point(1356, 651);
+            this.l_HelmetSetOptimize.Location = new System.Drawing.Point(1559, 688);
             this.l_HelmetSetOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_HelmetSetOptimize.Name = "l_HelmetSetOptimize";
             this.l_HelmetSetOptimize.Size = new System.Drawing.Size(0, 24);
@@ -5953,7 +5961,7 @@
             // 
             this.l_HelmetGradeOptimize.AutoSize = true;
             this.l_HelmetGradeOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_HelmetGradeOptimize.Location = new System.Drawing.Point(1380, 385);
+            this.l_HelmetGradeOptimize.Location = new System.Drawing.Point(1573, 422);
             this.l_HelmetGradeOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_HelmetGradeOptimize.Name = "l_HelmetGradeOptimize";
             this.l_HelmetGradeOptimize.Size = new System.Drawing.Size(0, 20);
@@ -5963,7 +5971,7 @@
             // 
             this.l_WeaponSetOptimize.AutoSize = true;
             this.l_WeaponSetOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_WeaponSetOptimize.Location = new System.Drawing.Point(1356, 288);
+            this.l_WeaponSetOptimize.Location = new System.Drawing.Point(1559, 288);
             this.l_WeaponSetOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_WeaponSetOptimize.Name = "l_WeaponSetOptimize";
             this.l_WeaponSetOptimize.Size = new System.Drawing.Size(0, 24);
@@ -6136,7 +6144,7 @@
             // 
             this.l_WeaponGradeOptimize.AutoSize = true;
             this.l_WeaponGradeOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_WeaponGradeOptimize.Location = new System.Drawing.Point(1380, 22);
+            this.l_WeaponGradeOptimize.Location = new System.Drawing.Point(1573, 22);
             this.l_WeaponGradeOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_WeaponGradeOptimize.Name = "l_WeaponGradeOptimize";
             this.l_WeaponGradeOptimize.Size = new System.Drawing.Size(0, 20);
@@ -6444,7 +6452,7 @@
             this.dgv_OptimizeResults.AllowUserToAddRows = false;
             this.dgv_OptimizeResults.AllowUserToDeleteRows = false;
             this.dgv_OptimizeResults.AllowUserToOrderColumns = true;
-            this.dgv_OptimizeResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_OptimizeResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -6460,8 +6468,8 @@
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn23,
+            this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15,
             this.dataGridViewTextBoxColumn16,
             this.dataGridViewTextBoxColumn17,
@@ -6510,7 +6518,7 @@
             this.dgv_CurrentGear.AllowUserToAddRows = false;
             this.dgv_CurrentGear.AllowUserToDeleteRows = false;
             this.dgv_CurrentGear.AllowUserToOrderColumns = true;
-            this.dgv_CurrentGear.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_CurrentGear.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_CurrentGear.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
@@ -7434,7 +7442,6 @@
             this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 77;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -7442,7 +7449,6 @@
             this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 80;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -7450,7 +7456,6 @@
             this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 72;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -7458,7 +7463,6 @@
             this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 108;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -7466,7 +7470,6 @@
             this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 69;
             // 
             // dataGridViewTextBoxColumn20
             // 
@@ -7474,7 +7477,6 @@
             this.dataGridViewTextBoxColumn20.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            this.dataGridViewTextBoxColumn20.Width = 109;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -7482,7 +7484,6 @@
             this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 79;
             // 
             // c_OptimizeEFF
             // 
@@ -7490,7 +7491,6 @@
             this.c_OptimizeEFF.MinimumWidth = 8;
             this.c_OptimizeEFF.Name = "c_OptimizeEFF";
             this.c_OptimizeEFF.ReadOnly = true;
-            this.c_OptimizeEFF.Width = 76;
             // 
             // c_OptimizeRES
             // 
@@ -7498,7 +7498,6 @@
             this.c_OptimizeRES.MinimumWidth = 8;
             this.c_OptimizeRES.Name = "c_OptimizeRES";
             this.c_OptimizeRES.ReadOnly = true;
-            this.c_OptimizeRES.Width = 79;
             // 
             // c_OptimizeDAC
             // 
@@ -7506,7 +7505,6 @@
             this.c_OptimizeDAC.MinimumWidth = 8;
             this.c_OptimizeDAC.Name = "c_OptimizeDAC";
             this.c_OptimizeDAC.ReadOnly = true;
-            this.c_OptimizeDAC.Width = 81;
             // 
             // dataGridViewImageColumn5
             // 
@@ -7514,7 +7512,6 @@
             this.dataGridViewImageColumn5.MinimumWidth = 8;
             this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
             this.dataGridViewImageColumn5.ReadOnly = true;
-            this.dataGridViewImageColumn5.Width = 49;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -7522,7 +7519,6 @@
             this.dataGridViewTextBoxColumn11.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 80;
             // 
             // dataGridViewTextBoxColumn21
             // 
@@ -7530,7 +7526,6 @@
             this.dataGridViewTextBoxColumn21.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
-            this.dataGridViewTextBoxColumn21.Width = 120;
             // 
             // dataGridViewTextBoxColumn12
             // 
@@ -7538,7 +7533,6 @@
             this.dataGridViewTextBoxColumn12.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Width = 85;
             // 
             // dataGridViewTextBoxColumn22
             // 
@@ -7546,131 +7540,6 @@
             this.dataGridViewTextBoxColumn22.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
             this.dataGridViewTextBoxColumn22.ReadOnly = true;
-            this.dataGridViewTextBoxColumn22.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "ATK";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 77;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "SPD";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Crit";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 72;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "CritDmg";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 108;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.HeaderText = "HP";
-            this.dataGridViewTextBoxColumn13.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Width = 69;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.HeaderText = "DEF";
-            this.dataGridViewTextBoxColumn14.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            this.dataGridViewTextBoxColumn14.Width = 79;
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.HeaderText = "HP/SPD";
-            this.dataGridViewTextBoxColumn23.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.ReadOnly = true;
-            this.dataGridViewTextBoxColumn23.Width = 109;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.HeaderText = "EFF";
-            this.dataGridViewTextBoxColumn15.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            this.dataGridViewTextBoxColumn15.Width = 76;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.HeaderText = "RES";
-            this.dataGridViewTextBoxColumn16.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            this.dataGridViewTextBoxColumn16.Width = 79;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.HeaderText = "DAC";
-            this.dataGridViewTextBoxColumn17.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            this.dataGridViewTextBoxColumn17.Width = 81;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle6.NullValue")));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewImageColumn1.HeaderText = "Sets";
-            this.dataGridViewImageColumn1.MinimumWidth = 8;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 49;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.HeaderText = "EHP";
-            this.dataGridViewTextBoxColumn18.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            this.dataGridViewTextBoxColumn18.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            this.dataGridViewTextBoxColumn24.HeaderText = "EHP/SPD";
-            this.dataGridViewTextBoxColumn24.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            this.dataGridViewTextBoxColumn24.ReadOnly = true;
-            this.dataGridViewTextBoxColumn24.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.HeaderText = "DMG";
-            this.dataGridViewTextBoxColumn19.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            this.dataGridViewTextBoxColumn19.Width = 85;
-            // 
-            // dataGridViewTextBoxColumn25
-            // 
-            this.dataGridViewTextBoxColumn25.HeaderText = "DMG/SPD";
-            this.dataGridViewTextBoxColumn25.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
-            this.dataGridViewTextBoxColumn25.ReadOnly = true;
-            this.dataGridViewTextBoxColumn25.Width = 125;
             // 
             // panel1
             // 
@@ -7696,6 +7565,115 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(310, 475);
             this.panel1.TabIndex = 141;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "ATK";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "SPD";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "Crit";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "CritDmg";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.HeaderText = "HP";
+            this.dataGridViewTextBoxColumn13.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.HeaderText = "HP/SPD";
+            this.dataGridViewTextBoxColumn23.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.HeaderText = "DEF";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.HeaderText = "EFF";
+            this.dataGridViewTextBoxColumn15.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.HeaderText = "RES";
+            this.dataGridViewTextBoxColumn16.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.HeaderText = "DAC";
+            this.dataGridViewTextBoxColumn17.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle6.NullValue")));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewImageColumn1.HeaderText = "Sets";
+            this.dataGridViewImageColumn1.MinimumWidth = 8;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.HeaderText = "EHP";
+            this.dataGridViewTextBoxColumn18.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.HeaderText = "EHP/SPD";
+            this.dataGridViewTextBoxColumn24.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.HeaderText = "DMG";
+            this.dataGridViewTextBoxColumn19.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.HeaderText = "DMG/SPD";
+            this.dataGridViewTextBoxColumn25.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.ReadOnly = true;
             // 
             // Main
             // 
@@ -8369,13 +8347,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
@@ -8384,7 +8363,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
-        private System.Windows.Forms.Panel panel1;
     }
 }
 
