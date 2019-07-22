@@ -319,18 +319,21 @@ namespace E7_Gear_Optimizer
                         count += set == Set.Unity ? 1 : 0;
                     }
                 }
-                values[15] = (5 + (count * 4)) + "%";
+                values[16] = (5 + (count * 4)) + "%";
                 Dictionary<Stats, float> stats = hero.CurrentStats;
                 values[7] = (int)stats[Stats.ATK];
                 values[8] = (int)stats[Stats.SPD];
                 values[9] = stats[Stats.Crit].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[10] = stats[Stats.CritDmg].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[11] = (int)stats[Stats.HP];
-                values[12] = (int)stats[Stats.DEF];
-                values[13] = stats[Stats.EFF].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[14] = stats[Stats.RES].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[16] = (int)stats[Stats.EHP];
-                values[17] = (int)stats[Stats.DMG];
+                values[12] = (int)stats[Stats.HPpS];
+                values[13] = (int)stats[Stats.DEF];
+                values[14] = stats[Stats.EFF].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                values[15] = stats[Stats.RES].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                values[17] = (int)stats[Stats.EHP];
+                values[18] = (int)stats[Stats.EHPpS];
+                values[19] = (int)stats[Stats.DMG];
+                values[20] = (int)stats[Stats.DMGpS];
                 dgv_Heroes.Rows.Add(values);
             }
 
@@ -433,7 +436,7 @@ namespace E7_Gear_Optimizer
         {
             if (((RadioButton)sender).Checked)
             {
-                for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length - 2; i++)
+                for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length - 5; i++)
                 {
                     lb_Main.Items[i] = (Stats)i == Stats.ATK ? Stats.ATK.ToString() : "";
                 }
@@ -441,7 +444,7 @@ namespace E7_Gear_Optimizer
                 for (int sub = 1; sub < 5; sub++)
                 {
                     ListBox current = (ListBox)tb_Inventory.Controls.Find("lb_Sub" + sub, false)[0];
-                    for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length - 2; i++)
+                    for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length - 5; i++)
                     {
                         switch ((Stats)i)
                         {
@@ -468,7 +471,7 @@ namespace E7_Gear_Optimizer
         {
             if (((RadioButton)sender).Checked)
             {
-                for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length - 2; i++)
+                for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length - 5; i++)
                 {
                     lb_Main.Items[i] = (Stats)i == Stats.HP ? Stats.HP.ToString() : "";
                 }
@@ -476,7 +479,7 @@ namespace E7_Gear_Optimizer
                 for (int sub = 1; sub < 5; sub++)
                 {
                     ListBox current = (ListBox)tb_Inventory.Controls.Find("lb_Sub" + sub, false)[0];
-                    for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length - 2; i++)
+                    for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length - 5; i++)
                     {
                         switch ((Stats)i)
                         {
@@ -497,7 +500,7 @@ namespace E7_Gear_Optimizer
         {
             if (((RadioButton)sender).Checked)
             {
-                for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length-2; i++)
+                for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length-5; i++)
                 {
                     lb_Main.Items[i] = (Stats)i == Stats.DEF ? Stats.DEF.ToString() : "";
                 }
@@ -505,7 +508,7 @@ namespace E7_Gear_Optimizer
                 for (int sub = 1; sub < 5; sub++)
                 {
                     ListBox current = (ListBox)tb_Inventory.Controls.Find("lb_Sub" + sub, false)[0];
-                    for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length-2; i++)
+                    for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length-5; i++)
                     {
                         switch ((Stats)i)
                         {
@@ -532,7 +535,7 @@ namespace E7_Gear_Optimizer
         {
             if (((RadioButton)sender).Checked)
             {
-                for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length-2; i++)
+                for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length-5; i++)
                 {
                     switch ((Stats)i)
                     {
@@ -553,7 +556,7 @@ namespace E7_Gear_Optimizer
                 for (int sub = 1; sub < 5; sub++)
                 {
                     ListBox current = (ListBox)tb_Inventory.Controls.Find("lb_Sub" + sub, false)[0];
-                    for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length-2; i++)
+                    for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length-5; i++)
                     {
                         current.Items[i] = ((Stats)i).ToString().Replace("Percent", "%");
                     }
@@ -566,7 +569,7 @@ namespace E7_Gear_Optimizer
         {
             if (((RadioButton)sender).Checked)
             {
-                for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length-2; i++)
+                for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length-5; i++)
                 {
                     switch ((Stats)i)
                     {
@@ -587,7 +590,7 @@ namespace E7_Gear_Optimizer
                 for (int sub = 1; sub < 5; sub++)
                 {
                     ListBox current = (ListBox)tb_Inventory.Controls.Find("lb_Sub" + sub, false)[0];
-                    for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length-2; i++)
+                    for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length-5; i++)
                     {
                         current.Items[i] = ((Stats)i).ToString().Replace("Percent", "%");
                     }
@@ -600,7 +603,7 @@ namespace E7_Gear_Optimizer
         {
             if (((RadioButton)sender).Checked)
             {
-                for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length-2; i++)
+                for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length-5; i++)
                 {
                     switch ((Stats)i)
                     {
@@ -624,7 +627,7 @@ namespace E7_Gear_Optimizer
                 for (int sub = 1; sub < 5; sub++)
                 {
                     ListBox current = (ListBox)tb_Inventory.Controls.Find("lb_Sub" + sub, false)[0];
-                    for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length-2; i++)
+                    for (int i = 0; i < Enum.GetNames(typeof(Stats)).Length-5; i++)
                     {
                         current.Items[i] = ((Stats)i).ToString().Replace("Percent", "%");
                     }
@@ -1808,13 +1811,13 @@ namespace E7_Gear_Optimizer
                     pB_Optimize.Hide();
                     pB_Optimize.Value = 0;
                     //Display the first page of results. Each page consists of 100 results
-                    dgv_OptimizeResults.RowCount = 100;
+                    dgv_OptimizeResults.RowCount = Math.Min(100, combinations.Count);
                     optimizePage = 1;
                     l_Pages.Text = "1 / " + ((combinations.Count + 99) / 100);
                 }
                 catch (OperationCanceledException)
                 {
-                    dgv_OptimizeResults.RowCount = 100;
+                    dgv_OptimizeResults.RowCount = Math.Min(100, combinations.Count);
                     optimizePage = 1;
                     l_Pages.Text = "1 / " + ((combinations.Count + 99) / 100);
                     b_CancelOptimize.Hide();
@@ -1882,9 +1885,11 @@ namespace E7_Gear_Optimizer
                             calculatedStats[Stats.EFF] = stats[Stats.EFF] + itemStats[Stats.EFF] + setBonusStats[Stats.EFF];
                             calculatedStats[Stats.RES] = stats[Stats.RES] + itemStats[Stats.RES] + setBonusStats[Stats.RES];
                             calculatedStats[Stats.EHP] = calculatedStats[Stats.HP] * (1 + (calculatedStats[Stats.DEF] / 300));
+                            calculatedStats[Stats.HPpS] = calculatedStats[Stats.HP] * calculatedStats[Stats.SPD] / 100;
+                            calculatedStats[Stats.EHPpS] = calculatedStats[Stats.EHP] * calculatedStats[Stats.SPD] / 100;
                             float crit = calculatedStats[Stats.Crit] > 1 ? 1 : calculatedStats[Stats.Crit];
                             calculatedStats[Stats.DMG] = (calculatedStats[Stats.ATK] * (1 - crit)) + (calculatedStats[Stats.ATK] * crit * calculatedStats[Stats.CritDmg]);
-
+                            calculatedStats[Stats.DMGpS] = calculatedStats[Stats.DMG] * calculatedStats[Stats.SPD] / 100;
                             /*valid = valid && calculatedStats[Stats.ATK] >= filter[0].Item1 && calculatedStats[Stats.ATK] <= filter[0].Item2;
                             valid = valid && calculatedStats[Stats.SPD] >= filter[1].Item1 && calculatedStats[Stats.SPD] <= filter[1].Item2;
                             valid = valid && calculatedStats[Stats.Crit] >= filter[2].Item1 && calculatedStats[Stats.Crit] <= filter[2].Item2;
@@ -1964,15 +1969,18 @@ namespace E7_Gear_Optimizer
                         e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.HP).Item2;
                         break;
                     case 5:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.DEF).Item2;
+                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.HPpS).Item2;
                         break;
                     case 6:
-                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.EFF).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.DEF).Item2;
                         break;
                     case 7:
-                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.RES).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.EFF).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                         break;
                     case 8:
+                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.RES).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                        break;
+                    case 9:
                         int count = 0;
                         activeSets = Util.activeSet(combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item1);
                         if (activeSets.Contains(Set.Unity))
@@ -1984,7 +1992,7 @@ namespace E7_Gear_Optimizer
                         }
                         e.Value = (5 + (count * 4)) + "%";
                         break;
-                    case 9:
+                    case 10:
                         activeSets = Util.activeSet(combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item1);
                         if (activeSets.Count > 0)
                         {
@@ -2001,11 +2009,17 @@ namespace E7_Gear_Optimizer
                             e.Value = null;
                         }
                         break;
-                    case 10:
+                    case 11:
                         e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.EHP).Item2;
                         break;
-                    case 11:
+                    case 12:
+                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.EHPpS).Item2;
+                        break;
+                    case 13:
                         e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.DMG).Item2;
+                        break;
+                    case 14:
+                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.DMGpS).Item2;
                         break;
 
                 }
@@ -2030,15 +2044,18 @@ namespace E7_Gear_Optimizer
                         e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.HP).Item2;
                         break;
                     case 5:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.DEF).Item2;
+                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.HPpS).Item2;
                         break;
                     case 6:
-                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.EFF).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.DEF).Item2;
                         break;
                     case 7:
-                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.RES).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.EFF).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                         break;
                     case 8:
+                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.RES).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                        break;
+                    case 9:
                         int count = 0;
                         activeSets = Util.activeSet(combinations[e.RowIndex + 100 * (optimizePage - 1)].Item1);
                         if (activeSets.Contains(Set.Unity))
@@ -2050,7 +2067,7 @@ namespace E7_Gear_Optimizer
                         }
                         e.Value = (5 + (count * 4)) + "%";
                         break;
-                    case 9:
+                    case 10:
                         activeSets = Util.activeSet(combinations[e.RowIndex + 100 * (optimizePage - 1)].Item1);
                         if (activeSets.Count > 0)
                         {
@@ -2067,13 +2084,18 @@ namespace E7_Gear_Optimizer
                             e.Value = null;
                         }
                         break;
-                    case 10:
+                    case 11:
                         e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.EHP).Item2;
                         break;
-                    case 11:
+                    case 12:
+                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.EHPpS).Item2;
+                        break;
+                    case 13:
                         e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.DMG).Item2;
                         break;
-
+                    case 14:
+                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.DMGpS).Item2;
+                        break;
                 }
             }
         }
@@ -2086,9 +2108,10 @@ namespace E7_Gear_Optimizer
                 if (optimizePage != ((filteredCombinations.Count + 99) / 100))
                 {
                     optimizePage++;
+                    dgv_OptimizeResults.RowCount = Math.Min(filteredCombinations.Count - 100 * (optimizePage - 1), 100);
                     dgv_OptimizeResults.Refresh();
                     dgv_OptimizeResults.AutoResizeColumns();
-                    l_Pages.Text = "1 / " + ((filteredCombinations.Count + 99) / 100);
+                    l_Pages.Text = optimizePage + " / " + ((filteredCombinations.Count + 99) / 100);
                 }
             }
             else
@@ -2096,9 +2119,10 @@ namespace E7_Gear_Optimizer
                 if (optimizePage != ((combinations.Count + 99) / 100))
                 {
                     optimizePage++;
+                    dgv_OptimizeResults.RowCount = Math.Min(combinations.Count - 100 * (optimizePage - 1), 100);
                     dgv_OptimizeResults.Refresh();
                     dgv_OptimizeResults.AutoResizeColumns();
-                    l_Pages.Text = "1 / " + ((combinations.Count + 99) / 100);
+                    l_Pages.Text = optimizePage + " / " + ((combinations.Count + 99) / 100);
                 }
             }
         }
@@ -2110,9 +2134,10 @@ namespace E7_Gear_Optimizer
                 if (optimizePage > 1)
                 {
                     optimizePage--;
+                    dgv_OptimizeResults.RowCount = Math.Min(filteredCombinations.Count - 100 * (optimizePage - 1), 100);
                     dgv_OptimizeResults.Refresh();
                     dgv_OptimizeResults.AutoResizeColumns();
-                    l_Pages.Text = "1 / " + ((filteredCombinations.Count + 99) / 100);
+                    l_Pages.Text = optimizePage + " / " + ((filteredCombinations.Count + 99) / 100);
                 }
             }
             else
@@ -2120,9 +2145,10 @@ namespace E7_Gear_Optimizer
                 if (optimizePage > 1)
                 {
                     optimizePage--;
+                    dgv_OptimizeResults.RowCount = Math.Min(combinations.Count - 100 * (optimizePage - 1), 100);
                     dgv_OptimizeResults.Refresh();
                     dgv_OptimizeResults.AutoResizeColumns();
-                    l_Pages.Text = "1 / " + ((combinations.Count + 99) / 100);
+                    l_Pages.Text = optimizePage + " / " + ((combinations.Count + 99) / 100);
                 }
             }
         }
@@ -2200,6 +2226,18 @@ namespace E7_Gear_Optimizer
                 case 5:
                     if (sortColumn == e.ColumnIndex)
                     {
+                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.HPpS).Item2).ToList();
+                        sortColumn = -1;
+                    }
+                    else
+                    {
+                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.HPpS).Item2).ToList();
+                        sortColumn = e.ColumnIndex;
+                    }
+                    break;
+                case 6:
+                    if (sortColumn == e.ColumnIndex)
+                    {
                         combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.DEF).Item2).ToList();
                         sortColumn = -1;
                     }
@@ -2209,7 +2247,7 @@ namespace E7_Gear_Optimizer
                         sortColumn = e.ColumnIndex;
                     }
                     break;
-                case 6:
+                case 7:
                     if (sortColumn == e.ColumnIndex)
                     {
                         combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.EFF).Item2).ToList();
@@ -2221,7 +2259,7 @@ namespace E7_Gear_Optimizer
                         sortColumn = e.ColumnIndex;
                     }
                     break;
-                case 7:
+                case 8:
                     if (sortColumn == e.ColumnIndex)
                     {
                         combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.RES).Item2).ToList();
@@ -2233,11 +2271,11 @@ namespace E7_Gear_Optimizer
                         sortColumn = e.ColumnIndex;
                     }
                     break;
-                case 8:
-                    break;
                 case 9:
                     break;
                 case 10:
+                    break;
+                case 11:
                     if (sortColumn == e.ColumnIndex)
                     {
                         combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.EHP).Item2).ToList();
@@ -2249,7 +2287,19 @@ namespace E7_Gear_Optimizer
                         sortColumn = e.ColumnIndex;
                     }
                     break;
-                case 11:
+                case 12:
+                    if (sortColumn == e.ColumnIndex)
+                    {
+                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.EHPpS).Item2).ToList();
+                        sortColumn = -1;
+                    }
+                    else
+                    {
+                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.EHPpS).Item2).ToList();
+                        sortColumn = e.ColumnIndex;
+                    }
+                    break;
+                case 13:
                     if (sortColumn == e.ColumnIndex)
                     {
                         combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.DMG).Item2).ToList();
@@ -2258,6 +2308,18 @@ namespace E7_Gear_Optimizer
                     else
                     {
                         combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.DMG).Item2).ToList();
+                        sortColumn = e.ColumnIndex;
+                    }
+                    break;
+                case 14:
+                    if (sortColumn == e.ColumnIndex)
+                    {
+                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.DMGpS).Item2).ToList();
+                        sortColumn = -1;
+                    }
+                    else
+                    {
+                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.DMGpS).Item2).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
@@ -2652,7 +2714,6 @@ namespace E7_Gear_Optimizer
         //Update the current stats of the specified hero when the value of the critbonus changes
         private void Nud_CritBonus_ValueChanged(object sender, EventArgs e)
         {
-
             dgv_CurrentGear.Rows.Clear();
             object[] values = new object[dgv_CurrentGear.ColumnCount];
             if (cb_OptimizeHero.Text != "")
@@ -2665,9 +2726,10 @@ namespace E7_Gear_Optimizer
                 values[2] = crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[3] = hero.CurrentStats[Stats.CritDmg].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[4] = (int)hero.CurrentStats[Stats.HP];
-                values[5] = (int)hero.CurrentStats[Stats.DEF];
-                values[6] = hero.CurrentStats[Stats.EFF].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[7] = hero.CurrentStats[Stats.RES].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                values[5] = (int)values[4] * (int)values[1] / 100;
+                values[6] = (int)hero.CurrentStats[Stats.DEF];
+                values[7] = hero.CurrentStats[Stats.EFF].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                values[8] = hero.CurrentStats[Stats.RES].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 List<Set> activeSets = hero.activeSets();
                 int count = 0;
                 if (activeSets.Contains(Set.Unity))
@@ -2677,7 +2739,7 @@ namespace E7_Gear_Optimizer
                         count += set == Set.Unity ? 1 : 0;
                     }
                 }
-                values[8] = (5 + (count * 4)) + "%";
+                values[9] = (5 + (count * 4)) + "%";
                 if (activeSets.Count > 0)
                 {
                     Bitmap sets = new Bitmap(activeSets.Count * 25, 25, PixelFormat.Format32bppArgb);
@@ -2686,14 +2748,16 @@ namespace E7_Gear_Optimizer
                     {
                         g.DrawImage(Util.ResizeImage((Image)Properties.Resources.ResourceManager.GetObject("set " + activeSets[i].ToString().ToLower().Replace("def", "defense")), 25, 25), i * 25, 0);
                     }
-                    values[9] = sets;
+                    values[10] = sets;
                 }
                 else
                 {
-                    values[9] = null;
+                    values[10] = null;
                 }
-                values[10] = (int)hero.CurrentStats[Stats.EHP];
-                values[11] = (int)((hero.CurrentStats[Stats.ATK] * (1 - crit)) + (hero.CurrentStats[Stats.ATK] * crit * hero.CurrentStats[Stats.CritDmg]));
+                values[11] = (int)hero.CurrentStats[Stats.EHP];
+                values[12] = (int)values[11] * (int)values[1] / 100;
+                values[13] = (int)((hero.CurrentStats[Stats.ATK] * (1 - crit)) + (hero.CurrentStats[Stats.ATK] * crit * hero.CurrentStats[Stats.CritDmg]));
+                values[14] = (int)values[13] * (int)values[1] / 100;
                 l_Results.Text = numberOfResults().ToString();
             }
             else
@@ -2859,9 +2923,10 @@ namespace E7_Gear_Optimizer
                 values[2] = crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[3] = hero.CurrentStats[Stats.CritDmg].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[4] = (int)hero.CurrentStats[Stats.HP];
-                values[5] = (int)hero.CurrentStats[Stats.DEF];
-                values[6] = hero.CurrentStats[Stats.EFF].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[7] = hero.CurrentStats[Stats.RES].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                values[5] = (int)values[4] * (int)values[1] / 100;
+                values[6] = (int)hero.CurrentStats[Stats.DEF];
+                values[7] = hero.CurrentStats[Stats.EFF].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                values[8] = hero.CurrentStats[Stats.RES].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 List<Set> activeSets = hero.activeSets();
                 int count = 0;
                 if (activeSets.Contains(Set.Unity))
@@ -2871,7 +2936,7 @@ namespace E7_Gear_Optimizer
                         count += set == Set.Unity ? 1 : 0;
                     }
                 }
-                values[8] = (5 + (count * 4)) + "%";
+                values[9] = (5 + (count * 4)) + "%";
                 if (activeSets.Count > 0)
                 {
                     Bitmap sets = new Bitmap(activeSets.Count * 25, 25, PixelFormat.Format32bppArgb);
@@ -2880,14 +2945,16 @@ namespace E7_Gear_Optimizer
                     {
                         g.DrawImage(Util.ResizeImage((Image)Properties.Resources.ResourceManager.GetObject("set " + activeSets[i].ToString().ToLower().Replace("def", "defense")), 25, 25), i * 25, 0);
                     }
-                    values[9] = sets;
+                    values[10] = sets;
                 }
                 else
                 {
-                    values[9] = null;
+                    values[10] = null;
                 }
-                values[10] = (int)hero.CurrentStats[Stats.EHP];
-                values[11] = (int)((hero.CurrentStats[Stats.ATK] * (1 - crit)) + (hero.CurrentStats[Stats.ATK] * crit * hero.CurrentStats[Stats.CritDmg]));
+                values[11] = (int)hero.CurrentStats[Stats.EHP];
+                values[12] = (int)values[11] * (int)values[1] / 100;
+                values[13] = (int)((hero.CurrentStats[Stats.ATK] * (1 - crit)) + (hero.CurrentStats[Stats.ATK] * crit * hero.CurrentStats[Stats.CritDmg]));
+                values[14] = (int)values[13] * (int)values[1] / 100;
                 l_Results.Text = numberOfResults().ToString();
                 dgv_CurrentGear.Rows.Add(values);
             }
@@ -2975,6 +3042,7 @@ namespace E7_Gear_Optimizer
                     filteredCombinations.Add(i);
                 }
             }
+            dgv_OptimizeResults.RowCount = Math.Min(filteredCombinations.Count, 100);
             dgv_OptimizeResults.Refresh();
             dgv_OptimizeResults.AutoResizeColumns();
             l_Pages.Text = "1 / " + ((filteredCombinations.Count + 99) / 100);

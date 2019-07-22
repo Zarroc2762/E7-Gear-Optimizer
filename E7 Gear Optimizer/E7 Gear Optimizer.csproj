@@ -82,7 +82,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -156,7 +156,6 @@
     <EmbeddedResource Include="updated.resx">
       <DependentUpon>updated.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="E7 Gear Optimizer_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Data.datasource" />
     <None Include="Properties\Settings.settings">

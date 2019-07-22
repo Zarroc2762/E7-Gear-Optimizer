@@ -58,8 +58,11 @@ namespace E7_Gear_Optimizer
         DEF,
         EFF,
         RES,
+        HPpS,
         EHP,
-        DMG
+        EHPpS,
+        DMG,
+        DMGpS
     }
 
     public enum Element

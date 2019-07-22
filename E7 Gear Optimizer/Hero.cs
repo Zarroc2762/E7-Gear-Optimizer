@@ -234,6 +234,9 @@ namespace E7_Gear_Optimizer
             calculatedStats[Stats.RES] = calculatedStats[Stats.RES] + itemStats[Stats.RES] + setBonusStats[Stats.RES];
             calculatedStats[Stats.EHP] = calculatedStats[Stats.HP] * (1 + (calculatedStats[Stats.DEF] / 300));
             calculatedStats[Stats.DMG] = (calculatedStats[Stats.ATK] * (1 - calculatedStats[Stats.Crit])) + (calculatedStats[Stats.ATK] * calculatedStats[Stats.Crit] * calculatedStats[Stats.CritDmg]);
+            calculatedStats[Stats.HPpS] = calculatedStats[Stats.HP] * calculatedStats[Stats.SPD] / 100;
+            calculatedStats[Stats.EHPpS] = calculatedStats[Stats.EHP] * calculatedStats[Stats.SPD] / 100;
+            calculatedStats[Stats.DMGpS] = calculatedStats[Stats.DMG] * calculatedStats[Stats.SPD] / 100;
             currentStats = calculatedStats;
             return calculatedStats;
         }
