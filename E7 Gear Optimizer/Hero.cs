@@ -33,6 +33,9 @@ namespace E7_Gear_Optimizer
         private Dictionary<Stats, float> currentStats;
         private Dictionary<Stats, float> AwakeningStats { get; set; }
 
+        //Cache of Enum.GetValues(typeof(Stats)). Used to iterate over Stats. Greatly increases performance.
+        private static Stats[] statsArrayGeneric = Enum.GetValues(typeof(Stats)).Cast<Stats>().ToArray();
+
         public Hero(string ID, string name, List<Item> gear, Item artifact, int lvl, int awakening)
         {
             this.ID = ID;
@@ -201,7 +204,7 @@ namespace E7_Gear_Optimizer
         public Dictionary<Stats, float> calcStats()
         {
             Dictionary<Stats, float> itemStats = new Dictionary<Stats, float>();
-            foreach (Stats s in Enum.GetValues(typeof(Stats)))
+            foreach (Stats s in statsArrayGeneric)
             {
                 itemStats[s] = 0;
             }
@@ -244,7 +247,7 @@ namespace E7_Gear_Optimizer
         public Dictionary<Stats, float> calcStatsWithoutGear(float critbonus)
         {
             Dictionary<Stats, float> stats = new Dictionary<Stats, float>();
-            foreach (Stats s in Enum.GetValues(typeof(Stats)))
+            foreach (Stats s in statsArrayGeneric)
             {
                 stats[s] = 0;
             }
@@ -264,7 +267,7 @@ namespace E7_Gear_Optimizer
         {
             List<Set> activeSets = this.activeSets();
             Dictionary<Stats, float> stats = new Dictionary<Stats, float>();
-            foreach (Stats s in Enum.GetValues(typeof(Stats)))
+            foreach (Stats s in statsArrayGeneric)
             {
                 stats[s] = 0;
             }
@@ -307,7 +310,7 @@ namespace E7_Gear_Optimizer
         public Dictionary<Stats, float> setBonusStats(List<Set> activeSets)
         {
             Dictionary<Stats, float> stats = new Dictionary<Stats, float>();
-            foreach (Stats s in Enum.GetValues(typeof(Stats)))
+            foreach (Stats s in statsArrayGeneric)
             {
                 stats[s] = 0;
             }

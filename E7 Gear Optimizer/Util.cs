@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.Linq;
 using System.Net;
 
 namespace E7_Gear_Optimizer
@@ -106,6 +107,9 @@ namespace E7_Gear_Optimizer
             [ItemType.Boots] = new List<Stats>() { Stats.Crit, Stats.CritDmg, Stats.DEF, Stats.DEFPercent, Stats.EFF, Stats.HP, Stats.HPPercent, Stats.RES, Stats.SPD, Stats.ATK, Stats.ATKPercent }
         };
 
+        //Cache of Enum.GetValues(typeof(Set)). Used to iterate over sets. Greatly increases performance.
+        private static Set[] setsArrayGeneric = Enum.GetValues(typeof(Set)).Cast<Set>().ToArray();
+
         public static Bitmap ResizeImage(Image image, int width, int height)
         {
             var destRect = new Rectangle(0, 0, width, height);
@@ -173,7 +177,7 @@ namespace E7_Gear_Optimizer
         {
             List<Set> activeSets = new List<Set>();
             Dictionary<Set, int> setCounter = new Dictionary<Set, int>();
-            foreach (Set s in Enum.GetValues(typeof(Set)))
+            foreach (Set s in setsArrayGeneric)
             {
                 setCounter[s] = 0;
             }
@@ -181,7 +185,7 @@ namespace E7_Gear_Optimizer
             {
                 setCounter[item.Set] += 1;
             }
-            foreach (Set set in Enum.GetValues(typeof(Set)))
+            foreach (Set set in setsArrayGeneric)
             {
                 if (Util.fourPieceSets.Contains(set) && setCounter[set] / 4 > 0)
                 {
