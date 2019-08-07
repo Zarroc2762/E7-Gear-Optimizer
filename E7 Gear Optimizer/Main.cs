@@ -239,15 +239,15 @@ namespace E7_Gear_Optimizer
             {
                 object[] values = new object[dgv_Inventory.ColumnCount];
                 values[0] = Sets.Images[(int)item.Set];
-                values[19] = (int)item.Set;
+                values[20] = (int)item.Set;
                 values[1] = Types.Images[(int)item.Type];
-                values[20] = (int)item.Type;
+                values[21] = (int)item.Type;
                 values[2] = item.Grade.ToString();
                 values[3] = item.ILvl;
                 values[4] = "+" + item.Enhance.ToString();
                 values[5] = item.Main.Name.ToString().Replace("Percent","%");
                 values[6] = Util.percentStats.Contains(item.Main.Name) ? item.Main.Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.Main.Value.ToString();
-                values[18] = item.Equipped == null ? "" : item.Equipped.Name;
+                values[19] = item.Equipped == null ? "" : item.Equipped.Name;
                 for (int i = 0; i < item.SubStats.Length; i++)
                 {
                     values[(int)item.SubStats[i].Name + 7] = item.SubStats[i].Value < 1 ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
@@ -259,8 +259,9 @@ namespace E7_Gear_Optimizer
                         values[i] = "";
                     }
                 }
-                values[21] = item.ID;
-                values[22] = item.Locked.ToString();
+                values[18] = item.WSS;
+                values[22] = item.ID;
+                values[23] = item.Locked.ToString();
                 dgv_Inventory.Rows.Add(values);
             }
             l_ItemCount.Text = filteredList.Count().ToString();
@@ -384,13 +385,13 @@ namespace E7_Gear_Optimizer
         private void dgv_Inventory_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = dgv_Inventory.Rows[e.RowIndex];
-            ((RadioButton)p_Set.Controls.Find("rb_" + ((Set)row.Cells[19].Value).ToString() + "Set", false)[0]).Checked = true;
-            ((RadioButton)p_Type.Controls.Find("rb_" + ((ItemType)row.Cells[20].Value).ToString() + "Type", false)[0]).Checked = true;
-            ((RadioButton)p_Grade.Controls.Find("rb_" + row.Cells[2].Value + "Grade", false)[0]).Checked = true;
-            nud_ILvl.Value = (int)row.Cells[3].Value;
-            nud_Enhance.Value = (int)float.Parse(((string)row.Cells[4].Value).Substring(1));
-            lb_Main.SelectedIndex = lb_Main.FindStringExact((string)row.Cells[5].Value);
-            nud_Main.Value = (int)float.Parse(((string)row.Cells[6].Value).Replace("%",""));
+            ((RadioButton)p_Set.Controls.Find("rb_" + ((Set)row.Cells["c_SetID"].Value).ToString() + "Set", false)[0]).Checked = true;
+            ((RadioButton)p_Type.Controls.Find("rb_" + ((ItemType)row.Cells["c_TypeID"].Value).ToString() + "Type", false)[0]).Checked = true;
+            ((RadioButton)p_Grade.Controls.Find("rb_" + row.Cells["c_Grade"].Value + "Grade", false)[0]).Checked = true;
+            nud_ILvl.Value = (int)row.Cells["c_ILvl"].Value;
+            nud_Enhance.Value = (int)float.Parse(((string)row.Cells["c_Enhance"].Value).Substring(1));
+            lb_Main.SelectedIndex = lb_Main.FindStringExact((string)row.Cells["c_Main"].Value);
+            nud_Main.Value = (int)float.Parse(((string)row.Cells["c_Value"].Value).Replace("%",""));
             int subStat = 0;
             for (int i = 7; i < 18; i++)
             {
@@ -417,7 +418,7 @@ namespace E7_Gear_Optimizer
                 pb_ItemLocked.Image = Properties.Resources.unlocked;
                 Locked = false;
             }
-            string ID = (string)dgv_Inventory.Rows[e.RowIndex].Cells[21].Value;
+            string ID = (string)dgv_Inventory.Rows[e.RowIndex].Cells["c_ItemID"].Value;
             Item item = data.Items.Find(x => x.ID == ID);
             if (item.Equipped != null)
             {
@@ -730,7 +731,7 @@ namespace E7_Gear_Optimizer
             data.Items.Add(newItem);
             updateItemList();
             //select the created item if it is displayed with the current filter
-            if (tc_Inventory.SelectedIndex == 0 || (ItemType)(tc_Inventory.SelectedIndex - 1) == type)
+            if ((tc_Inventory.SelectedIndex == 0 || (ItemType)(tc_Inventory.SelectedIndex - 1) == type ) && (tc_InventorySets.SelectedIndex == 0 || (Set)(tc_InventorySets.SelectedIndex - 1) == set))
             {
                 dgv_Inventory.CurrentCell = dgv_Inventory.Rows.Cast<DataGridViewRow>().Where(x => x.Cells["c_ItemID"].Value.ToString() == newItem.ID).First().Cells[0];
             }
@@ -741,7 +742,7 @@ namespace E7_Gear_Optimizer
         {
             if (dgv_Inventory.SelectedRows.Count > 0)
             {
-                string ID = (string)dgv_Inventory.SelectedRows[0].Cells[21].Value;
+                string ID = (string)dgv_Inventory.SelectedRows[0].Cells["c_itemID"].Value;
                 Item item = data.Items.Find(x => x.ID == ID);
                 item.Set = (Set)Enum.Parse(typeof(Set), p_Set.Controls.OfType<RadioButton>().First(x => x.Checked).Name.Replace("rb_", "").Replace("Set", ""));
                 item.Type = (ItemType)Enum.Parse(typeof(ItemType), p_Type.Controls.OfType<RadioButton>().First(x => x.Checked).Name.Replace("rb_", "").Replace("Type", ""));
@@ -770,6 +771,7 @@ namespace E7_Gear_Optimizer
 
                 item.ILvl = (int)nud_ILvl.Value;
                 item.Enhance = (int)nud_Enhance.Value;
+                item.calcWSS();
 
                 Hero newHero = data.Heroes.Find(x => x.Name == String.Join(" ", cb_Eq.Text.Split(' ').Reverse().Skip(1).Reverse()));
                 if (newHero != item.Equipped)
@@ -786,6 +788,11 @@ namespace E7_Gear_Optimizer
                     newHero.equip(item);
                 }
                 updateItemList();
+                //select the edited item if it is displayed with the current filter
+                if ((tc_Inventory.SelectedIndex == 0 || (ItemType)(tc_Inventory.SelectedIndex - 1) == item.Type) && (tc_InventorySets.SelectedIndex == 0 || (Set)(tc_InventorySets.SelectedIndex - 1) == item.Set))
+                {
+                    dgv_Inventory.CurrentCell = dgv_Inventory.Rows.Cast<DataGridViewRow>().Where(x => x.Cells["c_ItemID"].Value.ToString() == item.ID).First().Cells[0];
+                }
             }
         }
 
@@ -794,7 +801,7 @@ namespace E7_Gear_Optimizer
         {
             if (dgv_Inventory.SelectedRows.Count > 0)
             {
-                string ID = (string)dgv_Inventory.SelectedRows[0].Cells[21].Value;
+                string ID = (string)dgv_Inventory.SelectedRows[0].Cells["c_itemID"].Value;
                 Item item = data.Items.Find(x => x.ID == ID);
                 Hero hero = item.Equipped;
                 if (hero != null)
@@ -1428,7 +1435,7 @@ namespace E7_Gear_Optimizer
             }*/
             if (dgv_Inventory.SelectedRows.Count > 0)
             {
-                string ID = (string)dgv_Inventory.SelectedRows[0].Cells[21].Value;
+                string ID = (string)dgv_Inventory.SelectedRows[0].Cells["c_ItemID"].Value;
                 Item item = data.Items.Find(x => x.ID == ID);
                 item.Locked = !item.Locked;
                 Locked = !Locked;

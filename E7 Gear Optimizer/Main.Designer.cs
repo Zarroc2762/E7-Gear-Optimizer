@@ -111,29 +111,6 @@
             this.rb_SpeedSet = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.dgv_Inventory = new System.Windows.Forms.DataGridView();
-            this.c_set = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Type = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_ILvl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Enhance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_ATKPer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_ATK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_SPD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_CHC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_CHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HPPer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DEFPer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DEF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_EFF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_RES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Eq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_SetID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_TypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Locked = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tc_Inventory = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -294,28 +271,6 @@
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.Elements = new System.Windows.Forms.ImageList(this.components);
             this.dgv_Heroes = new System.Windows.Forms.DataGridView();
-            this.c_Portrait = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Element = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Class = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Lvl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Awakening = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Sets = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_ATKHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_SPDHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_CritHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_CritDmgHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HPHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HPpSHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DEFHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_EFFHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_RESHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DACHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_EHP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_EHPpSHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DMG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DMGpS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HeroID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.b_EditBoots = new System.Windows.Forms.Button();
             this.b_EditRing = new System.Windows.Forms.Button();
             this.b_EditNecklace = new System.Windows.Forms.Button();
@@ -610,6 +565,52 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.ofd_import = new System.Windows.Forms.OpenFileDialog();
             this.sfd_export = new System.Windows.Forms.SaveFileDialog();
+            this.c_Portrait = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Element = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Class = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Lvl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Awakening = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Sets = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_ATKHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_SPDHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_CritHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_CritDmgHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HPHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HPpSHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DEFHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_EFFHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_RESHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DACHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_EHP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_EHPpSHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DMG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DMGpS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HeroID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_set = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Type = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_ILvl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Enhance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_ATKPer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_ATK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_SPD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_CHC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_CHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HPPer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DEFPer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DEF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_EFF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_RES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_WSS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Eq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_SetID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_TypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Locked = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tb_Inventory.SuspendLayout();
             this.tc_InventorySets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ItemLocked)).BeginInit();
@@ -721,11 +722,10 @@
             this.tb_Inventory.Controls.Add(this.tc_Inventory);
             this.tb_Inventory.Controls.Add(this.b_EditItem);
             this.tb_Inventory.Controls.Add(this.b_NewItem);
-            this.tb_Inventory.Location = new System.Drawing.Point(4, 32);
-            this.tb_Inventory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_Inventory.Location = new System.Drawing.Point(4, 25);
             this.tb_Inventory.Name = "tb_Inventory";
-            this.tb_Inventory.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tb_Inventory.Size = new System.Drawing.Size(2187, 1147);
+            this.tb_Inventory.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tb_Inventory.Size = new System.Drawing.Size(1455, 740);
             this.tb_Inventory.TabIndex = 1;
             this.tb_Inventory.Text = "Inventory";
             this.tb_Inventory.UseVisualStyleBackColor = true;
@@ -733,20 +733,18 @@
             // l_ItemCount
             // 
             this.l_ItemCount.AutoSize = true;
-            this.l_ItemCount.Location = new System.Drawing.Point(1946, 23);
-            this.l_ItemCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ItemCount.Location = new System.Drawing.Point(1297, 15);
             this.l_ItemCount.Name = "l_ItemCount";
-            this.l_ItemCount.Size = new System.Drawing.Size(36, 20);
+            this.l_ItemCount.Size = new System.Drawing.Size(25, 13);
             this.l_ItemCount.TabIndex = 34;
             this.l_ItemCount.Text = "400";
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(1884, 23);
-            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label27.Location = new System.Drawing.Point(1256, 15);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(53, 20);
+            this.label27.Size = new System.Drawing.Size(35, 13);
             this.label27.TabIndex = 33;
             this.label27.Text = "Items:";
             // 
@@ -770,12 +768,11 @@
             this.tc_InventorySets.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tc_InventorySets.ImageList = this.Sets;
             this.tc_InventorySets.ItemSize = new System.Drawing.Size(28, 28);
-            this.tc_InventorySets.Location = new System.Drawing.Point(558, 9);
-            this.tc_InventorySets.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tc_InventorySets.Location = new System.Drawing.Point(372, 6);
             this.tc_InventorySets.Name = "tc_InventorySets";
             this.tc_InventorySets.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tc_InventorySets.SelectedIndex = 0;
-            this.tc_InventorySets.Size = new System.Drawing.Size(1130, 43);
+            this.tc_InventorySets.Size = new System.Drawing.Size(753, 28);
             this.tc_InventorySets.TabIndex = 32;
             this.tc_InventorySets.SelectedIndexChanged += new System.EventHandler(this.tc_InventorySets_SelectedIndexChanged);
             // 
@@ -784,11 +781,10 @@
             this.tabPage3.BackColor = System.Drawing.SystemColors.Window;
             this.tabPage3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage3.Location = new System.Drawing.Point(4, 32);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabPage3.Size = new System.Drawing.Size(1122, 7);
+            this.tabPage3.Size = new System.Drawing.Size(745, 0);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "All";
             // 
@@ -796,10 +792,9 @@
             // 
             this.tabPage11.ImageIndex = 0;
             this.tabPage11.Location = new System.Drawing.Point(4, 32);
-            this.tabPage11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage11.Size = new System.Drawing.Size(1122, 7);
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage11.Size = new System.Drawing.Size(745, 0);
             this.tabPage11.TabIndex = 1;
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
@@ -807,9 +802,8 @@
             // 
             this.tabPage17.ImageIndex = 1;
             this.tabPage17.Location = new System.Drawing.Point(4, 32);
-            this.tabPage17.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage17.Name = "tabPage17";
-            this.tabPage17.Size = new System.Drawing.Size(1122, 7);
+            this.tabPage17.Size = new System.Drawing.Size(745, 0);
             this.tabPage17.TabIndex = 2;
             this.tabPage17.UseVisualStyleBackColor = true;
             // 
@@ -817,9 +811,8 @@
             // 
             this.tabPage25.ImageIndex = 2;
             this.tabPage25.Location = new System.Drawing.Point(4, 32);
-            this.tabPage25.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage25.Name = "tabPage25";
-            this.tabPage25.Size = new System.Drawing.Size(1122, 7);
+            this.tabPage25.Size = new System.Drawing.Size(745, 0);
             this.tabPage25.TabIndex = 3;
             this.tabPage25.UseVisualStyleBackColor = true;
             // 
@@ -827,9 +820,8 @@
             // 
             this.tabPage26.ImageIndex = 3;
             this.tabPage26.Location = new System.Drawing.Point(4, 32);
-            this.tabPage26.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage26.Name = "tabPage26";
-            this.tabPage26.Size = new System.Drawing.Size(1122, 7);
+            this.tabPage26.Size = new System.Drawing.Size(745, 0);
             this.tabPage26.TabIndex = 4;
             this.tabPage26.UseVisualStyleBackColor = true;
             // 
@@ -837,9 +829,8 @@
             // 
             this.tabPage27.ImageIndex = 4;
             this.tabPage27.Location = new System.Drawing.Point(4, 32);
-            this.tabPage27.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage27.Name = "tabPage27";
-            this.tabPage27.Size = new System.Drawing.Size(1122, 7);
+            this.tabPage27.Size = new System.Drawing.Size(745, 0);
             this.tabPage27.TabIndex = 5;
             this.tabPage27.UseVisualStyleBackColor = true;
             // 
@@ -847,72 +838,64 @@
             // 
             this.tabPage28.ImageIndex = 5;
             this.tabPage28.Location = new System.Drawing.Point(4, 32);
-            this.tabPage28.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage28.Name = "tabPage28";
-            this.tabPage28.Size = new System.Drawing.Size(1122, 7);
+            this.tabPage28.Size = new System.Drawing.Size(745, 0);
             this.tabPage28.TabIndex = 6;
             this.tabPage28.UseVisualStyleBackColor = true;
             // 
             // tabPage29
             // 
             this.tabPage29.Location = new System.Drawing.Point(4, 32);
-            this.tabPage29.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage29.Name = "tabPage29";
-            this.tabPage29.Size = new System.Drawing.Size(1122, 7);
+            this.tabPage29.Size = new System.Drawing.Size(745, 0);
             this.tabPage29.TabIndex = 7;
             this.tabPage29.UseVisualStyleBackColor = true;
             // 
             // tabPage30
             // 
             this.tabPage30.Location = new System.Drawing.Point(4, 32);
-            this.tabPage30.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage30.Name = "tabPage30";
-            this.tabPage30.Size = new System.Drawing.Size(1122, 7);
+            this.tabPage30.Size = new System.Drawing.Size(745, 0);
             this.tabPage30.TabIndex = 8;
             this.tabPage30.UseVisualStyleBackColor = true;
             // 
             // tabPage31
             // 
             this.tabPage31.Location = new System.Drawing.Point(4, 32);
-            this.tabPage31.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage31.Name = "tabPage31";
-            this.tabPage31.Size = new System.Drawing.Size(1122, 7);
+            this.tabPage31.Size = new System.Drawing.Size(745, 0);
             this.tabPage31.TabIndex = 9;
             this.tabPage31.UseVisualStyleBackColor = true;
             // 
             // tabPage32
             // 
             this.tabPage32.Location = new System.Drawing.Point(4, 32);
-            this.tabPage32.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage32.Name = "tabPage32";
-            this.tabPage32.Size = new System.Drawing.Size(1122, 7);
+            this.tabPage32.Size = new System.Drawing.Size(745, 0);
             this.tabPage32.TabIndex = 10;
             this.tabPage32.UseVisualStyleBackColor = true;
             // 
             // tabPage33
             // 
             this.tabPage33.Location = new System.Drawing.Point(4, 32);
-            this.tabPage33.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage33.Name = "tabPage33";
-            this.tabPage33.Size = new System.Drawing.Size(1122, 7);
+            this.tabPage33.Size = new System.Drawing.Size(745, 0);
             this.tabPage33.TabIndex = 11;
             this.tabPage33.UseVisualStyleBackColor = true;
             // 
             // tabPage34
             // 
             this.tabPage34.Location = new System.Drawing.Point(4, 32);
-            this.tabPage34.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage34.Name = "tabPage34";
-            this.tabPage34.Size = new System.Drawing.Size(1122, 7);
+            this.tabPage34.Size = new System.Drawing.Size(745, 0);
             this.tabPage34.TabIndex = 12;
             this.tabPage34.UseVisualStyleBackColor = true;
             // 
             // tabPage35
             // 
             this.tabPage35.Location = new System.Drawing.Point(4, 32);
-            this.tabPage35.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage35.Name = "tabPage35";
-            this.tabPage35.Size = new System.Drawing.Size(1122, 7);
+            this.tabPage35.Size = new System.Drawing.Size(745, 0);
             this.tabPage35.TabIndex = 13;
             this.tabPage35.UseVisualStyleBackColor = true;
             // 
@@ -926,20 +909,18 @@
             // 
             this.b_NewItemEquipped.BackgroundImage = global::E7_Gear_Optimizer.Properties.Resources.newEquipped;
             this.b_NewItemEquipped.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b_NewItemEquipped.Location = new System.Drawing.Point(1905, 752);
-            this.b_NewItemEquipped.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_NewItemEquipped.Location = new System.Drawing.Point(1270, 489);
             this.b_NewItemEquipped.Name = "b_NewItemEquipped";
-            this.b_NewItemEquipped.Size = new System.Drawing.Size(78, 60);
+            this.b_NewItemEquipped.Size = new System.Drawing.Size(52, 39);
             this.b_NewItemEquipped.TabIndex = 31;
             this.b_NewItemEquipped.UseVisualStyleBackColor = true;
             this.b_NewItemEquipped.Click += new System.EventHandler(this.B_NewItemEquipped_Click);
             // 
             // pb_ItemLocked
             // 
-            this.pb_ItemLocked.Location = new System.Drawing.Point(1605, 697);
-            this.pb_ItemLocked.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_ItemLocked.Location = new System.Drawing.Point(1070, 453);
             this.pb_ItemLocked.Name = "pb_ItemLocked";
-            this.pb_ItemLocked.Size = new System.Drawing.Size(76, 77);
+            this.pb_ItemLocked.Size = new System.Drawing.Size(51, 50);
             this.pb_ItemLocked.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_ItemLocked.TabIndex = 30;
             this.pb_ItemLocked.TabStop = false;
@@ -949,20 +930,18 @@
             // 
             this.b_RemoveItem.BackgroundImage = global::E7_Gear_Optimizer.Properties.Resources.remove;
             this.b_RemoveItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b_RemoveItem.Location = new System.Drawing.Point(1731, 683);
-            this.b_RemoveItem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_RemoveItem.Location = new System.Drawing.Point(1154, 444);
             this.b_RemoveItem.Name = "b_RemoveItem";
-            this.b_RemoveItem.Size = new System.Drawing.Size(78, 60);
+            this.b_RemoveItem.Size = new System.Drawing.Size(52, 39);
             this.b_RemoveItem.TabIndex = 29;
             this.b_RemoveItem.UseVisualStyleBackColor = true;
             this.b_RemoveItem.Click += new System.EventHandler(this.B_RemoveItem_Click);
             // 
             // pb_Equipped
             // 
-            this.pb_Equipped.Location = new System.Drawing.Point(1400, 835);
-            this.pb_Equipped.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_Equipped.Location = new System.Drawing.Point(933, 543);
             this.pb_Equipped.Name = "pb_Equipped";
-            this.pb_Equipped.Size = new System.Drawing.Size(141, 145);
+            this.pb_Equipped.Size = new System.Drawing.Size(94, 94);
             this.pb_Equipped.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_Equipped.TabIndex = 28;
             this.pb_Equipped.TabStop = false;
@@ -971,10 +950,9 @@
             // 
             this.cb_Eq.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cb_Eq.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cb_Eq.Location = new System.Drawing.Point(1400, 794);
-            this.cb_Eq.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_Eq.Location = new System.Drawing.Point(933, 516);
             this.cb_Eq.Name = "cb_Eq";
-            this.cb_Eq.Size = new System.Drawing.Size(139, 28);
+            this.cb_Eq.Size = new System.Drawing.Size(94, 21);
             this.cb_Eq.Sorted = true;
             this.cb_Eq.TabIndex = 27;
             // 
@@ -982,17 +960,15 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(1395, 769);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(930, 500);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(86, 20);
+            this.label8.Size = new System.Drawing.Size(60, 13);
             this.label8.TabIndex = 26;
             this.label8.Text = "Equipped";
             // 
             // nud_Sub4
             // 
-            this.nud_Sub4.Location = new System.Drawing.Point(1292, 983);
-            this.nud_Sub4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nud_Sub4.Location = new System.Drawing.Point(861, 639);
             this.nud_Sub4.Maximum = new decimal(new int[] {
             2000,
             0,
@@ -1004,7 +980,7 @@
             0,
             0});
             this.nud_Sub4.Name = "nud_Sub4";
-            this.nud_Sub4.Size = new System.Drawing.Size(75, 26);
+            this.nud_Sub4.Size = new System.Drawing.Size(50, 20);
             this.nud_Sub4.TabIndex = 25;
             this.nud_Sub4.Value = new decimal(new int[] {
             10,
@@ -1014,7 +990,6 @@
             // 
             // lb_Sub4
             // 
-            this.lb_Sub4.ItemHeight = 20;
             this.lb_Sub4.Items.AddRange(new object[] {
             "ATK%",
             "ATK",
@@ -1028,16 +1003,14 @@
             "EFF",
             "RES",
             "-----"});
-            this.lb_Sub4.Location = new System.Drawing.Point(1292, 723);
-            this.lb_Sub4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lb_Sub4.Location = new System.Drawing.Point(861, 470);
             this.lb_Sub4.Name = "lb_Sub4";
-            this.lb_Sub4.Size = new System.Drawing.Size(73, 244);
+            this.lb_Sub4.Size = new System.Drawing.Size(50, 160);
             this.lb_Sub4.TabIndex = 24;
             // 
             // nud_Sub3
             // 
-            this.nud_Sub3.Location = new System.Drawing.Point(1208, 983);
-            this.nud_Sub3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nud_Sub3.Location = new System.Drawing.Point(805, 639);
             this.nud_Sub3.Maximum = new decimal(new int[] {
             2000,
             0,
@@ -1049,7 +1022,7 @@
             0,
             0});
             this.nud_Sub3.Name = "nud_Sub3";
-            this.nud_Sub3.Size = new System.Drawing.Size(75, 26);
+            this.nud_Sub3.Size = new System.Drawing.Size(50, 20);
             this.nud_Sub3.TabIndex = 23;
             this.nud_Sub3.Value = new decimal(new int[] {
             10,
@@ -1059,7 +1032,6 @@
             // 
             // lb_Sub3
             // 
-            this.lb_Sub3.ItemHeight = 20;
             this.lb_Sub3.Items.AddRange(new object[] {
             "ATK%",
             "ATK",
@@ -1073,16 +1045,14 @@
             "EFF",
             "RES",
             "-----"});
-            this.lb_Sub3.Location = new System.Drawing.Point(1208, 723);
-            this.lb_Sub3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lb_Sub3.Location = new System.Drawing.Point(805, 470);
             this.lb_Sub3.Name = "lb_Sub3";
-            this.lb_Sub3.Size = new System.Drawing.Size(73, 244);
+            this.lb_Sub3.Size = new System.Drawing.Size(50, 160);
             this.lb_Sub3.TabIndex = 22;
             // 
             // nud_Sub2
             // 
-            this.nud_Sub2.Location = new System.Drawing.Point(1124, 983);
-            this.nud_Sub2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nud_Sub2.Location = new System.Drawing.Point(749, 639);
             this.nud_Sub2.Maximum = new decimal(new int[] {
             2000,
             0,
@@ -1094,7 +1064,7 @@
             0,
             0});
             this.nud_Sub2.Name = "nud_Sub2";
-            this.nud_Sub2.Size = new System.Drawing.Size(75, 26);
+            this.nud_Sub2.Size = new System.Drawing.Size(50, 20);
             this.nud_Sub2.TabIndex = 21;
             this.nud_Sub2.Value = new decimal(new int[] {
             10,
@@ -1104,7 +1074,6 @@
             // 
             // lb_Sub2
             // 
-            this.lb_Sub2.ItemHeight = 20;
             this.lb_Sub2.Items.AddRange(new object[] {
             "ATK%",
             "ATK",
@@ -1118,16 +1087,14 @@
             "EFF",
             "RES",
             "-----"});
-            this.lb_Sub2.Location = new System.Drawing.Point(1124, 723);
-            this.lb_Sub2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lb_Sub2.Location = new System.Drawing.Point(749, 470);
             this.lb_Sub2.Name = "lb_Sub2";
-            this.lb_Sub2.Size = new System.Drawing.Size(73, 244);
+            this.lb_Sub2.Size = new System.Drawing.Size(50, 160);
             this.lb_Sub2.TabIndex = 20;
             // 
             // nud_Sub1
             // 
-            this.nud_Sub1.Location = new System.Drawing.Point(1040, 983);
-            this.nud_Sub1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nud_Sub1.Location = new System.Drawing.Point(693, 639);
             this.nud_Sub1.Maximum = new decimal(new int[] {
             2000,
             0,
@@ -1139,7 +1106,7 @@
             0,
             0});
             this.nud_Sub1.Name = "nud_Sub1";
-            this.nud_Sub1.Size = new System.Drawing.Size(75, 26);
+            this.nud_Sub1.Size = new System.Drawing.Size(50, 20);
             this.nud_Sub1.TabIndex = 19;
             this.nud_Sub1.Value = new decimal(new int[] {
             10,
@@ -1149,7 +1116,6 @@
             // 
             // lb_Sub1
             // 
-            this.lb_Sub1.ItemHeight = 20;
             this.lb_Sub1.Items.AddRange(new object[] {
             "ATK%",
             "ATK",
@@ -1163,27 +1129,24 @@
             "EFF",
             "RES",
             "-----"});
-            this.lb_Sub1.Location = new System.Drawing.Point(1040, 723);
-            this.lb_Sub1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lb_Sub1.Location = new System.Drawing.Point(693, 470);
             this.lb_Sub1.Name = "lb_Sub1";
-            this.lb_Sub1.Size = new System.Drawing.Size(73, 244);
+            this.lb_Sub1.Size = new System.Drawing.Size(50, 160);
             this.lb_Sub1.TabIndex = 18;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(1035, 698);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(690, 454);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 20);
+            this.label7.Size = new System.Drawing.Size(29, 13);
             this.label7.TabIndex = 17;
             this.label7.Text = "Sub";
             // 
             // nud_Main
             // 
-            this.nud_Main.Location = new System.Drawing.Point(945, 983);
-            this.nud_Main.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nud_Main.Location = new System.Drawing.Point(630, 639);
             this.nud_Main.Maximum = new decimal(new int[] {
             2000,
             0,
@@ -1195,7 +1158,7 @@
             0,
             0});
             this.nud_Main.Name = "nud_Main";
-            this.nud_Main.Size = new System.Drawing.Size(75, 26);
+            this.nud_Main.Size = new System.Drawing.Size(50, 20);
             this.nud_Main.TabIndex = 16;
             this.nud_Main.Value = new decimal(new int[] {
             10,
@@ -1205,7 +1168,6 @@
             // 
             // lb_Main
             // 
-            this.lb_Main.ItemHeight = 20;
             this.lb_Main.Items.AddRange(new object[] {
             "ATK%",
             "ATK",
@@ -1218,34 +1180,31 @@
             "DEF",
             "EFF",
             "RES"});
-            this.lb_Main.Location = new System.Drawing.Point(945, 723);
-            this.lb_Main.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lb_Main.Location = new System.Drawing.Point(630, 470);
             this.lb_Main.Name = "lb_Main";
-            this.lb_Main.Size = new System.Drawing.Size(73, 244);
+            this.lb_Main.Size = new System.Drawing.Size(50, 160);
             this.lb_Main.TabIndex = 15;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(940, 698);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(627, 454);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 20);
+            this.label6.Size = new System.Drawing.Size(34, 13);
             this.label6.TabIndex = 14;
             this.label6.Text = "Main";
             // 
             // nud_Enhance
             // 
-            this.nud_Enhance.Location = new System.Drawing.Point(1484, 729);
-            this.nud_Enhance.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nud_Enhance.Location = new System.Drawing.Point(989, 474);
             this.nud_Enhance.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
             this.nud_Enhance.Name = "nud_Enhance";
-            this.nud_Enhance.Size = new System.Drawing.Size(75, 26);
+            this.nud_Enhance.Size = new System.Drawing.Size(50, 20);
             this.nud_Enhance.TabIndex = 13;
             this.nud_Enhance.Value = new decimal(new int[] {
             15,
@@ -1257,24 +1216,22 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(1479, 698);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(986, 454);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 20);
+            this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 12;
             this.label5.Text = "Enhance";
             // 
             // nud_ILvl
             // 
-            this.nud_ILvl.Location = new System.Drawing.Point(1400, 729);
-            this.nud_ILvl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nud_ILvl.Location = new System.Drawing.Point(933, 474);
             this.nud_ILvl.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nud_ILvl.Name = "nud_ILvl";
-            this.nud_ILvl.Size = new System.Drawing.Size(75, 26);
+            this.nud_ILvl.Size = new System.Drawing.Size(50, 20);
             this.nud_ILvl.TabIndex = 11;
             this.nud_ILvl.Value = new decimal(new int[] {
             85,
@@ -1286,10 +1243,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1395, 698);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(930, 454);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 20);
+            this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "Itemlvl";
             // 
@@ -1301,10 +1257,9 @@
             this.p_Grade.Controls.Add(this.rb_HeroicGrade);
             this.p_Grade.Controls.Add(this.rb_EpicGrade);
             this.p_Grade.Controls.Add(this.label3);
-            this.p_Grade.Location = new System.Drawing.Point(765, 682);
-            this.p_Grade.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.p_Grade.Location = new System.Drawing.Point(510, 443);
             this.p_Grade.Name = "p_Grade";
-            this.p_Grade.Size = new System.Drawing.Size(152, 322);
+            this.p_Grade.Size = new System.Drawing.Size(101, 209);
             this.p_Grade.TabIndex = 8;
             // 
             // rb_NormalGrade
@@ -1314,10 +1269,9 @@
             this.rb_NormalGrade.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.Control;
             this.rb_NormalGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_NormalGrade.ForeColor = System.Drawing.Color.Gray;
-            this.rb_NormalGrade.Location = new System.Drawing.Point(4, 248);
-            this.rb_NormalGrade.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_NormalGrade.Location = new System.Drawing.Point(3, 161);
             this.rb_NormalGrade.Name = "rb_NormalGrade";
-            this.rb_NormalGrade.Size = new System.Drawing.Size(128, 34);
+            this.rb_NormalGrade.Size = new System.Drawing.Size(91, 26);
             this.rb_NormalGrade.TabIndex = 5;
             this.rb_NormalGrade.Text = "Normal";
             this.rb_NormalGrade.UseVisualStyleBackColor = true;
@@ -1329,10 +1283,9 @@
             this.rb_GoodGrade.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.Control;
             this.rb_GoodGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_GoodGrade.ForeColor = System.Drawing.Color.Green;
-            this.rb_GoodGrade.Location = new System.Drawing.Point(4, 200);
-            this.rb_GoodGrade.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_GoodGrade.Location = new System.Drawing.Point(3, 130);
             this.rb_GoodGrade.Name = "rb_GoodGrade";
-            this.rb_GoodGrade.Size = new System.Drawing.Size(104, 34);
+            this.rb_GoodGrade.Size = new System.Drawing.Size(76, 26);
             this.rb_GoodGrade.TabIndex = 4;
             this.rb_GoodGrade.Text = "Good";
             this.rb_GoodGrade.UseVisualStyleBackColor = true;
@@ -1344,10 +1297,9 @@
             this.rb_RareGrade.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.Control;
             this.rb_RareGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_RareGrade.ForeColor = System.Drawing.Color.Blue;
-            this.rb_RareGrade.Location = new System.Drawing.Point(4, 151);
-            this.rb_RareGrade.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_RareGrade.Location = new System.Drawing.Point(3, 98);
             this.rb_RareGrade.Name = "rb_RareGrade";
-            this.rb_RareGrade.Size = new System.Drawing.Size(98, 34);
+            this.rb_RareGrade.Size = new System.Drawing.Size(71, 26);
             this.rb_RareGrade.TabIndex = 3;
             this.rb_RareGrade.Text = "Rare";
             this.rb_RareGrade.UseVisualStyleBackColor = true;
@@ -1359,10 +1311,9 @@
             this.rb_HeroicGrade.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.Control;
             this.rb_HeroicGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_HeroicGrade.ForeColor = System.Drawing.Color.Purple;
-            this.rb_HeroicGrade.Location = new System.Drawing.Point(4, 102);
-            this.rb_HeroicGrade.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_HeroicGrade.Location = new System.Drawing.Point(3, 66);
             this.rb_HeroicGrade.Name = "rb_HeroicGrade";
-            this.rb_HeroicGrade.Size = new System.Drawing.Size(119, 34);
+            this.rb_HeroicGrade.Size = new System.Drawing.Size(86, 26);
             this.rb_HeroicGrade.TabIndex = 2;
             this.rb_HeroicGrade.Text = "Heroic";
             this.rb_HeroicGrade.UseVisualStyleBackColor = true;
@@ -1375,10 +1326,9 @@
             this.rb_EpicGrade.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.Control;
             this.rb_EpicGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_EpicGrade.ForeColor = System.Drawing.Color.Red;
-            this.rb_EpicGrade.Location = new System.Drawing.Point(4, 52);
-            this.rb_EpicGrade.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_EpicGrade.Location = new System.Drawing.Point(3, 34);
             this.rb_EpicGrade.Name = "rb_EpicGrade";
-            this.rb_EpicGrade.Size = new System.Drawing.Size(92, 34);
+            this.rb_EpicGrade.Size = new System.Drawing.Size(67, 26);
             this.rb_EpicGrade.TabIndex = 1;
             this.rb_EpicGrade.TabStop = true;
             this.rb_EpicGrade.Text = "Epic";
@@ -1388,10 +1338,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(4, 17);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(3, 11);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 20);
+            this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Grade";
             // 
@@ -1404,20 +1353,18 @@
             this.p_Type.Controls.Add(this.rb_HelmetType);
             this.p_Type.Controls.Add(this.rb_WeaponType);
             this.p_Type.Controls.Add(this.label2);
-            this.p_Type.Location = new System.Drawing.Point(518, 682);
-            this.p_Type.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.p_Type.Location = new System.Drawing.Point(345, 443);
             this.p_Type.Name = "p_Type";
-            this.p_Type.Size = new System.Drawing.Size(204, 255);
+            this.p_Type.Size = new System.Drawing.Size(136, 166);
             this.p_Type.TabIndex = 7;
             // 
             // rb_BootsType
             // 
             this.rb_BootsType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_BootsType.Image = global::E7_Gear_Optimizer.Properties.Resources.boots;
-            this.rb_BootsType.Location = new System.Drawing.Point(111, 191);
-            this.rb_BootsType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_BootsType.Location = new System.Drawing.Point(74, 124);
             this.rb_BootsType.Name = "rb_BootsType";
-            this.rb_BootsType.Size = new System.Drawing.Size(78, 65);
+            this.rb_BootsType.Size = new System.Drawing.Size(52, 42);
             this.rb_BootsType.TabIndex = 13;
             this.rb_BootsType.UseVisualStyleBackColor = true;
             this.rb_BootsType.CheckedChanged += new System.EventHandler(this.Rb_BootsType_CheckedChanged);
@@ -1426,10 +1373,9 @@
             // 
             this.rb_RingType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_RingType.Image = global::E7_Gear_Optimizer.Properties.Resources.ring;
-            this.rb_RingType.Location = new System.Drawing.Point(111, 117);
-            this.rb_RingType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_RingType.Location = new System.Drawing.Point(74, 76);
             this.rb_RingType.Name = "rb_RingType";
-            this.rb_RingType.Size = new System.Drawing.Size(87, 65);
+            this.rb_RingType.Size = new System.Drawing.Size(58, 42);
             this.rb_RingType.TabIndex = 12;
             this.rb_RingType.Text = "           ";
             this.rb_RingType.UseVisualStyleBackColor = true;
@@ -1439,10 +1385,9 @@
             // 
             this.rb_NecklaceType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_NecklaceType.Image = global::E7_Gear_Optimizer.Properties.Resources.necklace;
-            this.rb_NecklaceType.Location = new System.Drawing.Point(111, 42);
-            this.rb_NecklaceType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_NecklaceType.Location = new System.Drawing.Point(74, 27);
             this.rb_NecklaceType.Name = "rb_NecklaceType";
-            this.rb_NecklaceType.Size = new System.Drawing.Size(87, 65);
+            this.rb_NecklaceType.Size = new System.Drawing.Size(58, 42);
             this.rb_NecklaceType.TabIndex = 11;
             this.rb_NecklaceType.Text = "           ";
             this.rb_NecklaceType.UseVisualStyleBackColor = true;
@@ -1452,10 +1397,9 @@
             // 
             this.rb_ArmorType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_ArmorType.Image = global::E7_Gear_Optimizer.Properties.Resources.armor;
-            this.rb_ArmorType.Location = new System.Drawing.Point(15, 191);
-            this.rb_ArmorType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_ArmorType.Location = new System.Drawing.Point(10, 124);
             this.rb_ArmorType.Name = "rb_ArmorType";
-            this.rb_ArmorType.Size = new System.Drawing.Size(87, 65);
+            this.rb_ArmorType.Size = new System.Drawing.Size(58, 42);
             this.rb_ArmorType.TabIndex = 10;
             this.rb_ArmorType.Text = "           ";
             this.rb_ArmorType.UseVisualStyleBackColor = true;
@@ -1465,10 +1409,9 @@
             // 
             this.rb_HelmetType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_HelmetType.Image = global::E7_Gear_Optimizer.Properties.Resources.helmet;
-            this.rb_HelmetType.Location = new System.Drawing.Point(15, 117);
-            this.rb_HelmetType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_HelmetType.Location = new System.Drawing.Point(10, 76);
             this.rb_HelmetType.Name = "rb_HelmetType";
-            this.rb_HelmetType.Size = new System.Drawing.Size(87, 65);
+            this.rb_HelmetType.Size = new System.Drawing.Size(58, 42);
             this.rb_HelmetType.TabIndex = 9;
             this.rb_HelmetType.Text = "           ";
             this.rb_HelmetType.UseVisualStyleBackColor = true;
@@ -1479,10 +1422,9 @@
             this.rb_WeaponType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_WeaponType.Checked = true;
             this.rb_WeaponType.Image = ((System.Drawing.Image)(resources.GetObject("rb_WeaponType.Image")));
-            this.rb_WeaponType.Location = new System.Drawing.Point(15, 42);
-            this.rb_WeaponType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_WeaponType.Location = new System.Drawing.Point(10, 27);
             this.rb_WeaponType.Name = "rb_WeaponType";
-            this.rb_WeaponType.Size = new System.Drawing.Size(87, 65);
+            this.rb_WeaponType.Size = new System.Drawing.Size(58, 42);
             this.rb_WeaponType.TabIndex = 8;
             this.rb_WeaponType.TabStop = true;
             this.rb_WeaponType.Text = "            ";
@@ -1493,10 +1435,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(10, 17);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(7, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 20);
+            this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Type";
             // 
@@ -1516,20 +1457,18 @@
             this.p_Set.Controls.Add(this.rb_HitSet);
             this.p_Set.Controls.Add(this.rb_SpeedSet);
             this.p_Set.Controls.Add(this.label1);
-            this.p_Set.Location = new System.Drawing.Point(9, 682);
-            this.p_Set.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.p_Set.Location = new System.Drawing.Point(6, 443);
             this.p_Set.Name = "p_Set";
-            this.p_Set.Size = new System.Drawing.Size(484, 255);
+            this.p_Set.Size = new System.Drawing.Size(323, 166);
             this.p_Set.TabIndex = 6;
             // 
             // rb_UnitySet
             // 
             this.rb_UnitySet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_UnitySet.Image = global::E7_Gear_Optimizer.Properties.Resources.set_unity;
-            this.rb_UnitySet.Location = new System.Drawing.Point(192, 183);
-            this.rb_UnitySet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_UnitySet.Location = new System.Drawing.Point(128, 119);
             this.rb_UnitySet.Name = "rb_UnitySet";
-            this.rb_UnitySet.Size = new System.Drawing.Size(87, 65);
+            this.rb_UnitySet.Size = new System.Drawing.Size(58, 42);
             this.rb_UnitySet.TabIndex = 18;
             this.rb_UnitySet.Text = "           ";
             this.rb_UnitySet.UseVisualStyleBackColor = true;
@@ -1538,10 +1477,9 @@
             // 
             this.rb_ImmunitySet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_ImmunitySet.Image = global::E7_Gear_Optimizer.Properties.Resources.set_immunity;
-            this.rb_ImmunitySet.Location = new System.Drawing.Point(288, 183);
-            this.rb_ImmunitySet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_ImmunitySet.Location = new System.Drawing.Point(192, 119);
             this.rb_ImmunitySet.Name = "rb_ImmunitySet";
-            this.rb_ImmunitySet.Size = new System.Drawing.Size(87, 65);
+            this.rb_ImmunitySet.Size = new System.Drawing.Size(58, 42);
             this.rb_ImmunitySet.TabIndex = 17;
             this.rb_ImmunitySet.Text = "           ";
             this.rb_ImmunitySet.UseVisualStyleBackColor = true;
@@ -1550,10 +1488,9 @@
             // 
             this.rb_RageSet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_RageSet.Image = global::E7_Gear_Optimizer.Properties.Resources.set_rage;
-            this.rb_RageSet.Location = new System.Drawing.Point(96, 183);
-            this.rb_RageSet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_RageSet.Location = new System.Drawing.Point(64, 119);
             this.rb_RageSet.Name = "rb_RageSet";
-            this.rb_RageSet.Size = new System.Drawing.Size(87, 65);
+            this.rb_RageSet.Size = new System.Drawing.Size(58, 42);
             this.rb_RageSet.TabIndex = 16;
             this.rb_RageSet.Text = "           ";
             this.rb_RageSet.UseVisualStyleBackColor = true;
@@ -1562,10 +1499,9 @@
             // 
             this.rb_ResistSet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_ResistSet.Image = global::E7_Gear_Optimizer.Properties.Resources.set_resist;
-            this.rb_ResistSet.Location = new System.Drawing.Point(6, 183);
-            this.rb_ResistSet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_ResistSet.Location = new System.Drawing.Point(4, 119);
             this.rb_ResistSet.Name = "rb_ResistSet";
-            this.rb_ResistSet.Size = new System.Drawing.Size(87, 65);
+            this.rb_ResistSet.Size = new System.Drawing.Size(58, 42);
             this.rb_ResistSet.TabIndex = 15;
             this.rb_ResistSet.Text = "           ";
             this.rb_ResistSet.UseVisualStyleBackColor = true;
@@ -1574,10 +1510,9 @@
             // 
             this.rb_DestructionSet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_DestructionSet.Image = global::E7_Gear_Optimizer.Properties.Resources.set_destruction;
-            this.rb_DestructionSet.Location = new System.Drawing.Point(384, 109);
-            this.rb_DestructionSet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_DestructionSet.Location = new System.Drawing.Point(256, 71);
             this.rb_DestructionSet.Name = "rb_DestructionSet";
-            this.rb_DestructionSet.Size = new System.Drawing.Size(87, 65);
+            this.rb_DestructionSet.Size = new System.Drawing.Size(58, 42);
             this.rb_DestructionSet.TabIndex = 14;
             this.rb_DestructionSet.Text = "           ";
             this.rb_DestructionSet.UseVisualStyleBackColor = true;
@@ -1586,10 +1521,9 @@
             // 
             this.rb_LifestealSet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_LifestealSet.Image = global::E7_Gear_Optimizer.Properties.Resources.set_lifesteal;
-            this.rb_LifestealSet.Location = new System.Drawing.Point(288, 109);
-            this.rb_LifestealSet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_LifestealSet.Location = new System.Drawing.Point(192, 71);
             this.rb_LifestealSet.Name = "rb_LifestealSet";
-            this.rb_LifestealSet.Size = new System.Drawing.Size(87, 65);
+            this.rb_LifestealSet.Size = new System.Drawing.Size(58, 42);
             this.rb_LifestealSet.TabIndex = 13;
             this.rb_LifestealSet.Text = "           ";
             this.rb_LifestealSet.UseVisualStyleBackColor = true;
@@ -1598,10 +1532,9 @@
             // 
             this.rb_CounterSet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_CounterSet.Image = global::E7_Gear_Optimizer.Properties.Resources.set_counter;
-            this.rb_CounterSet.Location = new System.Drawing.Point(192, 109);
-            this.rb_CounterSet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_CounterSet.Location = new System.Drawing.Point(128, 71);
             this.rb_CounterSet.Name = "rb_CounterSet";
-            this.rb_CounterSet.Size = new System.Drawing.Size(87, 65);
+            this.rb_CounterSet.Size = new System.Drawing.Size(58, 42);
             this.rb_CounterSet.TabIndex = 12;
             this.rb_CounterSet.Text = "           ";
             this.rb_CounterSet.UseVisualStyleBackColor = true;
@@ -1610,10 +1543,9 @@
             // 
             this.rb_AttackSet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_AttackSet.Image = global::E7_Gear_Optimizer.Properties.Resources.set_attack;
-            this.rb_AttackSet.Location = new System.Drawing.Point(96, 109);
-            this.rb_AttackSet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_AttackSet.Location = new System.Drawing.Point(64, 71);
             this.rb_AttackSet.Name = "rb_AttackSet";
-            this.rb_AttackSet.Size = new System.Drawing.Size(87, 65);
+            this.rb_AttackSet.Size = new System.Drawing.Size(58, 42);
             this.rb_AttackSet.TabIndex = 11;
             this.rb_AttackSet.Text = "           ";
             this.rb_AttackSet.UseVisualStyleBackColor = true;
@@ -1623,10 +1555,9 @@
             this.rb_HealthSet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_HealthSet.Cursor = System.Windows.Forms.Cursors.Default;
             this.rb_HealthSet.Image = global::E7_Gear_Optimizer.Properties.Resources.set_health;
-            this.rb_HealthSet.Location = new System.Drawing.Point(6, 109);
-            this.rb_HealthSet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_HealthSet.Location = new System.Drawing.Point(4, 71);
             this.rb_HealthSet.Name = "rb_HealthSet";
-            this.rb_HealthSet.Size = new System.Drawing.Size(87, 65);
+            this.rb_HealthSet.Size = new System.Drawing.Size(58, 42);
             this.rb_HealthSet.TabIndex = 10;
             this.rb_HealthSet.Text = "           ";
             this.rb_HealthSet.UseVisualStyleBackColor = true;
@@ -1635,10 +1566,9 @@
             // 
             this.rb_DefSet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_DefSet.Image = global::E7_Gear_Optimizer.Properties.Resources.set_defense;
-            this.rb_DefSet.Location = new System.Drawing.Point(288, 42);
-            this.rb_DefSet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_DefSet.Location = new System.Drawing.Point(192, 27);
             this.rb_DefSet.Name = "rb_DefSet";
-            this.rb_DefSet.Size = new System.Drawing.Size(87, 65);
+            this.rb_DefSet.Size = new System.Drawing.Size(58, 42);
             this.rb_DefSet.TabIndex = 9;
             this.rb_DefSet.Text = "           ";
             this.rb_DefSet.UseVisualStyleBackColor = true;
@@ -1647,10 +1577,9 @@
             // 
             this.rb_CritSet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_CritSet.Image = global::E7_Gear_Optimizer.Properties.Resources.set_crit;
-            this.rb_CritSet.Location = new System.Drawing.Point(192, 42);
-            this.rb_CritSet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_CritSet.Location = new System.Drawing.Point(128, 27);
             this.rb_CritSet.Name = "rb_CritSet";
-            this.rb_CritSet.Size = new System.Drawing.Size(87, 65);
+            this.rb_CritSet.Size = new System.Drawing.Size(58, 42);
             this.rb_CritSet.TabIndex = 8;
             this.rb_CritSet.Text = "           ";
             this.rb_CritSet.UseVisualStyleBackColor = true;
@@ -1659,10 +1588,9 @@
             // 
             this.rb_HitSet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_HitSet.Image = ((System.Drawing.Image)(resources.GetObject("rb_HitSet.Image")));
-            this.rb_HitSet.Location = new System.Drawing.Point(96, 42);
-            this.rb_HitSet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_HitSet.Location = new System.Drawing.Point(64, 27);
             this.rb_HitSet.Name = "rb_HitSet";
-            this.rb_HitSet.Size = new System.Drawing.Size(87, 65);
+            this.rb_HitSet.Size = new System.Drawing.Size(58, 42);
             this.rb_HitSet.TabIndex = 7;
             this.rb_HitSet.Text = "           ";
             this.rb_HitSet.UseVisualStyleBackColor = true;
@@ -1672,10 +1600,9 @@
             this.rb_SpeedSet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_SpeedSet.Checked = true;
             this.rb_SpeedSet.Image = global::E7_Gear_Optimizer.Properties.Resources.set_speed;
-            this.rb_SpeedSet.Location = new System.Drawing.Point(6, 42);
-            this.rb_SpeedSet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_SpeedSet.Location = new System.Drawing.Point(4, 27);
             this.rb_SpeedSet.Name = "rb_SpeedSet";
-            this.rb_SpeedSet.Size = new System.Drawing.Size(92, 66);
+            this.rb_SpeedSet.Size = new System.Drawing.Size(61, 43);
             this.rb_SpeedSet.TabIndex = 6;
             this.rb_SpeedSet.TabStop = true;
             this.rb_SpeedSet.Text = "            ";
@@ -1685,10 +1612,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(2, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(1, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 20);
+            this.label1.Size = new System.Drawing.Size(26, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Set";
             // 
@@ -1726,6 +1652,7 @@
             this.c_DEF,
             this.c_EFF,
             this.c_RES,
+            this.c_WSS,
             this.c_Eq,
             this.c_SetID,
             this.c_TypeID,
@@ -1739,219 +1666,19 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_Inventory.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_Inventory.Location = new System.Drawing.Point(9, 62);
-            this.dgv_Inventory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgv_Inventory.Location = new System.Drawing.Point(6, 40);
             this.dgv_Inventory.MultiSelect = false;
             this.dgv_Inventory.Name = "dgv_Inventory";
             this.dgv_Inventory.ReadOnly = true;
             this.dgv_Inventory.RowHeadersWidth = 62;
             this.dgv_Inventory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv_Inventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Inventory.Size = new System.Drawing.Size(1974, 612);
+            this.dgv_Inventory.Size = new System.Drawing.Size(1316, 398);
             this.dgv_Inventory.TabIndex = 1;
             this.dgv_Inventory.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_Inventory_CellFormatting);
             this.dgv_Inventory.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dgv_Inventory_ColumnHeaderMouseClick);
             this.dgv_Inventory.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Inventory_RowEnter);
             this.dgv_Inventory.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.Dgv_Inventory_SortCompare);
-            // 
-            // c_set
-            // 
-            this.c_set.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_set.HeaderText = "Set";
-            this.c_set.MinimumWidth = 8;
-            this.c_set.Name = "c_set";
-            this.c_set.ReadOnly = true;
-            this.c_set.Width = 40;
-            // 
-            // c_Type
-            // 
-            this.c_Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Type.HeaderText = "Type";
-            this.c_Type.MinimumWidth = 8;
-            this.c_Type.Name = "c_Type";
-            this.c_Type.ReadOnly = true;
-            this.c_Type.Width = 51;
-            // 
-            // c_Grade
-            // 
-            this.c_Grade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Grade.HeaderText = "Grade";
-            this.c_Grade.MinimumWidth = 8;
-            this.c_Grade.Name = "c_Grade";
-            this.c_Grade.ReadOnly = true;
-            this.c_Grade.Width = 91;
-            // 
-            // c_ILvl
-            // 
-            this.c_ILvl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_ILvl.HeaderText = "ILvl";
-            this.c_ILvl.MinimumWidth = 8;
-            this.c_ILvl.Name = "c_ILvl";
-            this.c_ILvl.ReadOnly = true;
-            this.c_ILvl.Width = 71;
-            // 
-            // c_Enhance
-            // 
-            this.c_Enhance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Enhance.HeaderText = "Enhance";
-            this.c_Enhance.MinimumWidth = 8;
-            this.c_Enhance.Name = "c_Enhance";
-            this.c_Enhance.ReadOnly = true;
-            this.c_Enhance.Width = 110;
-            // 
-            // c_Main
-            // 
-            this.c_Main.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Main.HeaderText = "Main";
-            this.c_Main.MinimumWidth = 8;
-            this.c_Main.Name = "c_Main";
-            this.c_Main.ReadOnly = true;
-            this.c_Main.Width = 81;
-            // 
-            // c_Value
-            // 
-            this.c_Value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Value.HeaderText = "Value";
-            this.c_Value.MinimumWidth = 8;
-            this.c_Value.Name = "c_Value";
-            this.c_Value.ReadOnly = true;
-            this.c_Value.Width = 87;
-            // 
-            // c_ATKPer
-            // 
-            this.c_ATKPer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_ATKPer.HeaderText = "ATK%";
-            this.c_ATKPer.MinimumWidth = 8;
-            this.c_ATKPer.Name = "c_ATKPer";
-            this.c_ATKPer.ReadOnly = true;
-            this.c_ATKPer.Width = 92;
-            // 
-            // c_ATK
-            // 
-            this.c_ATK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_ATK.HeaderText = "ATK";
-            this.c_ATK.MinimumWidth = 8;
-            this.c_ATK.Name = "c_ATK";
-            this.c_ATK.ReadOnly = true;
-            this.c_ATK.Width = 77;
-            // 
-            // c_SPD
-            // 
-            this.c_SPD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_SPD.HeaderText = "SPD";
-            this.c_SPD.MinimumWidth = 8;
-            this.c_SPD.Name = "c_SPD";
-            this.c_SPD.ReadOnly = true;
-            this.c_SPD.Width = 80;
-            // 
-            // c_CHC
-            // 
-            this.c_CHC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_CHC.HeaderText = "Crit";
-            this.c_CHC.MinimumWidth = 8;
-            this.c_CHC.Name = "c_CHC";
-            this.c_CHC.ReadOnly = true;
-            this.c_CHC.Width = 72;
-            // 
-            // c_CHD
-            // 
-            this.c_CHD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_CHD.HeaderText = "CritDmg";
-            this.c_CHD.MinimumWidth = 8;
-            this.c_CHD.Name = "c_CHD";
-            this.c_CHD.ReadOnly = true;
-            this.c_CHD.Width = 108;
-            // 
-            // c_HPPer
-            // 
-            this.c_HPPer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_HPPer.HeaderText = "HP%";
-            this.c_HPPer.MinimumWidth = 8;
-            this.c_HPPer.Name = "c_HPPer";
-            this.c_HPPer.ReadOnly = true;
-            // 
-            // c_HP
-            // 
-            this.c_HP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_HP.HeaderText = "HP";
-            this.c_HP.MinimumWidth = 8;
-            this.c_HP.Name = "c_HP";
-            this.c_HP.ReadOnly = true;
-            // 
-            // c_DEFPer
-            // 
-            this.c_DEFPer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DEFPer.HeaderText = "DEF%";
-            this.c_DEFPer.MinimumWidth = 8;
-            this.c_DEFPer.Name = "c_DEFPer";
-            this.c_DEFPer.ReadOnly = true;
-            // 
-            // c_DEF
-            // 
-            this.c_DEF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DEF.HeaderText = "DEF";
-            this.c_DEF.MinimumWidth = 8;
-            this.c_DEF.Name = "c_DEF";
-            this.c_DEF.ReadOnly = true;
-            // 
-            // c_EFF
-            // 
-            this.c_EFF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_EFF.HeaderText = "EFF";
-            this.c_EFF.MinimumWidth = 8;
-            this.c_EFF.Name = "c_EFF";
-            this.c_EFF.ReadOnly = true;
-            // 
-            // c_RES
-            // 
-            this.c_RES.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_RES.HeaderText = "RES";
-            this.c_RES.MinimumWidth = 8;
-            this.c_RES.Name = "c_RES";
-            this.c_RES.ReadOnly = true;
-            // 
-            // c_Eq
-            // 
-            this.c_Eq.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_Eq.HeaderText = "Equipped";
-            this.c_Eq.MinimumWidth = 8;
-            this.c_Eq.Name = "c_Eq";
-            this.c_Eq.ReadOnly = true;
-            // 
-            // c_SetID
-            // 
-            this.c_SetID.HeaderText = "SetID";
-            this.c_SetID.MinimumWidth = 8;
-            this.c_SetID.Name = "c_SetID";
-            this.c_SetID.ReadOnly = true;
-            this.c_SetID.Visible = false;
-            this.c_SetID.Width = 150;
-            // 
-            // c_TypeID
-            // 
-            this.c_TypeID.HeaderText = "TypeID";
-            this.c_TypeID.MinimumWidth = 8;
-            this.c_TypeID.Name = "c_TypeID";
-            this.c_TypeID.ReadOnly = true;
-            this.c_TypeID.Visible = false;
-            this.c_TypeID.Width = 150;
-            // 
-            // c_ItemID
-            // 
-            this.c_ItemID.HeaderText = "ItemID";
-            this.c_ItemID.MinimumWidth = 8;
-            this.c_ItemID.Name = "c_ItemID";
-            this.c_ItemID.ReadOnly = true;
-            this.c_ItemID.Visible = false;
-            this.c_ItemID.Width = 150;
-            // 
-            // c_Locked
-            // 
-            this.c_Locked.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_Locked.HeaderText = "locked";
-            this.c_Locked.MinimumWidth = 8;
-            this.c_Locked.Name = "c_Locked";
-            this.c_Locked.ReadOnly = true;
             // 
             // tc_Inventory
             // 
@@ -1966,12 +1693,11 @@
             this.tc_Inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tc_Inventory.ImageList = this.Types;
             this.tc_Inventory.ItemSize = new System.Drawing.Size(28, 28);
-            this.tc_Inventory.Location = new System.Drawing.Point(9, 9);
-            this.tc_Inventory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tc_Inventory.Location = new System.Drawing.Point(6, 6);
             this.tc_Inventory.Name = "tc_Inventory";
             this.tc_Inventory.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tc_Inventory.SelectedIndex = 0;
-            this.tc_Inventory.Size = new System.Drawing.Size(494, 43);
+            this.tc_Inventory.Size = new System.Drawing.Size(329, 28);
             this.tc_Inventory.TabIndex = 0;
             this.tc_Inventory.SelectedIndexChanged += new System.EventHandler(this.tc_Inventory_SelectedIndexChanged);
             // 
@@ -1980,11 +1706,10 @@
             this.tabPage4.BackColor = System.Drawing.SystemColors.Window;
             this.tabPage4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage4.Location = new System.Drawing.Point(4, 32);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabPage4.Size = new System.Drawing.Size(486, 7);
+            this.tabPage4.Size = new System.Drawing.Size(321, 0);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "All";
             // 
@@ -1992,10 +1717,9 @@
             // 
             this.tabPage5.ImageIndex = 0;
             this.tabPage5.Location = new System.Drawing.Point(4, 32);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage5.Size = new System.Drawing.Size(486, 7);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage5.Size = new System.Drawing.Size(321, 0);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
@@ -2003,9 +1727,8 @@
             // 
             this.tabPage6.ImageIndex = 1;
             this.tabPage6.Location = new System.Drawing.Point(4, 32);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(486, 7);
+            this.tabPage6.Size = new System.Drawing.Size(321, 0);
             this.tabPage6.TabIndex = 2;
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
@@ -2013,9 +1736,8 @@
             // 
             this.tabPage7.ImageIndex = 2;
             this.tabPage7.Location = new System.Drawing.Point(4, 32);
-            this.tabPage7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(486, 7);
+            this.tabPage7.Size = new System.Drawing.Size(321, 0);
             this.tabPage7.TabIndex = 3;
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
@@ -2023,9 +1745,8 @@
             // 
             this.tabPage8.ImageIndex = 3;
             this.tabPage8.Location = new System.Drawing.Point(4, 32);
-            this.tabPage8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(486, 7);
+            this.tabPage8.Size = new System.Drawing.Size(321, 0);
             this.tabPage8.TabIndex = 4;
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
@@ -2033,9 +1754,8 @@
             // 
             this.tabPage9.ImageIndex = 4;
             this.tabPage9.Location = new System.Drawing.Point(4, 32);
-            this.tabPage9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(486, 7);
+            this.tabPage9.Size = new System.Drawing.Size(321, 0);
             this.tabPage9.TabIndex = 5;
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
@@ -2043,9 +1763,8 @@
             // 
             this.tabPage10.ImageIndex = 5;
             this.tabPage10.Location = new System.Drawing.Point(4, 32);
-            this.tabPage10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(486, 7);
+            this.tabPage10.Size = new System.Drawing.Size(321, 0);
             this.tabPage10.TabIndex = 6;
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
@@ -2064,10 +1783,9 @@
             // 
             this.b_EditItem.BackgroundImage = global::E7_Gear_Optimizer.Properties.Resources.Edit;
             this.b_EditItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b_EditItem.Location = new System.Drawing.Point(1818, 683);
-            this.b_EditItem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_EditItem.Location = new System.Drawing.Point(1212, 444);
             this.b_EditItem.Name = "b_EditItem";
-            this.b_EditItem.Size = new System.Drawing.Size(78, 60);
+            this.b_EditItem.Size = new System.Drawing.Size(52, 39);
             this.b_EditItem.TabIndex = 3;
             this.b_EditItem.UseVisualStyleBackColor = true;
             this.b_EditItem.Click += new System.EventHandler(this.B_EditItem_Click);
@@ -2076,10 +1794,9 @@
             // 
             this.b_NewItem.BackgroundImage = global::E7_Gear_Optimizer.Properties.Resources._new;
             this.b_NewItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b_NewItem.Location = new System.Drawing.Point(1905, 683);
-            this.b_NewItem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_NewItem.Location = new System.Drawing.Point(1270, 444);
             this.b_NewItem.Name = "b_NewItem";
-            this.b_NewItem.Size = new System.Drawing.Size(78, 60);
+            this.b_NewItem.Size = new System.Drawing.Size(52, 39);
             this.b_NewItem.TabIndex = 2;
             this.b_NewItem.UseVisualStyleBackColor = true;
             this.b_NewItem.Click += new System.EventHandler(this.B_NewItem_Click);
@@ -2092,21 +1809,19 @@
             this.tabPage1.Controls.Add(this.b_import);
             this.tabPage1.Controls.Add(this.rb_import_this);
             this.tabPage1.Controls.Add(this.rb_import_web);
-            this.tabPage1.Location = new System.Drawing.Point(4, 32);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage1.Size = new System.Drawing.Size(2187, 1147);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(1455, 740);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(327, 626);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button2.Location = new System.Drawing.Point(218, 407);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(152, 35);
+            this.button2.Size = new System.Drawing.Size(101, 23);
             this.button2.TabIndex = 7;
             this.button2.Text = "Append";
             this.button2.UseVisualStyleBackColor = true;
@@ -2114,10 +1829,9 @@
             // 
             // b_Export
             // 
-            this.b_Export.Location = new System.Drawing.Point(778, 626);
-            this.b_Export.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_Export.Location = new System.Drawing.Point(519, 407);
             this.b_Export.Name = "b_Export";
-            this.b_Export.Size = new System.Drawing.Size(112, 35);
+            this.b_Export.Size = new System.Drawing.Size(75, 23);
             this.b_Export.TabIndex = 3;
             this.b_Export.Text = "Export";
             this.b_Export.UseVisualStyleBackColor = true;
@@ -2126,20 +1840,18 @@
             // richTextBox1
             // 
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(38, 37);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.richTextBox1.Location = new System.Drawing.Point(25, 24);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(1286, 509);
+            this.richTextBox1.Size = new System.Drawing.Size(857, 331);
             this.richTextBox1.TabIndex = 6;
             this.richTextBox1.Text = "";
             // 
             // b_import
             // 
-            this.b_import.Location = new System.Drawing.Point(150, 626);
-            this.b_import.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_import.Location = new System.Drawing.Point(100, 407);
             this.b_import.Name = "b_import";
-            this.b_import.Size = new System.Drawing.Size(152, 35);
+            this.b_import.Size = new System.Drawing.Size(101, 23);
             this.b_import.TabIndex = 2;
             this.b_import.Text = "Import";
             this.b_import.UseVisualStyleBackColor = true;
@@ -2149,10 +1861,9 @@
             // 
             this.rb_import_this.AutoSize = true;
             this.rb_import_this.Checked = true;
-            this.rb_import_this.Location = new System.Drawing.Point(120, 555);
-            this.rb_import_this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_import_this.Location = new System.Drawing.Point(80, 361);
             this.rb_import_this.Name = "rb_import_this";
-            this.rb_import_this.Size = new System.Drawing.Size(262, 24);
+            this.rb_import_this.Size = new System.Drawing.Size(173, 17);
             this.rb_import_this.TabIndex = 1;
             this.rb_import_this.TabStop = true;
             this.rb_import_this.Text = "Import JSON from this Optimizer";
@@ -2161,10 +1872,9 @@
             // rb_import_web
             // 
             this.rb_import_web.AutoSize = true;
-            this.rb_import_web.Location = new System.Drawing.Point(120, 591);
-            this.rb_import_web.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rb_import_web.Location = new System.Drawing.Point(80, 384);
             this.rb_import_web.Name = "rb_import_web";
-            this.rb_import_web.Size = new System.Drawing.Size(391, 24);
+            this.rb_import_web.Size = new System.Drawing.Size(266, 17);
             this.rb_import_web.TabIndex = 0;
             this.rb_import_web.Text = "Import JSON from web optimizer (/u/HyrTheWinter)";
             this.rb_import_web.UseVisualStyleBackColor = true;
@@ -2176,11 +1886,11 @@
             this.tc_Main.Controls.Add(this.tb_Inventory);
             this.tc_Main.Controls.Add(this.tb_Heroes);
             this.tc_Main.Controls.Add(this.tb_Optimize);
-            this.tc_Main.Location = new System.Drawing.Point(8, 8);
+            this.tc_Main.Location = new System.Drawing.Point(5, 5);
             this.tc_Main.Margin = new System.Windows.Forms.Padding(0);
             this.tc_Main.Name = "tc_Main";
             this.tc_Main.SelectedIndex = 0;
-            this.tc_Main.Size = new System.Drawing.Size(2195, 1183);
+            this.tc_Main.Size = new System.Drawing.Size(1463, 769);
             this.tc_Main.TabIndex = 0;
             this.tc_Main.SelectedIndexChanged += new System.EventHandler(this.tc_Main_SelectedIndexChanged);
             // 
@@ -2261,10 +1971,9 @@
             this.tb_Heroes.Controls.Add(this.b_RemoveHero);
             this.tb_Heroes.Controls.Add(this.b_EditHero);
             this.tb_Heroes.Controls.Add(this.b_AddHero);
-            this.tb_Heroes.Location = new System.Drawing.Point(4, 32);
-            this.tb_Heroes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_Heroes.Location = new System.Drawing.Point(4, 25);
             this.tb_Heroes.Name = "tb_Heroes";
-            this.tb_Heroes.Size = new System.Drawing.Size(2187, 1147);
+            this.tb_Heroes.Size = new System.Drawing.Size(1455, 740);
             this.tb_Heroes.TabIndex = 3;
             this.tb_Heroes.Text = "Heroes";
             this.tb_Heroes.UseVisualStyleBackColor = true;
@@ -2272,10 +1981,9 @@
             // b_UnlockAll
             // 
             this.b_UnlockAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_UnlockAll.Location = new System.Drawing.Point(1446, 577);
-            this.b_UnlockAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_UnlockAll.Location = new System.Drawing.Point(964, 375);
             this.b_UnlockAll.Name = "b_UnlockAll";
-            this.b_UnlockAll.Size = new System.Drawing.Size(124, 60);
+            this.b_UnlockAll.Size = new System.Drawing.Size(83, 39);
             this.b_UnlockAll.TabIndex = 112;
             this.b_UnlockAll.Text = "Unlock all";
             this.b_UnlockAll.UseVisualStyleBackColor = true;
@@ -2284,10 +1992,9 @@
             // b_LockAll
             // 
             this.b_LockAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_LockAll.Location = new System.Drawing.Point(1580, 577);
-            this.b_LockAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_LockAll.Location = new System.Drawing.Point(1053, 375);
             this.b_LockAll.Name = "b_LockAll";
-            this.b_LockAll.Size = new System.Drawing.Size(124, 60);
+            this.b_LockAll.Size = new System.Drawing.Size(83, 39);
             this.b_LockAll.TabIndex = 111;
             this.b_LockAll.Text = "Lock all";
             this.b_LockAll.UseVisualStyleBackColor = true;
@@ -2296,10 +2003,9 @@
             // b_UnequipAll
             // 
             this.b_UnequipAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_UnequipAll.Location = new System.Drawing.Point(1318, 577);
-            this.b_UnequipAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_UnequipAll.Location = new System.Drawing.Point(879, 375);
             this.b_UnequipAll.Name = "b_UnequipAll";
-            this.b_UnequipAll.Size = new System.Drawing.Size(118, 60);
+            this.b_UnequipAll.Size = new System.Drawing.Size(79, 39);
             this.b_UnequipAll.TabIndex = 110;
             this.b_UnequipAll.Text = "Unequip all";
             this.b_UnequipAll.UseVisualStyleBackColor = true;
@@ -2308,55 +2014,49 @@
             // l_BootsEnhance
             // 
             this.l_BootsEnhance.AutoSize = true;
-            this.l_BootsEnhance.Location = new System.Drawing.Point(1666, 692);
-            this.l_BootsEnhance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsEnhance.Location = new System.Drawing.Point(1111, 450);
             this.l_BootsEnhance.Name = "l_BootsEnhance";
-            this.l_BootsEnhance.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsEnhance.Size = new System.Drawing.Size(0, 13);
             this.l_BootsEnhance.TabIndex = 109;
             // 
             // l_RingEnhance
             // 
             this.l_RingEnhance.AutoSize = true;
-            this.l_RingEnhance.Location = new System.Drawing.Point(1374, 695);
-            this.l_RingEnhance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingEnhance.Location = new System.Drawing.Point(916, 452);
             this.l_RingEnhance.Name = "l_RingEnhance";
-            this.l_RingEnhance.Size = new System.Drawing.Size(0, 20);
+            this.l_RingEnhance.Size = new System.Drawing.Size(0, 13);
             this.l_RingEnhance.TabIndex = 108;
             // 
             // l_NecklaceEnhance
             // 
             this.l_NecklaceEnhance.AutoSize = true;
-            this.l_NecklaceEnhance.Location = new System.Drawing.Point(1082, 695);
-            this.l_NecklaceEnhance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceEnhance.Location = new System.Drawing.Point(721, 452);
             this.l_NecklaceEnhance.Name = "l_NecklaceEnhance";
-            this.l_NecklaceEnhance.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceEnhance.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceEnhance.TabIndex = 107;
             // 
             // l_ArmorEnhance
             // 
             this.l_ArmorEnhance.AutoSize = true;
-            this.l_ArmorEnhance.Location = new System.Drawing.Point(789, 695);
-            this.l_ArmorEnhance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorEnhance.Location = new System.Drawing.Point(526, 452);
             this.l_ArmorEnhance.Name = "l_ArmorEnhance";
-            this.l_ArmorEnhance.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorEnhance.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorEnhance.TabIndex = 106;
             // 
             // l_HelmetEnhance
             // 
             this.l_HelmetEnhance.AutoSize = true;
-            this.l_HelmetEnhance.Location = new System.Drawing.Point(496, 692);
-            this.l_HelmetEnhance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetEnhance.Location = new System.Drawing.Point(331, 450);
             this.l_HelmetEnhance.Name = "l_HelmetEnhance";
-            this.l_HelmetEnhance.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetEnhance.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetEnhance.TabIndex = 105;
             // 
             // l_WeaponEnhance
             // 
             this.l_WeaponEnhance.AutoSize = true;
-            this.l_WeaponEnhance.Location = new System.Drawing.Point(198, 692);
-            this.l_WeaponEnhance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponEnhance.Location = new System.Drawing.Point(132, 450);
             this.l_WeaponEnhance.Name = "l_WeaponEnhance";
-            this.l_WeaponEnhance.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponEnhance.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponEnhance.TabIndex = 104;
             // 
             // l_BootsIlvl
@@ -2364,10 +2064,9 @@
             this.l_BootsIlvl.AutoSize = true;
             this.l_BootsIlvl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_BootsIlvl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
-            this.l_BootsIlvl.Location = new System.Drawing.Point(1593, 695);
-            this.l_BootsIlvl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsIlvl.Location = new System.Drawing.Point(1062, 452);
             this.l_BootsIlvl.Name = "l_BootsIlvl";
-            this.l_BootsIlvl.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsIlvl.Size = new System.Drawing.Size(0, 13);
             this.l_BootsIlvl.TabIndex = 103;
             // 
             // l_RingIlvl
@@ -2375,10 +2074,9 @@
             this.l_RingIlvl.AutoSize = true;
             this.l_RingIlvl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_RingIlvl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
-            this.l_RingIlvl.Location = new System.Drawing.Point(1300, 695);
-            this.l_RingIlvl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingIlvl.Location = new System.Drawing.Point(867, 452);
             this.l_RingIlvl.Name = "l_RingIlvl";
-            this.l_RingIlvl.Size = new System.Drawing.Size(0, 20);
+            this.l_RingIlvl.Size = new System.Drawing.Size(0, 13);
             this.l_RingIlvl.TabIndex = 102;
             // 
             // l_NecklaceIlvl
@@ -2386,10 +2084,9 @@
             this.l_NecklaceIlvl.AutoSize = true;
             this.l_NecklaceIlvl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_NecklaceIlvl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
-            this.l_NecklaceIlvl.Location = new System.Drawing.Point(1008, 695);
-            this.l_NecklaceIlvl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceIlvl.Location = new System.Drawing.Point(672, 452);
             this.l_NecklaceIlvl.Name = "l_NecklaceIlvl";
-            this.l_NecklaceIlvl.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceIlvl.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceIlvl.TabIndex = 101;
             // 
             // l_ArmorIlvl
@@ -2397,10 +2094,9 @@
             this.l_ArmorIlvl.AutoSize = true;
             this.l_ArmorIlvl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_ArmorIlvl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
-            this.l_ArmorIlvl.Location = new System.Drawing.Point(716, 695);
-            this.l_ArmorIlvl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorIlvl.Location = new System.Drawing.Point(477, 452);
             this.l_ArmorIlvl.Name = "l_ArmorIlvl";
-            this.l_ArmorIlvl.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorIlvl.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorIlvl.TabIndex = 100;
             // 
             // l_HelmetIlvl
@@ -2408,10 +2104,9 @@
             this.l_HelmetIlvl.AutoSize = true;
             this.l_HelmetIlvl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_HelmetIlvl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
-            this.l_HelmetIlvl.Location = new System.Drawing.Point(423, 695);
-            this.l_HelmetIlvl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetIlvl.Location = new System.Drawing.Point(282, 452);
             this.l_HelmetIlvl.Name = "l_HelmetIlvl";
-            this.l_HelmetIlvl.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetIlvl.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetIlvl.TabIndex = 99;
             // 
             // l_WeaponIlvl
@@ -2419,18 +2114,16 @@
             this.l_WeaponIlvl.AutoSize = true;
             this.l_WeaponIlvl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_WeaponIlvl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
-            this.l_WeaponIlvl.Location = new System.Drawing.Point(128, 703);
-            this.l_WeaponIlvl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponIlvl.Location = new System.Drawing.Point(85, 457);
             this.l_WeaponIlvl.Name = "l_WeaponIlvl";
-            this.l_WeaponIlvl.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponIlvl.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponIlvl.TabIndex = 98;
             // 
             // b_EquipBoots
             // 
-            this.b_EquipBoots.Location = new System.Drawing.Point(1678, 1018);
-            this.b_EquipBoots.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_EquipBoots.Location = new System.Drawing.Point(1119, 662);
             this.b_EquipBoots.Name = "b_EquipBoots";
-            this.b_EquipBoots.Size = new System.Drawing.Size(112, 45);
+            this.b_EquipBoots.Size = new System.Drawing.Size(75, 29);
             this.b_EquipBoots.TabIndex = 97;
             this.b_EquipBoots.Text = "Equip";
             this.b_EquipBoots.UseVisualStyleBackColor = true;
@@ -2438,10 +2131,9 @@
             // 
             // b_EquipRing
             // 
-            this.b_EquipRing.Location = new System.Drawing.Point(1386, 1018);
-            this.b_EquipRing.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_EquipRing.Location = new System.Drawing.Point(924, 662);
             this.b_EquipRing.Name = "b_EquipRing";
-            this.b_EquipRing.Size = new System.Drawing.Size(112, 45);
+            this.b_EquipRing.Size = new System.Drawing.Size(75, 29);
             this.b_EquipRing.TabIndex = 95;
             this.b_EquipRing.Text = "Equip";
             this.b_EquipRing.UseVisualStyleBackColor = true;
@@ -2449,10 +2141,9 @@
             // 
             // b_EquipNecklace
             // 
-            this.b_EquipNecklace.Location = new System.Drawing.Point(1094, 1018);
-            this.b_EquipNecklace.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_EquipNecklace.Location = new System.Drawing.Point(729, 662);
             this.b_EquipNecklace.Name = "b_EquipNecklace";
-            this.b_EquipNecklace.Size = new System.Drawing.Size(112, 45);
+            this.b_EquipNecklace.Size = new System.Drawing.Size(75, 29);
             this.b_EquipNecklace.TabIndex = 93;
             this.b_EquipNecklace.Text = "Equip";
             this.b_EquipNecklace.UseVisualStyleBackColor = true;
@@ -2460,10 +2151,9 @@
             // 
             // b_EquipArmor
             // 
-            this.b_EquipArmor.Location = new System.Drawing.Point(801, 1018);
-            this.b_EquipArmor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_EquipArmor.Location = new System.Drawing.Point(534, 662);
             this.b_EquipArmor.Name = "b_EquipArmor";
-            this.b_EquipArmor.Size = new System.Drawing.Size(112, 45);
+            this.b_EquipArmor.Size = new System.Drawing.Size(75, 29);
             this.b_EquipArmor.TabIndex = 91;
             this.b_EquipArmor.Text = "Equip";
             this.b_EquipArmor.UseVisualStyleBackColor = true;
@@ -2471,10 +2161,9 @@
             // 
             // b_EquipHelmet
             // 
-            this.b_EquipHelmet.Location = new System.Drawing.Point(508, 1018);
-            this.b_EquipHelmet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_EquipHelmet.Location = new System.Drawing.Point(339, 662);
             this.b_EquipHelmet.Name = "b_EquipHelmet";
-            this.b_EquipHelmet.Size = new System.Drawing.Size(112, 45);
+            this.b_EquipHelmet.Size = new System.Drawing.Size(75, 29);
             this.b_EquipHelmet.TabIndex = 89;
             this.b_EquipHelmet.Text = "Equip";
             this.b_EquipHelmet.UseVisualStyleBackColor = true;
@@ -2482,10 +2171,9 @@
             // 
             // b_EquipWeapon
             // 
-            this.b_EquipWeapon.Location = new System.Drawing.Point(210, 1018);
-            this.b_EquipWeapon.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_EquipWeapon.Location = new System.Drawing.Point(140, 662);
             this.b_EquipWeapon.Name = "b_EquipWeapon";
-            this.b_EquipWeapon.Size = new System.Drawing.Size(112, 45);
+            this.b_EquipWeapon.Size = new System.Drawing.Size(75, 29);
             this.b_EquipWeapon.TabIndex = 87;
             this.b_EquipWeapon.Text = "Equip";
             this.b_EquipWeapon.UseVisualStyleBackColor = true;
@@ -2494,33 +2182,30 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(716, 611);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Location = new System.Drawing.Point(477, 397);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(56, 20);
+            this.label17.Size = new System.Drawing.Size(38, 13);
             this.label17.TabIndex = 85;
             this.label17.Text = "Health";
             // 
             // nud_ArtifactHealth
             // 
-            this.nud_ArtifactHealth.Location = new System.Drawing.Point(782, 608);
-            this.nud_ArtifactHealth.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nud_ArtifactHealth.Location = new System.Drawing.Point(521, 395);
             this.nud_ArtifactHealth.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.nud_ArtifactHealth.Name = "nud_ArtifactHealth";
-            this.nud_ArtifactHealth.Size = new System.Drawing.Size(94, 26);
+            this.nud_ArtifactHealth.Size = new System.Drawing.Size(63, 20);
             this.nud_ArtifactHealth.TabIndex = 84;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(546, 611);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Location = new System.Drawing.Point(364, 397);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(55, 20);
+            this.label16.Size = new System.Drawing.Size(38, 13);
             this.label16.TabIndex = 83;
             this.label16.Text = "Attack";
             // 
@@ -2528,24 +2213,22 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(546, 582);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Location = new System.Drawing.Point(364, 378);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(119, 20);
+            this.label15.Size = new System.Drawing.Size(79, 13);
             this.label15.TabIndex = 82;
             this.label15.Text = "Artifact stats";
             // 
             // nud_ArtifactAttack
             // 
-            this.nud_ArtifactAttack.Location = new System.Drawing.Point(612, 608);
-            this.nud_ArtifactAttack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nud_ArtifactAttack.Location = new System.Drawing.Point(408, 395);
             this.nud_ArtifactAttack.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.nud_ArtifactAttack.Name = "nud_ArtifactAttack";
-            this.nud_ArtifactAttack.Size = new System.Drawing.Size(94, 26);
+            this.nud_ArtifactAttack.Size = new System.Drawing.Size(63, 20);
             this.nud_ArtifactAttack.TabIndex = 81;
             // 
             // cb_HeroAwakening
@@ -2558,20 +2241,18 @@
             "4",
             "5",
             "6"});
-            this.cb_HeroAwakening.Location = new System.Drawing.Point(410, 606);
-            this.cb_HeroAwakening.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_HeroAwakening.Location = new System.Drawing.Point(273, 394);
             this.cb_HeroAwakening.Name = "cb_HeroAwakening";
-            this.cb_HeroAwakening.Size = new System.Drawing.Size(116, 28);
+            this.cb_HeroAwakening.Size = new System.Drawing.Size(79, 21);
             this.cb_HeroAwakening.TabIndex = 80;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(405, 582);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(270, 378);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(98, 20);
+            this.label14.Size = new System.Drawing.Size(69, 13);
             this.label14.TabIndex = 79;
             this.label14.Text = "Awakening";
             // 
@@ -2581,20 +2262,18 @@
             this.cb_HeroLvl.Items.AddRange(new object[] {
             "50",
             "60"});
-            this.cb_HeroLvl.Location = new System.Drawing.Point(334, 606);
-            this.cb_HeroLvl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_HeroLvl.Location = new System.Drawing.Point(223, 394);
             this.cb_HeroLvl.Name = "cb_HeroLvl";
-            this.cb_HeroLvl.Size = new System.Drawing.Size(60, 28);
+            this.cb_HeroLvl.Size = new System.Drawing.Size(41, 21);
             this.cb_HeroLvl.TabIndex = 78;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(330, 582);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(220, 378);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(34, 20);
+            this.label12.Size = new System.Drawing.Size(24, 13);
             this.label12.TabIndex = 77;
             this.label12.Text = "Lvl";
             // 
@@ -2602,10 +2281,9 @@
             // 
             this.l_BootsSet.AutoSize = true;
             this.l_BootsSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_BootsSet.Location = new System.Drawing.Point(1642, 982);
-            this.l_BootsSet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsSet.Location = new System.Drawing.Point(1095, 638);
             this.l_BootsSet.Name = "l_BootsSet";
-            this.l_BootsSet.Size = new System.Drawing.Size(0, 24);
+            this.l_BootsSet.Size = new System.Drawing.Size(0, 16);
             this.l_BootsSet.TabIndex = 75;
             // 
             // tlp_Boots
@@ -2625,78 +2303,72 @@
             this.tlp_Boots.Controls.Add(this.l_BootsMain, 0, 1);
             this.tlp_Boots.Controls.Add(this.l_BootsMainStat, 1, 1);
             this.tlp_Boots.Controls.Add(this.label85, 0, 2);
-            this.tlp_Boots.Location = new System.Drawing.Point(1588, 766);
-            this.tlp_Boots.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.tlp_Boots.Location = new System.Drawing.Point(1059, 498);
+            this.tlp_Boots.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
             this.tlp_Boots.Name = "tlp_Boots";
             this.tlp_Boots.RowCount = 7;
+            this.tlp_Boots.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tlp_Boots.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tlp_Boots.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.tlp_Boots.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlp_Boots.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tlp_Boots.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
-            this.tlp_Boots.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Boots.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Boots.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Boots.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Boots.Size = new System.Drawing.Size(272, 197);
+            this.tlp_Boots.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Boots.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Boots.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Boots.Size = new System.Drawing.Size(181, 128);
             this.tlp_Boots.TabIndex = 73;
             // 
             // l_BootsSub4Stat
             // 
             this.l_BootsSub4Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_BootsSub4Stat.AutoSize = true;
-            this.l_BootsSub4Stat.Location = new System.Drawing.Point(268, 171);
-            this.l_BootsSub4Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsSub4Stat.Location = new System.Drawing.Point(178, 111);
             this.l_BootsSub4Stat.Name = "l_BootsSub4Stat";
-            this.l_BootsSub4Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsSub4Stat.Size = new System.Drawing.Size(0, 13);
             this.l_BootsSub4Stat.TabIndex = 49;
             // 
             // l_BootsSub4
             // 
             this.l_BootsSub4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_BootsSub4.AutoSize = true;
-            this.l_BootsSub4.Location = new System.Drawing.Point(4, 171);
-            this.l_BootsSub4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsSub4.Location = new System.Drawing.Point(3, 111);
             this.l_BootsSub4.Name = "l_BootsSub4";
-            this.l_BootsSub4.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsSub4.Size = new System.Drawing.Size(0, 13);
             this.l_BootsSub4.TabIndex = 48;
             // 
             // l_BootsSub3Stat
             // 
             this.l_BootsSub3Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_BootsSub3Stat.AutoSize = true;
-            this.l_BootsSub3Stat.Location = new System.Drawing.Point(268, 140);
-            this.l_BootsSub3Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsSub3Stat.Location = new System.Drawing.Point(178, 91);
             this.l_BootsSub3Stat.Name = "l_BootsSub3Stat";
-            this.l_BootsSub3Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsSub3Stat.Size = new System.Drawing.Size(0, 13);
             this.l_BootsSub3Stat.TabIndex = 47;
             // 
             // l_BootsSub3
             // 
             this.l_BootsSub3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_BootsSub3.AutoSize = true;
-            this.l_BootsSub3.Location = new System.Drawing.Point(4, 140);
-            this.l_BootsSub3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsSub3.Location = new System.Drawing.Point(3, 91);
             this.l_BootsSub3.Name = "l_BootsSub3";
-            this.l_BootsSub3.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsSub3.Size = new System.Drawing.Size(0, 13);
             this.l_BootsSub3.TabIndex = 46;
             // 
             // l_BootsSub2Stat
             // 
             this.l_BootsSub2Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_BootsSub2Stat.AutoSize = true;
-            this.l_BootsSub2Stat.Location = new System.Drawing.Point(268, 109);
-            this.l_BootsSub2Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsSub2Stat.Location = new System.Drawing.Point(178, 71);
             this.l_BootsSub2Stat.Name = "l_BootsSub2Stat";
-            this.l_BootsSub2Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsSub2Stat.Size = new System.Drawing.Size(0, 13);
             this.l_BootsSub2Stat.TabIndex = 45;
             // 
             // l_BootsSub2
             // 
             this.l_BootsSub2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_BootsSub2.AutoSize = true;
-            this.l_BootsSub2.Location = new System.Drawing.Point(4, 109);
-            this.l_BootsSub2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsSub2.Location = new System.Drawing.Point(3, 71);
             this.l_BootsSub2.Name = "l_BootsSub2";
-            this.l_BootsSub2.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsSub2.Size = new System.Drawing.Size(0, 13);
             this.l_BootsSub2.TabIndex = 44;
             // 
             // label80
@@ -2706,10 +2378,9 @@
             this.tlp_Boots.SetColumnSpan(this.label80, 2);
             this.label80.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label80.ForeColor = System.Drawing.Color.Silver;
-            this.label80.Location = new System.Drawing.Point(4, 9);
-            this.label80.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label80.Location = new System.Drawing.Point(3, 6);
             this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(264, 2);
+            this.label80.Size = new System.Drawing.Size(175, 1);
             this.label80.TabIndex = 37;
             this.label80.Text = "                                       ";
             // 
@@ -2717,20 +2388,18 @@
             // 
             this.l_BootsSub1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_BootsSub1.AutoSize = true;
-            this.l_BootsSub1.Location = new System.Drawing.Point(4, 78);
-            this.l_BootsSub1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsSub1.Location = new System.Drawing.Point(3, 51);
             this.l_BootsSub1.Name = "l_BootsSub1";
-            this.l_BootsSub1.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsSub1.Size = new System.Drawing.Size(0, 13);
             this.l_BootsSub1.TabIndex = 41;
             // 
             // l_BootsSub1Stat
             // 
             this.l_BootsSub1Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_BootsSub1Stat.AutoSize = true;
-            this.l_BootsSub1Stat.Location = new System.Drawing.Point(268, 78);
-            this.l_BootsSub1Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsSub1Stat.Location = new System.Drawing.Point(178, 51);
             this.l_BootsSub1Stat.Name = "l_BootsSub1Stat";
-            this.l_BootsSub1Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsSub1Stat.Size = new System.Drawing.Size(0, 13);
             this.l_BootsSub1Stat.TabIndex = 42;
             // 
             // l_BootsMain
@@ -2739,10 +2408,9 @@
             this.l_BootsMain.AutoSize = true;
             this.l_BootsMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_BootsMain.ForeColor = System.Drawing.Color.Black;
-            this.l_BootsMain.Location = new System.Drawing.Point(4, 25);
-            this.l_BootsMain.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsMain.Location = new System.Drawing.Point(3, 16);
             this.l_BootsMain.Name = "l_BootsMain";
-            this.l_BootsMain.Size = new System.Drawing.Size(0, 24);
+            this.l_BootsMain.Size = new System.Drawing.Size(0, 16);
             this.l_BootsMain.TabIndex = 38;
             // 
             // l_BootsMainStat
@@ -2750,11 +2418,10 @@
             this.l_BootsMainStat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_BootsMainStat.AutoSize = true;
             this.l_BootsMainStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_BootsMainStat.Location = new System.Drawing.Point(268, 25);
-            this.l_BootsMainStat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsMainStat.Location = new System.Drawing.Point(178, 16);
             this.l_BootsMainStat.Name = "l_BootsMainStat";
             this.l_BootsMainStat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.l_BootsMainStat.Size = new System.Drawing.Size(0, 24);
+            this.l_BootsMainStat.Size = new System.Drawing.Size(0, 16);
             this.l_BootsMainStat.TabIndex = 39;
             // 
             // label85
@@ -2764,10 +2431,9 @@
             this.tlp_Boots.SetColumnSpan(this.label85, 2);
             this.label85.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label85.ForeColor = System.Drawing.Color.Silver;
-            this.label85.Location = new System.Drawing.Point(4, 63);
-            this.label85.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label85.Location = new System.Drawing.Point(3, 41);
             this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(264, 2);
+            this.label85.Size = new System.Drawing.Size(175, 1);
             this.label85.TabIndex = 40;
             this.label85.Text = "                                       ";
             // 
@@ -2775,20 +2441,18 @@
             // 
             this.l_BootsGrade.AutoSize = true;
             this.l_BootsGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_BootsGrade.Location = new System.Drawing.Point(1666, 715);
-            this.l_BootsGrade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsGrade.Location = new System.Drawing.Point(1111, 465);
             this.l_BootsGrade.Name = "l_BootsGrade";
-            this.l_BootsGrade.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsGrade.Size = new System.Drawing.Size(0, 13);
             this.l_BootsGrade.TabIndex = 72;
             // 
             // l_RingSet
             // 
             this.l_RingSet.AutoSize = true;
             this.l_RingSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_RingSet.Location = new System.Drawing.Point(1347, 982);
-            this.l_RingSet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingSet.Location = new System.Drawing.Point(898, 638);
             this.l_RingSet.Name = "l_RingSet";
-            this.l_RingSet.Size = new System.Drawing.Size(0, 24);
+            this.l_RingSet.Size = new System.Drawing.Size(0, 16);
             this.l_RingSet.TabIndex = 69;
             // 
             // tlp_Ring
@@ -2808,78 +2472,72 @@
             this.tlp_Ring.Controls.Add(this.l_RingMain, 0, 1);
             this.tlp_Ring.Controls.Add(this.l_RingMainStat, 1, 1);
             this.tlp_Ring.Controls.Add(this.label70, 0, 2);
-            this.tlp_Ring.Location = new System.Drawing.Point(1296, 766);
-            this.tlp_Ring.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.tlp_Ring.Location = new System.Drawing.Point(864, 498);
+            this.tlp_Ring.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
             this.tlp_Ring.Name = "tlp_Ring";
             this.tlp_Ring.RowCount = 7;
+            this.tlp_Ring.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tlp_Ring.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tlp_Ring.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.tlp_Ring.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlp_Ring.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tlp_Ring.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
-            this.tlp_Ring.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Ring.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Ring.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Ring.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Ring.Size = new System.Drawing.Size(272, 197);
+            this.tlp_Ring.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Ring.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Ring.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Ring.Size = new System.Drawing.Size(181, 128);
             this.tlp_Ring.TabIndex = 67;
             // 
             // l_RingSub4Stat
             // 
             this.l_RingSub4Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_RingSub4Stat.AutoSize = true;
-            this.l_RingSub4Stat.Location = new System.Drawing.Point(268, 171);
-            this.l_RingSub4Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingSub4Stat.Location = new System.Drawing.Point(178, 111);
             this.l_RingSub4Stat.Name = "l_RingSub4Stat";
-            this.l_RingSub4Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_RingSub4Stat.Size = new System.Drawing.Size(0, 13);
             this.l_RingSub4Stat.TabIndex = 49;
             // 
             // l_RingSub4
             // 
             this.l_RingSub4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_RingSub4.AutoSize = true;
-            this.l_RingSub4.Location = new System.Drawing.Point(4, 171);
-            this.l_RingSub4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingSub4.Location = new System.Drawing.Point(3, 111);
             this.l_RingSub4.Name = "l_RingSub4";
-            this.l_RingSub4.Size = new System.Drawing.Size(0, 20);
+            this.l_RingSub4.Size = new System.Drawing.Size(0, 13);
             this.l_RingSub4.TabIndex = 48;
             // 
             // l_RingSub3Stat
             // 
             this.l_RingSub3Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_RingSub3Stat.AutoSize = true;
-            this.l_RingSub3Stat.Location = new System.Drawing.Point(268, 140);
-            this.l_RingSub3Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingSub3Stat.Location = new System.Drawing.Point(178, 91);
             this.l_RingSub3Stat.Name = "l_RingSub3Stat";
-            this.l_RingSub3Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_RingSub3Stat.Size = new System.Drawing.Size(0, 13);
             this.l_RingSub3Stat.TabIndex = 47;
             // 
             // l_RingSub3
             // 
             this.l_RingSub3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_RingSub3.AutoSize = true;
-            this.l_RingSub3.Location = new System.Drawing.Point(4, 140);
-            this.l_RingSub3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingSub3.Location = new System.Drawing.Point(3, 91);
             this.l_RingSub3.Name = "l_RingSub3";
-            this.l_RingSub3.Size = new System.Drawing.Size(0, 20);
+            this.l_RingSub3.Size = new System.Drawing.Size(0, 13);
             this.l_RingSub3.TabIndex = 46;
             // 
             // l_RingSub2Stat
             // 
             this.l_RingSub2Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_RingSub2Stat.AutoSize = true;
-            this.l_RingSub2Stat.Location = new System.Drawing.Point(268, 109);
-            this.l_RingSub2Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingSub2Stat.Location = new System.Drawing.Point(178, 71);
             this.l_RingSub2Stat.Name = "l_RingSub2Stat";
-            this.l_RingSub2Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_RingSub2Stat.Size = new System.Drawing.Size(0, 13);
             this.l_RingSub2Stat.TabIndex = 45;
             // 
             // l_RingSub2
             // 
             this.l_RingSub2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_RingSub2.AutoSize = true;
-            this.l_RingSub2.Location = new System.Drawing.Point(4, 109);
-            this.l_RingSub2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingSub2.Location = new System.Drawing.Point(3, 71);
             this.l_RingSub2.Name = "l_RingSub2";
-            this.l_RingSub2.Size = new System.Drawing.Size(0, 20);
+            this.l_RingSub2.Size = new System.Drawing.Size(0, 13);
             this.l_RingSub2.TabIndex = 44;
             // 
             // label65
@@ -2889,10 +2547,9 @@
             this.tlp_Ring.SetColumnSpan(this.label65, 2);
             this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label65.ForeColor = System.Drawing.Color.Silver;
-            this.label65.Location = new System.Drawing.Point(4, 9);
-            this.label65.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label65.Location = new System.Drawing.Point(3, 6);
             this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(264, 2);
+            this.label65.Size = new System.Drawing.Size(175, 1);
             this.label65.TabIndex = 37;
             this.label65.Text = "                                       ";
             // 
@@ -2900,20 +2557,18 @@
             // 
             this.l_RingSub1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_RingSub1.AutoSize = true;
-            this.l_RingSub1.Location = new System.Drawing.Point(4, 78);
-            this.l_RingSub1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingSub1.Location = new System.Drawing.Point(3, 51);
             this.l_RingSub1.Name = "l_RingSub1";
-            this.l_RingSub1.Size = new System.Drawing.Size(0, 20);
+            this.l_RingSub1.Size = new System.Drawing.Size(0, 13);
             this.l_RingSub1.TabIndex = 41;
             // 
             // l_RingSub1Stat
             // 
             this.l_RingSub1Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_RingSub1Stat.AutoSize = true;
-            this.l_RingSub1Stat.Location = new System.Drawing.Point(268, 78);
-            this.l_RingSub1Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingSub1Stat.Location = new System.Drawing.Point(178, 51);
             this.l_RingSub1Stat.Name = "l_RingSub1Stat";
-            this.l_RingSub1Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_RingSub1Stat.Size = new System.Drawing.Size(0, 13);
             this.l_RingSub1Stat.TabIndex = 42;
             // 
             // l_RingMain
@@ -2922,10 +2577,9 @@
             this.l_RingMain.AutoSize = true;
             this.l_RingMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_RingMain.ForeColor = System.Drawing.Color.Black;
-            this.l_RingMain.Location = new System.Drawing.Point(4, 25);
-            this.l_RingMain.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingMain.Location = new System.Drawing.Point(3, 16);
             this.l_RingMain.Name = "l_RingMain";
-            this.l_RingMain.Size = new System.Drawing.Size(0, 24);
+            this.l_RingMain.Size = new System.Drawing.Size(0, 16);
             this.l_RingMain.TabIndex = 38;
             // 
             // l_RingMainStat
@@ -2933,11 +2587,10 @@
             this.l_RingMainStat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_RingMainStat.AutoSize = true;
             this.l_RingMainStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_RingMainStat.Location = new System.Drawing.Point(268, 25);
-            this.l_RingMainStat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingMainStat.Location = new System.Drawing.Point(178, 16);
             this.l_RingMainStat.Name = "l_RingMainStat";
             this.l_RingMainStat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.l_RingMainStat.Size = new System.Drawing.Size(0, 24);
+            this.l_RingMainStat.Size = new System.Drawing.Size(0, 16);
             this.l_RingMainStat.TabIndex = 39;
             // 
             // label70
@@ -2947,10 +2600,9 @@
             this.tlp_Ring.SetColumnSpan(this.label70, 2);
             this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label70.ForeColor = System.Drawing.Color.Silver;
-            this.label70.Location = new System.Drawing.Point(4, 63);
-            this.label70.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label70.Location = new System.Drawing.Point(3, 41);
             this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(264, 2);
+            this.label70.Size = new System.Drawing.Size(175, 1);
             this.label70.TabIndex = 40;
             this.label70.Text = "                                       ";
             // 
@@ -2958,20 +2610,18 @@
             // 
             this.l_RingGrade.AutoSize = true;
             this.l_RingGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_RingGrade.Location = new System.Drawing.Point(1374, 715);
-            this.l_RingGrade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingGrade.Location = new System.Drawing.Point(916, 465);
             this.l_RingGrade.Name = "l_RingGrade";
-            this.l_RingGrade.Size = new System.Drawing.Size(0, 20);
+            this.l_RingGrade.Size = new System.Drawing.Size(0, 13);
             this.l_RingGrade.TabIndex = 66;
             // 
             // l_NecklaceSet
             // 
             this.l_NecklaceSet.AutoSize = true;
             this.l_NecklaceSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_NecklaceSet.Location = new System.Drawing.Point(1058, 982);
-            this.l_NecklaceSet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceSet.Location = new System.Drawing.Point(705, 638);
             this.l_NecklaceSet.Name = "l_NecklaceSet";
-            this.l_NecklaceSet.Size = new System.Drawing.Size(0, 24);
+            this.l_NecklaceSet.Size = new System.Drawing.Size(0, 16);
             this.l_NecklaceSet.TabIndex = 63;
             // 
             // tlp_Necklace
@@ -2991,78 +2641,72 @@
             this.tlp_Necklace.Controls.Add(this.l_NecklaceMain, 0, 1);
             this.tlp_Necklace.Controls.Add(this.l_NecklaceMainStat, 1, 1);
             this.tlp_Necklace.Controls.Add(this.label55, 0, 2);
-            this.tlp_Necklace.Location = new System.Drawing.Point(1004, 766);
-            this.tlp_Necklace.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.tlp_Necklace.Location = new System.Drawing.Point(669, 498);
+            this.tlp_Necklace.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
             this.tlp_Necklace.Name = "tlp_Necklace";
             this.tlp_Necklace.RowCount = 7;
+            this.tlp_Necklace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tlp_Necklace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tlp_Necklace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.tlp_Necklace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlp_Necklace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tlp_Necklace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
-            this.tlp_Necklace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Necklace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Necklace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Necklace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Necklace.Size = new System.Drawing.Size(272, 197);
+            this.tlp_Necklace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Necklace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Necklace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Necklace.Size = new System.Drawing.Size(181, 128);
             this.tlp_Necklace.TabIndex = 61;
             // 
             // l_NecklaceSub4Stat
             // 
             this.l_NecklaceSub4Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_NecklaceSub4Stat.AutoSize = true;
-            this.l_NecklaceSub4Stat.Location = new System.Drawing.Point(268, 171);
-            this.l_NecklaceSub4Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceSub4Stat.Location = new System.Drawing.Point(178, 111);
             this.l_NecklaceSub4Stat.Name = "l_NecklaceSub4Stat";
-            this.l_NecklaceSub4Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceSub4Stat.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceSub4Stat.TabIndex = 49;
             // 
             // l_NecklaceSub4
             // 
             this.l_NecklaceSub4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_NecklaceSub4.AutoSize = true;
-            this.l_NecklaceSub4.Location = new System.Drawing.Point(4, 171);
-            this.l_NecklaceSub4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceSub4.Location = new System.Drawing.Point(3, 111);
             this.l_NecklaceSub4.Name = "l_NecklaceSub4";
-            this.l_NecklaceSub4.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceSub4.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceSub4.TabIndex = 48;
             // 
             // l_NecklaceSub3Stat
             // 
             this.l_NecklaceSub3Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_NecklaceSub3Stat.AutoSize = true;
-            this.l_NecklaceSub3Stat.Location = new System.Drawing.Point(268, 140);
-            this.l_NecklaceSub3Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceSub3Stat.Location = new System.Drawing.Point(178, 91);
             this.l_NecklaceSub3Stat.Name = "l_NecklaceSub3Stat";
-            this.l_NecklaceSub3Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceSub3Stat.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceSub3Stat.TabIndex = 47;
             // 
             // l_NecklaceSub3
             // 
             this.l_NecklaceSub3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_NecklaceSub3.AutoSize = true;
-            this.l_NecklaceSub3.Location = new System.Drawing.Point(4, 140);
-            this.l_NecklaceSub3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceSub3.Location = new System.Drawing.Point(3, 91);
             this.l_NecklaceSub3.Name = "l_NecklaceSub3";
-            this.l_NecklaceSub3.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceSub3.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceSub3.TabIndex = 46;
             // 
             // l_NecklaceSub2Stat
             // 
             this.l_NecklaceSub2Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_NecklaceSub2Stat.AutoSize = true;
-            this.l_NecklaceSub2Stat.Location = new System.Drawing.Point(268, 109);
-            this.l_NecklaceSub2Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceSub2Stat.Location = new System.Drawing.Point(178, 71);
             this.l_NecklaceSub2Stat.Name = "l_NecklaceSub2Stat";
-            this.l_NecklaceSub2Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceSub2Stat.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceSub2Stat.TabIndex = 45;
             // 
             // l_NecklaceSub2
             // 
             this.l_NecklaceSub2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_NecklaceSub2.AutoSize = true;
-            this.l_NecklaceSub2.Location = new System.Drawing.Point(4, 109);
-            this.l_NecklaceSub2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceSub2.Location = new System.Drawing.Point(3, 71);
             this.l_NecklaceSub2.Name = "l_NecklaceSub2";
-            this.l_NecklaceSub2.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceSub2.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceSub2.TabIndex = 44;
             // 
             // label50
@@ -3072,10 +2716,9 @@
             this.tlp_Necklace.SetColumnSpan(this.label50, 2);
             this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label50.ForeColor = System.Drawing.Color.Silver;
-            this.label50.Location = new System.Drawing.Point(4, 9);
-            this.label50.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label50.Location = new System.Drawing.Point(3, 6);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(264, 2);
+            this.label50.Size = new System.Drawing.Size(175, 1);
             this.label50.TabIndex = 37;
             this.label50.Text = "                                       ";
             // 
@@ -3083,20 +2726,18 @@
             // 
             this.l_NecklaceSub1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_NecklaceSub1.AutoSize = true;
-            this.l_NecklaceSub1.Location = new System.Drawing.Point(4, 78);
-            this.l_NecklaceSub1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceSub1.Location = new System.Drawing.Point(3, 51);
             this.l_NecklaceSub1.Name = "l_NecklaceSub1";
-            this.l_NecklaceSub1.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceSub1.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceSub1.TabIndex = 41;
             // 
             // l_NecklaceSub1Stat
             // 
             this.l_NecklaceSub1Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_NecklaceSub1Stat.AutoSize = true;
-            this.l_NecklaceSub1Stat.Location = new System.Drawing.Point(268, 78);
-            this.l_NecklaceSub1Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceSub1Stat.Location = new System.Drawing.Point(178, 51);
             this.l_NecklaceSub1Stat.Name = "l_NecklaceSub1Stat";
-            this.l_NecklaceSub1Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceSub1Stat.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceSub1Stat.TabIndex = 42;
             // 
             // l_NecklaceMain
@@ -3105,10 +2746,10 @@
             this.l_NecklaceMain.AutoSize = true;
             this.l_NecklaceMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_NecklaceMain.ForeColor = System.Drawing.Color.Black;
-            this.l_NecklaceMain.Location = new System.Drawing.Point(0, 25);
+            this.l_NecklaceMain.Location = new System.Drawing.Point(0, 16);
             this.l_NecklaceMain.Margin = new System.Windows.Forms.Padding(0);
             this.l_NecklaceMain.Name = "l_NecklaceMain";
-            this.l_NecklaceMain.Size = new System.Drawing.Size(0, 24);
+            this.l_NecklaceMain.Size = new System.Drawing.Size(0, 16);
             this.l_NecklaceMain.TabIndex = 38;
             // 
             // l_NecklaceMainStat
@@ -3116,11 +2757,11 @@
             this.l_NecklaceMainStat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_NecklaceMainStat.AutoSize = true;
             this.l_NecklaceMainStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_NecklaceMainStat.Location = new System.Drawing.Point(272, 25);
+            this.l_NecklaceMainStat.Location = new System.Drawing.Point(181, 16);
             this.l_NecklaceMainStat.Margin = new System.Windows.Forms.Padding(0);
             this.l_NecklaceMainStat.Name = "l_NecklaceMainStat";
             this.l_NecklaceMainStat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.l_NecklaceMainStat.Size = new System.Drawing.Size(0, 24);
+            this.l_NecklaceMainStat.Size = new System.Drawing.Size(0, 16);
             this.l_NecklaceMainStat.TabIndex = 39;
             // 
             // label55
@@ -3130,10 +2771,9 @@
             this.tlp_Necklace.SetColumnSpan(this.label55, 2);
             this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label55.ForeColor = System.Drawing.Color.Silver;
-            this.label55.Location = new System.Drawing.Point(4, 63);
-            this.label55.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label55.Location = new System.Drawing.Point(3, 41);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(264, 2);
+            this.label55.Size = new System.Drawing.Size(175, 1);
             this.label55.TabIndex = 40;
             this.label55.Text = "                                       ";
             // 
@@ -3141,20 +2781,18 @@
             // 
             this.l_NecklaceGrade.AutoSize = true;
             this.l_NecklaceGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_NecklaceGrade.Location = new System.Drawing.Point(1082, 715);
-            this.l_NecklaceGrade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceGrade.Location = new System.Drawing.Point(721, 465);
             this.l_NecklaceGrade.Name = "l_NecklaceGrade";
-            this.l_NecklaceGrade.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceGrade.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceGrade.TabIndex = 60;
             // 
             // l_ArmorSet
             // 
             this.l_ArmorSet.AutoSize = true;
             this.l_ArmorSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_ArmorSet.Location = new System.Drawing.Point(765, 982);
-            this.l_ArmorSet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorSet.Location = new System.Drawing.Point(510, 638);
             this.l_ArmorSet.Name = "l_ArmorSet";
-            this.l_ArmorSet.Size = new System.Drawing.Size(0, 24);
+            this.l_ArmorSet.Size = new System.Drawing.Size(0, 16);
             this.l_ArmorSet.TabIndex = 57;
             // 
             // tlp_Armor
@@ -3174,78 +2812,72 @@
             this.tlp_Armor.Controls.Add(this.l_ArmorMain, 0, 1);
             this.tlp_Armor.Controls.Add(this.l_ArmorMainStat, 1, 1);
             this.tlp_Armor.Controls.Add(this.label40, 0, 2);
-            this.tlp_Armor.Location = new System.Drawing.Point(711, 766);
-            this.tlp_Armor.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.tlp_Armor.Location = new System.Drawing.Point(474, 498);
+            this.tlp_Armor.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
             this.tlp_Armor.Name = "tlp_Armor";
             this.tlp_Armor.RowCount = 7;
+            this.tlp_Armor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tlp_Armor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tlp_Armor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.tlp_Armor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlp_Armor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tlp_Armor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
-            this.tlp_Armor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Armor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Armor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Armor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Armor.Size = new System.Drawing.Size(272, 197);
+            this.tlp_Armor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Armor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Armor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Armor.Size = new System.Drawing.Size(181, 128);
             this.tlp_Armor.TabIndex = 55;
             // 
             // l_ArmorSub4Stat
             // 
             this.l_ArmorSub4Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_ArmorSub4Stat.AutoSize = true;
-            this.l_ArmorSub4Stat.Location = new System.Drawing.Point(268, 171);
-            this.l_ArmorSub4Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorSub4Stat.Location = new System.Drawing.Point(178, 111);
             this.l_ArmorSub4Stat.Name = "l_ArmorSub4Stat";
-            this.l_ArmorSub4Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorSub4Stat.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorSub4Stat.TabIndex = 49;
             // 
             // l_ArmorSub4
             // 
             this.l_ArmorSub4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_ArmorSub4.AutoSize = true;
-            this.l_ArmorSub4.Location = new System.Drawing.Point(4, 171);
-            this.l_ArmorSub4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorSub4.Location = new System.Drawing.Point(3, 111);
             this.l_ArmorSub4.Name = "l_ArmorSub4";
-            this.l_ArmorSub4.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorSub4.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorSub4.TabIndex = 48;
             // 
             // l_ArmorSub3Stat
             // 
             this.l_ArmorSub3Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_ArmorSub3Stat.AutoSize = true;
-            this.l_ArmorSub3Stat.Location = new System.Drawing.Point(268, 140);
-            this.l_ArmorSub3Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorSub3Stat.Location = new System.Drawing.Point(178, 91);
             this.l_ArmorSub3Stat.Name = "l_ArmorSub3Stat";
-            this.l_ArmorSub3Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorSub3Stat.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorSub3Stat.TabIndex = 47;
             // 
             // l_ArmorSub3
             // 
             this.l_ArmorSub3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_ArmorSub3.AutoSize = true;
-            this.l_ArmorSub3.Location = new System.Drawing.Point(4, 140);
-            this.l_ArmorSub3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorSub3.Location = new System.Drawing.Point(3, 91);
             this.l_ArmorSub3.Name = "l_ArmorSub3";
-            this.l_ArmorSub3.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorSub3.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorSub3.TabIndex = 46;
             // 
             // l_ArmorSub2Stat
             // 
             this.l_ArmorSub2Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_ArmorSub2Stat.AutoSize = true;
-            this.l_ArmorSub2Stat.Location = new System.Drawing.Point(268, 109);
-            this.l_ArmorSub2Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorSub2Stat.Location = new System.Drawing.Point(178, 71);
             this.l_ArmorSub2Stat.Name = "l_ArmorSub2Stat";
-            this.l_ArmorSub2Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorSub2Stat.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorSub2Stat.TabIndex = 45;
             // 
             // l_ArmorSub2
             // 
             this.l_ArmorSub2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_ArmorSub2.AutoSize = true;
-            this.l_ArmorSub2.Location = new System.Drawing.Point(4, 109);
-            this.l_ArmorSub2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorSub2.Location = new System.Drawing.Point(3, 71);
             this.l_ArmorSub2.Name = "l_ArmorSub2";
-            this.l_ArmorSub2.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorSub2.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorSub2.TabIndex = 44;
             // 
             // label35
@@ -3255,10 +2887,9 @@
             this.tlp_Armor.SetColumnSpan(this.label35, 2);
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.ForeColor = System.Drawing.Color.Silver;
-            this.label35.Location = new System.Drawing.Point(4, 9);
-            this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label35.Location = new System.Drawing.Point(3, 6);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(264, 2);
+            this.label35.Size = new System.Drawing.Size(175, 1);
             this.label35.TabIndex = 37;
             this.label35.Text = "                                       ";
             // 
@@ -3266,20 +2897,18 @@
             // 
             this.l_ArmorSub1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_ArmorSub1.AutoSize = true;
-            this.l_ArmorSub1.Location = new System.Drawing.Point(4, 78);
-            this.l_ArmorSub1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorSub1.Location = new System.Drawing.Point(3, 51);
             this.l_ArmorSub1.Name = "l_ArmorSub1";
-            this.l_ArmorSub1.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorSub1.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorSub1.TabIndex = 41;
             // 
             // l_ArmorSub1Stat
             // 
             this.l_ArmorSub1Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_ArmorSub1Stat.AutoSize = true;
-            this.l_ArmorSub1Stat.Location = new System.Drawing.Point(268, 78);
-            this.l_ArmorSub1Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorSub1Stat.Location = new System.Drawing.Point(178, 51);
             this.l_ArmorSub1Stat.Name = "l_ArmorSub1Stat";
-            this.l_ArmorSub1Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorSub1Stat.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorSub1Stat.TabIndex = 42;
             // 
             // l_ArmorMain
@@ -3288,10 +2917,9 @@
             this.l_ArmorMain.AutoSize = true;
             this.l_ArmorMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_ArmorMain.ForeColor = System.Drawing.Color.Black;
-            this.l_ArmorMain.Location = new System.Drawing.Point(4, 25);
-            this.l_ArmorMain.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorMain.Location = new System.Drawing.Point(3, 16);
             this.l_ArmorMain.Name = "l_ArmorMain";
-            this.l_ArmorMain.Size = new System.Drawing.Size(0, 24);
+            this.l_ArmorMain.Size = new System.Drawing.Size(0, 16);
             this.l_ArmorMain.TabIndex = 38;
             // 
             // l_ArmorMainStat
@@ -3299,11 +2927,10 @@
             this.l_ArmorMainStat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_ArmorMainStat.AutoSize = true;
             this.l_ArmorMainStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_ArmorMainStat.Location = new System.Drawing.Point(268, 25);
-            this.l_ArmorMainStat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorMainStat.Location = new System.Drawing.Point(178, 16);
             this.l_ArmorMainStat.Name = "l_ArmorMainStat";
             this.l_ArmorMainStat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.l_ArmorMainStat.Size = new System.Drawing.Size(0, 24);
+            this.l_ArmorMainStat.Size = new System.Drawing.Size(0, 16);
             this.l_ArmorMainStat.TabIndex = 39;
             // 
             // label40
@@ -3313,10 +2940,9 @@
             this.tlp_Armor.SetColumnSpan(this.label40, 2);
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label40.ForeColor = System.Drawing.Color.Silver;
-            this.label40.Location = new System.Drawing.Point(4, 63);
-            this.label40.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label40.Location = new System.Drawing.Point(3, 41);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(264, 2);
+            this.label40.Size = new System.Drawing.Size(175, 1);
             this.label40.TabIndex = 40;
             this.label40.Text = "                                       ";
             // 
@@ -3324,20 +2950,18 @@
             // 
             this.l_ArmorGrade.AutoSize = true;
             this.l_ArmorGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_ArmorGrade.Location = new System.Drawing.Point(789, 715);
-            this.l_ArmorGrade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorGrade.Location = new System.Drawing.Point(526, 465);
             this.l_ArmorGrade.Name = "l_ArmorGrade";
-            this.l_ArmorGrade.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorGrade.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorGrade.TabIndex = 54;
             // 
             // l_HelmetSet
             // 
             this.l_HelmetSet.AutoSize = true;
             this.l_HelmetSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_HelmetSet.Location = new System.Drawing.Point(472, 982);
-            this.l_HelmetSet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetSet.Location = new System.Drawing.Point(315, 638);
             this.l_HelmetSet.Name = "l_HelmetSet";
-            this.l_HelmetSet.Size = new System.Drawing.Size(0, 24);
+            this.l_HelmetSet.Size = new System.Drawing.Size(0, 16);
             this.l_HelmetSet.TabIndex = 51;
             // 
             // tlp_Helmet
@@ -3357,78 +2981,72 @@
             this.tlp_Helmet.Controls.Add(this.l_HelmetMain, 0, 1);
             this.tlp_Helmet.Controls.Add(this.l_HelmetMainStat, 1, 1);
             this.tlp_Helmet.Controls.Add(this.label25, 0, 2);
-            this.tlp_Helmet.Location = new System.Drawing.Point(418, 766);
-            this.tlp_Helmet.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.tlp_Helmet.Location = new System.Drawing.Point(279, 498);
+            this.tlp_Helmet.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
             this.tlp_Helmet.Name = "tlp_Helmet";
             this.tlp_Helmet.RowCount = 7;
+            this.tlp_Helmet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tlp_Helmet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tlp_Helmet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.tlp_Helmet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlp_Helmet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tlp_Helmet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
-            this.tlp_Helmet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Helmet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Helmet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Helmet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Helmet.Size = new System.Drawing.Size(272, 197);
+            this.tlp_Helmet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Helmet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Helmet.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Helmet.Size = new System.Drawing.Size(181, 128);
             this.tlp_Helmet.TabIndex = 49;
             // 
             // l_HelmetSub4Stat
             // 
             this.l_HelmetSub4Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_HelmetSub4Stat.AutoSize = true;
-            this.l_HelmetSub4Stat.Location = new System.Drawing.Point(268, 171);
-            this.l_HelmetSub4Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetSub4Stat.Location = new System.Drawing.Point(178, 111);
             this.l_HelmetSub4Stat.Name = "l_HelmetSub4Stat";
-            this.l_HelmetSub4Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetSub4Stat.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetSub4Stat.TabIndex = 49;
             // 
             // l_HelmetSub4
             // 
             this.l_HelmetSub4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_HelmetSub4.AutoSize = true;
-            this.l_HelmetSub4.Location = new System.Drawing.Point(4, 171);
-            this.l_HelmetSub4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetSub4.Location = new System.Drawing.Point(3, 111);
             this.l_HelmetSub4.Name = "l_HelmetSub4";
-            this.l_HelmetSub4.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetSub4.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetSub4.TabIndex = 48;
             // 
             // l_HelmetSub3Stat
             // 
             this.l_HelmetSub3Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_HelmetSub3Stat.AutoSize = true;
-            this.l_HelmetSub3Stat.Location = new System.Drawing.Point(268, 140);
-            this.l_HelmetSub3Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetSub3Stat.Location = new System.Drawing.Point(178, 91);
             this.l_HelmetSub3Stat.Name = "l_HelmetSub3Stat";
-            this.l_HelmetSub3Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetSub3Stat.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetSub3Stat.TabIndex = 47;
             // 
             // l_HelmetSub3
             // 
             this.l_HelmetSub3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_HelmetSub3.AutoSize = true;
-            this.l_HelmetSub3.Location = new System.Drawing.Point(4, 140);
-            this.l_HelmetSub3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetSub3.Location = new System.Drawing.Point(3, 91);
             this.l_HelmetSub3.Name = "l_HelmetSub3";
-            this.l_HelmetSub3.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetSub3.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetSub3.TabIndex = 46;
             // 
             // l_HelmetSub2Stat
             // 
             this.l_HelmetSub2Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_HelmetSub2Stat.AutoSize = true;
-            this.l_HelmetSub2Stat.Location = new System.Drawing.Point(268, 109);
-            this.l_HelmetSub2Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetSub2Stat.Location = new System.Drawing.Point(178, 71);
             this.l_HelmetSub2Stat.Name = "l_HelmetSub2Stat";
-            this.l_HelmetSub2Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetSub2Stat.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetSub2Stat.TabIndex = 45;
             // 
             // l_helmetSub2
             // 
             this.l_helmetSub2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_helmetSub2.AutoSize = true;
-            this.l_helmetSub2.Location = new System.Drawing.Point(4, 109);
-            this.l_helmetSub2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_helmetSub2.Location = new System.Drawing.Point(3, 71);
             this.l_helmetSub2.Name = "l_helmetSub2";
-            this.l_helmetSub2.Size = new System.Drawing.Size(0, 20);
+            this.l_helmetSub2.Size = new System.Drawing.Size(0, 13);
             this.l_helmetSub2.TabIndex = 44;
             // 
             // label20
@@ -3438,10 +3056,9 @@
             this.tlp_Helmet.SetColumnSpan(this.label20, 2);
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Silver;
-            this.label20.Location = new System.Drawing.Point(4, 9);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Location = new System.Drawing.Point(3, 6);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(264, 2);
+            this.label20.Size = new System.Drawing.Size(175, 1);
             this.label20.TabIndex = 37;
             this.label20.Text = "                                       ";
             // 
@@ -3449,20 +3066,18 @@
             // 
             this.l_HelmetSub1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_HelmetSub1.AutoSize = true;
-            this.l_HelmetSub1.Location = new System.Drawing.Point(4, 78);
-            this.l_HelmetSub1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetSub1.Location = new System.Drawing.Point(3, 51);
             this.l_HelmetSub1.Name = "l_HelmetSub1";
-            this.l_HelmetSub1.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetSub1.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetSub1.TabIndex = 41;
             // 
             // l_HelmetSub1Stat
             // 
             this.l_HelmetSub1Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_HelmetSub1Stat.AutoSize = true;
-            this.l_HelmetSub1Stat.Location = new System.Drawing.Point(268, 78);
-            this.l_HelmetSub1Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetSub1Stat.Location = new System.Drawing.Point(178, 51);
             this.l_HelmetSub1Stat.Name = "l_HelmetSub1Stat";
-            this.l_HelmetSub1Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetSub1Stat.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetSub1Stat.TabIndex = 42;
             // 
             // l_HelmetMain
@@ -3471,10 +3086,9 @@
             this.l_HelmetMain.AutoSize = true;
             this.l_HelmetMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_HelmetMain.ForeColor = System.Drawing.Color.Black;
-            this.l_HelmetMain.Location = new System.Drawing.Point(4, 25);
-            this.l_HelmetMain.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetMain.Location = new System.Drawing.Point(3, 16);
             this.l_HelmetMain.Name = "l_HelmetMain";
-            this.l_HelmetMain.Size = new System.Drawing.Size(0, 24);
+            this.l_HelmetMain.Size = new System.Drawing.Size(0, 16);
             this.l_HelmetMain.TabIndex = 38;
             // 
             // l_HelmetMainStat
@@ -3482,11 +3096,10 @@
             this.l_HelmetMainStat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_HelmetMainStat.AutoSize = true;
             this.l_HelmetMainStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_HelmetMainStat.Location = new System.Drawing.Point(268, 25);
-            this.l_HelmetMainStat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetMainStat.Location = new System.Drawing.Point(178, 16);
             this.l_HelmetMainStat.Name = "l_HelmetMainStat";
             this.l_HelmetMainStat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.l_HelmetMainStat.Size = new System.Drawing.Size(0, 24);
+            this.l_HelmetMainStat.Size = new System.Drawing.Size(0, 16);
             this.l_HelmetMainStat.TabIndex = 39;
             // 
             // label25
@@ -3496,10 +3109,9 @@
             this.tlp_Helmet.SetColumnSpan(this.label25, 2);
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.Silver;
-            this.label25.Location = new System.Drawing.Point(4, 63);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label25.Location = new System.Drawing.Point(3, 41);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(264, 2);
+            this.label25.Size = new System.Drawing.Size(175, 1);
             this.label25.TabIndex = 40;
             this.label25.Text = "                                       ";
             // 
@@ -3507,20 +3119,18 @@
             // 
             this.l_HelmetGrade.AutoSize = true;
             this.l_HelmetGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_HelmetGrade.Location = new System.Drawing.Point(496, 715);
-            this.l_HelmetGrade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetGrade.Location = new System.Drawing.Point(331, 465);
             this.l_HelmetGrade.Name = "l_HelmetGrade";
-            this.l_HelmetGrade.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetGrade.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetGrade.TabIndex = 48;
             // 
             // l_WeaponSet
             // 
             this.l_WeaponSet.AutoSize = true;
             this.l_WeaponSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_WeaponSet.Location = new System.Drawing.Point(174, 982);
-            this.l_WeaponSet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponSet.Location = new System.Drawing.Point(116, 638);
             this.l_WeaponSet.Name = "l_WeaponSet";
-            this.l_WeaponSet.Size = new System.Drawing.Size(0, 24);
+            this.l_WeaponSet.Size = new System.Drawing.Size(0, 16);
             this.l_WeaponSet.TabIndex = 45;
             // 
             // tlp_Weapon
@@ -3540,78 +3150,72 @@
             this.tlp_Weapon.Controls.Add(this.l_WeaponMain, 0, 1);
             this.tlp_Weapon.Controls.Add(this.l_WeaponMainStat, 1, 1);
             this.tlp_Weapon.Controls.Add(this.label13, 0, 2);
-            this.tlp_Weapon.Location = new System.Drawing.Point(120, 766);
-            this.tlp_Weapon.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.tlp_Weapon.Location = new System.Drawing.Point(80, 498);
+            this.tlp_Weapon.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
             this.tlp_Weapon.Name = "tlp_Weapon";
             this.tlp_Weapon.RowCount = 7;
+            this.tlp_Weapon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tlp_Weapon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tlp_Weapon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.tlp_Weapon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlp_Weapon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tlp_Weapon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
-            this.tlp_Weapon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Weapon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Weapon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Weapon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_Weapon.Size = new System.Drawing.Size(272, 197);
+            this.tlp_Weapon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Weapon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Weapon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Weapon.Size = new System.Drawing.Size(181, 128);
             this.tlp_Weapon.TabIndex = 43;
             // 
             // l_WeaponSub4Stat
             // 
             this.l_WeaponSub4Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_WeaponSub4Stat.AutoSize = true;
-            this.l_WeaponSub4Stat.Location = new System.Drawing.Point(268, 171);
-            this.l_WeaponSub4Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponSub4Stat.Location = new System.Drawing.Point(178, 111);
             this.l_WeaponSub4Stat.Name = "l_WeaponSub4Stat";
-            this.l_WeaponSub4Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponSub4Stat.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponSub4Stat.TabIndex = 49;
             // 
             // l_WeaponSub4
             // 
             this.l_WeaponSub4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_WeaponSub4.AutoSize = true;
-            this.l_WeaponSub4.Location = new System.Drawing.Point(4, 171);
-            this.l_WeaponSub4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponSub4.Location = new System.Drawing.Point(3, 111);
             this.l_WeaponSub4.Name = "l_WeaponSub4";
-            this.l_WeaponSub4.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponSub4.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponSub4.TabIndex = 48;
             // 
             // l_WeaponSub3Stat
             // 
             this.l_WeaponSub3Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_WeaponSub3Stat.AutoSize = true;
-            this.l_WeaponSub3Stat.Location = new System.Drawing.Point(268, 140);
-            this.l_WeaponSub3Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponSub3Stat.Location = new System.Drawing.Point(178, 91);
             this.l_WeaponSub3Stat.Name = "l_WeaponSub3Stat";
-            this.l_WeaponSub3Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponSub3Stat.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponSub3Stat.TabIndex = 47;
             // 
             // l_WeaponSub3
             // 
             this.l_WeaponSub3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_WeaponSub3.AutoSize = true;
-            this.l_WeaponSub3.Location = new System.Drawing.Point(4, 140);
-            this.l_WeaponSub3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponSub3.Location = new System.Drawing.Point(3, 91);
             this.l_WeaponSub3.Name = "l_WeaponSub3";
-            this.l_WeaponSub3.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponSub3.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponSub3.TabIndex = 46;
             // 
             // l_WeaponSub2Stat
             // 
             this.l_WeaponSub2Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_WeaponSub2Stat.AutoSize = true;
-            this.l_WeaponSub2Stat.Location = new System.Drawing.Point(268, 109);
-            this.l_WeaponSub2Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponSub2Stat.Location = new System.Drawing.Point(178, 71);
             this.l_WeaponSub2Stat.Name = "l_WeaponSub2Stat";
-            this.l_WeaponSub2Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponSub2Stat.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponSub2Stat.TabIndex = 45;
             // 
             // l_WeaponSub2
             // 
             this.l_WeaponSub2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_WeaponSub2.AutoSize = true;
-            this.l_WeaponSub2.Location = new System.Drawing.Point(4, 109);
-            this.l_WeaponSub2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponSub2.Location = new System.Drawing.Point(3, 71);
             this.l_WeaponSub2.Name = "l_WeaponSub2";
-            this.l_WeaponSub2.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponSub2.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponSub2.TabIndex = 44;
             // 
             // label11
@@ -3621,10 +3225,9 @@
             this.tlp_Weapon.SetColumnSpan(this.label11, 2);
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Silver;
-            this.label11.Location = new System.Drawing.Point(4, 9);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(3, 6);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(264, 2);
+            this.label11.Size = new System.Drawing.Size(175, 1);
             this.label11.TabIndex = 37;
             this.label11.Text = "                                       ";
             // 
@@ -3632,20 +3235,18 @@
             // 
             this.l_WeaponSub1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_WeaponSub1.AutoSize = true;
-            this.l_WeaponSub1.Location = new System.Drawing.Point(4, 78);
-            this.l_WeaponSub1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponSub1.Location = new System.Drawing.Point(3, 51);
             this.l_WeaponSub1.Name = "l_WeaponSub1";
-            this.l_WeaponSub1.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponSub1.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponSub1.TabIndex = 41;
             // 
             // l_WeaponSub1Stat
             // 
             this.l_WeaponSub1Stat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_WeaponSub1Stat.AutoSize = true;
-            this.l_WeaponSub1Stat.Location = new System.Drawing.Point(268, 78);
-            this.l_WeaponSub1Stat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponSub1Stat.Location = new System.Drawing.Point(178, 51);
             this.l_WeaponSub1Stat.Name = "l_WeaponSub1Stat";
-            this.l_WeaponSub1Stat.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponSub1Stat.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponSub1Stat.TabIndex = 42;
             // 
             // l_WeaponMain
@@ -3654,10 +3255,9 @@
             this.l_WeaponMain.AutoSize = true;
             this.l_WeaponMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_WeaponMain.ForeColor = System.Drawing.Color.Black;
-            this.l_WeaponMain.Location = new System.Drawing.Point(4, 25);
-            this.l_WeaponMain.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponMain.Location = new System.Drawing.Point(3, 16);
             this.l_WeaponMain.Name = "l_WeaponMain";
-            this.l_WeaponMain.Size = new System.Drawing.Size(0, 24);
+            this.l_WeaponMain.Size = new System.Drawing.Size(0, 16);
             this.l_WeaponMain.TabIndex = 38;
             // 
             // l_WeaponMainStat
@@ -3665,11 +3265,10 @@
             this.l_WeaponMainStat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_WeaponMainStat.AutoSize = true;
             this.l_WeaponMainStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_WeaponMainStat.Location = new System.Drawing.Point(268, 25);
-            this.l_WeaponMainStat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponMainStat.Location = new System.Drawing.Point(178, 16);
             this.l_WeaponMainStat.Name = "l_WeaponMainStat";
             this.l_WeaponMainStat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.l_WeaponMainStat.Size = new System.Drawing.Size(0, 24);
+            this.l_WeaponMainStat.Size = new System.Drawing.Size(0, 16);
             this.l_WeaponMainStat.TabIndex = 39;
             // 
             // label13
@@ -3679,10 +3278,9 @@
             this.tlp_Weapon.SetColumnSpan(this.label13, 2);
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Silver;
-            this.label13.Location = new System.Drawing.Point(4, 63);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(3, 41);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(264, 2);
+            this.label13.Size = new System.Drawing.Size(175, 1);
             this.label13.TabIndex = 40;
             this.label13.Text = "                                       ";
             // 
@@ -3690,10 +3288,9 @@
             // 
             this.l_WeaponGrade.AutoSize = true;
             this.l_WeaponGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_WeaponGrade.Location = new System.Drawing.Point(198, 715);
-            this.l_WeaponGrade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponGrade.Location = new System.Drawing.Point(132, 465);
             this.l_WeaponGrade.Name = "l_WeaponGrade";
-            this.l_WeaponGrade.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponGrade.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponGrade.TabIndex = 36;
             // 
             // cb_Hero
@@ -3701,10 +3298,9 @@
             this.cb_Hero.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cb_Hero.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_Hero.FormattingEnabled = true;
-            this.cb_Hero.Location = new System.Drawing.Point(132, 606);
-            this.cb_Hero.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_Hero.Location = new System.Drawing.Point(88, 394);
             this.cb_Hero.Name = "cb_Hero";
-            this.cb_Hero.Size = new System.Drawing.Size(192, 28);
+            this.cb_Hero.Size = new System.Drawing.Size(129, 21);
             this.cb_Hero.Sorted = true;
             this.cb_Hero.TabIndex = 33;
             // 
@@ -3712,10 +3308,9 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(128, 582);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(85, 378);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(50, 20);
+            this.label9.Size = new System.Drawing.Size(34, 13);
             this.label9.TabIndex = 6;
             this.label9.Text = "Hero";
             // 
@@ -3732,12 +3327,11 @@
             this.tc_Heroes_Class.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tc_Heroes_Class.ImageList = this.Classes;
             this.tc_Heroes_Class.ItemSize = new System.Drawing.Size(28, 28);
-            this.tc_Heroes_Class.Location = new System.Drawing.Point(488, 9);
-            this.tc_Heroes_Class.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tc_Heroes_Class.Location = new System.Drawing.Point(325, 6);
             this.tc_Heroes_Class.Name = "tc_Heroes_Class";
             this.tc_Heroes_Class.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tc_Heroes_Class.SelectedIndex = 0;
-            this.tc_Heroes_Class.Size = new System.Drawing.Size(494, 43);
+            this.tc_Heroes_Class.Size = new System.Drawing.Size(329, 28);
             this.tc_Heroes_Class.TabIndex = 2;
             this.tc_Heroes_Class.SelectedIndexChanged += new System.EventHandler(this.Tc_Heroes_Class_SelectedIndexChanged);
             // 
@@ -3746,11 +3340,10 @@
             this.tabPage18.BackColor = System.Drawing.SystemColors.Window;
             this.tabPage18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage18.Location = new System.Drawing.Point(4, 32);
-            this.tabPage18.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage18.Name = "tabPage18";
-            this.tabPage18.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage18.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage18.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabPage18.Size = new System.Drawing.Size(486, 7);
+            this.tabPage18.Size = new System.Drawing.Size(321, 0);
             this.tabPage18.TabIndex = 0;
             this.tabPage18.Text = "All";
             // 
@@ -3758,10 +3351,9 @@
             // 
             this.tabPage19.ImageIndex = 0;
             this.tabPage19.Location = new System.Drawing.Point(4, 32);
-            this.tabPage19.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage19.Name = "tabPage19";
-            this.tabPage19.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage19.Size = new System.Drawing.Size(486, 7);
+            this.tabPage19.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage19.Size = new System.Drawing.Size(321, 0);
             this.tabPage19.TabIndex = 1;
             this.tabPage19.UseVisualStyleBackColor = true;
             // 
@@ -3769,9 +3361,8 @@
             // 
             this.tabPage20.ImageIndex = 1;
             this.tabPage20.Location = new System.Drawing.Point(4, 32);
-            this.tabPage20.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage20.Name = "tabPage20";
-            this.tabPage20.Size = new System.Drawing.Size(486, 7);
+            this.tabPage20.Size = new System.Drawing.Size(321, 0);
             this.tabPage20.TabIndex = 2;
             this.tabPage20.UseVisualStyleBackColor = true;
             // 
@@ -3779,9 +3370,8 @@
             // 
             this.tabPage21.ImageIndex = 2;
             this.tabPage21.Location = new System.Drawing.Point(4, 32);
-            this.tabPage21.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage21.Name = "tabPage21";
-            this.tabPage21.Size = new System.Drawing.Size(486, 7);
+            this.tabPage21.Size = new System.Drawing.Size(321, 0);
             this.tabPage21.TabIndex = 3;
             this.tabPage21.UseVisualStyleBackColor = true;
             // 
@@ -3789,9 +3379,8 @@
             // 
             this.tabPage22.ImageIndex = 3;
             this.tabPage22.Location = new System.Drawing.Point(4, 32);
-            this.tabPage22.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage22.Name = "tabPage22";
-            this.tabPage22.Size = new System.Drawing.Size(486, 7);
+            this.tabPage22.Size = new System.Drawing.Size(321, 0);
             this.tabPage22.TabIndex = 4;
             this.tabPage22.UseVisualStyleBackColor = true;
             // 
@@ -3799,9 +3388,8 @@
             // 
             this.tabPage23.ImageIndex = 4;
             this.tabPage23.Location = new System.Drawing.Point(4, 32);
-            this.tabPage23.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage23.Name = "tabPage23";
-            this.tabPage23.Size = new System.Drawing.Size(486, 7);
+            this.tabPage23.Size = new System.Drawing.Size(321, 0);
             this.tabPage23.TabIndex = 5;
             this.tabPage23.UseVisualStyleBackColor = true;
             // 
@@ -3809,9 +3397,8 @@
             // 
             this.tabPage24.ImageIndex = 5;
             this.tabPage24.Location = new System.Drawing.Point(4, 32);
-            this.tabPage24.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage24.Name = "tabPage24";
-            this.tabPage24.Size = new System.Drawing.Size(486, 7);
+            this.tabPage24.Size = new System.Drawing.Size(321, 0);
             this.tabPage24.TabIndex = 6;
             this.tabPage24.UseVisualStyleBackColor = true;
             // 
@@ -3833,12 +3420,11 @@
             this.tc_Heroes_Element.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tc_Heroes_Element.ImageList = this.Elements;
             this.tc_Heroes_Element.ItemSize = new System.Drawing.Size(28, 28);
-            this.tc_Heroes_Element.Location = new System.Drawing.Point(9, 9);
-            this.tc_Heroes_Element.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tc_Heroes_Element.Location = new System.Drawing.Point(6, 6);
             this.tc_Heroes_Element.Name = "tc_Heroes_Element";
             this.tc_Heroes_Element.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tc_Heroes_Element.SelectedIndex = 0;
-            this.tc_Heroes_Element.Size = new System.Drawing.Size(429, 43);
+            this.tc_Heroes_Element.Size = new System.Drawing.Size(286, 28);
             this.tc_Heroes_Element.TabIndex = 1;
             this.tc_Heroes_Element.SelectedIndexChanged += new System.EventHandler(this.Tc_Heroes_Element_SelectedIndexChanged);
             // 
@@ -3847,11 +3433,10 @@
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(4, 32);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabPage2.Size = new System.Drawing.Size(421, 7);
+            this.tabPage2.Size = new System.Drawing.Size(278, 0);
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "All";
             // 
@@ -3860,19 +3445,17 @@
             this.tabPage12.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage12.ImageIndex = 0;
             this.tabPage12.Location = new System.Drawing.Point(4, 32);
-            this.tabPage12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage12.Size = new System.Drawing.Size(421, 7);
+            this.tabPage12.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage12.Size = new System.Drawing.Size(278, 0);
             this.tabPage12.TabIndex = 1;
             // 
             // tabPage13
             // 
             this.tabPage13.ImageIndex = 1;
             this.tabPage13.Location = new System.Drawing.Point(4, 32);
-            this.tabPage13.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Size = new System.Drawing.Size(421, 7);
+            this.tabPage13.Size = new System.Drawing.Size(278, 0);
             this.tabPage13.TabIndex = 2;
             this.tabPage13.UseVisualStyleBackColor = true;
             // 
@@ -3880,9 +3463,8 @@
             // 
             this.tabPage14.ImageIndex = 2;
             this.tabPage14.Location = new System.Drawing.Point(4, 32);
-            this.tabPage14.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Size = new System.Drawing.Size(421, 7);
+            this.tabPage14.Size = new System.Drawing.Size(278, 0);
             this.tabPage14.TabIndex = 3;
             this.tabPage14.UseVisualStyleBackColor = true;
             // 
@@ -3890,9 +3472,8 @@
             // 
             this.tabPage15.ImageIndex = 3;
             this.tabPage15.Location = new System.Drawing.Point(4, 32);
-            this.tabPage15.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage15.Name = "tabPage15";
-            this.tabPage15.Size = new System.Drawing.Size(421, 7);
+            this.tabPage15.Size = new System.Drawing.Size(278, 0);
             this.tabPage15.TabIndex = 4;
             this.tabPage15.UseVisualStyleBackColor = true;
             // 
@@ -3900,9 +3481,8 @@
             // 
             this.tabPage16.ImageIndex = 4;
             this.tabPage16.Location = new System.Drawing.Point(4, 32);
-            this.tabPage16.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage16.Name = "tabPage16";
-            this.tabPage16.Size = new System.Drawing.Size(421, 7);
+            this.tabPage16.Size = new System.Drawing.Size(278, 0);
             this.tabPage16.TabIndex = 5;
             this.tabPage16.UseVisualStyleBackColor = true;
             // 
@@ -3959,210 +3539,23 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_Heroes.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgv_Heroes.Location = new System.Drawing.Point(10, 68);
-            this.dgv_Heroes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgv_Heroes.Location = new System.Drawing.Point(7, 44);
             this.dgv_Heroes.MultiSelect = false;
             this.dgv_Heroes.Name = "dgv_Heroes";
             this.dgv_Heroes.ReadOnly = true;
             this.dgv_Heroes.RowHeadersWidth = 62;
             this.dgv_Heroes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Heroes.Size = new System.Drawing.Size(1978, 505);
+            this.dgv_Heroes.Size = new System.Drawing.Size(1319, 328);
             this.dgv_Heroes.TabIndex = 0;
             this.dgv_Heroes.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Heroes_RowEnter);
-            // 
-            // c_Portrait
-            // 
-            this.c_Portrait.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Portrait.HeaderText = "Portrait";
-            this.c_Portrait.MinimumWidth = 8;
-            this.c_Portrait.Name = "c_Portrait";
-            this.c_Portrait.ReadOnly = true;
-            this.c_Portrait.Width = 70;
-            // 
-            // c_Name
-            // 
-            this.c_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Name.HeaderText = "Name";
-            this.c_Name.MinimumWidth = 8;
-            this.c_Name.Name = "c_Name";
-            this.c_Name.ReadOnly = true;
-            this.c_Name.Width = 89;
-            // 
-            // c_Element
-            // 
-            this.c_Element.HeaderText = "Element";
-            this.c_Element.MinimumWidth = 8;
-            this.c_Element.Name = "c_Element";
-            this.c_Element.ReadOnly = true;
-            this.c_Element.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.c_Element.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.c_Element.Width = 106;
-            // 
-            // c_Class
-            // 
-            this.c_Class.HeaderText = "Class";
-            this.c_Class.MinimumWidth = 8;
-            this.c_Class.Name = "c_Class";
-            this.c_Class.ReadOnly = true;
-            this.c_Class.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.c_Class.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.c_Class.Width = 88;
-            // 
-            // c_Lvl
-            // 
-            this.c_Lvl.HeaderText = "Lvl";
-            this.c_Lvl.MinimumWidth = 8;
-            this.c_Lvl.Name = "c_Lvl";
-            this.c_Lvl.ReadOnly = true;
-            this.c_Lvl.Width = 67;
-            // 
-            // c_Awakening
-            // 
-            this.c_Awakening.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Awakening.HeaderText = "Awakening";
-            this.c_Awakening.MinimumWidth = 8;
-            this.c_Awakening.Name = "c_Awakening";
-            this.c_Awakening.ReadOnly = true;
-            this.c_Awakening.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.c_Awakening.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.c_Awakening.Width = 125;
-            // 
-            // c_Sets
-            // 
-            this.c_Sets.HeaderText = "Sets";
-            this.c_Sets.MinimumWidth = 8;
-            this.c_Sets.Name = "c_Sets";
-            this.c_Sets.ReadOnly = true;
-            this.c_Sets.Width = 49;
-            // 
-            // c_ATKHero
-            // 
-            this.c_ATKHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_ATKHero.HeaderText = "ATK";
-            this.c_ATKHero.MinimumWidth = 8;
-            this.c_ATKHero.Name = "c_ATKHero";
-            this.c_ATKHero.ReadOnly = true;
-            // 
-            // c_SPDHero
-            // 
-            this.c_SPDHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_SPDHero.HeaderText = "SPD";
-            this.c_SPDHero.MinimumWidth = 8;
-            this.c_SPDHero.Name = "c_SPDHero";
-            this.c_SPDHero.ReadOnly = true;
-            // 
-            // c_CritHero
-            // 
-            this.c_CritHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_CritHero.HeaderText = "Crit";
-            this.c_CritHero.MinimumWidth = 8;
-            this.c_CritHero.Name = "c_CritHero";
-            this.c_CritHero.ReadOnly = true;
-            // 
-            // c_CritDmgHero
-            // 
-            this.c_CritDmgHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_CritDmgHero.HeaderText = "CritDmg";
-            this.c_CritDmgHero.MinimumWidth = 8;
-            this.c_CritDmgHero.Name = "c_CritDmgHero";
-            this.c_CritDmgHero.ReadOnly = true;
-            // 
-            // c_HPHero
-            // 
-            this.c_HPHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_HPHero.HeaderText = "HP";
-            this.c_HPHero.MinimumWidth = 8;
-            this.c_HPHero.Name = "c_HPHero";
-            this.c_HPHero.ReadOnly = true;
-            // 
-            // c_HPpSHero
-            // 
-            this.c_HPpSHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_HPpSHero.HeaderText = "HP/SPD";
-            this.c_HPpSHero.MinimumWidth = 8;
-            this.c_HPpSHero.Name = "c_HPpSHero";
-            this.c_HPpSHero.ReadOnly = true;
-            // 
-            // c_DEFHero
-            // 
-            this.c_DEFHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DEFHero.HeaderText = "DEF";
-            this.c_DEFHero.MinimumWidth = 8;
-            this.c_DEFHero.Name = "c_DEFHero";
-            this.c_DEFHero.ReadOnly = true;
-            // 
-            // c_EFFHero
-            // 
-            this.c_EFFHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_EFFHero.HeaderText = "EFF";
-            this.c_EFFHero.MinimumWidth = 8;
-            this.c_EFFHero.Name = "c_EFFHero";
-            this.c_EFFHero.ReadOnly = true;
-            // 
-            // c_RESHero
-            // 
-            this.c_RESHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_RESHero.HeaderText = "RES";
-            this.c_RESHero.MinimumWidth = 8;
-            this.c_RESHero.Name = "c_RESHero";
-            this.c_RESHero.ReadOnly = true;
-            // 
-            // c_DACHero
-            // 
-            this.c_DACHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DACHero.HeaderText = "DAC";
-            this.c_DACHero.MinimumWidth = 8;
-            this.c_DACHero.Name = "c_DACHero";
-            this.c_DACHero.ReadOnly = true;
-            // 
-            // c_EHP
-            // 
-            this.c_EHP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_EHP.HeaderText = "EHP";
-            this.c_EHP.MinimumWidth = 8;
-            this.c_EHP.Name = "c_EHP";
-            this.c_EHP.ReadOnly = true;
-            // 
-            // c_EHPpSHero
-            // 
-            this.c_EHPpSHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_EHPpSHero.HeaderText = "EHP/DPS";
-            this.c_EHPpSHero.MinimumWidth = 8;
-            this.c_EHPpSHero.Name = "c_EHPpSHero";
-            this.c_EHPpSHero.ReadOnly = true;
-            // 
-            // c_DMG
-            // 
-            this.c_DMG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DMG.HeaderText = "DMG";
-            this.c_DMG.MinimumWidth = 8;
-            this.c_DMG.Name = "c_DMG";
-            this.c_DMG.ReadOnly = true;
-            // 
-            // c_DMGpS
-            // 
-            this.c_DMGpS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DMGpS.HeaderText = "DMG/SPD";
-            this.c_DMGpS.MinimumWidth = 8;
-            this.c_DMGpS.Name = "c_DMGpS";
-            this.c_DMGpS.ReadOnly = true;
-            // 
-            // c_HeroID
-            // 
-            this.c_HeroID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_HeroID.HeaderText = "ID";
-            this.c_HeroID.MinimumWidth = 8;
-            this.c_HeroID.Name = "c_HeroID";
-            this.c_HeroID.ReadOnly = true;
             // 
             // b_EditBoots
             // 
             this.b_EditBoots.BackgroundImage = global::E7_Gear_Optimizer.Properties.Resources.Edit;
             this.b_EditBoots.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b_EditBoots.Location = new System.Drawing.Point(1798, 1018);
-            this.b_EditBoots.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_EditBoots.Location = new System.Drawing.Point(1199, 662);
             this.b_EditBoots.Name = "b_EditBoots";
-            this.b_EditBoots.Size = new System.Drawing.Size(62, 45);
+            this.b_EditBoots.Size = new System.Drawing.Size(41, 29);
             this.b_EditBoots.TabIndex = 96;
             this.b_EditBoots.UseVisualStyleBackColor = true;
             this.b_EditBoots.Click += new System.EventHandler(this.B_EditBoots_Click);
@@ -4171,10 +3564,9 @@
             // 
             this.b_EditRing.BackgroundImage = global::E7_Gear_Optimizer.Properties.Resources.Edit;
             this.b_EditRing.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b_EditRing.Location = new System.Drawing.Point(1506, 1018);
-            this.b_EditRing.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_EditRing.Location = new System.Drawing.Point(1004, 662);
             this.b_EditRing.Name = "b_EditRing";
-            this.b_EditRing.Size = new System.Drawing.Size(62, 45);
+            this.b_EditRing.Size = new System.Drawing.Size(41, 29);
             this.b_EditRing.TabIndex = 94;
             this.b_EditRing.UseVisualStyleBackColor = true;
             this.b_EditRing.Click += new System.EventHandler(this.B_EditRing_Click);
@@ -4183,10 +3575,9 @@
             // 
             this.b_EditNecklace.BackgroundImage = global::E7_Gear_Optimizer.Properties.Resources.Edit;
             this.b_EditNecklace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b_EditNecklace.Location = new System.Drawing.Point(1214, 1018);
-            this.b_EditNecklace.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_EditNecklace.Location = new System.Drawing.Point(809, 662);
             this.b_EditNecklace.Name = "b_EditNecklace";
-            this.b_EditNecklace.Size = new System.Drawing.Size(62, 45);
+            this.b_EditNecklace.Size = new System.Drawing.Size(41, 29);
             this.b_EditNecklace.TabIndex = 92;
             this.b_EditNecklace.UseVisualStyleBackColor = true;
             this.b_EditNecklace.Click += new System.EventHandler(this.B_EditNecklace_Click);
@@ -4195,10 +3586,9 @@
             // 
             this.b_EditArmor.BackgroundImage = global::E7_Gear_Optimizer.Properties.Resources.Edit;
             this.b_EditArmor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b_EditArmor.Location = new System.Drawing.Point(921, 1018);
-            this.b_EditArmor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_EditArmor.Location = new System.Drawing.Point(614, 662);
             this.b_EditArmor.Name = "b_EditArmor";
-            this.b_EditArmor.Size = new System.Drawing.Size(62, 45);
+            this.b_EditArmor.Size = new System.Drawing.Size(41, 29);
             this.b_EditArmor.TabIndex = 90;
             this.b_EditArmor.UseVisualStyleBackColor = true;
             this.b_EditArmor.Click += new System.EventHandler(this.B_EditArmor_Click);
@@ -4207,10 +3597,9 @@
             // 
             this.b_EditHelmet.BackgroundImage = global::E7_Gear_Optimizer.Properties.Resources.Edit;
             this.b_EditHelmet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b_EditHelmet.Location = new System.Drawing.Point(628, 1018);
-            this.b_EditHelmet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_EditHelmet.Location = new System.Drawing.Point(419, 662);
             this.b_EditHelmet.Name = "b_EditHelmet";
-            this.b_EditHelmet.Size = new System.Drawing.Size(62, 45);
+            this.b_EditHelmet.Size = new System.Drawing.Size(41, 29);
             this.b_EditHelmet.TabIndex = 88;
             this.b_EditHelmet.UseVisualStyleBackColor = true;
             this.b_EditHelmet.Click += new System.EventHandler(this.B_EditHelmet_Click);
@@ -4219,20 +3608,18 @@
             // 
             this.b_EditWeapon.BackgroundImage = global::E7_Gear_Optimizer.Properties.Resources.Edit;
             this.b_EditWeapon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b_EditWeapon.Location = new System.Drawing.Point(330, 1018);
-            this.b_EditWeapon.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_EditWeapon.Location = new System.Drawing.Point(220, 662);
             this.b_EditWeapon.Name = "b_EditWeapon";
-            this.b_EditWeapon.Size = new System.Drawing.Size(62, 45);
+            this.b_EditWeapon.Size = new System.Drawing.Size(41, 29);
             this.b_EditWeapon.TabIndex = 86;
             this.b_EditWeapon.UseVisualStyleBackColor = true;
             this.b_EditWeapon.Click += new System.EventHandler(this.B_WeaponEdit_Click);
             // 
             // pb_Hero
             // 
-            this.pb_Hero.Location = new System.Drawing.Point(10, 582);
-            this.pb_Hero.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_Hero.Location = new System.Drawing.Point(7, 378);
             this.pb_Hero.Name = "pb_Hero";
-            this.pb_Hero.Size = new System.Drawing.Size(114, 117);
+            this.pb_Hero.Size = new System.Drawing.Size(76, 76);
             this.pb_Hero.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_Hero.TabIndex = 76;
             this.pb_Hero.TabStop = false;
@@ -4241,10 +3628,9 @@
             // 
             this.pb_BootsSet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_BootsSet.InitialImage = null;
-            this.pb_BootsSet.Location = new System.Drawing.Point(1588, 972);
-            this.pb_BootsSet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_BootsSet.Location = new System.Drawing.Point(1059, 632);
             this.pb_BootsSet.Name = "pb_BootsSet";
-            this.pb_BootsSet.Size = new System.Drawing.Size(45, 46);
+            this.pb_BootsSet.Size = new System.Drawing.Size(30, 30);
             this.pb_BootsSet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_BootsSet.TabIndex = 74;
             this.pb_BootsSet.TabStop = false;
@@ -4252,10 +3638,9 @@
             // pictureBox11
             // 
             this.pictureBox11.Image = global::E7_Gear_Optimizer.Properties.Resources.boots;
-            this.pictureBox11.Location = new System.Drawing.Point(1598, 695);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox11.Location = new System.Drawing.Point(1065, 452);
             this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(60, 62);
+            this.pictureBox11.Size = new System.Drawing.Size(40, 40);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox11.TabIndex = 71;
             this.pictureBox11.TabStop = false;
@@ -4264,10 +3649,9 @@
             // 
             this.pb_RingSet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_RingSet.InitialImage = null;
-            this.pb_RingSet.Location = new System.Drawing.Point(1293, 972);
-            this.pb_RingSet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_RingSet.Location = new System.Drawing.Point(862, 632);
             this.pb_RingSet.Name = "pb_RingSet";
-            this.pb_RingSet.Size = new System.Drawing.Size(45, 46);
+            this.pb_RingSet.Size = new System.Drawing.Size(30, 30);
             this.pb_RingSet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_RingSet.TabIndex = 68;
             this.pb_RingSet.TabStop = false;
@@ -4275,10 +3659,9 @@
             // pictureBox9
             // 
             this.pictureBox9.Image = global::E7_Gear_Optimizer.Properties.Resources.ring;
-            this.pictureBox9.Location = new System.Drawing.Point(1305, 695);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox9.Location = new System.Drawing.Point(870, 452);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(60, 62);
+            this.pictureBox9.Size = new System.Drawing.Size(40, 40);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox9.TabIndex = 65;
             this.pictureBox9.TabStop = false;
@@ -4287,10 +3670,9 @@
             // 
             this.pb_NecklaceSet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_NecklaceSet.InitialImage = null;
-            this.pb_NecklaceSet.Location = new System.Drawing.Point(1004, 972);
-            this.pb_NecklaceSet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_NecklaceSet.Location = new System.Drawing.Point(669, 632);
             this.pb_NecklaceSet.Name = "pb_NecklaceSet";
-            this.pb_NecklaceSet.Size = new System.Drawing.Size(45, 46);
+            this.pb_NecklaceSet.Size = new System.Drawing.Size(30, 30);
             this.pb_NecklaceSet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_NecklaceSet.TabIndex = 62;
             this.pb_NecklaceSet.TabStop = false;
@@ -4298,10 +3680,9 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = global::E7_Gear_Optimizer.Properties.Resources.necklace;
-            this.pictureBox7.Location = new System.Drawing.Point(1012, 695);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox7.Location = new System.Drawing.Point(675, 452);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(60, 62);
+            this.pictureBox7.Size = new System.Drawing.Size(40, 40);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 59;
             this.pictureBox7.TabStop = false;
@@ -4310,10 +3691,9 @@
             // 
             this.pb_ArmorSet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_ArmorSet.InitialImage = null;
-            this.pb_ArmorSet.Location = new System.Drawing.Point(711, 972);
-            this.pb_ArmorSet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_ArmorSet.Location = new System.Drawing.Point(474, 632);
             this.pb_ArmorSet.Name = "pb_ArmorSet";
-            this.pb_ArmorSet.Size = new System.Drawing.Size(45, 46);
+            this.pb_ArmorSet.Size = new System.Drawing.Size(30, 30);
             this.pb_ArmorSet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_ArmorSet.TabIndex = 56;
             this.pb_ArmorSet.TabStop = false;
@@ -4321,10 +3701,9 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::E7_Gear_Optimizer.Properties.Resources.armor;
-            this.pictureBox5.Location = new System.Drawing.Point(720, 695);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox5.Location = new System.Drawing.Point(480, 452);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(60, 62);
+            this.pictureBox5.Size = new System.Drawing.Size(40, 40);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 53;
             this.pictureBox5.TabStop = false;
@@ -4333,10 +3712,9 @@
             // 
             this.pb_HelmetSet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_HelmetSet.InitialImage = null;
-            this.pb_HelmetSet.Location = new System.Drawing.Point(418, 972);
-            this.pb_HelmetSet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_HelmetSet.Location = new System.Drawing.Point(279, 632);
             this.pb_HelmetSet.Name = "pb_HelmetSet";
-            this.pb_HelmetSet.Size = new System.Drawing.Size(45, 46);
+            this.pb_HelmetSet.Size = new System.Drawing.Size(30, 30);
             this.pb_HelmetSet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_HelmetSet.TabIndex = 50;
             this.pb_HelmetSet.TabStop = false;
@@ -4344,10 +3722,9 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::E7_Gear_Optimizer.Properties.Resources.helmet;
-            this.pictureBox3.Location = new System.Drawing.Point(428, 695);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox3.Location = new System.Drawing.Point(285, 452);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(60, 62);
+            this.pictureBox3.Size = new System.Drawing.Size(40, 40);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 47;
             this.pictureBox3.TabStop = false;
@@ -4356,10 +3733,9 @@
             // 
             this.pb_WeaponSet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_WeaponSet.InitialImage = null;
-            this.pb_WeaponSet.Location = new System.Drawing.Point(120, 972);
-            this.pb_WeaponSet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_WeaponSet.Location = new System.Drawing.Point(80, 632);
             this.pb_WeaponSet.Name = "pb_WeaponSet";
-            this.pb_WeaponSet.Size = new System.Drawing.Size(45, 46);
+            this.pb_WeaponSet.Size = new System.Drawing.Size(30, 30);
             this.pb_WeaponSet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_WeaponSet.TabIndex = 44;
             this.pb_WeaponSet.TabStop = false;
@@ -4367,10 +3743,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::E7_Gear_Optimizer.Properties.Resources.weapon;
-            this.pictureBox1.Location = new System.Drawing.Point(129, 695);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(86, 452);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(60, 62);
+            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 35;
             this.pictureBox1.TabStop = false;
@@ -4379,10 +3754,9 @@
             // 
             this.b_RemoveHero.BackgroundImage = global::E7_Gear_Optimizer.Properties.Resources.remove;
             this.b_RemoveHero.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b_RemoveHero.Location = new System.Drawing.Point(1736, 577);
-            this.b_RemoveHero.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_RemoveHero.Location = new System.Drawing.Point(1157, 375);
             this.b_RemoveHero.Name = "b_RemoveHero";
-            this.b_RemoveHero.Size = new System.Drawing.Size(78, 60);
+            this.b_RemoveHero.Size = new System.Drawing.Size(52, 39);
             this.b_RemoveHero.TabIndex = 32;
             this.b_RemoveHero.UseVisualStyleBackColor = true;
             this.b_RemoveHero.Click += new System.EventHandler(this.B_RemoveHero_Click);
@@ -4391,10 +3765,9 @@
             // 
             this.b_EditHero.BackgroundImage = global::E7_Gear_Optimizer.Properties.Resources.Edit;
             this.b_EditHero.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b_EditHero.Location = new System.Drawing.Point(1822, 577);
-            this.b_EditHero.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_EditHero.Location = new System.Drawing.Point(1215, 375);
             this.b_EditHero.Name = "b_EditHero";
-            this.b_EditHero.Size = new System.Drawing.Size(78, 60);
+            this.b_EditHero.Size = new System.Drawing.Size(52, 39);
             this.b_EditHero.TabIndex = 31;
             this.b_EditHero.UseVisualStyleBackColor = true;
             this.b_EditHero.Click += new System.EventHandler(this.B_EditHero_Click);
@@ -4403,10 +3776,9 @@
             // 
             this.b_AddHero.BackgroundImage = global::E7_Gear_Optimizer.Properties.Resources._new;
             this.b_AddHero.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.b_AddHero.Location = new System.Drawing.Point(1910, 577);
-            this.b_AddHero.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_AddHero.Location = new System.Drawing.Point(1273, 375);
             this.b_AddHero.Name = "b_AddHero";
-            this.b_AddHero.Size = new System.Drawing.Size(78, 60);
+            this.b_AddHero.Size = new System.Drawing.Size(52, 39);
             this.b_AddHero.TabIndex = 30;
             this.b_AddHero.UseVisualStyleBackColor = true;
             this.b_AddHero.Click += new System.EventHandler(this.B_AddHero_Click);
@@ -4490,10 +3862,9 @@
             this.tb_Optimize.Controls.Add(this.pictureBox8);
             this.tb_Optimize.Controls.Add(this.pb_WeaponSetOptimize);
             this.tb_Optimize.Controls.Add(this.pictureBox4);
-            this.tb_Optimize.Location = new System.Drawing.Point(4, 32);
-            this.tb_Optimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_Optimize.Location = new System.Drawing.Point(4, 25);
             this.tb_Optimize.Name = "tb_Optimize";
-            this.tb_Optimize.Size = new System.Drawing.Size(2187, 1147);
+            this.tb_Optimize.Size = new System.Drawing.Size(1455, 740);
             this.tb_Optimize.TabIndex = 2;
             this.tb_Optimize.Text = "Optimization";
             this.tb_Optimize.UseVisualStyleBackColor = true;
@@ -4503,10 +3874,9 @@
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(1059, 0);
-            this.label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label38.Location = new System.Drawing.Point(706, 0);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(60, 20);
+            this.label38.Size = new System.Drawing.Size(41, 13);
             this.label38.TabIndex = 10;
             this.label38.Text = "Focus";
             // 
@@ -4530,9 +3900,10 @@
             this.panel1.Controls.Add(this.b_Optimize);
             this.panel1.Controls.Add(this.label47);
             this.panel1.Controls.Add(this.l_Results);
-            this.panel1.Location = new System.Drawing.Point(1063, 30);
+            this.panel1.Location = new System.Drawing.Point(709, 19);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(310, 475);
+            this.panel1.Size = new System.Drawing.Size(207, 309);
             this.panel1.TabIndex = 141;
             // 
             // cb_Broken
@@ -4540,10 +3911,9 @@
             this.cb_Broken.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cb_Broken.Checked = true;
             this.cb_Broken.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_Broken.Location = new System.Drawing.Point(2, 313);
-            this.cb_Broken.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_Broken.Location = new System.Drawing.Point(1, 203);
             this.cb_Broken.Name = "cb_Broken";
-            this.cb_Broken.Size = new System.Drawing.Size(204, 28);
+            this.cb_Broken.Size = new System.Drawing.Size(136, 18);
             this.cb_Broken.TabIndex = 140;
             this.cb_Broken.Text = "Broken Sets";
             this.cb_Broken.UseVisualStyleBackColor = true;
@@ -4551,54 +3921,49 @@
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(4, 31);
-            this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label39.Location = new System.Drawing.Point(3, 20);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(74, 20);
+            this.label39.Size = new System.Drawing.Size(53, 13);
             this.label39.TabIndex = 11;
             this.label39.Text = "Necklace";
             // 
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(4, 71);
-            this.label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label41.Location = new System.Drawing.Point(3, 46);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(42, 20);
+            this.label41.Size = new System.Drawing.Size(29, 13);
             this.label41.TabIndex = 12;
             this.label41.Text = "Ring";
             // 
             // nud_EnhanceFocus
             // 
-            this.nud_EnhanceFocus.Location = new System.Drawing.Point(199, 150);
-            this.nud_EnhanceFocus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nud_EnhanceFocus.Location = new System.Drawing.Point(133, 97);
             this.nud_EnhanceFocus.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
             this.nud_EnhanceFocus.Name = "nud_EnhanceFocus";
-            this.nud_EnhanceFocus.Size = new System.Drawing.Size(75, 26);
+            this.nud_EnhanceFocus.Size = new System.Drawing.Size(50, 20);
             this.nud_EnhanceFocus.TabIndex = 138;
             this.nud_EnhanceFocus.ValueChanged += new System.EventHandler(this.Nud_EnhanceFocus_ValueChanged);
             // 
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(4, 113);
-            this.label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label43.Location = new System.Drawing.Point(3, 73);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(51, 20);
+            this.label43.Size = new System.Drawing.Size(34, 13);
             this.label43.TabIndex = 13;
             this.label43.Text = "Boots";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(4, 153);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(3, 99);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(102, 20);
+            this.label10.Size = new System.Drawing.Size(70, 13);
             this.label10.TabIndex = 137;
             this.label10.Text = "Min Enhance";
             // 
@@ -4614,10 +3979,9 @@
             "HP",
             "DEF%",
             "DEF"});
-            this.cb_NecklaceFocus.Location = new System.Drawing.Point(92, 27);
-            this.cb_NecklaceFocus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_NecklaceFocus.Location = new System.Drawing.Point(61, 18);
             this.cb_NecklaceFocus.Name = "cb_NecklaceFocus";
-            this.cb_NecklaceFocus.Size = new System.Drawing.Size(180, 28);
+            this.cb_NecklaceFocus.Size = new System.Drawing.Size(121, 21);
             this.cb_NecklaceFocus.TabIndex = 7;
             this.cb_NecklaceFocus.SelectedIndexChanged += new System.EventHandler(this.Cb_NecklaceFocus_SelectedIndexChanged);
             // 
@@ -4633,10 +3997,9 @@
             "DEF",
             "EFF",
             "RES"});
-            this.cb_RingFocus.Location = new System.Drawing.Point(92, 67);
-            this.cb_RingFocus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_RingFocus.Location = new System.Drawing.Point(61, 44);
             this.cb_RingFocus.Name = "cb_RingFocus";
-            this.cb_RingFocus.Size = new System.Drawing.Size(180, 28);
+            this.cb_RingFocus.Size = new System.Drawing.Size(121, 21);
             this.cb_RingFocus.TabIndex = 8;
             this.cb_RingFocus.SelectedIndexChanged += new System.EventHandler(this.Cb_RingFocus_SelectedIndexChanged);
             // 
@@ -4651,40 +4014,36 @@
             "HP",
             "DEF%",
             "DEF"});
-            this.cb_BootsFocus.Location = new System.Drawing.Point(92, 108);
-            this.cb_BootsFocus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_BootsFocus.Location = new System.Drawing.Point(61, 70);
             this.cb_BootsFocus.Name = "cb_BootsFocus";
-            this.cb_BootsFocus.Size = new System.Drawing.Size(180, 28);
+            this.cb_BootsFocus.Size = new System.Drawing.Size(121, 21);
             this.cb_BootsFocus.TabIndex = 9;
             this.cb_BootsFocus.SelectedIndexChanged += new System.EventHandler(this.Cb_BootsFocus_SelectedIndexChanged);
             // 
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(4, 196);
-            this.label46.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label46.Location = new System.Drawing.Point(3, 127);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(43, 20);
+            this.label46.Size = new System.Drawing.Size(29, 13);
             this.label46.TabIndex = 17;
             this.label46.Text = "Set1";
             // 
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(4, 236);
-            this.label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label45.Location = new System.Drawing.Point(3, 153);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(43, 20);
+            this.label45.Size = new System.Drawing.Size(29, 13);
             this.label45.TabIndex = 18;
             this.label45.Text = "Set2";
             // 
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(4, 277);
-            this.label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label44.Location = new System.Drawing.Point(3, 180);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(43, 20);
+            this.label44.Size = new System.Drawing.Size(29, 13);
             this.label44.TabIndex = 19;
             this.label44.Text = "Set3";
             // 
@@ -4705,10 +4064,9 @@
             "Rage",
             "Immunity",
             "Unity"});
-            this.cb_Set1.Location = new System.Drawing.Point(92, 191);
-            this.cb_Set1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_Set1.Location = new System.Drawing.Point(61, 124);
             this.cb_Set1.Name = "cb_Set1";
-            this.cb_Set1.Size = new System.Drawing.Size(180, 28);
+            this.cb_Set1.Size = new System.Drawing.Size(121, 21);
             this.cb_Set1.TabIndex = 10;
             this.cb_Set1.SelectedIndexChanged += new System.EventHandler(this.Cb_NecklaceFocus_SelectedIndexChanged);
             // 
@@ -4729,10 +4087,9 @@
             "Rage",
             "Immunity",
             "Unity"});
-            this.cb_Set2.Location = new System.Drawing.Point(92, 231);
-            this.cb_Set2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_Set2.Location = new System.Drawing.Point(61, 150);
             this.cb_Set2.Name = "cb_Set2";
-            this.cb_Set2.Size = new System.Drawing.Size(180, 28);
+            this.cb_Set2.Size = new System.Drawing.Size(121, 21);
             this.cb_Set2.TabIndex = 11;
             this.cb_Set2.SelectedIndexChanged += new System.EventHandler(this.Chb_Locked_CheckedChanged);
             // 
@@ -4753,19 +4110,17 @@
             "Rage",
             "Immunity",
             "Unity"});
-            this.cb_Set3.Location = new System.Drawing.Point(92, 273);
-            this.cb_Set3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_Set3.Location = new System.Drawing.Point(61, 177);
             this.cb_Set3.Name = "cb_Set3";
-            this.cb_Set3.Size = new System.Drawing.Size(180, 28);
+            this.cb_Set3.Size = new System.Drawing.Size(121, 21);
             this.cb_Set3.TabIndex = 12;
             this.cb_Set3.SelectedIndexChanged += new System.EventHandler(this.Chb_Locked_CheckedChanged);
             // 
             // b_Optimize
             // 
-            this.b_Optimize.Location = new System.Drawing.Point(8, 404);
-            this.b_Optimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_Optimize.Location = new System.Drawing.Point(5, 263);
             this.b_Optimize.Name = "b_Optimize";
-            this.b_Optimize.Size = new System.Drawing.Size(266, 60);
+            this.b_Optimize.Size = new System.Drawing.Size(177, 39);
             this.b_Optimize.TabIndex = 13;
             this.b_Optimize.Text = "Optimize";
             this.b_Optimize.UseVisualStyleBackColor = true;
@@ -4774,29 +4129,26 @@
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(4, 347);
-            this.label47.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label47.Location = new System.Drawing.Point(3, 226);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(143, 20);
+            this.label47.Size = new System.Drawing.Size(94, 13);
             this.label47.TabIndex = 24;
             this.label47.Text = "Estimated Results:";
             // 
             // l_Results
             // 
             this.l_Results.AutoSize = true;
-            this.l_Results.Location = new System.Drawing.Point(187, 345);
-            this.l_Results.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_Results.Location = new System.Drawing.Point(125, 224);
             this.l_Results.Name = "l_Results";
-            this.l_Results.Size = new System.Drawing.Size(18, 20);
+            this.l_Results.Size = new System.Drawing.Size(13, 13);
             this.l_Results.TabIndex = 25;
             this.l_Results.Text = "0";
             // 
             // b_CancelOptimize
             // 
-            this.b_CancelOptimize.Location = new System.Drawing.Point(617, 908);
-            this.b_CancelOptimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_CancelOptimize.Location = new System.Drawing.Point(411, 590);
             this.b_CancelOptimize.Name = "b_CancelOptimize";
-            this.b_CancelOptimize.Size = new System.Drawing.Size(222, 62);
+            this.b_CancelOptimize.Size = new System.Drawing.Size(148, 40);
             this.b_CancelOptimize.TabIndex = 139;
             this.b_CancelOptimize.Text = "Cancel";
             this.b_CancelOptimize.UseVisualStyleBackColor = true;
@@ -4805,10 +4157,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(42, 315);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Location = new System.Drawing.Point(28, 205);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 55);
+            this.button1.Size = new System.Drawing.Size(75, 36);
             this.button1.TabIndex = 136;
             this.button1.Text = "Filter current results";
             this.button1.UseVisualStyleBackColor = true;
@@ -4816,60 +4167,54 @@
             // 
             // pb_OptimizeBootsEquipped
             // 
-            this.pb_OptimizeBootsEquipped.Location = new System.Drawing.Point(1776, 802);
-            this.pb_OptimizeBootsEquipped.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_OptimizeBootsEquipped.Location = new System.Drawing.Point(1184, 521);
             this.pb_OptimizeBootsEquipped.Name = "pb_OptimizeBootsEquipped";
-            this.pb_OptimizeBootsEquipped.Size = new System.Drawing.Size(105, 108);
+            this.pb_OptimizeBootsEquipped.Size = new System.Drawing.Size(70, 70);
             this.pb_OptimizeBootsEquipped.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_OptimizeBootsEquipped.TabIndex = 135;
             this.pb_OptimizeBootsEquipped.TabStop = false;
             // 
             // pb_OptimizeRingEquipped
             // 
-            this.pb_OptimizeRingEquipped.Location = new System.Drawing.Point(1776, 399);
-            this.pb_OptimizeRingEquipped.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_OptimizeRingEquipped.Location = new System.Drawing.Point(1184, 259);
             this.pb_OptimizeRingEquipped.Name = "pb_OptimizeRingEquipped";
-            this.pb_OptimizeRingEquipped.Size = new System.Drawing.Size(105, 108);
+            this.pb_OptimizeRingEquipped.Size = new System.Drawing.Size(70, 70);
             this.pb_OptimizeRingEquipped.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_OptimizeRingEquipped.TabIndex = 134;
             this.pb_OptimizeRingEquipped.TabStop = false;
             // 
             // pb_OptimizeNecklaceEquipped
             // 
-            this.pb_OptimizeNecklaceEquipped.Location = new System.Drawing.Point(1776, 0);
-            this.pb_OptimizeNecklaceEquipped.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_OptimizeNecklaceEquipped.Location = new System.Drawing.Point(1184, 0);
             this.pb_OptimizeNecklaceEquipped.Name = "pb_OptimizeNecklaceEquipped";
-            this.pb_OptimizeNecklaceEquipped.Size = new System.Drawing.Size(105, 108);
+            this.pb_OptimizeNecklaceEquipped.Size = new System.Drawing.Size(70, 70);
             this.pb_OptimizeNecklaceEquipped.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_OptimizeNecklaceEquipped.TabIndex = 133;
             this.pb_OptimizeNecklaceEquipped.TabStop = false;
             // 
             // pb_OptimizeWeaponEquipped
             // 
-            this.pb_OptimizeWeaponEquipped.Location = new System.Drawing.Point(1384, 2);
-            this.pb_OptimizeWeaponEquipped.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_OptimizeWeaponEquipped.Location = new System.Drawing.Point(923, 1);
             this.pb_OptimizeWeaponEquipped.Name = "pb_OptimizeWeaponEquipped";
-            this.pb_OptimizeWeaponEquipped.Size = new System.Drawing.Size(105, 108);
+            this.pb_OptimizeWeaponEquipped.Size = new System.Drawing.Size(70, 70);
             this.pb_OptimizeWeaponEquipped.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_OptimizeWeaponEquipped.TabIndex = 132;
             this.pb_OptimizeWeaponEquipped.TabStop = false;
             // 
             // pb_OptimizeArmorEquipped
             // 
-            this.pb_OptimizeArmorEquipped.Location = new System.Drawing.Point(1384, 802);
-            this.pb_OptimizeArmorEquipped.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_OptimizeArmorEquipped.Location = new System.Drawing.Point(923, 521);
             this.pb_OptimizeArmorEquipped.Name = "pb_OptimizeArmorEquipped";
-            this.pb_OptimizeArmorEquipped.Size = new System.Drawing.Size(105, 108);
+            this.pb_OptimizeArmorEquipped.Size = new System.Drawing.Size(70, 70);
             this.pb_OptimizeArmorEquipped.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_OptimizeArmorEquipped.TabIndex = 131;
             this.pb_OptimizeArmorEquipped.TabStop = false;
             // 
             // pb_OptimizeHelmetEquipped
             // 
-            this.pb_OptimizeHelmetEquipped.Location = new System.Drawing.Point(1384, 402);
-            this.pb_OptimizeHelmetEquipped.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_OptimizeHelmetEquipped.Location = new System.Drawing.Point(923, 261);
             this.pb_OptimizeHelmetEquipped.Name = "pb_OptimizeHelmetEquipped";
-            this.pb_OptimizeHelmetEquipped.Size = new System.Drawing.Size(105, 108);
+            this.pb_OptimizeHelmetEquipped.Size = new System.Drawing.Size(70, 70);
             this.pb_OptimizeHelmetEquipped.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_OptimizeHelmetEquipped.TabIndex = 130;
             this.pb_OptimizeHelmetEquipped.TabStop = false;
@@ -4877,10 +4222,9 @@
             // cb_keepEquip
             // 
             this.cb_keepEquip.AutoSize = true;
-            this.cb_keepEquip.Location = new System.Drawing.Point(9, 140);
-            this.cb_keepEquip.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_keepEquip.Location = new System.Drawing.Point(6, 91);
             this.cb_keepEquip.Name = "cb_keepEquip";
-            this.cb_keepEquip.Size = new System.Drawing.Size(22, 21);
+            this.cb_keepEquip.Size = new System.Drawing.Size(15, 14);
             this.cb_keepEquip.TabIndex = 3;
             this.cb_keepEquip.UseVisualStyleBackColor = true;
             this.cb_keepEquip.CheckedChanged += new System.EventHandler(this.Chb_Equipped_CheckedChanged);
@@ -4888,20 +4232,18 @@
             // label60
             // 
             this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(1005, 28);
-            this.label60.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label60.Location = new System.Drawing.Point(670, 18);
             this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(38, 20);
+            this.label60.Size = new System.Drawing.Size(27, 13);
             this.label60.TabIndex = 129;
             this.label60.Text = "Max";
             // 
             // label61
             // 
             this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(643, 28);
-            this.label61.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label61.Location = new System.Drawing.Point(429, 18);
             this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(34, 20);
+            this.label61.Size = new System.Drawing.Size(24, 13);
             this.label61.TabIndex = 128;
             this.label61.Text = "Min";
             // 
@@ -4909,10 +4251,9 @@
             // 
             this.label62.AutoSize = true;
             this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label62.Location = new System.Drawing.Point(643, 0);
-            this.label62.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label62.Location = new System.Drawing.Point(429, 0);
             this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(57, 20);
+            this.label62.Size = new System.Drawing.Size(39, 13);
             this.label62.TabIndex = 127;
             this.label62.Text = "Force";
             // 
@@ -4955,8 +4296,7 @@
             this.tlb_Force.Controls.Add(this.tb_MaxCritForce, 2, 3);
             this.tlb_Force.Controls.Add(this.tb_MaxSPDForce, 2, 2);
             this.tlb_Force.Controls.Add(this.tb_MaxDEFForce, 2, 7);
-            this.tlb_Force.Location = new System.Drawing.Point(643, 54);
-            this.tlb_Force.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tlb_Force.Location = new System.Drawing.Point(429, 35);
             this.tlb_Force.Name = "tlb_Force";
             this.tlb_Force.RowCount = 11;
             this.tlb_Force.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
@@ -4970,56 +4310,51 @@
             this.tlb_Force.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
             this.tlb_Force.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
             this.tlb_Force.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tlb_Force.Size = new System.Drawing.Size(400, 450);
+            this.tlb_Force.Size = new System.Drawing.Size(267, 292);
             this.tlb_Force.TabIndex = 6;
             // 
             // tb_MaxDEFPercentForce
             // 
             this.tb_MaxDEFPercentForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxDEFPercentForce.Location = new System.Drawing.Point(270, 327);
-            this.tb_MaxDEFPercentForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxDEFPercentForce.Location = new System.Drawing.Point(180, 211);
             this.tb_MaxDEFPercentForce.Name = "tb_MaxDEFPercentForce";
-            this.tb_MaxDEFPercentForce.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxDEFPercentForce.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxDEFPercentForce.TabIndex = 17;
             this.tb_MaxDEFPercentForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MinDEFPercentForce
             // 
             this.tb_MinDEFPercentForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinDEFPercentForce.Location = new System.Drawing.Point(4, 327);
-            this.tb_MinDEFPercentForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinDEFPercentForce.Location = new System.Drawing.Point(3, 211);
             this.tb_MinDEFPercentForce.Name = "tb_MinDEFPercentForce";
-            this.tb_MinDEFPercentForce.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinDEFPercentForce.Size = new System.Drawing.Size(82, 20);
             this.tb_MinDEFPercentForce.TabIndex = 16;
             this.tb_MinDEFPercentForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxHPPercentForce
             // 
             this.tb_MaxHPPercentForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxHPPercentForce.Location = new System.Drawing.Point(270, 247);
-            this.tb_MaxHPPercentForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxHPPercentForce.Location = new System.Drawing.Point(180, 159);
             this.tb_MaxHPPercentForce.Name = "tb_MaxHPPercentForce";
-            this.tb_MaxHPPercentForce.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxHPPercentForce.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxHPPercentForce.TabIndex = 13;
             this.tb_MaxHPPercentForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MinHPPercentForce
             // 
             this.tb_MinHPPercentForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinHPPercentForce.Location = new System.Drawing.Point(4, 247);
-            this.tb_MinHPPercentForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinHPPercentForce.Location = new System.Drawing.Point(3, 159);
             this.tb_MinHPPercentForce.Name = "tb_MinHPPercentForce";
-            this.tb_MinHPPercentForce.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinHPPercentForce.Size = new System.Drawing.Size(82, 20);
             this.tb_MinHPPercentForce.TabIndex = 12;
             this.tb_MinHPPercentForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxATKPercentForce
             // 
             this.tb_MaxATKPercentForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxATKPercentForce.Location = new System.Drawing.Point(270, 47);
-            this.tb_MaxATKPercentForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxATKPercentForce.Location = new System.Drawing.Point(180, 29);
             this.tb_MaxATKPercentForce.Name = "tb_MaxATKPercentForce";
-            this.tb_MaxATKPercentForce.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxATKPercentForce.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxATKPercentForce.TabIndex = 3;
             this.tb_MaxATKPercentForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
@@ -5027,10 +4362,9 @@
             // 
             this.label78.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(137, 250);
-            this.label78.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label78.Location = new System.Drawing.Point(91, 162);
             this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(125, 20);
+            this.label78.Size = new System.Drawing.Size(83, 13);
             this.label78.TabIndex = 131;
             this.label78.Text = "Health%";
             this.label78.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5039,10 +4373,9 @@
             // 
             this.label77.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(137, 50);
-            this.label77.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label77.Location = new System.Drawing.Point(91, 32);
             this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(125, 20);
+            this.label77.Size = new System.Drawing.Size(83, 13);
             this.label77.TabIndex = 130;
             this.label77.Text = "Attack%";
             this.label77.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5051,10 +4384,9 @@
             // 
             this.label75.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(137, 290);
-            this.label75.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label75.Location = new System.Drawing.Point(91, 188);
             this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(125, 20);
+            this.label75.Size = new System.Drawing.Size(83, 13);
             this.label75.TabIndex = 12;
             this.label75.Text = "Defense";
             this.label75.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5062,30 +4394,27 @@
             // tb_MinCritDmgForce
             // 
             this.tb_MinCritDmgForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinCritDmgForce.Location = new System.Drawing.Point(4, 167);
-            this.tb_MinCritDmgForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinCritDmgForce.Location = new System.Drawing.Point(3, 107);
             this.tb_MinCritDmgForce.Name = "tb_MinCritDmgForce";
-            this.tb_MinCritDmgForce.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinCritDmgForce.Size = new System.Drawing.Size(82, 20);
             this.tb_MinCritDmgForce.TabIndex = 8;
             this.tb_MinCritDmgForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxATKForce
             // 
             this.tb_MaxATKForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxATKForce.Location = new System.Drawing.Point(270, 7);
-            this.tb_MaxATKForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxATKForce.Location = new System.Drawing.Point(180, 3);
             this.tb_MaxATKForce.Name = "tb_MaxATKForce";
-            this.tb_MaxATKForce.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxATKForce.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxATKForce.TabIndex = 1;
             this.tb_MaxATKForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MinCritForce
             // 
             this.tb_MinCritForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinCritForce.Location = new System.Drawing.Point(4, 127);
-            this.tb_MinCritForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinCritForce.Location = new System.Drawing.Point(3, 81);
             this.tb_MinCritForce.Name = "tb_MinCritForce";
-            this.tb_MinCritForce.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinCritForce.Size = new System.Drawing.Size(82, 20);
             this.tb_MinCritForce.TabIndex = 6;
             this.tb_MinCritForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
@@ -5093,10 +4422,9 @@
             // 
             this.label63.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(137, 10);
-            this.label63.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label63.Location = new System.Drawing.Point(91, 6);
             this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(125, 20);
+            this.label63.Size = new System.Drawing.Size(83, 13);
             this.label63.TabIndex = 0;
             this.label63.Text = "Attack";
             this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5104,10 +4432,9 @@
             // tb_MinATKForce
             // 
             this.tb_MinATKForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinATKForce.Location = new System.Drawing.Point(4, 7);
-            this.tb_MinATKForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinATKForce.Location = new System.Drawing.Point(3, 3);
             this.tb_MinATKForce.Name = "tb_MinATKForce";
-            this.tb_MinATKForce.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinATKForce.Size = new System.Drawing.Size(82, 20);
             this.tb_MinATKForce.TabIndex = 0;
             this.tb_MinATKForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
@@ -5115,10 +4442,9 @@
             // 
             this.label74.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label74.AutoSize = true;
-            this.label74.Location = new System.Drawing.Point(137, 415);
-            this.label74.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label74.Location = new System.Drawing.Point(91, 269);
             this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(125, 20);
+            this.label74.Size = new System.Drawing.Size(83, 13);
             this.label74.TabIndex = 7;
             this.label74.Text = "Resist";
             this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5126,20 +4452,18 @@
             // tb_MinRESForce
             // 
             this.tb_MinRESForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinRESForce.Location = new System.Drawing.Point(4, 412);
-            this.tb_MinRESForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinRESForce.Location = new System.Drawing.Point(3, 266);
             this.tb_MinRESForce.Name = "tb_MinRESForce";
-            this.tb_MinRESForce.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinRESForce.Size = new System.Drawing.Size(82, 20);
             this.tb_MinRESForce.TabIndex = 20;
             this.tb_MinRESForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxRESForce
             // 
             this.tb_MaxRESForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxRESForce.Location = new System.Drawing.Point(270, 412);
-            this.tb_MaxRESForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxRESForce.Location = new System.Drawing.Point(180, 266);
             this.tb_MaxRESForce.Name = "tb_MaxRESForce";
-            this.tb_MaxRESForce.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxRESForce.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxRESForce.TabIndex = 21;
             this.tb_MaxRESForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
@@ -5147,10 +4471,9 @@
             // 
             this.label73.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(137, 370);
-            this.label73.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label73.Location = new System.Drawing.Point(91, 240);
             this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(125, 20);
+            this.label73.Size = new System.Drawing.Size(83, 13);
             this.label73.TabIndex = 6;
             this.label73.Text = "Eff";
             this.label73.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5158,20 +4481,18 @@
             // tb_MinEFFForce
             // 
             this.tb_MinEFFForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinEFFForce.Location = new System.Drawing.Point(4, 367);
-            this.tb_MinEFFForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinEFFForce.Location = new System.Drawing.Point(3, 237);
             this.tb_MinEFFForce.Name = "tb_MinEFFForce";
-            this.tb_MinEFFForce.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinEFFForce.Size = new System.Drawing.Size(82, 20);
             this.tb_MinEFFForce.TabIndex = 18;
             this.tb_MinEFFForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxEFFForce
             // 
             this.tb_MaxEFFForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxEFFForce.Location = new System.Drawing.Point(270, 367);
-            this.tb_MaxEFFForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxEFFForce.Location = new System.Drawing.Point(180, 237);
             this.tb_MaxEFFForce.Name = "tb_MaxEFFForce";
-            this.tb_MaxEFFForce.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxEFFForce.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxEFFForce.TabIndex = 19;
             this.tb_MaxEFFForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
@@ -5179,10 +4500,9 @@
             // 
             this.label71.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(137, 330);
-            this.label71.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label71.Location = new System.Drawing.Point(91, 214);
             this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(125, 20);
+            this.label71.Size = new System.Drawing.Size(83, 13);
             this.label71.TabIndex = 5;
             this.label71.Text = "Defense%";
             this.label71.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5191,10 +4511,9 @@
             // 
             this.label69.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(137, 210);
-            this.label69.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label69.Location = new System.Drawing.Point(91, 136);
             this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(125, 20);
+            this.label69.Size = new System.Drawing.Size(83, 13);
             this.label69.TabIndex = 4;
             this.label69.Text = "Health";
             this.label69.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5203,10 +4522,9 @@
             // 
             this.label68.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(137, 170);
-            this.label68.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label68.Location = new System.Drawing.Point(91, 110);
             this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(125, 20);
+            this.label68.Size = new System.Drawing.Size(83, 13);
             this.label68.TabIndex = 3;
             this.label68.Text = "CritDmg";
             this.label68.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5215,10 +4533,9 @@
             // 
             this.label67.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(137, 130);
-            this.label67.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label67.Location = new System.Drawing.Point(91, 84);
             this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(125, 20);
+            this.label67.Size = new System.Drawing.Size(83, 13);
             this.label67.TabIndex = 2;
             this.label67.Text = "Crit";
             this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5227,10 +4544,9 @@
             // 
             this.label66.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(137, 90);
-            this.label66.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label66.Location = new System.Drawing.Point(91, 58);
             this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(125, 20);
+            this.label66.Size = new System.Drawing.Size(83, 13);
             this.label66.TabIndex = 1;
             this.label66.Text = "Speed";
             this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -5238,175 +4554,157 @@
             // tb_MinSPDForce
             // 
             this.tb_MinSPDForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinSPDForce.Location = new System.Drawing.Point(4, 87);
-            this.tb_MinSPDForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinSPDForce.Location = new System.Drawing.Point(3, 55);
             this.tb_MinSPDForce.Name = "tb_MinSPDForce";
-            this.tb_MinSPDForce.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinSPDForce.Size = new System.Drawing.Size(82, 20);
             this.tb_MinSPDForce.TabIndex = 4;
             this.tb_MinSPDForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MinATKPercentForce
             // 
             this.tb_MinATKPercentForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinATKPercentForce.Location = new System.Drawing.Point(4, 47);
-            this.tb_MinATKPercentForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinATKPercentForce.Location = new System.Drawing.Point(3, 29);
             this.tb_MinATKPercentForce.Name = "tb_MinATKPercentForce";
-            this.tb_MinATKPercentForce.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinATKPercentForce.Size = new System.Drawing.Size(82, 20);
             this.tb_MinATKPercentForce.TabIndex = 2;
             this.tb_MinATKPercentForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MinHPForce
             // 
             this.tb_MinHPForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinHPForce.Location = new System.Drawing.Point(4, 207);
-            this.tb_MinHPForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinHPForce.Location = new System.Drawing.Point(3, 133);
             this.tb_MinHPForce.Name = "tb_MinHPForce";
-            this.tb_MinHPForce.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinHPForce.Size = new System.Drawing.Size(82, 20);
             this.tb_MinHPForce.TabIndex = 10;
             this.tb_MinHPForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MinDEFForce
             // 
             this.tb_MinDEFForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinDEFForce.Location = new System.Drawing.Point(4, 287);
-            this.tb_MinDEFForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinDEFForce.Location = new System.Drawing.Point(3, 185);
             this.tb_MinDEFForce.Name = "tb_MinDEFForce";
-            this.tb_MinDEFForce.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinDEFForce.Size = new System.Drawing.Size(82, 20);
             this.tb_MinDEFForce.TabIndex = 14;
             this.tb_MinDEFForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxHPForce
             // 
             this.tb_MaxHPForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxHPForce.Location = new System.Drawing.Point(270, 207);
-            this.tb_MaxHPForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxHPForce.Location = new System.Drawing.Point(180, 133);
             this.tb_MaxHPForce.Name = "tb_MaxHPForce";
-            this.tb_MaxHPForce.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxHPForce.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxHPForce.TabIndex = 11;
             this.tb_MaxHPForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxCritDmgForce
             // 
             this.tb_MaxCritDmgForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxCritDmgForce.Location = new System.Drawing.Point(270, 167);
-            this.tb_MaxCritDmgForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxCritDmgForce.Location = new System.Drawing.Point(180, 107);
             this.tb_MaxCritDmgForce.Name = "tb_MaxCritDmgForce";
-            this.tb_MaxCritDmgForce.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxCritDmgForce.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxCritDmgForce.TabIndex = 9;
             this.tb_MaxCritDmgForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxCritForce
             // 
             this.tb_MaxCritForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxCritForce.Location = new System.Drawing.Point(270, 127);
-            this.tb_MaxCritForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxCritForce.Location = new System.Drawing.Point(180, 81);
             this.tb_MaxCritForce.Name = "tb_MaxCritForce";
-            this.tb_MaxCritForce.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxCritForce.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxCritForce.TabIndex = 7;
             this.tb_MaxCritForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxSPDForce
             // 
             this.tb_MaxSPDForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxSPDForce.Location = new System.Drawing.Point(270, 87);
-            this.tb_MaxSPDForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxSPDForce.Location = new System.Drawing.Point(180, 55);
             this.tb_MaxSPDForce.Name = "tb_MaxSPDForce";
-            this.tb_MaxSPDForce.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxSPDForce.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxSPDForce.TabIndex = 5;
             this.tb_MaxSPDForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // tb_MaxDEFForce
             // 
             this.tb_MaxDEFForce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxDEFForce.Location = new System.Drawing.Point(270, 287);
-            this.tb_MaxDEFForce.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxDEFForce.Location = new System.Drawing.Point(180, 185);
             this.tb_MaxDEFForce.Name = "tb_MaxDEFForce";
-            this.tb_MaxDEFForce.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxDEFForce.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxDEFForce.TabIndex = 15;
             this.tb_MaxDEFForce.TextChanged += new System.EventHandler(this.Tb_Force_TextChanged);
             // 
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(4, 202);
-            this.label49.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label49.Location = new System.Drawing.Point(3, 131);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(189, 40);
+            this.label49.Size = new System.Drawing.Size(127, 26);
             this.label49.TabIndex = 4;
             this.label49.Text = "Crit Bonus (Luna passive,\r\nCDom S3 etc.)";
             // 
             // nud_CritBonus
             // 
-            this.nud_CritBonus.Location = new System.Drawing.Point(9, 246);
-            this.nud_CritBonus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nud_CritBonus.Location = new System.Drawing.Point(6, 160);
             this.nud_CritBonus.Name = "nud_CritBonus";
-            this.nud_CritBonus.Size = new System.Drawing.Size(69, 26);
+            this.nud_CritBonus.Size = new System.Drawing.Size(46, 20);
             this.nud_CritBonus.TabIndex = 5;
             this.nud_CritBonus.ValueChanged += new System.EventHandler(this.Nud_CritBonus_ValueChanged);
             // 
             // pB_Optimize
             // 
-            this.pB_Optimize.Location = new System.Drawing.Point(416, 821);
-            this.pB_Optimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pB_Optimize.Location = new System.Drawing.Point(277, 534);
             this.pB_Optimize.Name = "pB_Optimize";
-            this.pB_Optimize.Size = new System.Drawing.Size(610, 62);
+            this.pB_Optimize.Size = new System.Drawing.Size(407, 40);
             this.pB_Optimize.TabIndex = 111;
             this.pB_Optimize.Visible = false;
             // 
             // l_BootsEnhanceOptimize
             // 
             this.l_BootsEnhanceOptimize.AutoSize = true;
-            this.l_BootsEnhanceOptimize.Location = new System.Drawing.Point(1965, 802);
-            this.l_BootsEnhanceOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsEnhanceOptimize.Location = new System.Drawing.Point(1310, 521);
             this.l_BootsEnhanceOptimize.Name = "l_BootsEnhanceOptimize";
-            this.l_BootsEnhanceOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsEnhanceOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_BootsEnhanceOptimize.TabIndex = 110;
             // 
             // l_RingEnhanceOptimize
             // 
             this.l_RingEnhanceOptimize.AutoSize = true;
-            this.l_RingEnhanceOptimize.Location = new System.Drawing.Point(1965, 402);
-            this.l_RingEnhanceOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingEnhanceOptimize.Location = new System.Drawing.Point(1310, 261);
             this.l_RingEnhanceOptimize.Name = "l_RingEnhanceOptimize";
-            this.l_RingEnhanceOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_RingEnhanceOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_RingEnhanceOptimize.TabIndex = 109;
             // 
             // l_NecklaceEnhanceOptimize
             // 
             this.l_NecklaceEnhanceOptimize.AutoSize = true;
             this.l_NecklaceEnhanceOptimize.BackColor = System.Drawing.Color.Transparent;
-            this.l_NecklaceEnhanceOptimize.Location = new System.Drawing.Point(1965, 2);
-            this.l_NecklaceEnhanceOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceEnhanceOptimize.Location = new System.Drawing.Point(1310, 1);
             this.l_NecklaceEnhanceOptimize.Name = "l_NecklaceEnhanceOptimize";
-            this.l_NecklaceEnhanceOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceEnhanceOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceEnhanceOptimize.TabIndex = 108;
             // 
             // l_ArmorEnhanceOptimize
             // 
             this.l_ArmorEnhanceOptimize.AutoSize = true;
-            this.l_ArmorEnhanceOptimize.Location = new System.Drawing.Point(1573, 802);
-            this.l_ArmorEnhanceOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorEnhanceOptimize.Location = new System.Drawing.Point(1049, 521);
             this.l_ArmorEnhanceOptimize.Name = "l_ArmorEnhanceOptimize";
-            this.l_ArmorEnhanceOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorEnhanceOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorEnhanceOptimize.TabIndex = 107;
             // 
             // l_HelmetEnhanceOptimize
             // 
             this.l_HelmetEnhanceOptimize.AutoSize = true;
             this.l_HelmetEnhanceOptimize.BackColor = System.Drawing.Color.Transparent;
-            this.l_HelmetEnhanceOptimize.Location = new System.Drawing.Point(1573, 402);
-            this.l_HelmetEnhanceOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetEnhanceOptimize.Location = new System.Drawing.Point(1049, 261);
             this.l_HelmetEnhanceOptimize.Name = "l_HelmetEnhanceOptimize";
-            this.l_HelmetEnhanceOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetEnhanceOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetEnhanceOptimize.TabIndex = 106;
             // 
             // l_WeaponEnhanceOptimize
             // 
             this.l_WeaponEnhanceOptimize.AutoSize = true;
-            this.l_WeaponEnhanceOptimize.Location = new System.Drawing.Point(1573, 2);
-            this.l_WeaponEnhanceOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponEnhanceOptimize.Location = new System.Drawing.Point(1049, 1);
             this.l_WeaponEnhanceOptimize.Name = "l_WeaponEnhanceOptimize";
-            this.l_WeaponEnhanceOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponEnhanceOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponEnhanceOptimize.TabIndex = 105;
             // 
             // l_BootsIlvlOptimize
@@ -5415,10 +4713,9 @@
             this.l_BootsIlvlOptimize.BackColor = System.Drawing.Color.Transparent;
             this.l_BootsIlvlOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_BootsIlvlOptimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
-            this.l_BootsIlvlOptimize.Location = new System.Drawing.Point(1895, 802);
-            this.l_BootsIlvlOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsIlvlOptimize.Location = new System.Drawing.Point(1263, 521);
             this.l_BootsIlvlOptimize.Name = "l_BootsIlvlOptimize";
-            this.l_BootsIlvlOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsIlvlOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_BootsIlvlOptimize.TabIndex = 104;
             // 
             // l_RingIlvlOptimize
@@ -5427,10 +4724,9 @@
             this.l_RingIlvlOptimize.BackColor = System.Drawing.Color.Transparent;
             this.l_RingIlvlOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_RingIlvlOptimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
-            this.l_RingIlvlOptimize.Location = new System.Drawing.Point(1895, 402);
-            this.l_RingIlvlOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingIlvlOptimize.Location = new System.Drawing.Point(1263, 261);
             this.l_RingIlvlOptimize.Name = "l_RingIlvlOptimize";
-            this.l_RingIlvlOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_RingIlvlOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_RingIlvlOptimize.TabIndex = 103;
             // 
             // l_NecklaceIlvlOptimize
@@ -5439,10 +4735,9 @@
             this.l_NecklaceIlvlOptimize.BackColor = System.Drawing.Color.Transparent;
             this.l_NecklaceIlvlOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_NecklaceIlvlOptimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
-            this.l_NecklaceIlvlOptimize.Location = new System.Drawing.Point(1895, 2);
-            this.l_NecklaceIlvlOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceIlvlOptimize.Location = new System.Drawing.Point(1263, 1);
             this.l_NecklaceIlvlOptimize.Name = "l_NecklaceIlvlOptimize";
-            this.l_NecklaceIlvlOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceIlvlOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceIlvlOptimize.TabIndex = 102;
             // 
             // l_ArmorIlvlOptimize
@@ -5451,10 +4746,9 @@
             this.l_ArmorIlvlOptimize.BackColor = System.Drawing.Color.Transparent;
             this.l_ArmorIlvlOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_ArmorIlvlOptimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
-            this.l_ArmorIlvlOptimize.Location = new System.Drawing.Point(1503, 802);
-            this.l_ArmorIlvlOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorIlvlOptimize.Location = new System.Drawing.Point(1002, 521);
             this.l_ArmorIlvlOptimize.Name = "l_ArmorIlvlOptimize";
-            this.l_ArmorIlvlOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorIlvlOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorIlvlOptimize.TabIndex = 101;
             // 
             // l_HelmetIlvlOptimize
@@ -5463,10 +4757,9 @@
             this.l_HelmetIlvlOptimize.BackColor = System.Drawing.Color.Transparent;
             this.l_HelmetIlvlOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_HelmetIlvlOptimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
-            this.l_HelmetIlvlOptimize.Location = new System.Drawing.Point(1503, 402);
-            this.l_HelmetIlvlOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetIlvlOptimize.Location = new System.Drawing.Point(1002, 261);
             this.l_HelmetIlvlOptimize.Name = "l_HelmetIlvlOptimize";
-            this.l_HelmetIlvlOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetIlvlOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetIlvlOptimize.TabIndex = 100;
             // 
             // l_WeaponIlvlOptimize
@@ -5475,18 +4768,16 @@
             this.l_WeaponIlvlOptimize.BackColor = System.Drawing.Color.Transparent;
             this.l_WeaponIlvlOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_WeaponIlvlOptimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(122)))), ((int)(((byte)(0)))));
-            this.l_WeaponIlvlOptimize.Location = new System.Drawing.Point(1503, 2);
-            this.l_WeaponIlvlOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponIlvlOptimize.Location = new System.Drawing.Point(1002, 1);
             this.l_WeaponIlvlOptimize.Name = "l_WeaponIlvlOptimize";
-            this.l_WeaponIlvlOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponIlvlOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponIlvlOptimize.TabIndex = 99;
             // 
             // b_EquipOptimize
             // 
-            this.b_EquipOptimize.Location = new System.Drawing.Point(1259, 1101);
-            this.b_EquipOptimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_EquipOptimize.Location = new System.Drawing.Point(839, 716);
             this.b_EquipOptimize.Name = "b_EquipOptimize";
-            this.b_EquipOptimize.Size = new System.Drawing.Size(112, 35);
+            this.b_EquipOptimize.Size = new System.Drawing.Size(75, 23);
             this.b_EquipOptimize.TabIndex = 16;
             this.b_EquipOptimize.Text = "Equip";
             this.b_EquipOptimize.UseVisualStyleBackColor = true;
@@ -5496,10 +4787,9 @@
             // 
             this.l_RingSetOptimize.AutoSize = true;
             this.l_RingSetOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_RingSetOptimize.Location = new System.Drawing.Point(1951, 688);
-            this.l_RingSetOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingSetOptimize.Location = new System.Drawing.Point(1301, 447);
             this.l_RingSetOptimize.Name = "l_RingSetOptimize";
-            this.l_RingSetOptimize.Size = new System.Drawing.Size(0, 24);
+            this.l_RingSetOptimize.Size = new System.Drawing.Size(0, 16);
             this.l_RingSetOptimize.TabIndex = 90;
             // 
             // tlp_RingOptimize
@@ -5519,78 +4809,72 @@
             this.tlp_RingOptimize.Controls.Add(this.l_RingMainOptimize, 0, 1);
             this.tlp_RingOptimize.Controls.Add(this.l_RingMainStatOptimize, 1, 1);
             this.tlp_RingOptimize.Controls.Add(this.label140, 0, 2);
-            this.tlp_RingOptimize.Location = new System.Drawing.Point(1886, 472);
-            this.tlp_RingOptimize.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.tlp_RingOptimize.Location = new System.Drawing.Point(1257, 307);
+            this.tlp_RingOptimize.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
             this.tlp_RingOptimize.Name = "tlp_RingOptimize";
             this.tlp_RingOptimize.RowCount = 7;
+            this.tlp_RingOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tlp_RingOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tlp_RingOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.tlp_RingOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlp_RingOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tlp_RingOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
-            this.tlp_RingOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_RingOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_RingOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_RingOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_RingOptimize.Size = new System.Drawing.Size(290, 197);
+            this.tlp_RingOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_RingOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_RingOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_RingOptimize.Size = new System.Drawing.Size(193, 128);
             this.tlp_RingOptimize.TabIndex = 88;
             // 
             // l_RingSub4StatOptimize
             // 
             this.l_RingSub4StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_RingSub4StatOptimize.AutoSize = true;
-            this.l_RingSub4StatOptimize.Location = new System.Drawing.Point(286, 171);
-            this.l_RingSub4StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingSub4StatOptimize.Location = new System.Drawing.Point(190, 111);
             this.l_RingSub4StatOptimize.Name = "l_RingSub4StatOptimize";
-            this.l_RingSub4StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_RingSub4StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_RingSub4StatOptimize.TabIndex = 49;
             // 
             // l_RingSub4Optimize
             // 
             this.l_RingSub4Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_RingSub4Optimize.AutoSize = true;
-            this.l_RingSub4Optimize.Location = new System.Drawing.Point(4, 171);
-            this.l_RingSub4Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingSub4Optimize.Location = new System.Drawing.Point(3, 111);
             this.l_RingSub4Optimize.Name = "l_RingSub4Optimize";
-            this.l_RingSub4Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_RingSub4Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_RingSub4Optimize.TabIndex = 48;
             // 
             // l_RingSub3StatOptimize
             // 
             this.l_RingSub3StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_RingSub3StatOptimize.AutoSize = true;
-            this.l_RingSub3StatOptimize.Location = new System.Drawing.Point(286, 140);
-            this.l_RingSub3StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingSub3StatOptimize.Location = new System.Drawing.Point(190, 91);
             this.l_RingSub3StatOptimize.Name = "l_RingSub3StatOptimize";
-            this.l_RingSub3StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_RingSub3StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_RingSub3StatOptimize.TabIndex = 47;
             // 
             // l_RingSub3Optimize
             // 
             this.l_RingSub3Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_RingSub3Optimize.AutoSize = true;
-            this.l_RingSub3Optimize.Location = new System.Drawing.Point(4, 140);
-            this.l_RingSub3Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingSub3Optimize.Location = new System.Drawing.Point(3, 91);
             this.l_RingSub3Optimize.Name = "l_RingSub3Optimize";
-            this.l_RingSub3Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_RingSub3Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_RingSub3Optimize.TabIndex = 46;
             // 
             // l_RingSub2StatOptimize
             // 
             this.l_RingSub2StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_RingSub2StatOptimize.AutoSize = true;
-            this.l_RingSub2StatOptimize.Location = new System.Drawing.Point(286, 109);
-            this.l_RingSub2StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingSub2StatOptimize.Location = new System.Drawing.Point(190, 71);
             this.l_RingSub2StatOptimize.Name = "l_RingSub2StatOptimize";
-            this.l_RingSub2StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_RingSub2StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_RingSub2StatOptimize.TabIndex = 45;
             // 
             // l_RingSub2Optimize
             // 
             this.l_RingSub2Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_RingSub2Optimize.AutoSize = true;
-            this.l_RingSub2Optimize.Location = new System.Drawing.Point(4, 109);
-            this.l_RingSub2Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingSub2Optimize.Location = new System.Drawing.Point(3, 71);
             this.l_RingSub2Optimize.Name = "l_RingSub2Optimize";
-            this.l_RingSub2Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_RingSub2Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_RingSub2Optimize.TabIndex = 44;
             // 
             // label135
@@ -5600,10 +4884,9 @@
             this.tlp_RingOptimize.SetColumnSpan(this.label135, 2);
             this.label135.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label135.ForeColor = System.Drawing.Color.Silver;
-            this.label135.Location = new System.Drawing.Point(4, 9);
-            this.label135.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label135.Location = new System.Drawing.Point(3, 6);
             this.label135.Name = "label135";
-            this.label135.Size = new System.Drawing.Size(282, 2);
+            this.label135.Size = new System.Drawing.Size(187, 1);
             this.label135.TabIndex = 37;
             this.label135.Text = "                                       ";
             // 
@@ -5611,20 +4894,18 @@
             // 
             this.l_RingSub1Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_RingSub1Optimize.AutoSize = true;
-            this.l_RingSub1Optimize.Location = new System.Drawing.Point(4, 78);
-            this.l_RingSub1Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingSub1Optimize.Location = new System.Drawing.Point(3, 51);
             this.l_RingSub1Optimize.Name = "l_RingSub1Optimize";
-            this.l_RingSub1Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_RingSub1Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_RingSub1Optimize.TabIndex = 41;
             // 
             // l_RingSub1StatOptimize
             // 
             this.l_RingSub1StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_RingSub1StatOptimize.AutoSize = true;
-            this.l_RingSub1StatOptimize.Location = new System.Drawing.Point(286, 78);
-            this.l_RingSub1StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingSub1StatOptimize.Location = new System.Drawing.Point(190, 51);
             this.l_RingSub1StatOptimize.Name = "l_RingSub1StatOptimize";
-            this.l_RingSub1StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_RingSub1StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_RingSub1StatOptimize.TabIndex = 42;
             // 
             // l_RingMainOptimize
@@ -5633,10 +4914,9 @@
             this.l_RingMainOptimize.AutoSize = true;
             this.l_RingMainOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_RingMainOptimize.ForeColor = System.Drawing.Color.Black;
-            this.l_RingMainOptimize.Location = new System.Drawing.Point(4, 25);
-            this.l_RingMainOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingMainOptimize.Location = new System.Drawing.Point(3, 16);
             this.l_RingMainOptimize.Name = "l_RingMainOptimize";
-            this.l_RingMainOptimize.Size = new System.Drawing.Size(0, 24);
+            this.l_RingMainOptimize.Size = new System.Drawing.Size(0, 16);
             this.l_RingMainOptimize.TabIndex = 38;
             // 
             // l_RingMainStatOptimize
@@ -5644,11 +4924,10 @@
             this.l_RingMainStatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_RingMainStatOptimize.AutoSize = true;
             this.l_RingMainStatOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_RingMainStatOptimize.Location = new System.Drawing.Point(286, 25);
-            this.l_RingMainStatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingMainStatOptimize.Location = new System.Drawing.Point(190, 16);
             this.l_RingMainStatOptimize.Name = "l_RingMainStatOptimize";
             this.l_RingMainStatOptimize.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.l_RingMainStatOptimize.Size = new System.Drawing.Size(0, 24);
+            this.l_RingMainStatOptimize.Size = new System.Drawing.Size(0, 16);
             this.l_RingMainStatOptimize.TabIndex = 39;
             // 
             // label140
@@ -5658,10 +4937,9 @@
             this.tlp_RingOptimize.SetColumnSpan(this.label140, 2);
             this.label140.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label140.ForeColor = System.Drawing.Color.Silver;
-            this.label140.Location = new System.Drawing.Point(4, 63);
-            this.label140.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label140.Location = new System.Drawing.Point(3, 41);
             this.label140.Name = "label140";
-            this.label140.Size = new System.Drawing.Size(282, 2);
+            this.label140.Size = new System.Drawing.Size(187, 1);
             this.label140.TabIndex = 40;
             this.label140.Text = "                                       ";
             // 
@@ -5669,20 +4947,18 @@
             // 
             this.l_RingGradeOptimize.AutoSize = true;
             this.l_RingGradeOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_RingGradeOptimize.Location = new System.Drawing.Point(1965, 422);
-            this.l_RingGradeOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_RingGradeOptimize.Location = new System.Drawing.Point(1310, 274);
             this.l_RingGradeOptimize.Name = "l_RingGradeOptimize";
-            this.l_RingGradeOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_RingGradeOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_RingGradeOptimize.TabIndex = 87;
             // 
             // l_NecklaceSetOptimize
             // 
             this.l_NecklaceSetOptimize.AutoSize = true;
             this.l_NecklaceSetOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_NecklaceSetOptimize.Location = new System.Drawing.Point(1951, 288);
-            this.l_NecklaceSetOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceSetOptimize.Location = new System.Drawing.Point(1301, 187);
             this.l_NecklaceSetOptimize.Name = "l_NecklaceSetOptimize";
-            this.l_NecklaceSetOptimize.Size = new System.Drawing.Size(0, 24);
+            this.l_NecklaceSetOptimize.Size = new System.Drawing.Size(0, 16);
             this.l_NecklaceSetOptimize.TabIndex = 85;
             // 
             // tlp_NecklaceOptimize
@@ -5702,78 +4978,72 @@
             this.tlp_NecklaceOptimize.Controls.Add(this.l_NecklaceMainOptimize, 0, 1);
             this.tlp_NecklaceOptimize.Controls.Add(this.l_NecklaceMainStatOptimize, 1, 1);
             this.tlp_NecklaceOptimize.Controls.Add(this.label126, 0, 2);
-            this.tlp_NecklaceOptimize.Location = new System.Drawing.Point(1886, 72);
-            this.tlp_NecklaceOptimize.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.tlp_NecklaceOptimize.Location = new System.Drawing.Point(1257, 47);
+            this.tlp_NecklaceOptimize.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
             this.tlp_NecklaceOptimize.Name = "tlp_NecklaceOptimize";
             this.tlp_NecklaceOptimize.RowCount = 7;
+            this.tlp_NecklaceOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tlp_NecklaceOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tlp_NecklaceOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.tlp_NecklaceOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlp_NecklaceOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tlp_NecklaceOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
-            this.tlp_NecklaceOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_NecklaceOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_NecklaceOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_NecklaceOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_NecklaceOptimize.Size = new System.Drawing.Size(290, 197);
+            this.tlp_NecklaceOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_NecklaceOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_NecklaceOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_NecklaceOptimize.Size = new System.Drawing.Size(193, 128);
             this.tlp_NecklaceOptimize.TabIndex = 83;
             // 
             // l_NecklaceSub4StatOptimize
             // 
             this.l_NecklaceSub4StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_NecklaceSub4StatOptimize.AutoSize = true;
-            this.l_NecklaceSub4StatOptimize.Location = new System.Drawing.Point(286, 171);
-            this.l_NecklaceSub4StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceSub4StatOptimize.Location = new System.Drawing.Point(190, 111);
             this.l_NecklaceSub4StatOptimize.Name = "l_NecklaceSub4StatOptimize";
-            this.l_NecklaceSub4StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceSub4StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceSub4StatOptimize.TabIndex = 49;
             // 
             // l_NecklaceSub4Optimize
             // 
             this.l_NecklaceSub4Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_NecklaceSub4Optimize.AutoSize = true;
-            this.l_NecklaceSub4Optimize.Location = new System.Drawing.Point(4, 171);
-            this.l_NecklaceSub4Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceSub4Optimize.Location = new System.Drawing.Point(3, 111);
             this.l_NecklaceSub4Optimize.Name = "l_NecklaceSub4Optimize";
-            this.l_NecklaceSub4Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceSub4Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceSub4Optimize.TabIndex = 48;
             // 
             // l_NecklaceSub3StatOptimize
             // 
             this.l_NecklaceSub3StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_NecklaceSub3StatOptimize.AutoSize = true;
-            this.l_NecklaceSub3StatOptimize.Location = new System.Drawing.Point(286, 140);
-            this.l_NecklaceSub3StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceSub3StatOptimize.Location = new System.Drawing.Point(190, 91);
             this.l_NecklaceSub3StatOptimize.Name = "l_NecklaceSub3StatOptimize";
-            this.l_NecklaceSub3StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceSub3StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceSub3StatOptimize.TabIndex = 47;
             // 
             // l_NecklaceSub3Optimize
             // 
             this.l_NecklaceSub3Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_NecklaceSub3Optimize.AutoSize = true;
-            this.l_NecklaceSub3Optimize.Location = new System.Drawing.Point(4, 140);
-            this.l_NecklaceSub3Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceSub3Optimize.Location = new System.Drawing.Point(3, 91);
             this.l_NecklaceSub3Optimize.Name = "l_NecklaceSub3Optimize";
-            this.l_NecklaceSub3Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceSub3Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceSub3Optimize.TabIndex = 46;
             // 
             // l_NecklaceSub2StatOptimize
             // 
             this.l_NecklaceSub2StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_NecklaceSub2StatOptimize.AutoSize = true;
-            this.l_NecklaceSub2StatOptimize.Location = new System.Drawing.Point(286, 109);
-            this.l_NecklaceSub2StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceSub2StatOptimize.Location = new System.Drawing.Point(190, 71);
             this.l_NecklaceSub2StatOptimize.Name = "l_NecklaceSub2StatOptimize";
-            this.l_NecklaceSub2StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceSub2StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceSub2StatOptimize.TabIndex = 45;
             // 
             // l_NecklaceSub2Optimize
             // 
             this.l_NecklaceSub2Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_NecklaceSub2Optimize.AutoSize = true;
-            this.l_NecklaceSub2Optimize.Location = new System.Drawing.Point(4, 109);
-            this.l_NecklaceSub2Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceSub2Optimize.Location = new System.Drawing.Point(3, 71);
             this.l_NecklaceSub2Optimize.Name = "l_NecklaceSub2Optimize";
-            this.l_NecklaceSub2Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceSub2Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceSub2Optimize.TabIndex = 44;
             // 
             // label121
@@ -5783,10 +5053,9 @@
             this.tlp_NecklaceOptimize.SetColumnSpan(this.label121, 2);
             this.label121.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label121.ForeColor = System.Drawing.Color.Silver;
-            this.label121.Location = new System.Drawing.Point(4, 9);
-            this.label121.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label121.Location = new System.Drawing.Point(3, 6);
             this.label121.Name = "label121";
-            this.label121.Size = new System.Drawing.Size(282, 2);
+            this.label121.Size = new System.Drawing.Size(187, 1);
             this.label121.TabIndex = 37;
             this.label121.Text = "                                       ";
             // 
@@ -5794,20 +5063,18 @@
             // 
             this.l_NecklaceSub1Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_NecklaceSub1Optimize.AutoSize = true;
-            this.l_NecklaceSub1Optimize.Location = new System.Drawing.Point(4, 78);
-            this.l_NecklaceSub1Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceSub1Optimize.Location = new System.Drawing.Point(3, 51);
             this.l_NecklaceSub1Optimize.Name = "l_NecklaceSub1Optimize";
-            this.l_NecklaceSub1Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceSub1Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceSub1Optimize.TabIndex = 41;
             // 
             // l_NecklaceSub1StatOptimize
             // 
             this.l_NecklaceSub1StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_NecklaceSub1StatOptimize.AutoSize = true;
-            this.l_NecklaceSub1StatOptimize.Location = new System.Drawing.Point(286, 78);
-            this.l_NecklaceSub1StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceSub1StatOptimize.Location = new System.Drawing.Point(190, 51);
             this.l_NecklaceSub1StatOptimize.Name = "l_NecklaceSub1StatOptimize";
-            this.l_NecklaceSub1StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceSub1StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceSub1StatOptimize.TabIndex = 42;
             // 
             // l_NecklaceMainOptimize
@@ -5816,10 +5083,10 @@
             this.l_NecklaceMainOptimize.AutoSize = true;
             this.l_NecklaceMainOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_NecklaceMainOptimize.ForeColor = System.Drawing.Color.Black;
-            this.l_NecklaceMainOptimize.Location = new System.Drawing.Point(0, 25);
+            this.l_NecklaceMainOptimize.Location = new System.Drawing.Point(0, 16);
             this.l_NecklaceMainOptimize.Margin = new System.Windows.Forms.Padding(0);
             this.l_NecklaceMainOptimize.Name = "l_NecklaceMainOptimize";
-            this.l_NecklaceMainOptimize.Size = new System.Drawing.Size(0, 24);
+            this.l_NecklaceMainOptimize.Size = new System.Drawing.Size(0, 16);
             this.l_NecklaceMainOptimize.TabIndex = 38;
             // 
             // l_NecklaceMainStatOptimize
@@ -5827,11 +5094,11 @@
             this.l_NecklaceMainStatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_NecklaceMainStatOptimize.AutoSize = true;
             this.l_NecklaceMainStatOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_NecklaceMainStatOptimize.Location = new System.Drawing.Point(290, 25);
+            this.l_NecklaceMainStatOptimize.Location = new System.Drawing.Point(193, 16);
             this.l_NecklaceMainStatOptimize.Margin = new System.Windows.Forms.Padding(0);
             this.l_NecklaceMainStatOptimize.Name = "l_NecklaceMainStatOptimize";
             this.l_NecklaceMainStatOptimize.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.l_NecklaceMainStatOptimize.Size = new System.Drawing.Size(0, 24);
+            this.l_NecklaceMainStatOptimize.Size = new System.Drawing.Size(0, 16);
             this.l_NecklaceMainStatOptimize.TabIndex = 39;
             // 
             // label126
@@ -5841,10 +5108,9 @@
             this.tlp_NecklaceOptimize.SetColumnSpan(this.label126, 2);
             this.label126.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label126.ForeColor = System.Drawing.Color.Silver;
-            this.label126.Location = new System.Drawing.Point(4, 63);
-            this.label126.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label126.Location = new System.Drawing.Point(3, 41);
             this.label126.Name = "label126";
-            this.label126.Size = new System.Drawing.Size(282, 2);
+            this.label126.Size = new System.Drawing.Size(187, 1);
             this.label126.TabIndex = 40;
             this.label126.Text = "                                       ";
             // 
@@ -5852,20 +5118,18 @@
             // 
             this.l_NecklaceGradeOptimize.AutoSize = true;
             this.l_NecklaceGradeOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_NecklaceGradeOptimize.Location = new System.Drawing.Point(1965, 22);
-            this.l_NecklaceGradeOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_NecklaceGradeOptimize.Location = new System.Drawing.Point(1310, 14);
             this.l_NecklaceGradeOptimize.Name = "l_NecklaceGradeOptimize";
-            this.l_NecklaceGradeOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_NecklaceGradeOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_NecklaceGradeOptimize.TabIndex = 82;
             // 
             // l_BootsSetOptimize
             // 
             this.l_BootsSetOptimize.AutoSize = true;
             this.l_BootsSetOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_BootsSetOptimize.Location = new System.Drawing.Point(1951, 1088);
-            this.l_BootsSetOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsSetOptimize.Location = new System.Drawing.Point(1301, 707);
             this.l_BootsSetOptimize.Name = "l_BootsSetOptimize";
-            this.l_BootsSetOptimize.Size = new System.Drawing.Size(0, 24);
+            this.l_BootsSetOptimize.Size = new System.Drawing.Size(0, 16);
             this.l_BootsSetOptimize.TabIndex = 80;
             // 
             // tlp_BootsOptimize
@@ -5885,78 +5149,72 @@
             this.tlp_BootsOptimize.Controls.Add(this.l_BootsMainOptimize, 0, 1);
             this.tlp_BootsOptimize.Controls.Add(this.l_BootsMainStatOptimize, 1, 1);
             this.tlp_BootsOptimize.Controls.Add(this.label112, 0, 2);
-            this.tlp_BootsOptimize.Location = new System.Drawing.Point(1886, 872);
-            this.tlp_BootsOptimize.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.tlp_BootsOptimize.Location = new System.Drawing.Point(1257, 567);
+            this.tlp_BootsOptimize.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
             this.tlp_BootsOptimize.Name = "tlp_BootsOptimize";
             this.tlp_BootsOptimize.RowCount = 7;
+            this.tlp_BootsOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tlp_BootsOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tlp_BootsOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.tlp_BootsOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlp_BootsOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tlp_BootsOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
-            this.tlp_BootsOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_BootsOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_BootsOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_BootsOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_BootsOptimize.Size = new System.Drawing.Size(290, 197);
+            this.tlp_BootsOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_BootsOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_BootsOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_BootsOptimize.Size = new System.Drawing.Size(193, 128);
             this.tlp_BootsOptimize.TabIndex = 78;
             // 
             // l_BootsSub4StatOptimize
             // 
             this.l_BootsSub4StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_BootsSub4StatOptimize.AutoSize = true;
-            this.l_BootsSub4StatOptimize.Location = new System.Drawing.Point(286, 171);
-            this.l_BootsSub4StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsSub4StatOptimize.Location = new System.Drawing.Point(190, 111);
             this.l_BootsSub4StatOptimize.Name = "l_BootsSub4StatOptimize";
-            this.l_BootsSub4StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsSub4StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_BootsSub4StatOptimize.TabIndex = 49;
             // 
             // l_BootsSub4Optimize
             // 
             this.l_BootsSub4Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_BootsSub4Optimize.AutoSize = true;
-            this.l_BootsSub4Optimize.Location = new System.Drawing.Point(4, 171);
-            this.l_BootsSub4Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsSub4Optimize.Location = new System.Drawing.Point(3, 111);
             this.l_BootsSub4Optimize.Name = "l_BootsSub4Optimize";
-            this.l_BootsSub4Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsSub4Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_BootsSub4Optimize.TabIndex = 48;
             // 
             // l_BootsSub3StatOptimize
             // 
             this.l_BootsSub3StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_BootsSub3StatOptimize.AutoSize = true;
-            this.l_BootsSub3StatOptimize.Location = new System.Drawing.Point(286, 140);
-            this.l_BootsSub3StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsSub3StatOptimize.Location = new System.Drawing.Point(190, 91);
             this.l_BootsSub3StatOptimize.Name = "l_BootsSub3StatOptimize";
-            this.l_BootsSub3StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsSub3StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_BootsSub3StatOptimize.TabIndex = 47;
             // 
             // l_BootsSub3Optimize
             // 
             this.l_BootsSub3Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_BootsSub3Optimize.AutoSize = true;
-            this.l_BootsSub3Optimize.Location = new System.Drawing.Point(4, 140);
-            this.l_BootsSub3Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsSub3Optimize.Location = new System.Drawing.Point(3, 91);
             this.l_BootsSub3Optimize.Name = "l_BootsSub3Optimize";
-            this.l_BootsSub3Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsSub3Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_BootsSub3Optimize.TabIndex = 46;
             // 
             // l_BootsSub2StatOptimize
             // 
             this.l_BootsSub2StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_BootsSub2StatOptimize.AutoSize = true;
-            this.l_BootsSub2StatOptimize.Location = new System.Drawing.Point(286, 109);
-            this.l_BootsSub2StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsSub2StatOptimize.Location = new System.Drawing.Point(190, 71);
             this.l_BootsSub2StatOptimize.Name = "l_BootsSub2StatOptimize";
-            this.l_BootsSub2StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsSub2StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_BootsSub2StatOptimize.TabIndex = 45;
             // 
             // l_BootsSub2Optimize
             // 
             this.l_BootsSub2Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_BootsSub2Optimize.AutoSize = true;
-            this.l_BootsSub2Optimize.Location = new System.Drawing.Point(4, 109);
-            this.l_BootsSub2Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsSub2Optimize.Location = new System.Drawing.Point(3, 71);
             this.l_BootsSub2Optimize.Name = "l_BootsSub2Optimize";
-            this.l_BootsSub2Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsSub2Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_BootsSub2Optimize.TabIndex = 44;
             // 
             // label107
@@ -5966,10 +5224,9 @@
             this.tlp_BootsOptimize.SetColumnSpan(this.label107, 2);
             this.label107.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label107.ForeColor = System.Drawing.Color.Silver;
-            this.label107.Location = new System.Drawing.Point(4, 9);
-            this.label107.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label107.Location = new System.Drawing.Point(3, 6);
             this.label107.Name = "label107";
-            this.label107.Size = new System.Drawing.Size(282, 2);
+            this.label107.Size = new System.Drawing.Size(187, 1);
             this.label107.TabIndex = 37;
             this.label107.Text = "                                       ";
             // 
@@ -5977,20 +5234,18 @@
             // 
             this.l_BootsSub1Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_BootsSub1Optimize.AutoSize = true;
-            this.l_BootsSub1Optimize.Location = new System.Drawing.Point(4, 78);
-            this.l_BootsSub1Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsSub1Optimize.Location = new System.Drawing.Point(3, 51);
             this.l_BootsSub1Optimize.Name = "l_BootsSub1Optimize";
-            this.l_BootsSub1Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsSub1Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_BootsSub1Optimize.TabIndex = 41;
             // 
             // l_BootsSub1StatOptimize
             // 
             this.l_BootsSub1StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_BootsSub1StatOptimize.AutoSize = true;
-            this.l_BootsSub1StatOptimize.Location = new System.Drawing.Point(286, 78);
-            this.l_BootsSub1StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsSub1StatOptimize.Location = new System.Drawing.Point(190, 51);
             this.l_BootsSub1StatOptimize.Name = "l_BootsSub1StatOptimize";
-            this.l_BootsSub1StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsSub1StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_BootsSub1StatOptimize.TabIndex = 42;
             // 
             // l_BootsMainOptimize
@@ -5999,10 +5254,9 @@
             this.l_BootsMainOptimize.AutoSize = true;
             this.l_BootsMainOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_BootsMainOptimize.ForeColor = System.Drawing.Color.Black;
-            this.l_BootsMainOptimize.Location = new System.Drawing.Point(4, 25);
-            this.l_BootsMainOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsMainOptimize.Location = new System.Drawing.Point(3, 16);
             this.l_BootsMainOptimize.Name = "l_BootsMainOptimize";
-            this.l_BootsMainOptimize.Size = new System.Drawing.Size(0, 24);
+            this.l_BootsMainOptimize.Size = new System.Drawing.Size(0, 16);
             this.l_BootsMainOptimize.TabIndex = 38;
             // 
             // l_BootsMainStatOptimize
@@ -6010,11 +5264,10 @@
             this.l_BootsMainStatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_BootsMainStatOptimize.AutoSize = true;
             this.l_BootsMainStatOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_BootsMainStatOptimize.Location = new System.Drawing.Point(286, 25);
-            this.l_BootsMainStatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsMainStatOptimize.Location = new System.Drawing.Point(190, 16);
             this.l_BootsMainStatOptimize.Name = "l_BootsMainStatOptimize";
             this.l_BootsMainStatOptimize.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.l_BootsMainStatOptimize.Size = new System.Drawing.Size(0, 24);
+            this.l_BootsMainStatOptimize.Size = new System.Drawing.Size(0, 16);
             this.l_BootsMainStatOptimize.TabIndex = 39;
             // 
             // label112
@@ -6024,10 +5277,9 @@
             this.tlp_BootsOptimize.SetColumnSpan(this.label112, 2);
             this.label112.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label112.ForeColor = System.Drawing.Color.Silver;
-            this.label112.Location = new System.Drawing.Point(4, 63);
-            this.label112.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label112.Location = new System.Drawing.Point(3, 41);
             this.label112.Name = "label112";
-            this.label112.Size = new System.Drawing.Size(282, 2);
+            this.label112.Size = new System.Drawing.Size(187, 1);
             this.label112.TabIndex = 40;
             this.label112.Text = "                                       ";
             // 
@@ -6035,20 +5287,18 @@
             // 
             this.l_BootsGradeOptimize.AutoSize = true;
             this.l_BootsGradeOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_BootsGradeOptimize.Location = new System.Drawing.Point(1965, 822);
-            this.l_BootsGradeOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_BootsGradeOptimize.Location = new System.Drawing.Point(1310, 534);
             this.l_BootsGradeOptimize.Name = "l_BootsGradeOptimize";
-            this.l_BootsGradeOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_BootsGradeOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_BootsGradeOptimize.TabIndex = 77;
             // 
             // l_ArmorSetOptimize
             // 
             this.l_ArmorSetOptimize.AutoSize = true;
             this.l_ArmorSetOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_ArmorSetOptimize.Location = new System.Drawing.Point(1559, 1088);
-            this.l_ArmorSetOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorSetOptimize.Location = new System.Drawing.Point(1039, 707);
             this.l_ArmorSetOptimize.Name = "l_ArmorSetOptimize";
-            this.l_ArmorSetOptimize.Size = new System.Drawing.Size(0, 24);
+            this.l_ArmorSetOptimize.Size = new System.Drawing.Size(0, 16);
             this.l_ArmorSetOptimize.TabIndex = 62;
             // 
             // tlp_ArmorOptimize
@@ -6068,78 +5318,72 @@
             this.tlp_ArmorOptimize.Controls.Add(this.l_ArmorMainOptimize, 0, 1);
             this.tlp_ArmorOptimize.Controls.Add(this.l_ArmorMainStatOptimize, 1, 1);
             this.tlp_ArmorOptimize.Controls.Add(this.label98, 0, 2);
-            this.tlp_ArmorOptimize.Location = new System.Drawing.Point(1494, 872);
-            this.tlp_ArmorOptimize.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.tlp_ArmorOptimize.Location = new System.Drawing.Point(996, 567);
+            this.tlp_ArmorOptimize.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
             this.tlp_ArmorOptimize.Name = "tlp_ArmorOptimize";
             this.tlp_ArmorOptimize.RowCount = 7;
+            this.tlp_ArmorOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tlp_ArmorOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tlp_ArmorOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.tlp_ArmorOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlp_ArmorOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tlp_ArmorOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
-            this.tlp_ArmorOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_ArmorOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_ArmorOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_ArmorOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_ArmorOptimize.Size = new System.Drawing.Size(272, 197);
+            this.tlp_ArmorOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_ArmorOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_ArmorOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_ArmorOptimize.Size = new System.Drawing.Size(181, 128);
             this.tlp_ArmorOptimize.TabIndex = 60;
             // 
             // l_ArmorSub4StatOptimize
             // 
             this.l_ArmorSub4StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_ArmorSub4StatOptimize.AutoSize = true;
-            this.l_ArmorSub4StatOptimize.Location = new System.Drawing.Point(268, 171);
-            this.l_ArmorSub4StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorSub4StatOptimize.Location = new System.Drawing.Point(178, 111);
             this.l_ArmorSub4StatOptimize.Name = "l_ArmorSub4StatOptimize";
-            this.l_ArmorSub4StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorSub4StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorSub4StatOptimize.TabIndex = 49;
             // 
             // l_ArmorSub4Optimize
             // 
             this.l_ArmorSub4Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_ArmorSub4Optimize.AutoSize = true;
-            this.l_ArmorSub4Optimize.Location = new System.Drawing.Point(4, 171);
-            this.l_ArmorSub4Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorSub4Optimize.Location = new System.Drawing.Point(3, 111);
             this.l_ArmorSub4Optimize.Name = "l_ArmorSub4Optimize";
-            this.l_ArmorSub4Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorSub4Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorSub4Optimize.TabIndex = 48;
             // 
             // l_ArmorSub3StatOptimize
             // 
             this.l_ArmorSub3StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_ArmorSub3StatOptimize.AutoSize = true;
-            this.l_ArmorSub3StatOptimize.Location = new System.Drawing.Point(268, 140);
-            this.l_ArmorSub3StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorSub3StatOptimize.Location = new System.Drawing.Point(178, 91);
             this.l_ArmorSub3StatOptimize.Name = "l_ArmorSub3StatOptimize";
-            this.l_ArmorSub3StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorSub3StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorSub3StatOptimize.TabIndex = 47;
             // 
             // l_ArmorSub3Optimize
             // 
             this.l_ArmorSub3Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_ArmorSub3Optimize.AutoSize = true;
-            this.l_ArmorSub3Optimize.Location = new System.Drawing.Point(4, 140);
-            this.l_ArmorSub3Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorSub3Optimize.Location = new System.Drawing.Point(3, 91);
             this.l_ArmorSub3Optimize.Name = "l_ArmorSub3Optimize";
-            this.l_ArmorSub3Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorSub3Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorSub3Optimize.TabIndex = 46;
             // 
             // l_ArmorSub2StatOptimize
             // 
             this.l_ArmorSub2StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_ArmorSub2StatOptimize.AutoSize = true;
-            this.l_ArmorSub2StatOptimize.Location = new System.Drawing.Point(268, 109);
-            this.l_ArmorSub2StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorSub2StatOptimize.Location = new System.Drawing.Point(178, 71);
             this.l_ArmorSub2StatOptimize.Name = "l_ArmorSub2StatOptimize";
-            this.l_ArmorSub2StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorSub2StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorSub2StatOptimize.TabIndex = 45;
             // 
             // l_ArmorSub2Optimize
             // 
             this.l_ArmorSub2Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_ArmorSub2Optimize.AutoSize = true;
-            this.l_ArmorSub2Optimize.Location = new System.Drawing.Point(4, 109);
-            this.l_ArmorSub2Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorSub2Optimize.Location = new System.Drawing.Point(3, 71);
             this.l_ArmorSub2Optimize.Name = "l_ArmorSub2Optimize";
-            this.l_ArmorSub2Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorSub2Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorSub2Optimize.TabIndex = 44;
             // 
             // label93
@@ -6149,10 +5393,9 @@
             this.tlp_ArmorOptimize.SetColumnSpan(this.label93, 2);
             this.label93.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label93.ForeColor = System.Drawing.Color.Silver;
-            this.label93.Location = new System.Drawing.Point(4, 9);
-            this.label93.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label93.Location = new System.Drawing.Point(3, 6);
             this.label93.Name = "label93";
-            this.label93.Size = new System.Drawing.Size(264, 2);
+            this.label93.Size = new System.Drawing.Size(175, 1);
             this.label93.TabIndex = 37;
             this.label93.Text = "                                       ";
             // 
@@ -6160,20 +5403,18 @@
             // 
             this.l_ArmorSub1Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_ArmorSub1Optimize.AutoSize = true;
-            this.l_ArmorSub1Optimize.Location = new System.Drawing.Point(4, 78);
-            this.l_ArmorSub1Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorSub1Optimize.Location = new System.Drawing.Point(3, 51);
             this.l_ArmorSub1Optimize.Name = "l_ArmorSub1Optimize";
-            this.l_ArmorSub1Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorSub1Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorSub1Optimize.TabIndex = 41;
             // 
             // l_ArmorSub1StatOptimize
             // 
             this.l_ArmorSub1StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_ArmorSub1StatOptimize.AutoSize = true;
-            this.l_ArmorSub1StatOptimize.Location = new System.Drawing.Point(268, 78);
-            this.l_ArmorSub1StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorSub1StatOptimize.Location = new System.Drawing.Point(178, 51);
             this.l_ArmorSub1StatOptimize.Name = "l_ArmorSub1StatOptimize";
-            this.l_ArmorSub1StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorSub1StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorSub1StatOptimize.TabIndex = 42;
             // 
             // l_ArmorMainOptimize
@@ -6182,10 +5423,9 @@
             this.l_ArmorMainOptimize.AutoSize = true;
             this.l_ArmorMainOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_ArmorMainOptimize.ForeColor = System.Drawing.Color.Black;
-            this.l_ArmorMainOptimize.Location = new System.Drawing.Point(4, 25);
-            this.l_ArmorMainOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorMainOptimize.Location = new System.Drawing.Point(3, 16);
             this.l_ArmorMainOptimize.Name = "l_ArmorMainOptimize";
-            this.l_ArmorMainOptimize.Size = new System.Drawing.Size(0, 24);
+            this.l_ArmorMainOptimize.Size = new System.Drawing.Size(0, 16);
             this.l_ArmorMainOptimize.TabIndex = 38;
             // 
             // l_ArmorMainStatOptimize
@@ -6193,11 +5433,10 @@
             this.l_ArmorMainStatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_ArmorMainStatOptimize.AutoSize = true;
             this.l_ArmorMainStatOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_ArmorMainStatOptimize.Location = new System.Drawing.Point(268, 25);
-            this.l_ArmorMainStatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorMainStatOptimize.Location = new System.Drawing.Point(178, 16);
             this.l_ArmorMainStatOptimize.Name = "l_ArmorMainStatOptimize";
             this.l_ArmorMainStatOptimize.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.l_ArmorMainStatOptimize.Size = new System.Drawing.Size(0, 24);
+            this.l_ArmorMainStatOptimize.Size = new System.Drawing.Size(0, 16);
             this.l_ArmorMainStatOptimize.TabIndex = 39;
             // 
             // label98
@@ -6207,10 +5446,9 @@
             this.tlp_ArmorOptimize.SetColumnSpan(this.label98, 2);
             this.label98.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label98.ForeColor = System.Drawing.Color.Silver;
-            this.label98.Location = new System.Drawing.Point(4, 63);
-            this.label98.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label98.Location = new System.Drawing.Point(3, 41);
             this.label98.Name = "label98";
-            this.label98.Size = new System.Drawing.Size(264, 2);
+            this.label98.Size = new System.Drawing.Size(175, 1);
             this.label98.TabIndex = 40;
             this.label98.Text = "                                       ";
             // 
@@ -6218,20 +5456,18 @@
             // 
             this.l_ArmorGradeOptimize.AutoSize = true;
             this.l_ArmorGradeOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_ArmorGradeOptimize.Location = new System.Drawing.Point(1573, 822);
-            this.l_ArmorGradeOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_ArmorGradeOptimize.Location = new System.Drawing.Point(1049, 534);
             this.l_ArmorGradeOptimize.Name = "l_ArmorGradeOptimize";
-            this.l_ArmorGradeOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_ArmorGradeOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_ArmorGradeOptimize.TabIndex = 59;
             // 
             // l_HelmetSetOptimize
             // 
             this.l_HelmetSetOptimize.AutoSize = true;
             this.l_HelmetSetOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_HelmetSetOptimize.Location = new System.Drawing.Point(1559, 688);
-            this.l_HelmetSetOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetSetOptimize.Location = new System.Drawing.Point(1039, 447);
             this.l_HelmetSetOptimize.Name = "l_HelmetSetOptimize";
-            this.l_HelmetSetOptimize.Size = new System.Drawing.Size(0, 24);
+            this.l_HelmetSetOptimize.Size = new System.Drawing.Size(0, 16);
             this.l_HelmetSetOptimize.TabIndex = 57;
             // 
             // tlp_HelmetOptimize
@@ -6251,78 +5487,72 @@
             this.tlp_HelmetOptimize.Controls.Add(this.l_HelmetMainOptimize, 0, 1);
             this.tlp_HelmetOptimize.Controls.Add(this.l_HelmetMainStatOptimize, 1, 1);
             this.tlp_HelmetOptimize.Controls.Add(this.label82, 0, 2);
-            this.tlp_HelmetOptimize.Location = new System.Drawing.Point(1494, 473);
-            this.tlp_HelmetOptimize.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.tlp_HelmetOptimize.Location = new System.Drawing.Point(996, 307);
+            this.tlp_HelmetOptimize.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
             this.tlp_HelmetOptimize.Name = "tlp_HelmetOptimize";
             this.tlp_HelmetOptimize.RowCount = 7;
+            this.tlp_HelmetOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tlp_HelmetOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tlp_HelmetOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.tlp_HelmetOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlp_HelmetOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tlp_HelmetOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
-            this.tlp_HelmetOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_HelmetOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_HelmetOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_HelmetOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_HelmetOptimize.Size = new System.Drawing.Size(272, 197);
+            this.tlp_HelmetOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_HelmetOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_HelmetOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_HelmetOptimize.Size = new System.Drawing.Size(181, 128);
             this.tlp_HelmetOptimize.TabIndex = 55;
             // 
             // l_HelmetSub4StatOptimize
             // 
             this.l_HelmetSub4StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_HelmetSub4StatOptimize.AutoSize = true;
-            this.l_HelmetSub4StatOptimize.Location = new System.Drawing.Point(268, 171);
-            this.l_HelmetSub4StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetSub4StatOptimize.Location = new System.Drawing.Point(178, 111);
             this.l_HelmetSub4StatOptimize.Name = "l_HelmetSub4StatOptimize";
-            this.l_HelmetSub4StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetSub4StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetSub4StatOptimize.TabIndex = 49;
             // 
             // l_HelmetSub4Optimize
             // 
             this.l_HelmetSub4Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_HelmetSub4Optimize.AutoSize = true;
-            this.l_HelmetSub4Optimize.Location = new System.Drawing.Point(4, 171);
-            this.l_HelmetSub4Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetSub4Optimize.Location = new System.Drawing.Point(3, 111);
             this.l_HelmetSub4Optimize.Name = "l_HelmetSub4Optimize";
-            this.l_HelmetSub4Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetSub4Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetSub4Optimize.TabIndex = 48;
             // 
             // l_HelmetSub3StatOptimize
             // 
             this.l_HelmetSub3StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_HelmetSub3StatOptimize.AutoSize = true;
-            this.l_HelmetSub3StatOptimize.Location = new System.Drawing.Point(268, 140);
-            this.l_HelmetSub3StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetSub3StatOptimize.Location = new System.Drawing.Point(178, 91);
             this.l_HelmetSub3StatOptimize.Name = "l_HelmetSub3StatOptimize";
-            this.l_HelmetSub3StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetSub3StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetSub3StatOptimize.TabIndex = 47;
             // 
             // l_HelmetSub3Optimize
             // 
             this.l_HelmetSub3Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_HelmetSub3Optimize.AutoSize = true;
-            this.l_HelmetSub3Optimize.Location = new System.Drawing.Point(4, 140);
-            this.l_HelmetSub3Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetSub3Optimize.Location = new System.Drawing.Point(3, 91);
             this.l_HelmetSub3Optimize.Name = "l_HelmetSub3Optimize";
-            this.l_HelmetSub3Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetSub3Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetSub3Optimize.TabIndex = 46;
             // 
             // l_HelmetSub2StatOptimize
             // 
             this.l_HelmetSub2StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_HelmetSub2StatOptimize.AutoSize = true;
-            this.l_HelmetSub2StatOptimize.Location = new System.Drawing.Point(268, 109);
-            this.l_HelmetSub2StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetSub2StatOptimize.Location = new System.Drawing.Point(178, 71);
             this.l_HelmetSub2StatOptimize.Name = "l_HelmetSub2StatOptimize";
-            this.l_HelmetSub2StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetSub2StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetSub2StatOptimize.TabIndex = 45;
             // 
             // l_HelmetSub2Optimize
             // 
             this.l_HelmetSub2Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_HelmetSub2Optimize.AutoSize = true;
-            this.l_HelmetSub2Optimize.Location = new System.Drawing.Point(4, 109);
-            this.l_HelmetSub2Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetSub2Optimize.Location = new System.Drawing.Point(3, 71);
             this.l_HelmetSub2Optimize.Name = "l_HelmetSub2Optimize";
-            this.l_HelmetSub2Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetSub2Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetSub2Optimize.TabIndex = 44;
             // 
             // label76
@@ -6332,10 +5562,9 @@
             this.tlp_HelmetOptimize.SetColumnSpan(this.label76, 2);
             this.label76.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label76.ForeColor = System.Drawing.Color.Silver;
-            this.label76.Location = new System.Drawing.Point(4, 9);
-            this.label76.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label76.Location = new System.Drawing.Point(3, 6);
             this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(264, 2);
+            this.label76.Size = new System.Drawing.Size(175, 1);
             this.label76.TabIndex = 37;
             this.label76.Text = "                                       ";
             // 
@@ -6343,20 +5572,18 @@
             // 
             this.l_HelmetSub1Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_HelmetSub1Optimize.AutoSize = true;
-            this.l_HelmetSub1Optimize.Location = new System.Drawing.Point(4, 78);
-            this.l_HelmetSub1Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetSub1Optimize.Location = new System.Drawing.Point(3, 51);
             this.l_HelmetSub1Optimize.Name = "l_HelmetSub1Optimize";
-            this.l_HelmetSub1Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetSub1Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetSub1Optimize.TabIndex = 41;
             // 
             // l_HelmetSub1StatOptimize
             // 
             this.l_HelmetSub1StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_HelmetSub1StatOptimize.AutoSize = true;
-            this.l_HelmetSub1StatOptimize.Location = new System.Drawing.Point(268, 78);
-            this.l_HelmetSub1StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetSub1StatOptimize.Location = new System.Drawing.Point(178, 51);
             this.l_HelmetSub1StatOptimize.Name = "l_HelmetSub1StatOptimize";
-            this.l_HelmetSub1StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetSub1StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetSub1StatOptimize.TabIndex = 42;
             // 
             // l_HelmetMainOptimize
@@ -6365,10 +5592,9 @@
             this.l_HelmetMainOptimize.AutoSize = true;
             this.l_HelmetMainOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_HelmetMainOptimize.ForeColor = System.Drawing.Color.Black;
-            this.l_HelmetMainOptimize.Location = new System.Drawing.Point(4, 25);
-            this.l_HelmetMainOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetMainOptimize.Location = new System.Drawing.Point(3, 16);
             this.l_HelmetMainOptimize.Name = "l_HelmetMainOptimize";
-            this.l_HelmetMainOptimize.Size = new System.Drawing.Size(0, 24);
+            this.l_HelmetMainOptimize.Size = new System.Drawing.Size(0, 16);
             this.l_HelmetMainOptimize.TabIndex = 38;
             // 
             // l_HelmetMainStatOptimize
@@ -6376,11 +5602,10 @@
             this.l_HelmetMainStatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_HelmetMainStatOptimize.AutoSize = true;
             this.l_HelmetMainStatOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_HelmetMainStatOptimize.Location = new System.Drawing.Point(268, 25);
-            this.l_HelmetMainStatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetMainStatOptimize.Location = new System.Drawing.Point(178, 16);
             this.l_HelmetMainStatOptimize.Name = "l_HelmetMainStatOptimize";
             this.l_HelmetMainStatOptimize.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.l_HelmetMainStatOptimize.Size = new System.Drawing.Size(0, 24);
+            this.l_HelmetMainStatOptimize.Size = new System.Drawing.Size(0, 16);
             this.l_HelmetMainStatOptimize.TabIndex = 39;
             // 
             // label82
@@ -6390,10 +5615,9 @@
             this.tlp_HelmetOptimize.SetColumnSpan(this.label82, 2);
             this.label82.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label82.ForeColor = System.Drawing.Color.Silver;
-            this.label82.Location = new System.Drawing.Point(4, 63);
-            this.label82.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label82.Location = new System.Drawing.Point(3, 41);
             this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(264, 2);
+            this.label82.Size = new System.Drawing.Size(175, 1);
             this.label82.TabIndex = 40;
             this.label82.Text = "                                       ";
             // 
@@ -6401,20 +5625,18 @@
             // 
             this.l_HelmetGradeOptimize.AutoSize = true;
             this.l_HelmetGradeOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_HelmetGradeOptimize.Location = new System.Drawing.Point(1573, 422);
-            this.l_HelmetGradeOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_HelmetGradeOptimize.Location = new System.Drawing.Point(1049, 274);
             this.l_HelmetGradeOptimize.Name = "l_HelmetGradeOptimize";
-            this.l_HelmetGradeOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_HelmetGradeOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_HelmetGradeOptimize.TabIndex = 54;
             // 
             // l_WeaponSetOptimize
             // 
             this.l_WeaponSetOptimize.AutoSize = true;
             this.l_WeaponSetOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_WeaponSetOptimize.Location = new System.Drawing.Point(1559, 288);
-            this.l_WeaponSetOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponSetOptimize.Location = new System.Drawing.Point(1039, 187);
             this.l_WeaponSetOptimize.Name = "l_WeaponSetOptimize";
-            this.l_WeaponSetOptimize.Size = new System.Drawing.Size(0, 24);
+            this.l_WeaponSetOptimize.Size = new System.Drawing.Size(0, 16);
             this.l_WeaponSetOptimize.TabIndex = 50;
             // 
             // tlp_WeaponOptimize
@@ -6434,78 +5656,72 @@
             this.tlp_WeaponOptimize.Controls.Add(this.l_WeaponMainOptimize, 0, 1);
             this.tlp_WeaponOptimize.Controls.Add(this.l_WeaponMainStatOptimize, 1, 1);
             this.tlp_WeaponOptimize.Controls.Add(this.label64, 0, 2);
-            this.tlp_WeaponOptimize.Location = new System.Drawing.Point(1494, 72);
-            this.tlp_WeaponOptimize.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.tlp_WeaponOptimize.Location = new System.Drawing.Point(996, 47);
+            this.tlp_WeaponOptimize.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
             this.tlp_WeaponOptimize.Name = "tlp_WeaponOptimize";
             this.tlp_WeaponOptimize.RowCount = 7;
+            this.tlp_WeaponOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tlp_WeaponOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tlp_WeaponOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.tlp_WeaponOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlp_WeaponOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tlp_WeaponOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
-            this.tlp_WeaponOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_WeaponOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_WeaponOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_WeaponOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlp_WeaponOptimize.Size = new System.Drawing.Size(272, 197);
+            this.tlp_WeaponOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_WeaponOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_WeaponOptimize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_WeaponOptimize.Size = new System.Drawing.Size(181, 128);
             this.tlp_WeaponOptimize.TabIndex = 48;
             // 
             // l_WeaponSub4StatOptimize
             // 
             this.l_WeaponSub4StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_WeaponSub4StatOptimize.AutoSize = true;
-            this.l_WeaponSub4StatOptimize.Location = new System.Drawing.Point(268, 171);
-            this.l_WeaponSub4StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponSub4StatOptimize.Location = new System.Drawing.Point(178, 111);
             this.l_WeaponSub4StatOptimize.Name = "l_WeaponSub4StatOptimize";
-            this.l_WeaponSub4StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponSub4StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponSub4StatOptimize.TabIndex = 49;
             // 
             // l_WeaponSub4Optimize
             // 
             this.l_WeaponSub4Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_WeaponSub4Optimize.AutoSize = true;
-            this.l_WeaponSub4Optimize.Location = new System.Drawing.Point(4, 171);
-            this.l_WeaponSub4Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponSub4Optimize.Location = new System.Drawing.Point(3, 111);
             this.l_WeaponSub4Optimize.Name = "l_WeaponSub4Optimize";
-            this.l_WeaponSub4Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponSub4Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponSub4Optimize.TabIndex = 48;
             // 
             // l_WeaponSub3StatOptimize
             // 
             this.l_WeaponSub3StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_WeaponSub3StatOptimize.AutoSize = true;
-            this.l_WeaponSub3StatOptimize.Location = new System.Drawing.Point(268, 140);
-            this.l_WeaponSub3StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponSub3StatOptimize.Location = new System.Drawing.Point(178, 91);
             this.l_WeaponSub3StatOptimize.Name = "l_WeaponSub3StatOptimize";
-            this.l_WeaponSub3StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponSub3StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponSub3StatOptimize.TabIndex = 47;
             // 
             // l_WeaponSub3Optimize
             // 
             this.l_WeaponSub3Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_WeaponSub3Optimize.AutoSize = true;
-            this.l_WeaponSub3Optimize.Location = new System.Drawing.Point(4, 140);
-            this.l_WeaponSub3Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponSub3Optimize.Location = new System.Drawing.Point(3, 91);
             this.l_WeaponSub3Optimize.Name = "l_WeaponSub3Optimize";
-            this.l_WeaponSub3Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponSub3Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponSub3Optimize.TabIndex = 46;
             // 
             // l_WeaponSub2StatOptimize
             // 
             this.l_WeaponSub2StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_WeaponSub2StatOptimize.AutoSize = true;
-            this.l_WeaponSub2StatOptimize.Location = new System.Drawing.Point(268, 109);
-            this.l_WeaponSub2StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponSub2StatOptimize.Location = new System.Drawing.Point(178, 71);
             this.l_WeaponSub2StatOptimize.Name = "l_WeaponSub2StatOptimize";
-            this.l_WeaponSub2StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponSub2StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponSub2StatOptimize.TabIndex = 45;
             // 
             // l_WeaponSub2Optimize
             // 
             this.l_WeaponSub2Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_WeaponSub2Optimize.AutoSize = true;
-            this.l_WeaponSub2Optimize.Location = new System.Drawing.Point(4, 109);
-            this.l_WeaponSub2Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponSub2Optimize.Location = new System.Drawing.Point(3, 71);
             this.l_WeaponSub2Optimize.Name = "l_WeaponSub2Optimize";
-            this.l_WeaponSub2Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponSub2Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponSub2Optimize.TabIndex = 44;
             // 
             // label59
@@ -6515,10 +5731,9 @@
             this.tlp_WeaponOptimize.SetColumnSpan(this.label59, 2);
             this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label59.ForeColor = System.Drawing.Color.Silver;
-            this.label59.Location = new System.Drawing.Point(4, 9);
-            this.label59.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label59.Location = new System.Drawing.Point(3, 6);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(264, 2);
+            this.label59.Size = new System.Drawing.Size(175, 1);
             this.label59.TabIndex = 37;
             this.label59.Text = "                                       ";
             // 
@@ -6526,20 +5741,18 @@
             // 
             this.l_WeaponSub1Optimize.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_WeaponSub1Optimize.AutoSize = true;
-            this.l_WeaponSub1Optimize.Location = new System.Drawing.Point(4, 78);
-            this.l_WeaponSub1Optimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponSub1Optimize.Location = new System.Drawing.Point(3, 51);
             this.l_WeaponSub1Optimize.Name = "l_WeaponSub1Optimize";
-            this.l_WeaponSub1Optimize.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponSub1Optimize.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponSub1Optimize.TabIndex = 41;
             // 
             // l_WeaponSub1StatOptimize
             // 
             this.l_WeaponSub1StatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_WeaponSub1StatOptimize.AutoSize = true;
-            this.l_WeaponSub1StatOptimize.Location = new System.Drawing.Point(268, 78);
-            this.l_WeaponSub1StatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponSub1StatOptimize.Location = new System.Drawing.Point(178, 51);
             this.l_WeaponSub1StatOptimize.Name = "l_WeaponSub1StatOptimize";
-            this.l_WeaponSub1StatOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponSub1StatOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponSub1StatOptimize.TabIndex = 42;
             // 
             // l_WeaponMainOptimize
@@ -6548,10 +5761,9 @@
             this.l_WeaponMainOptimize.AutoSize = true;
             this.l_WeaponMainOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_WeaponMainOptimize.ForeColor = System.Drawing.Color.Black;
-            this.l_WeaponMainOptimize.Location = new System.Drawing.Point(4, 25);
-            this.l_WeaponMainOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponMainOptimize.Location = new System.Drawing.Point(3, 16);
             this.l_WeaponMainOptimize.Name = "l_WeaponMainOptimize";
-            this.l_WeaponMainOptimize.Size = new System.Drawing.Size(0, 24);
+            this.l_WeaponMainOptimize.Size = new System.Drawing.Size(0, 16);
             this.l_WeaponMainOptimize.TabIndex = 38;
             // 
             // l_WeaponMainStatOptimize
@@ -6559,11 +5771,10 @@
             this.l_WeaponMainStatOptimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_WeaponMainStatOptimize.AutoSize = true;
             this.l_WeaponMainStatOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_WeaponMainStatOptimize.Location = new System.Drawing.Point(268, 25);
-            this.l_WeaponMainStatOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponMainStatOptimize.Location = new System.Drawing.Point(178, 16);
             this.l_WeaponMainStatOptimize.Name = "l_WeaponMainStatOptimize";
             this.l_WeaponMainStatOptimize.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.l_WeaponMainStatOptimize.Size = new System.Drawing.Size(0, 24);
+            this.l_WeaponMainStatOptimize.Size = new System.Drawing.Size(0, 16);
             this.l_WeaponMainStatOptimize.TabIndex = 39;
             // 
             // label64
@@ -6573,10 +5784,9 @@
             this.tlp_WeaponOptimize.SetColumnSpan(this.label64, 2);
             this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label64.ForeColor = System.Drawing.Color.Silver;
-            this.label64.Location = new System.Drawing.Point(4, 63);
-            this.label64.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label64.Location = new System.Drawing.Point(3, 41);
             this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(264, 2);
+            this.label64.Size = new System.Drawing.Size(175, 1);
             this.label64.TabIndex = 40;
             this.label64.Text = "                                       ";
             // 
@@ -6584,18 +5794,16 @@
             // 
             this.l_WeaponGradeOptimize.AutoSize = true;
             this.l_WeaponGradeOptimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_WeaponGradeOptimize.Location = new System.Drawing.Point(1573, 22);
-            this.l_WeaponGradeOptimize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_WeaponGradeOptimize.Location = new System.Drawing.Point(1049, 14);
             this.l_WeaponGradeOptimize.Name = "l_WeaponGradeOptimize";
-            this.l_WeaponGradeOptimize.Size = new System.Drawing.Size(0, 20);
+            this.l_WeaponGradeOptimize.Size = new System.Drawing.Size(0, 13);
             this.l_WeaponGradeOptimize.TabIndex = 47;
             // 
             // b_PreviousPage
             // 
-            this.b_PreviousPage.Location = new System.Drawing.Point(454, 1101);
-            this.b_PreviousPage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_PreviousPage.Location = new System.Drawing.Point(303, 716);
             this.b_PreviousPage.Name = "b_PreviousPage";
-            this.b_PreviousPage.Size = new System.Drawing.Size(58, 35);
+            this.b_PreviousPage.Size = new System.Drawing.Size(39, 23);
             this.b_PreviousPage.TabIndex = 14;
             this.b_PreviousPage.Text = "<";
             this.b_PreviousPage.UseVisualStyleBackColor = true;
@@ -6603,10 +5811,9 @@
             // 
             // b_NextPage
             // 
-            this.b_NextPage.Location = new System.Drawing.Point(626, 1101);
-            this.b_NextPage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.b_NextPage.Location = new System.Drawing.Point(417, 716);
             this.b_NextPage.Name = "b_NextPage";
-            this.b_NextPage.Size = new System.Drawing.Size(58, 35);
+            this.b_NextPage.Size = new System.Drawing.Size(39, 23);
             this.b_NextPage.TabIndex = 15;
             this.b_NextPage.Text = ">";
             this.b_NextPage.UseVisualStyleBackColor = true;
@@ -6615,10 +5822,9 @@
             // l_Pages
             // 
             this.l_Pages.AutoSize = true;
-            this.l_Pages.Location = new System.Drawing.Point(572, 1109);
-            this.l_Pages.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.l_Pages.Location = new System.Drawing.Point(381, 721);
             this.l_Pages.Name = "l_Pages";
-            this.l_Pages.Size = new System.Drawing.Size(39, 20);
+            this.l_Pages.Size = new System.Drawing.Size(30, 13);
             this.l_Pages.TabIndex = 29;
             this.l_Pages.Text = "0 / 0";
             this.l_Pages.SizeChanged += new System.EventHandler(this.L_Pages_SizeChanged);
@@ -6626,20 +5832,18 @@
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(522, 1109);
-            this.label48.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label48.Location = new System.Drawing.Point(348, 721);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(46, 20);
+            this.label48.Size = new System.Drawing.Size(32, 13);
             this.label48.TabIndex = 28;
             this.label48.Text = "Page";
             // 
             // chb_Equipped
             // 
             this.chb_Equipped.AutoSize = true;
-            this.chb_Equipped.Location = new System.Drawing.Point(9, 105);
-            this.chb_Equipped.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chb_Equipped.Location = new System.Drawing.Point(6, 68);
             this.chb_Equipped.Name = "chb_Equipped";
-            this.chb_Equipped.Size = new System.Drawing.Size(143, 24);
+            this.chb_Equipped.Size = new System.Drawing.Size(97, 17);
             this.chb_Equipped.TabIndex = 2;
             this.chb_Equipped.Text = "equipped items";
             this.chb_Equipped.UseVisualStyleBackColor = true;
@@ -6648,10 +5852,9 @@
             // chb_Locked
             // 
             this.chb_Locked.AutoSize = true;
-            this.chb_Locked.Location = new System.Drawing.Point(9, 69);
-            this.chb_Locked.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chb_Locked.Location = new System.Drawing.Point(6, 45);
             this.chb_Locked.Name = "chb_Locked";
-            this.chb_Locked.Size = new System.Drawing.Size(123, 24);
+            this.chb_Locked.Size = new System.Drawing.Size(85, 17);
             this.chb_Locked.TabIndex = 1;
             this.chb_Locked.Text = "locked items";
             this.chb_Locked.UseVisualStyleBackColor = true;
@@ -6696,8 +5899,7 @@
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_OptimizeResults.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgv_OptimizeResults.Location = new System.Drawing.Point(9, 640);
-            this.dgv_OptimizeResults.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgv_OptimizeResults.Location = new System.Drawing.Point(6, 416);
             this.dgv_OptimizeResults.MultiSelect = false;
             this.dgv_OptimizeResults.Name = "dgv_OptimizeResults";
             this.dgv_OptimizeResults.ReadOnly = true;
@@ -6705,7 +5907,7 @@
             this.dgv_OptimizeResults.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv_OptimizeResults.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgv_OptimizeResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_OptimizeResults.Size = new System.Drawing.Size(1362, 452);
+            this.dgv_OptimizeResults.Size = new System.Drawing.Size(908, 294);
             this.dgv_OptimizeResults.TabIndex = 101;
             this.dgv_OptimizeResults.VirtualMode = true;
             this.dgv_OptimizeResults.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.Dgv_OptimizeResults_CellValueNeeded);
@@ -6825,10 +6027,9 @@
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(4, 615);
-            this.label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label37.Location = new System.Drawing.Point(3, 400);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(73, 20);
+            this.label37.Size = new System.Drawing.Size(49, 13);
             this.label37.TabIndex = 8;
             this.label37.Text = "Results";
             // 
@@ -6872,15 +6073,14 @@
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_CurrentGear.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dgv_CurrentGear.Location = new System.Drawing.Point(9, 513);
-            this.dgv_CurrentGear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgv_CurrentGear.Location = new System.Drawing.Point(6, 333);
             this.dgv_CurrentGear.MultiSelect = false;
             this.dgv_CurrentGear.Name = "dgv_CurrentGear";
             this.dgv_CurrentGear.ReadOnly = true;
             this.dgv_CurrentGear.RowHeadersWidth = 62;
             this.dgv_CurrentGear.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgv_CurrentGear.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_CurrentGear.Size = new System.Drawing.Size(1362, 89);
+            this.dgv_CurrentGear.Size = new System.Drawing.Size(908, 58);
             this.dgv_CurrentGear.TabIndex = 100;
             // 
             // dataGridViewTextBoxColumn3
@@ -6992,30 +6192,27 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(4, 489);
-            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label36.Location = new System.Drawing.Point(3, 318);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(119, 20);
+            this.label36.Size = new System.Drawing.Size(79, 13);
             this.label36.TabIndex = 6;
             this.label36.Text = "Current Gear";
             // 
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(585, 28);
-            this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label34.Location = new System.Drawing.Point(390, 18);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(38, 20);
+            this.label34.Size = new System.Drawing.Size(27, 13);
             this.label34.TabIndex = 5;
             this.label34.Text = "Max";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(223, 28);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Location = new System.Drawing.Point(149, 18);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(34, 20);
+            this.label21.Size = new System.Drawing.Size(24, 13);
             this.label21.TabIndex = 6;
             this.label21.Text = "Min";
             // 
@@ -7023,10 +6220,9 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(223, 2);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Location = new System.Drawing.Point(149, 1);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(53, 20);
+            this.label19.Size = new System.Drawing.Size(35, 13);
             this.label19.TabIndex = 3;
             this.label19.Text = "Filter";
             // 
@@ -7075,8 +6271,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tb_MinDMGpS, 0, 12);
             this.tableLayoutPanel1.Controls.Add(this.label51, 1, 10);
             this.tableLayoutPanel1.Controls.Add(this.label52, 1, 12);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(223, 54);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(149, 35);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 13;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692425F));
@@ -7092,196 +6287,177 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.691657F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692425F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.691657F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(400, 450);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(267, 292);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // tb_MaxDMG
             // 
             this.tb_MaxDMG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxDMG.Location = new System.Drawing.Point(270, 379);
-            this.tb_MaxDMG.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxDMG.Location = new System.Drawing.Point(180, 245);
             this.tb_MaxDMG.Name = "tb_MaxDMG";
-            this.tb_MaxDMG.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxDMG.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxDMG.TabIndex = 23;
             this.tb_MaxDMG.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinDMG
             // 
             this.tb_MinDMG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinDMG.Location = new System.Drawing.Point(4, 379);
-            this.tb_MinDMG.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinDMG.Location = new System.Drawing.Point(3, 245);
             this.tb_MinDMG.Name = "tb_MinDMG";
-            this.tb_MinDMG.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinDMG.Size = new System.Drawing.Size(82, 20);
             this.tb_MinDMG.TabIndex = 22;
             this.tb_MinDMG.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MaxEHP
             // 
             this.tb_MaxEHP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxEHP.Location = new System.Drawing.Point(270, 311);
-            this.tb_MaxEHP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxEHP.Location = new System.Drawing.Point(180, 201);
             this.tb_MaxEHP.Name = "tb_MaxEHP";
-            this.tb_MaxEHP.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxEHP.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxEHP.TabIndex = 19;
             this.tb_MaxEHP.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinEHP
             // 
             this.tb_MinEHP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinEHP.Location = new System.Drawing.Point(4, 311);
-            this.tb_MinEHP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinEHP.Location = new System.Drawing.Point(3, 201);
             this.tb_MinEHP.Name = "tb_MinEHP";
-            this.tb_MinEHP.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinEHP.Size = new System.Drawing.Size(82, 20);
             this.tb_MinEHP.TabIndex = 18;
             this.tb_MinEHP.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MaxRES
             // 
             this.tb_MaxRES.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxRES.Location = new System.Drawing.Point(270, 277);
-            this.tb_MaxRES.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxRES.Location = new System.Drawing.Point(180, 179);
             this.tb_MaxRES.Name = "tb_MaxRES";
-            this.tb_MaxRES.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxRES.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxRES.TabIndex = 17;
             this.tb_MaxRES.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinRES
             // 
             this.tb_MinRES.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinRES.Location = new System.Drawing.Point(4, 277);
-            this.tb_MinRES.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinRES.Location = new System.Drawing.Point(3, 179);
             this.tb_MinRES.Name = "tb_MinRES";
-            this.tb_MinRES.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinRES.Size = new System.Drawing.Size(82, 20);
             this.tb_MinRES.TabIndex = 16;
             this.tb_MinRES.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MaxEFF
             // 
             this.tb_MaxEFF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxEFF.Location = new System.Drawing.Point(270, 243);
-            this.tb_MaxEFF.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxEFF.Location = new System.Drawing.Point(180, 157);
             this.tb_MaxEFF.Name = "tb_MaxEFF";
-            this.tb_MaxEFF.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxEFF.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxEFF.TabIndex = 15;
             this.tb_MaxEFF.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinEFF
             // 
             this.tb_MinEFF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinEFF.Location = new System.Drawing.Point(4, 243);
-            this.tb_MinEFF.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinEFF.Location = new System.Drawing.Point(3, 157);
             this.tb_MinEFF.Name = "tb_MinEFF";
-            this.tb_MinEFF.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinEFF.Size = new System.Drawing.Size(82, 20);
             this.tb_MinEFF.TabIndex = 14;
             this.tb_MinEFF.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MaxDEF
             // 
             this.tb_MaxDEF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxDEF.Location = new System.Drawing.Point(270, 209);
-            this.tb_MaxDEF.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxDEF.Location = new System.Drawing.Point(180, 135);
             this.tb_MaxDEF.Name = "tb_MaxDEF";
-            this.tb_MaxDEF.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxDEF.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxDEF.TabIndex = 13;
             this.tb_MaxDEF.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinDEF
             // 
             this.tb_MinDEF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinDEF.Location = new System.Drawing.Point(4, 209);
-            this.tb_MinDEF.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinDEF.Location = new System.Drawing.Point(3, 135);
             this.tb_MinDEF.Name = "tb_MinDEF";
-            this.tb_MinDEF.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinDEF.Size = new System.Drawing.Size(82, 20);
             this.tb_MinDEF.TabIndex = 12;
             this.tb_MinDEF.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MaxHP
             // 
             this.tb_MaxHP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxHP.Location = new System.Drawing.Point(270, 141);
-            this.tb_MaxHP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxHP.Location = new System.Drawing.Point(180, 91);
             this.tb_MaxHP.Name = "tb_MaxHP";
-            this.tb_MaxHP.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxHP.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxHP.TabIndex = 9;
             this.tb_MaxHP.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinHP
             // 
             this.tb_MinHP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinHP.Location = new System.Drawing.Point(4, 141);
-            this.tb_MinHP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinHP.Location = new System.Drawing.Point(3, 91);
             this.tb_MinHP.Name = "tb_MinHP";
-            this.tb_MinHP.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinHP.Size = new System.Drawing.Size(82, 20);
             this.tb_MinHP.TabIndex = 8;
             this.tb_MinHP.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MaxCritDmg
             // 
             this.tb_MaxCritDmg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxCritDmg.Location = new System.Drawing.Point(270, 107);
-            this.tb_MaxCritDmg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxCritDmg.Location = new System.Drawing.Point(180, 69);
             this.tb_MaxCritDmg.Name = "tb_MaxCritDmg";
-            this.tb_MaxCritDmg.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxCritDmg.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxCritDmg.TabIndex = 7;
             this.tb_MaxCritDmg.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinCritDmg
             // 
             this.tb_MinCritDmg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinCritDmg.Location = new System.Drawing.Point(4, 107);
-            this.tb_MinCritDmg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinCritDmg.Location = new System.Drawing.Point(3, 69);
             this.tb_MinCritDmg.Name = "tb_MinCritDmg";
-            this.tb_MinCritDmg.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinCritDmg.Size = new System.Drawing.Size(82, 20);
             this.tb_MinCritDmg.TabIndex = 6;
             this.tb_MinCritDmg.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MaxCrit
             // 
             this.tb_MaxCrit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxCrit.Location = new System.Drawing.Point(270, 73);
-            this.tb_MaxCrit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxCrit.Location = new System.Drawing.Point(180, 47);
             this.tb_MaxCrit.Name = "tb_MaxCrit";
-            this.tb_MaxCrit.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxCrit.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxCrit.TabIndex = 5;
             this.tb_MaxCrit.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinCrit
             // 
             this.tb_MinCrit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinCrit.Location = new System.Drawing.Point(4, 73);
-            this.tb_MinCrit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinCrit.Location = new System.Drawing.Point(3, 47);
             this.tb_MinCrit.Name = "tb_MinCrit";
-            this.tb_MinCrit.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinCrit.Size = new System.Drawing.Size(82, 20);
             this.tb_MinCrit.TabIndex = 4;
             this.tb_MinCrit.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MaxSPD
             // 
             this.tb_MaxSPD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxSPD.Location = new System.Drawing.Point(270, 39);
-            this.tb_MaxSPD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxSPD.Location = new System.Drawing.Point(180, 25);
             this.tb_MaxSPD.Name = "tb_MaxSPD";
-            this.tb_MaxSPD.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxSPD.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxSPD.TabIndex = 3;
             this.tb_MaxSPD.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinSPD
             // 
             this.tb_MinSPD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinSPD.Location = new System.Drawing.Point(4, 39);
-            this.tb_MinSPD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinSPD.Location = new System.Drawing.Point(3, 25);
             this.tb_MinSPD.Name = "tb_MinSPD";
-            this.tb_MinSPD.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinSPD.Size = new System.Drawing.Size(82, 20);
             this.tb_MinSPD.TabIndex = 2;
             this.tb_MinSPD.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MaxATK
             // 
             this.tb_MaxATK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxATK.Location = new System.Drawing.Point(270, 5);
-            this.tb_MaxATK.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxATK.Location = new System.Drawing.Point(180, 3);
             this.tb_MaxATK.Name = "tb_MaxATK";
-            this.tb_MaxATK.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxATK.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxATK.TabIndex = 1;
             this.tb_MaxATK.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
@@ -7289,10 +6465,9 @@
             // 
             this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(137, 7);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Location = new System.Drawing.Point(91, 4);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(125, 20);
+            this.label22.Size = new System.Drawing.Size(83, 13);
             this.label22.TabIndex = 0;
             this.label22.Text = "Attack";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7301,10 +6476,9 @@
             // 
             this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(137, 41);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Location = new System.Drawing.Point(91, 26);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(125, 20);
+            this.label23.Size = new System.Drawing.Size(83, 13);
             this.label23.TabIndex = 1;
             this.label23.Text = "Speed";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7313,10 +6487,9 @@
             // 
             this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(137, 75);
-            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Location = new System.Drawing.Point(91, 48);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(125, 20);
+            this.label24.Size = new System.Drawing.Size(83, 13);
             this.label24.TabIndex = 2;
             this.label24.Text = "Crit";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7325,10 +6498,9 @@
             // 
             this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(137, 109);
-            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label26.Location = new System.Drawing.Point(91, 70);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(125, 20);
+            this.label26.Size = new System.Drawing.Size(83, 13);
             this.label26.TabIndex = 3;
             this.label26.Text = "CritDmg";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7337,10 +6509,9 @@
             // 
             this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(137, 143);
-            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label28.Location = new System.Drawing.Point(91, 92);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(125, 20);
+            this.label28.Size = new System.Drawing.Size(83, 13);
             this.label28.TabIndex = 4;
             this.label28.Text = "Health";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7349,10 +6520,9 @@
             // 
             this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(137, 211);
-            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label29.Location = new System.Drawing.Point(91, 136);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(125, 20);
+            this.label29.Size = new System.Drawing.Size(83, 13);
             this.label29.TabIndex = 6;
             this.label29.Text = "Defense";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7361,10 +6531,9 @@
             // 
             this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(137, 245);
-            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label30.Location = new System.Drawing.Point(91, 158);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(125, 20);
+            this.label30.Size = new System.Drawing.Size(83, 13);
             this.label30.TabIndex = 7;
             this.label30.Text = "Eff";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7373,10 +6542,9 @@
             // 
             this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(137, 279);
-            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label31.Location = new System.Drawing.Point(91, 180);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(125, 20);
+            this.label31.Size = new System.Drawing.Size(83, 13);
             this.label31.TabIndex = 8;
             this.label31.Text = "Resist";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7385,10 +6553,9 @@
             // 
             this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(137, 313);
-            this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label32.Location = new System.Drawing.Point(91, 202);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(125, 20);
+            this.label32.Size = new System.Drawing.Size(83, 13);
             this.label32.TabIndex = 9;
             this.label32.Text = "EHP";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7397,10 +6564,9 @@
             // 
             this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(137, 381);
-            this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label33.Location = new System.Drawing.Point(91, 246);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(125, 20);
+            this.label33.Size = new System.Drawing.Size(83, 13);
             this.label33.TabIndex = 11;
             this.label33.Text = "DMG";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7408,20 +6574,18 @@
             // tb_MinATK
             // 
             this.tb_MinATK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinATK.Location = new System.Drawing.Point(4, 5);
-            this.tb_MinATK.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinATK.Location = new System.Drawing.Point(3, 3);
             this.tb_MinATK.Name = "tb_MinATK";
-            this.tb_MinATK.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinATK.Size = new System.Drawing.Size(82, 20);
             this.tb_MinATK.TabIndex = 0;
             this.tb_MinATK.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinHPpS
             // 
             this.tb_MinHPpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinHPpS.Location = new System.Drawing.Point(4, 175);
-            this.tb_MinHPpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinHPpS.Location = new System.Drawing.Point(3, 113);
             this.tb_MinHPpS.Name = "tb_MinHPpS";
-            this.tb_MinHPpS.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinHPpS.Size = new System.Drawing.Size(82, 20);
             this.tb_MinHPpS.TabIndex = 10;
             this.tb_MinHPpS.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
@@ -7429,10 +6593,9 @@
             // 
             this.label42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(137, 177);
-            this.label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label42.Location = new System.Drawing.Point(91, 114);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(125, 20);
+            this.label42.Size = new System.Drawing.Size(83, 13);
             this.label42.TabIndex = 5;
             this.label42.Text = "HP/SPD";
             this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7440,47 +6603,42 @@
             // tb_MaxHPpS
             // 
             this.tb_MaxHPpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxHPpS.Location = new System.Drawing.Point(270, 175);
-            this.tb_MaxHPpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxHPpS.Location = new System.Drawing.Point(180, 113);
             this.tb_MaxHPpS.Name = "tb_MaxHPpS";
-            this.tb_MaxHPpS.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxHPpS.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxHPpS.TabIndex = 11;
             // 
             // tb_MaxEHPpS
             // 
             this.tb_MaxEHPpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxEHPpS.Location = new System.Drawing.Point(270, 345);
-            this.tb_MaxEHPpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxEHPpS.Location = new System.Drawing.Point(180, 223);
             this.tb_MaxEHPpS.Name = "tb_MaxEHPpS";
-            this.tb_MaxEHPpS.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxEHPpS.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxEHPpS.TabIndex = 21;
             // 
             // tb_MaxDMGpS
             // 
             this.tb_MaxDMGpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MaxDMGpS.Location = new System.Drawing.Point(270, 416);
-            this.tb_MaxDMGpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MaxDMGpS.Location = new System.Drawing.Point(180, 268);
             this.tb_MaxDMGpS.Name = "tb_MaxDMGpS";
-            this.tb_MaxDMGpS.Size = new System.Drawing.Size(126, 26);
+            this.tb_MaxDMGpS.Size = new System.Drawing.Size(84, 20);
             this.tb_MaxDMGpS.TabIndex = 25;
             // 
             // tb_MinEHPpS
             // 
             this.tb_MinEHPpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinEHPpS.Location = new System.Drawing.Point(4, 345);
-            this.tb_MinEHPpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinEHPpS.Location = new System.Drawing.Point(3, 223);
             this.tb_MinEHPpS.Name = "tb_MinEHPpS";
-            this.tb_MinEHPpS.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinEHPpS.Size = new System.Drawing.Size(82, 20);
             this.tb_MinEHPpS.TabIndex = 20;
             this.tb_MinEHPpS.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
             // tb_MinDMGpS
             // 
             this.tb_MinDMGpS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_MinDMGpS.Location = new System.Drawing.Point(4, 416);
-            this.tb_MinDMGpS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_MinDMGpS.Location = new System.Drawing.Point(3, 268);
             this.tb_MinDMGpS.Name = "tb_MinDMGpS";
-            this.tb_MinDMGpS.Size = new System.Drawing.Size(125, 26);
+            this.tb_MinDMGpS.Size = new System.Drawing.Size(82, 20);
             this.tb_MinDMGpS.TabIndex = 24;
             this.tb_MinDMGpS.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
@@ -7488,10 +6646,9 @@
             // 
             this.label51.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(137, 347);
-            this.label51.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label51.Location = new System.Drawing.Point(91, 224);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(125, 20);
+            this.label51.Size = new System.Drawing.Size(83, 13);
             this.label51.TabIndex = 10;
             this.label51.Text = "EHP/SPD";
             this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7500,10 +6657,9 @@
             // 
             this.label52.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(137, 419);
-            this.label52.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label52.Location = new System.Drawing.Point(91, 271);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(125, 20);
+            this.label52.Size = new System.Drawing.Size(83, 13);
             this.label52.TabIndex = 12;
             this.label52.Text = "DMG/SPD";
             this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -7512,20 +6668,18 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(4, 0);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Location = new System.Drawing.Point(3, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(50, 20);
+            this.label18.Size = new System.Drawing.Size(34, 13);
             this.label18.TabIndex = 1;
             this.label18.Text = "Hero";
             // 
             // cb_OptimizeHero
             // 
             this.cb_OptimizeHero.FormattingEnabled = true;
-            this.cb_OptimizeHero.Location = new System.Drawing.Point(9, 25);
-            this.cb_OptimizeHero.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cb_OptimizeHero.Location = new System.Drawing.Point(6, 16);
             this.cb_OptimizeHero.Name = "cb_OptimizeHero";
-            this.cb_OptimizeHero.Size = new System.Drawing.Size(180, 28);
+            this.cb_OptimizeHero.Size = new System.Drawing.Size(121, 21);
             this.cb_OptimizeHero.TabIndex = 0;
             this.cb_OptimizeHero.SelectedIndexChanged += new System.EventHandler(this.Cb_OptimizeHero_SelectedIndexChanged);
             // 
@@ -7533,10 +6687,9 @@
             // 
             this.pb_RingSetOptimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_RingSetOptimize.InitialImage = null;
-            this.pb_RingSetOptimize.Location = new System.Drawing.Point(1886, 679);
-            this.pb_RingSetOptimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_RingSetOptimize.Location = new System.Drawing.Point(1257, 441);
             this.pb_RingSetOptimize.Name = "pb_RingSetOptimize";
-            this.pb_RingSetOptimize.Size = new System.Drawing.Size(45, 46);
+            this.pb_RingSetOptimize.Size = new System.Drawing.Size(30, 30);
             this.pb_RingSetOptimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_RingSetOptimize.TabIndex = 89;
             this.pb_RingSetOptimize.TabStop = false;
@@ -7544,10 +6697,9 @@
             // pictureBox18
             // 
             this.pictureBox18.Image = global::E7_Gear_Optimizer.Properties.Resources.ring;
-            this.pictureBox18.Location = new System.Drawing.Point(1895, 402);
-            this.pictureBox18.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox18.Location = new System.Drawing.Point(1263, 261);
             this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(60, 62);
+            this.pictureBox18.Size = new System.Drawing.Size(40, 40);
             this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox18.TabIndex = 86;
             this.pictureBox18.TabStop = false;
@@ -7556,10 +6708,9 @@
             // 
             this.pb_NecklaceSetOptimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_NecklaceSetOptimize.InitialImage = null;
-            this.pb_NecklaceSetOptimize.Location = new System.Drawing.Point(1886, 278);
-            this.pb_NecklaceSetOptimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_NecklaceSetOptimize.Location = new System.Drawing.Point(1257, 181);
             this.pb_NecklaceSetOptimize.Name = "pb_NecklaceSetOptimize";
-            this.pb_NecklaceSetOptimize.Size = new System.Drawing.Size(45, 46);
+            this.pb_NecklaceSetOptimize.Size = new System.Drawing.Size(30, 30);
             this.pb_NecklaceSetOptimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_NecklaceSetOptimize.TabIndex = 84;
             this.pb_NecklaceSetOptimize.TabStop = false;
@@ -7567,10 +6718,9 @@
             // pictureBox16
             // 
             this.pictureBox16.Image = global::E7_Gear_Optimizer.Properties.Resources.necklace;
-            this.pictureBox16.Location = new System.Drawing.Point(1895, 2);
-            this.pictureBox16.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox16.Location = new System.Drawing.Point(1263, 1);
             this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(60, 62);
+            this.pictureBox16.Size = new System.Drawing.Size(40, 40);
             this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox16.TabIndex = 81;
             this.pictureBox16.TabStop = false;
@@ -7579,10 +6729,9 @@
             // 
             this.pb_BootsSetOptimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_BootsSetOptimize.InitialImage = null;
-            this.pb_BootsSetOptimize.Location = new System.Drawing.Point(1886, 1079);
-            this.pb_BootsSetOptimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_BootsSetOptimize.Location = new System.Drawing.Point(1257, 701);
             this.pb_BootsSetOptimize.Name = "pb_BootsSetOptimize";
-            this.pb_BootsSetOptimize.Size = new System.Drawing.Size(45, 46);
+            this.pb_BootsSetOptimize.Size = new System.Drawing.Size(30, 30);
             this.pb_BootsSetOptimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_BootsSetOptimize.TabIndex = 79;
             this.pb_BootsSetOptimize.TabStop = false;
@@ -7590,10 +6739,9 @@
             // pictureBox14
             // 
             this.pictureBox14.Image = global::E7_Gear_Optimizer.Properties.Resources.boots;
-            this.pictureBox14.Location = new System.Drawing.Point(1895, 802);
-            this.pictureBox14.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox14.Location = new System.Drawing.Point(1263, 521);
             this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(60, 62);
+            this.pictureBox14.Size = new System.Drawing.Size(40, 40);
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox14.TabIndex = 76;
             this.pictureBox14.TabStop = false;
@@ -7602,10 +6750,9 @@
             // 
             this.pb_ArmorSetOptimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_ArmorSetOptimize.InitialImage = null;
-            this.pb_ArmorSetOptimize.Location = new System.Drawing.Point(1494, 1079);
-            this.pb_ArmorSetOptimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_ArmorSetOptimize.Location = new System.Drawing.Point(996, 701);
             this.pb_ArmorSetOptimize.Name = "pb_ArmorSetOptimize";
-            this.pb_ArmorSetOptimize.Size = new System.Drawing.Size(45, 46);
+            this.pb_ArmorSetOptimize.Size = new System.Drawing.Size(30, 30);
             this.pb_ArmorSetOptimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_ArmorSetOptimize.TabIndex = 61;
             this.pb_ArmorSetOptimize.TabStop = false;
@@ -7613,10 +6760,9 @@
             // pictureBox12
             // 
             this.pictureBox12.Image = global::E7_Gear_Optimizer.Properties.Resources.armor;
-            this.pictureBox12.Location = new System.Drawing.Point(1503, 802);
-            this.pictureBox12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox12.Location = new System.Drawing.Point(1002, 521);
             this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(60, 62);
+            this.pictureBox12.Size = new System.Drawing.Size(40, 40);
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox12.TabIndex = 58;
             this.pictureBox12.TabStop = false;
@@ -7625,10 +6771,9 @@
             // 
             this.pb_HelmetSetOptimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_HelmetSetOptimize.InitialImage = null;
-            this.pb_HelmetSetOptimize.Location = new System.Drawing.Point(1494, 679);
-            this.pb_HelmetSetOptimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_HelmetSetOptimize.Location = new System.Drawing.Point(996, 441);
             this.pb_HelmetSetOptimize.Name = "pb_HelmetSetOptimize";
-            this.pb_HelmetSetOptimize.Size = new System.Drawing.Size(45, 46);
+            this.pb_HelmetSetOptimize.Size = new System.Drawing.Size(30, 30);
             this.pb_HelmetSetOptimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_HelmetSetOptimize.TabIndex = 56;
             this.pb_HelmetSetOptimize.TabStop = false;
@@ -7636,10 +6781,9 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = global::E7_Gear_Optimizer.Properties.Resources.helmet;
-            this.pictureBox8.Location = new System.Drawing.Point(1503, 402);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox8.Location = new System.Drawing.Point(1002, 261);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(60, 62);
+            this.pictureBox8.Size = new System.Drawing.Size(40, 40);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 53;
             this.pictureBox8.TabStop = false;
@@ -7648,10 +6792,9 @@
             // 
             this.pb_WeaponSetOptimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_WeaponSetOptimize.InitialImage = null;
-            this.pb_WeaponSetOptimize.Location = new System.Drawing.Point(1494, 278);
-            this.pb_WeaponSetOptimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pb_WeaponSetOptimize.Location = new System.Drawing.Point(996, 181);
             this.pb_WeaponSetOptimize.Name = "pb_WeaponSetOptimize";
-            this.pb_WeaponSetOptimize.Size = new System.Drawing.Size(45, 46);
+            this.pb_WeaponSetOptimize.Size = new System.Drawing.Size(30, 30);
             this.pb_WeaponSetOptimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_WeaponSetOptimize.TabIndex = 49;
             this.pb_WeaponSetOptimize.TabStop = false;
@@ -7659,10 +6802,9 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::E7_Gear_Optimizer.Properties.Resources.weapon;
-            this.pictureBox4.Location = new System.Drawing.Point(1503, 2);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox4.Location = new System.Drawing.Point(1002, 1);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(60, 62);
+            this.pictureBox4.Size = new System.Drawing.Size(40, 40);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 46;
             this.pictureBox4.TabStop = false;
@@ -7678,15 +6820,405 @@
             this.sfd_export.FileName = "E7 Gear Optimizer.json";
             this.sfd_export.Filter = "JSON|*.json";
             // 
+            // c_Portrait
+            // 
+            this.c_Portrait.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Portrait.HeaderText = "Portrait";
+            this.c_Portrait.MinimumWidth = 8;
+            this.c_Portrait.Name = "c_Portrait";
+            this.c_Portrait.ReadOnly = true;
+            this.c_Portrait.Width = 46;
+            // 
+            // c_Name
+            // 
+            this.c_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Name.HeaderText = "Name";
+            this.c_Name.MinimumWidth = 8;
+            this.c_Name.Name = "c_Name";
+            this.c_Name.ReadOnly = true;
+            this.c_Name.Width = 60;
+            // 
+            // c_Element
+            // 
+            this.c_Element.HeaderText = "Element";
+            this.c_Element.MinimumWidth = 8;
+            this.c_Element.Name = "c_Element";
+            this.c_Element.ReadOnly = true;
+            this.c_Element.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.c_Element.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.c_Element.Width = 70;
+            // 
+            // c_Class
+            // 
+            this.c_Class.HeaderText = "Class";
+            this.c_Class.MinimumWidth = 8;
+            this.c_Class.Name = "c_Class";
+            this.c_Class.ReadOnly = true;
+            this.c_Class.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.c_Class.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.c_Class.Width = 57;
+            // 
+            // c_Lvl
+            // 
+            this.c_Lvl.HeaderText = "Lvl";
+            this.c_Lvl.MinimumWidth = 8;
+            this.c_Lvl.Name = "c_Lvl";
+            this.c_Lvl.ReadOnly = true;
+            this.c_Lvl.Width = 46;
+            // 
+            // c_Awakening
+            // 
+            this.c_Awakening.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Awakening.HeaderText = "Awakening";
+            this.c_Awakening.MinimumWidth = 8;
+            this.c_Awakening.Name = "c_Awakening";
+            this.c_Awakening.ReadOnly = true;
+            this.c_Awakening.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.c_Awakening.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.c_Awakening.Width = 85;
+            // 
+            // c_Sets
+            // 
+            this.c_Sets.HeaderText = "Sets";
+            this.c_Sets.MinimumWidth = 8;
+            this.c_Sets.Name = "c_Sets";
+            this.c_Sets.ReadOnly = true;
+            this.c_Sets.Width = 34;
+            // 
+            // c_ATKHero
+            // 
+            this.c_ATKHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_ATKHero.HeaderText = "ATK";
+            this.c_ATKHero.MinimumWidth = 8;
+            this.c_ATKHero.Name = "c_ATKHero";
+            this.c_ATKHero.ReadOnly = true;
+            // 
+            // c_SPDHero
+            // 
+            this.c_SPDHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_SPDHero.HeaderText = "SPD";
+            this.c_SPDHero.MinimumWidth = 8;
+            this.c_SPDHero.Name = "c_SPDHero";
+            this.c_SPDHero.ReadOnly = true;
+            // 
+            // c_CritHero
+            // 
+            this.c_CritHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_CritHero.HeaderText = "Crit";
+            this.c_CritHero.MinimumWidth = 8;
+            this.c_CritHero.Name = "c_CritHero";
+            this.c_CritHero.ReadOnly = true;
+            // 
+            // c_CritDmgHero
+            // 
+            this.c_CritDmgHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_CritDmgHero.HeaderText = "CritDmg";
+            this.c_CritDmgHero.MinimumWidth = 8;
+            this.c_CritDmgHero.Name = "c_CritDmgHero";
+            this.c_CritDmgHero.ReadOnly = true;
+            // 
+            // c_HPHero
+            // 
+            this.c_HPHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_HPHero.HeaderText = "HP";
+            this.c_HPHero.MinimumWidth = 8;
+            this.c_HPHero.Name = "c_HPHero";
+            this.c_HPHero.ReadOnly = true;
+            // 
+            // c_HPpSHero
+            // 
+            this.c_HPpSHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_HPpSHero.HeaderText = "HP/SPD";
+            this.c_HPpSHero.MinimumWidth = 8;
+            this.c_HPpSHero.Name = "c_HPpSHero";
+            this.c_HPpSHero.ReadOnly = true;
+            // 
+            // c_DEFHero
+            // 
+            this.c_DEFHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DEFHero.HeaderText = "DEF";
+            this.c_DEFHero.MinimumWidth = 8;
+            this.c_DEFHero.Name = "c_DEFHero";
+            this.c_DEFHero.ReadOnly = true;
+            // 
+            // c_EFFHero
+            // 
+            this.c_EFFHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_EFFHero.HeaderText = "EFF";
+            this.c_EFFHero.MinimumWidth = 8;
+            this.c_EFFHero.Name = "c_EFFHero";
+            this.c_EFFHero.ReadOnly = true;
+            // 
+            // c_RESHero
+            // 
+            this.c_RESHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_RESHero.HeaderText = "RES";
+            this.c_RESHero.MinimumWidth = 8;
+            this.c_RESHero.Name = "c_RESHero";
+            this.c_RESHero.ReadOnly = true;
+            // 
+            // c_DACHero
+            // 
+            this.c_DACHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DACHero.HeaderText = "DAC";
+            this.c_DACHero.MinimumWidth = 8;
+            this.c_DACHero.Name = "c_DACHero";
+            this.c_DACHero.ReadOnly = true;
+            // 
+            // c_EHP
+            // 
+            this.c_EHP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_EHP.HeaderText = "EHP";
+            this.c_EHP.MinimumWidth = 8;
+            this.c_EHP.Name = "c_EHP";
+            this.c_EHP.ReadOnly = true;
+            // 
+            // c_EHPpSHero
+            // 
+            this.c_EHPpSHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_EHPpSHero.HeaderText = "EHP/SPD";
+            this.c_EHPpSHero.MinimumWidth = 8;
+            this.c_EHPpSHero.Name = "c_EHPpSHero";
+            this.c_EHPpSHero.ReadOnly = true;
+            // 
+            // c_DMG
+            // 
+            this.c_DMG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DMG.HeaderText = "DMG";
+            this.c_DMG.MinimumWidth = 8;
+            this.c_DMG.Name = "c_DMG";
+            this.c_DMG.ReadOnly = true;
+            // 
+            // c_DMGpS
+            // 
+            this.c_DMGpS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DMGpS.HeaderText = "DMG/SPD";
+            this.c_DMGpS.MinimumWidth = 8;
+            this.c_DMGpS.Name = "c_DMGpS";
+            this.c_DMGpS.ReadOnly = true;
+            // 
+            // c_HeroID
+            // 
+            this.c_HeroID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_HeroID.HeaderText = "ID";
+            this.c_HeroID.MinimumWidth = 8;
+            this.c_HeroID.Name = "c_HeroID";
+            this.c_HeroID.ReadOnly = true;
+            // 
+            // c_set
+            // 
+            this.c_set.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_set.HeaderText = "Set";
+            this.c_set.MinimumWidth = 8;
+            this.c_set.Name = "c_set";
+            this.c_set.ReadOnly = true;
+            this.c_set.Width = 29;
+            // 
+            // c_Type
+            // 
+            this.c_Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Type.HeaderText = "Type";
+            this.c_Type.MinimumWidth = 8;
+            this.c_Type.Name = "c_Type";
+            this.c_Type.ReadOnly = true;
+            this.c_Type.Width = 37;
+            // 
+            // c_Grade
+            // 
+            this.c_Grade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Grade.HeaderText = "Grade";
+            this.c_Grade.MinimumWidth = 8;
+            this.c_Grade.Name = "c_Grade";
+            this.c_Grade.ReadOnly = true;
+            this.c_Grade.Width = 61;
+            // 
+            // c_ILvl
+            // 
+            this.c_ILvl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_ILvl.HeaderText = "ILvl";
+            this.c_ILvl.MinimumWidth = 8;
+            this.c_ILvl.Name = "c_ILvl";
+            this.c_ILvl.ReadOnly = true;
+            this.c_ILvl.Width = 49;
+            // 
+            // c_Enhance
+            // 
+            this.c_Enhance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Enhance.HeaderText = "Enhance";
+            this.c_Enhance.MinimumWidth = 8;
+            this.c_Enhance.Name = "c_Enhance";
+            this.c_Enhance.ReadOnly = true;
+            this.c_Enhance.Width = 75;
+            // 
+            // c_Main
+            // 
+            this.c_Main.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Main.HeaderText = "Main";
+            this.c_Main.MinimumWidth = 8;
+            this.c_Main.Name = "c_Main";
+            this.c_Main.ReadOnly = true;
+            this.c_Main.Width = 55;
+            // 
+            // c_Value
+            // 
+            this.c_Value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Value.HeaderText = "Value";
+            this.c_Value.MinimumWidth = 8;
+            this.c_Value.Name = "c_Value";
+            this.c_Value.ReadOnly = true;
+            this.c_Value.Width = 59;
+            // 
+            // c_ATKPer
+            // 
+            this.c_ATKPer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_ATKPer.HeaderText = "ATK%";
+            this.c_ATKPer.MinimumWidth = 8;
+            this.c_ATKPer.Name = "c_ATKPer";
+            this.c_ATKPer.ReadOnly = true;
+            this.c_ATKPer.Width = 61;
+            // 
+            // c_ATK
+            // 
+            this.c_ATK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_ATK.HeaderText = "ATK";
+            this.c_ATK.MinimumWidth = 8;
+            this.c_ATK.Name = "c_ATK";
+            this.c_ATK.ReadOnly = true;
+            this.c_ATK.Width = 53;
+            // 
+            // c_SPD
+            // 
+            this.c_SPD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_SPD.HeaderText = "SPD";
+            this.c_SPD.MinimumWidth = 8;
+            this.c_SPD.Name = "c_SPD";
+            this.c_SPD.ReadOnly = true;
+            this.c_SPD.Width = 54;
+            // 
+            // c_CHC
+            // 
+            this.c_CHC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_CHC.HeaderText = "Crit";
+            this.c_CHC.MinimumWidth = 8;
+            this.c_CHC.Name = "c_CHC";
+            this.c_CHC.ReadOnly = true;
+            this.c_CHC.Width = 47;
+            // 
+            // c_CHD
+            // 
+            this.c_CHD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_CHD.HeaderText = "CritDmg";
+            this.c_CHD.MinimumWidth = 8;
+            this.c_CHD.Name = "c_CHD";
+            this.c_CHD.ReadOnly = true;
+            this.c_CHD.Width = 69;
+            // 
+            // c_HPPer
+            // 
+            this.c_HPPer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_HPPer.HeaderText = "HP%";
+            this.c_HPPer.MinimumWidth = 8;
+            this.c_HPPer.Name = "c_HPPer";
+            this.c_HPPer.ReadOnly = true;
+            // 
+            // c_HP
+            // 
+            this.c_HP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_HP.HeaderText = "HP";
+            this.c_HP.MinimumWidth = 8;
+            this.c_HP.Name = "c_HP";
+            this.c_HP.ReadOnly = true;
+            // 
+            // c_DEFPer
+            // 
+            this.c_DEFPer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DEFPer.HeaderText = "DEF%";
+            this.c_DEFPer.MinimumWidth = 8;
+            this.c_DEFPer.Name = "c_DEFPer";
+            this.c_DEFPer.ReadOnly = true;
+            // 
+            // c_DEF
+            // 
+            this.c_DEF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DEF.HeaderText = "DEF";
+            this.c_DEF.MinimumWidth = 8;
+            this.c_DEF.Name = "c_DEF";
+            this.c_DEF.ReadOnly = true;
+            // 
+            // c_EFF
+            // 
+            this.c_EFF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_EFF.HeaderText = "EFF";
+            this.c_EFF.MinimumWidth = 8;
+            this.c_EFF.Name = "c_EFF";
+            this.c_EFF.ReadOnly = true;
+            // 
+            // c_RES
+            // 
+            this.c_RES.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_RES.HeaderText = "RES";
+            this.c_RES.MinimumWidth = 8;
+            this.c_RES.Name = "c_RES";
+            this.c_RES.ReadOnly = true;
+            // 
+            // c_WSS
+            // 
+            this.c_WSS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_WSS.HeaderText = "WSS";
+            this.c_WSS.Name = "c_WSS";
+            this.c_WSS.ReadOnly = true;
+            // 
+            // c_Eq
+            // 
+            this.c_Eq.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_Eq.HeaderText = "Equipped";
+            this.c_Eq.MinimumWidth = 8;
+            this.c_Eq.Name = "c_Eq";
+            this.c_Eq.ReadOnly = true;
+            // 
+            // c_SetID
+            // 
+            this.c_SetID.HeaderText = "SetID";
+            this.c_SetID.MinimumWidth = 8;
+            this.c_SetID.Name = "c_SetID";
+            this.c_SetID.ReadOnly = true;
+            this.c_SetID.Visible = false;
+            this.c_SetID.Width = 150;
+            // 
+            // c_TypeID
+            // 
+            this.c_TypeID.HeaderText = "TypeID";
+            this.c_TypeID.MinimumWidth = 8;
+            this.c_TypeID.Name = "c_TypeID";
+            this.c_TypeID.ReadOnly = true;
+            this.c_TypeID.Visible = false;
+            this.c_TypeID.Width = 150;
+            // 
+            // c_ItemID
+            // 
+            this.c_ItemID.HeaderText = "ItemID";
+            this.c_ItemID.MinimumWidth = 8;
+            this.c_ItemID.Name = "c_ItemID";
+            this.c_ItemID.ReadOnly = true;
+            this.c_ItemID.Visible = false;
+            this.c_ItemID.Width = 150;
+            // 
+            // c_Locked
+            // 
+            this.c_Locked.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_Locked.HeaderText = "locked";
+            this.c_Locked.MinimumWidth = 8;
+            this.c_Locked.Name = "c_Locked";
+            this.c_Locked.ReadOnly = true;
+            // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(2203, 1197);
+            this.ClientSize = new System.Drawing.Size(1469, 690);
             this.Controls.Add(this.tc_Main);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "Main";
             this.Text = "E7 Gear Optimizer";
@@ -8267,29 +7799,6 @@
         private System.Windows.Forms.TabPage tabPage34;
         private System.Windows.Forms.TabPage tabPage35;
         private System.Windows.Forms.CheckBox cb_keepEquip;
-        private System.Windows.Forms.DataGridViewImageColumn c_set;
-        private System.Windows.Forms.DataGridViewImageColumn c_Type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_Grade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_ILvl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_Enhance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_Main;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_Value;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_ATKPer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_ATK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_SPD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_CHC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_CHD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_HPPer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_HP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_DEFPer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_DEF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_EFF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_RES;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_Eq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_SetID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_TypeID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_ItemID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_Locked;
         private System.Windows.Forms.PictureBox pb_OptimizeBootsEquipped;
         private System.Windows.Forms.PictureBox pb_OptimizeRingEquipped;
         private System.Windows.Forms.PictureBox pb_OptimizeNecklaceEquipped;
@@ -8313,28 +7822,6 @@
         private System.Windows.Forms.TextBox tb_MinDMGpS;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.DataGridViewImageColumn c_Portrait;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_Name;
-        private System.Windows.Forms.DataGridViewImageColumn c_Element;
-        private System.Windows.Forms.DataGridViewImageColumn c_Class;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_Lvl;
-        private System.Windows.Forms.DataGridViewImageColumn c_Awakening;
-        private System.Windows.Forms.DataGridViewImageColumn c_Sets;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_ATKHero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_SPDHero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_CritHero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_CritDmgHero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_HPHero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_HPpSHero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_DEFHero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_EFFHero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_RESHero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_DACHero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_EHP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_EHPpSHero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_DMG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_DMGpS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_HeroID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
@@ -8366,6 +7853,52 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private System.Windows.Forms.DataGridViewImageColumn c_Portrait;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_Name;
+        private System.Windows.Forms.DataGridViewImageColumn c_Element;
+        private System.Windows.Forms.DataGridViewImageColumn c_Class;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_Lvl;
+        private System.Windows.Forms.DataGridViewImageColumn c_Awakening;
+        private System.Windows.Forms.DataGridViewImageColumn c_Sets;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_ATKHero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_SPDHero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_CritHero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_CritDmgHero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_HPHero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_HPpSHero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_DEFHero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_EFFHero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_RESHero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_DACHero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_EHP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_EHPpSHero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_DMG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_DMGpS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_HeroID;
+        private System.Windows.Forms.DataGridViewImageColumn c_set;
+        private System.Windows.Forms.DataGridViewImageColumn c_Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_Grade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_ILvl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_Enhance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_Main;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_Value;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_ATKPer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_ATK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_SPD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_CHC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_CHD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_HPPer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_HP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_DEFPer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_DEF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_EFF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_RES;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_WSS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_Eq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_SetID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_TypeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_ItemID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_Locked;
     }
 }
 

@@ -16,6 +16,7 @@ namespace E7_Gear_Optimizer
         private int enhance;
         private Stat main;
         private Stat[] subStats;
+        private float wss;
         public bool Locked { get; set; }
         public Hero Equipped { get; set; }
 
@@ -31,6 +32,7 @@ namespace E7_Gear_Optimizer
             this.subStats = subStats;
             Equipped = equipped;
             Locked = locked;
+            calcWSS();
         }
 
         public Item() { }
@@ -64,6 +66,43 @@ namespace E7_Gear_Optimizer
         public Stat Main { get => main; set => main = value; }
         public Stat[] SubStats { get => subStats; set => subStats = value; }
 
+        public float WSS { get => wss; }
 
+        public void calcWSS()
+        {
+            wss = 0;
+            foreach (Stat s in subStats)
+            {
+                switch (s.Name)
+                {
+                    case Stats.ATKPercent:
+                        wss += s.Value * 100;
+                        break;
+                    case Stats.Crit:
+                        wss += s.Value * 1.5f * 100;
+                        break;
+                    case Stats.CritDmg:
+                        wss += s.Value * 100;
+                        break;
+                    case Stats.DEFPercent:
+                        wss += s.Value * 100;
+                        break;
+                    case Stats.EFF:
+                        wss += s.Value * 100;
+                        break;
+                    case Stats.HPPercent:
+                        wss += s.Value * 100;
+                        break;
+                    case Stats.RES:
+                        wss += s.Value * 100;
+                        break;
+                    case Stats.SPD:
+                        wss += s.Value * 2;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
     }
 }
