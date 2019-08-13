@@ -1154,7 +1154,7 @@ namespace E7_Gear_Optimizer
         /// <param name="itemType">ItemType of the item</param>
         private void _equipItem(ItemType itemType)
         {
-            List<Item> list = data.Items.Where(x => x.Type == itemType).Where(x => x.Equipped == null).ToList();
+            List<Item> list = data.Items.Where(x => x.Type == itemType).ToList();
             SelectItemDialog dialog = new SelectItemDialog(list);
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
@@ -1162,6 +1162,7 @@ namespace E7_Gear_Optimizer
                 Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
                 if (newItem != null)
                 {
+                    newItem.Equipped?.unequip(newItem);
                     Item oldItem = hero.getItem(itemType);
                     if (oldItem != null) hero.unequip(oldItem);
                     hero.equip(newItem);
