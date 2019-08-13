@@ -31,6 +31,9 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.dgv_Inventory = new System.Windows.Forms.DataGridView();
+			this.button1 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
+			this.cb_ShowEquippedItems = new System.Windows.Forms.CheckBox();
 			this.c_set = new System.Windows.Forms.DataGridViewImageColumn();
 			this.c_Type = new System.Windows.Forms.DataGridViewImageColumn();
 			this.c_Grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,9 +56,6 @@
 			this.c_SetID = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.c_TypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.c_ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.button1 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
-			this.cb_ShowEquippedItems = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.dgv_Inventory)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -118,6 +118,37 @@
 			this.dgv_Inventory.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dgv_Inventory_ColumnHeaderMouseClick);
 			this.dgv_Inventory.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.Dgv_Inventory_SortCompare);
 			// 
+			// button1
+			// 
+			this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.button1.Location = new System.Drawing.Point(411, 457);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.TabIndex = 3;
+			this.button1.Text = "OK";
+			this.button1.UseVisualStyleBackColor = true;
+			// 
+			// button2
+			// 
+			this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.button2.Location = new System.Drawing.Point(616, 457);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(75, 23);
+			this.button2.TabIndex = 4;
+			this.button2.Text = "Cancel";
+			this.button2.UseVisualStyleBackColor = true;
+			// 
+			// cb_ShowEquippedItems
+			// 
+			this.cb_ShowEquippedItems.AutoSize = true;
+			this.cb_ShowEquippedItems.Location = new System.Drawing.Point(13, 13);
+			this.cb_ShowEquippedItems.Name = "cb_ShowEquippedItems";
+			this.cb_ShowEquippedItems.Size = new System.Drawing.Size(127, 17);
+			this.cb_ShowEquippedItems.TabIndex = 5;
+			this.cb_ShowEquippedItems.Text = "Show equipped items";
+			this.cb_ShowEquippedItems.UseVisualStyleBackColor = true;
+			this.cb_ShowEquippedItems.CheckedChanged += new System.EventHandler(this.Cb_ShowEquippedItems_CheckedChanged);
+			// 
 			// c_set
 			// 
 			this.c_set.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -144,16 +175,17 @@
 			// 
 			// c_ILvl
 			// 
-			this.c_ILvl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.c_ILvl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.c_ILvl.HeaderText = "ILvl";
+			this.c_ILvl.MinimumWidth = 35;
 			this.c_ILvl.Name = "c_ILvl";
 			this.c_ILvl.ReadOnly = true;
-			this.c_ILvl.Width = 49;
 			// 
 			// c_Enhance
 			// 
 			this.c_Enhance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.c_Enhance.HeaderText = "Enhance";
+			this.c_Enhance.MinimumWidth = 35;
 			this.c_Enhance.Name = "c_Enhance";
 			this.c_Enhance.ReadOnly = true;
 			// 
@@ -263,11 +295,11 @@
 			// 
 			// c_Eq
 			// 
-			this.c_Eq.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.c_Eq.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.c_Eq.HeaderText = "Equipped";
+			this.c_Eq.MinimumWidth = 75;
 			this.c_Eq.Name = "c_Eq";
 			this.c_Eq.ReadOnly = true;
-			this.c_Eq.Width = 77;
 			// 
 			// c_SetID
 			// 
@@ -289,37 +321,6 @@
 			this.c_ItemID.Name = "c_ItemID";
 			this.c_ItemID.ReadOnly = true;
 			this.c_ItemID.Visible = false;
-			// 
-			// button1
-			// 
-			this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.button1.Location = new System.Drawing.Point(411, 457);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 3;
-			this.button1.Text = "OK";
-			this.button1.UseVisualStyleBackColor = true;
-			// 
-			// button2
-			// 
-			this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.button2.Location = new System.Drawing.Point(616, 457);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(75, 23);
-			this.button2.TabIndex = 4;
-			this.button2.Text = "Cancel";
-			this.button2.UseVisualStyleBackColor = true;
-			// 
-			// cb_ShowEquippedItems
-			// 
-			this.cb_ShowEquippedItems.AutoSize = true;
-			this.cb_ShowEquippedItems.Location = new System.Drawing.Point(13, 13);
-			this.cb_ShowEquippedItems.Name = "cb_ShowEquippedItems";
-			this.cb_ShowEquippedItems.Size = new System.Drawing.Size(127, 17);
-			this.cb_ShowEquippedItems.TabIndex = 5;
-			this.cb_ShowEquippedItems.Text = "Show equipped items";
-			this.cb_ShowEquippedItems.UseVisualStyleBackColor = true;
-			this.cb_ShowEquippedItems.CheckedChanged += new System.EventHandler(this.Cb_ShowEquippedItems_CheckedChanged);
 			// 
 			// SelectItemDialog
 			// 
@@ -353,6 +354,7 @@
         private System.Windows.Forms.DataGridView dgv_Inventory;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox cb_ShowEquippedItems;
         private System.Windows.Forms.DataGridViewImageColumn c_set;
         private System.Windows.Forms.DataGridViewImageColumn c_Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn c_Grade;
@@ -375,6 +377,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn c_SetID;
         private System.Windows.Forms.DataGridViewTextBoxColumn c_TypeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn c_ItemID;
-        private System.Windows.Forms.CheckBox cb_ShowEquippedItems;
     }
 }
