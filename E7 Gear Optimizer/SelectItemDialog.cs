@@ -45,8 +45,18 @@ namespace E7_Gear_Optimizer
 
         private void SelectItemDialog_Shown(object sender, EventArgs e)
         {
+            _redrawDgv();
+        }
+
+        private void _redrawDgv()
+        {
+            dgv_Inventory.Rows.Clear();
             foreach (Item item in items)
             {
+                if (item.Equipped != null && !cb_ShowEquippedItems.Checked)
+                {
+                    continue;
+                }
                 object[] values = new object[dgv_Inventory.ColumnCount];
                 values[0] = Util.ResizeImage((Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense")), 25, 25);
                 values[19] = (int)item.Set;
@@ -133,6 +143,11 @@ namespace E7_Gear_Optimizer
             {
                 button1.PerformClick();
             }
+        }
+
+        private void Cb_ShowEquippedItems_CheckedChanged(object sender, EventArgs e)
+        {
+            _redrawDgv();
         }
     }
 }

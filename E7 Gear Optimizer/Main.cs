@@ -1186,10 +1186,13 @@ namespace E7_Gear_Optimizer
             }
         }
 
-        //Show the "Select Item" dialog with a list of items which can be equipped in the selected slot
-        private void B_EquipWeapon_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Show the "Select Item" dialog with a list of items which can be equipped in the selected slot
+        /// </summary>
+        /// <param name="itemType">ItemType of the item</param>
+        private void _equipItem(ItemType itemType)
         {
-            List<Item> list = data.Items.Where(x => x.Type == ItemType.Weapon).Where(x => x.Equipped == null).ToList();
+            List<Item> list = data.Items.Where(x => x.Type == itemType).ToList();
             SelectItemDialog dialog = new SelectItemDialog(list);
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
@@ -1197,13 +1200,14 @@ namespace E7_Gear_Optimizer
                 Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
                 if (newItem != null)
                 {
-                    Item oldItem = hero.getItem(ItemType.Weapon);
+                    newItem.Equipped?.unequip(newItem);
+                    Item oldItem = hero.getItem(itemType);
                     if (oldItem != null) hero.unequip(oldItem);
                     hero.equip(newItem);
                 }
                 else
                 {
-                    Item olditem = hero.getItem(ItemType.Weapon);
+                    Item olditem = hero.getItem(itemType);
                     if (olditem != null)
                     {
                         hero.unequip(olditem);
@@ -1211,6 +1215,35 @@ namespace E7_Gear_Optimizer
                 }
                 updateHeroList();
             }
+        }
+
+        /// <summary>
+        /// Switch to the Inventory tab and select the equipped item
+        /// </summary>
+        /// <param name="itemType">ItemType of the item</param>
+        private void _editEquippedItem(ItemType itemType)
+        {
+            Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
+            Item item = hero.getItem(itemType);
+            if (item != null)
+            {
+                tc_Main.SelectedIndex = 1;
+                tc_Inventory.SelectedIndex = 0;
+                foreach (DataGridViewRow row in dgv_Inventory.Rows)
+                {
+                    if ((string)row.Cells["c_ItemID"].Value == item.ID)
+                    {
+                        dgv_Inventory.CurrentCell = row.Cells["c_set"];
+                        break;
+                    }
+                }
+            }
+        }
+
+        //Show the "Select Item" dialog with a list of items which can be equipped in the selected slot
+        private void B_EquipWeapon_Click(object sender, EventArgs e)
+        {
+            _equipItem(ItemType.Weapon);
         }
 
         //Delete the selected Hero and unequip his/her gear
@@ -1225,237 +1258,61 @@ namespace E7_Gear_Optimizer
         //Show the "Select Item" dialog with a list of items which can be equipped in the selected slot
         private void B_EquipHelmet_Click(object sender, EventArgs e)
         {
-            List<Item> list = data.Items.Where(x => x.Type == ItemType.Helmet).Where(x => x.Equipped == null).ToList();
-            SelectItemDialog dialog = new SelectItemDialog(list);
-            if (dialog.ShowDialog(this) == DialogResult.OK)
-            {
-                Item newItem = dialog.getSelectedItem();
-                Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
-                if (newItem != null)
-                {
-                    Item oldItem = hero.getItem(ItemType.Helmet);
-                    if (oldItem != null) hero.unequip(oldItem);
-                    hero.equip(newItem);
-                }
-                else
-                {
-                    Item olditem = hero.getItem(ItemType.Helmet);
-                    if (olditem != null)
-                    {
-                        hero.unequip(olditem);
-                    }
-                }
-                updateHeroList();
-            }
+            _equipItem(ItemType.Helmet);
         }
 
         //Switch to the Inventory tab and select the equipped item
         private void B_EditHelmet_Click(object sender, EventArgs e)
         {
-            Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
-            Item item = hero.getItem(ItemType.Helmet);
-            if (item != null)
-            {
-                tc_Main.SelectedIndex = 1;
-                tc_Inventory.SelectedIndex = 0;
-                foreach (DataGridViewRow row in dgv_Inventory.Rows)
-                {
-                    if ((string)row.Cells["c_ItemID"].Value == item.ID)
-                    {
-                        dgv_Inventory.CurrentCell = row.Cells["c_set"];
-                        break;
-                    }
-                }
-            }
+            _editEquippedItem(ItemType.Helmet);
         }
 
         //Show the "Select Item" dialog with a list of items which can be equipped in the selected slot
         private void B_EquipArmor_Click(object sender, EventArgs e)
         {
-            List<Item> list = data.Items.Where(x => x.Type == ItemType.Armor).Where(x => x.Equipped == null).ToList();
-            SelectItemDialog dialog = new SelectItemDialog(list);
-            if (dialog.ShowDialog(this) == DialogResult.OK)
-            {
-                Item newItem = dialog.getSelectedItem();
-                Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
-                if (newItem != null)
-                {
-                    Item oldItem = hero.getItem(ItemType.Armor);
-                    if (oldItem != null) hero.unequip(oldItem);
-                    hero.equip(newItem);
-                }
-                else
-                {
-                    Item olditem = hero.getItem(ItemType.Armor);
-                    if (olditem != null)
-                    {
-                        hero.unequip(olditem);
-                    }
-                }
-                updateHeroList();
-            }
+            _equipItem(ItemType.Armor);
         }
 
         //Show the "Select Item" dialog with a list of items which can be equipped in the selected slot
         private void B_EquipNecklace_Click(object sender, EventArgs e)
         {
-            List<Item> list = data.Items.Where(x => x.Type == ItemType.Necklace).Where(x => x.Equipped == null).ToList();
-            SelectItemDialog dialog = new SelectItemDialog(list);
-            if (dialog.ShowDialog(this) == DialogResult.OK)
-            {
-                Item newItem = dialog.getSelectedItem();
-                Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
-                if (newItem != null)
-                {
-
-                    Item oldItem = hero.getItem(ItemType.Necklace);
-                    if (oldItem != null) hero.unequip(oldItem);
-                    hero.equip(newItem);
-                }
-                else
-                {
-                    Item olditem = hero.getItem(ItemType.Armor);
-                    if (olditem != null)
-                    {
-                        hero.unequip(olditem);
-                    }
-                }
-                updateHeroList();
-            }
+            _equipItem(ItemType.Necklace);
         }
 
         //Show the "Select Item" dialog with a list of items which can be equipped in the selected slot
         private void B_EquipRing_Click(object sender, EventArgs e)
         {
-            List<Item> list = data.Items.Where(x => x.Type == ItemType.Ring).Where(x => x.Equipped == null).ToList();
-            SelectItemDialog dialog = new SelectItemDialog(list);
-            if (dialog.ShowDialog(this) == DialogResult.OK)
-            {
-                Item newItem = dialog.getSelectedItem();
-                Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
-                if (newItem != null)
-                {
-                    Item oldItem = hero.getItem(ItemType.Ring);
-                    if (oldItem != null) hero.unequip(oldItem);
-                    hero.equip(newItem);
-                }
-                else
-                {
-                    Item olditem = hero.getItem(ItemType.Ring);
-                    if (olditem != null)
-                    {
-                        hero.unequip(olditem);
-                    }
-                }
-                updateHeroList();
-            }
+            _equipItem(ItemType.Ring);
         }
 
         //Show the "Select Item" dialog with a list of items which can be equipped in the selected slot
         private void B_EquipBoots_Click(object sender, EventArgs e)
         {
-            List<Item> list = data.Items.Where(x => x.Type == ItemType.Boots).Where(x => x.Equipped == null).ToList();
-            SelectItemDialog dialog = new SelectItemDialog(list);
-            if (dialog.ShowDialog(this) == DialogResult.OK)
-            {
-                Item newItem = dialog.getSelectedItem();
-                Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
-                if (newItem != null)
-                {
-                    Item oldItem = hero.getItem(ItemType.Boots);
-                    if (oldItem != null) hero.unequip(oldItem);
-                    hero.equip(newItem);
-                }
-                else
-                {
-                    Item olditem = hero.getItem(ItemType.Boots);
-                    if (olditem != null)
-                    {
-                        hero.unequip(olditem);
-                    }
-                }
-                updateHeroList();
-            }
+            _equipItem(ItemType.Boots);
         }
 
         //Switch to the Inventory tab and select the equipped item
         private void B_EditArmor_Click(object sender, EventArgs e)
         {
-            Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
-            Item item = hero.getItem(ItemType.Armor);
-            if (item != null)
-            {
-                tc_Main.SelectedIndex = 1;
-                tc_Inventory.SelectedIndex = 0;
-                foreach (DataGridViewRow row in dgv_Inventory.Rows)
-                {
-                    if ((string)row.Cells["c_ItemID"].Value == item.ID)
-                    {
-                        dgv_Inventory.CurrentCell = row.Cells["c_set"];
-                        break;
-                    }
-                }
-            }
+            _editEquippedItem(ItemType.Armor);
         }
 
         //Switch to the Inventory tab and select the equipped item
         private void B_EditNecklace_Click(object sender, EventArgs e)
         {
-            Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
-            Item item = hero.getItem(ItemType.Necklace);
-            if (item != null)
-            {
-                tc_Main.SelectedIndex = 1;
-                tc_Inventory.SelectedIndex = 0;
-                foreach (DataGridViewRow row in dgv_Inventory.Rows)
-                {
-                    if ((string)row.Cells["c_ItemID"].Value == item.ID)
-                    {
-                        dgv_Inventory.CurrentCell = row.Cells["c_set"];
-                        break;
-                    }
-                }
-            }
+            _editEquippedItem(ItemType.Necklace);
         }
 
         //Switch to the Inventory tab and select the equipped item
         private void B_EditRing_Click(object sender, EventArgs e)
         {
-            Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
-            Item item = hero.getItem(ItemType.Ring);
-            if (item != null)
-            {
-                tc_Main.SelectedIndex = 1;
-                tc_Inventory.SelectedIndex = 0;
-                foreach (DataGridViewRow row in dgv_Inventory.Rows)
-                {
-                    if ((string)row.Cells["c_ItemID"].Value == item.ID)
-                    {
-                        dgv_Inventory.CurrentCell = row.Cells["c_set"];
-                        break;
-                    }
-                }
-            }
+            _editEquippedItem(ItemType.Ring);
         }
 
         //Switch to the Inventory tab and select the equipped item
         private void B_EditBoots_Click(object sender, EventArgs e)
         {
-            Hero hero = data.Heroes.Find(x => x.ID == (string)dgv_Heroes["c_HeroID", dgv_Heroes.SelectedCells[0].RowIndex].Value);
-            Item item = hero.getItem(ItemType.Boots);
-            if (item != null)
-            {
-                tc_Main.SelectedIndex = 1;
-                tc_Inventory.SelectedIndex = 0;
-                foreach (DataGridViewRow row in dgv_Inventory.Rows)
-                {
-                    if ((string)row.Cells["c_ItemID"].Value == item.ID)
-                    {
-                        dgv_Inventory.CurrentCell = row.Cells["c_set"];
-                        break;
-                    }
-                }
-            }
+            _editEquippedItem(ItemType.Boots);
         }
 
 
