@@ -31,6 +31,7 @@ namespace E7_Gear_Optimizer
         Dictionary<Stats, (float, float)> filterStats = new Dictionary<Stats, (float, float)>();
         CancellationTokenSource tokenSource;
         string[] args = Environment.GetCommandLineArgs();
+        Hero optimizeHero = null;
 
         public Main()
         {
@@ -150,6 +151,25 @@ namespace E7_Gear_Optimizer
             richTextBox1.SelectionIndent = 0;
             richTextBox1.SelectionFont = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold);
             richTextBox1.SelectedText = "Export your Collection! It is NOT saved when closing the Program.";
+            richTextBox2.SelectionFont = new Font(FontFamily.GenericSansSerif, 15, FontStyle.Bold);
+            richTextBox2.SelectedText = "How to use: \n\n";
+            richTextBox2.SelectionBullet = true;
+            richTextBox2.SelectionFont = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold);
+            richTextBox2.SelectedText = "Start at the top and select the heroes of yor arena/GW team.\n";
+            richTextBox2.SelectionBullet = false;
+            richTextBox2.SelectedText = "\n";
+            richTextBox2.SelectionBullet = true;
+            richTextBox2.SelectionFont = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold);
+            richTextBox2.SelectedText = "Go from fastest (probably your CR pusher) in slot 1 to slowest in slot 3 (GW) / 4 (arena).\n";
+            richTextBox2.SelectionBullet = false;
+            richTextBox2.SelectedText = "\n";
+            richTextBox2.SelectionBullet = true;
+            richTextBox2.SelectionFont = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold);
+            richTextBox2.SelectedText = "Input SPD from imprints.\n";
+            richTextBox2.SelectionBullet = false;
+            richTextBox2.SelectedText = "\n";
+            richTextBox2.SelectionFont = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold);
+            richTextBox2.SelectedText = "=> Red values indicate possible switches in the turn order of your team.";
             lb_Main.SelectedIndex = 0;
             lb_Sub1.SelectedIndex = 0;
             lb_Sub2.SelectedIndex = 0;
@@ -218,6 +238,24 @@ namespace E7_Gear_Optimizer
                 }
                 l_Results.Text = numberOfResults().ToString();
                 updatecurrentGear();
+            }
+            else if (((TabControl)(sender)).SelectedIndex == 4)
+            {
+                cb1_SpeedTuner.Items.Clear();
+                cb2_SpeedTuner.Items.Clear();
+                cb3_SpeedTuner.Items.Clear();
+                cb4_SpeedTuner.Items.Clear();
+                foreach (Hero hero in data.Heroes)
+                {
+                    cb1_SpeedTuner.Items.Add(hero.Name + " " + hero.ID);
+                    cb2_SpeedTuner.Items.Add(hero.Name + " " + hero.ID);
+                    cb3_SpeedTuner.Items.Add(hero.Name + " " + hero.ID);
+                    cb4_SpeedTuner.Items.Add(hero.Name + " " + hero.ID);
+                }
+                cb1_SpeedTuner_SelectedIndexChanged(null, null);
+                Cb2_SpeedTuner_SelectedIndexChanged(null, null);
+                Cb3_SpeedTuner_SelectedIndexChanged(null, null);
+                Cb4_SpeedTuner_SelectedIndexChanged(null, null);
             }
         }
 
@@ -1637,6 +1675,7 @@ namespace E7_Gear_Optimizer
             dgv_OptimizeResults.Rows.Clear();
             combinations.Clear();
             Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split().Last());
+            optimizeHero = hero;
             if (hero != null)
             {
                 List<Item> weapons = data.Items.Where(x => x.Type == ItemType.Weapon && x.Enhance >= nud_EnhanceFocus.Value).ToList();
@@ -2644,6 +2683,10 @@ namespace E7_Gear_Optimizer
                 items = combinations[dgv_OptimizeResults.SelectedCells[0].RowIndex + ((optimizePage - 1) * 100)].Item1;
             }
             Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split(' ').Last());
+            if (hero != optimizeHero)
+            {
+                return;
+            }
             hero.unequipAll();
             foreach (Item item in items)
             {
@@ -2654,6 +2697,7 @@ namespace E7_Gear_Optimizer
             }
             hero.equip(items);
             updatecurrentGear();
+            Dgv_OptimizeResults_RowEnter(null, new DataGridViewCellEventArgs(0, dgv_OptimizeResults.SelectedCells[0].RowIndex));
         }
 
         private void B_Export_Click(object sender, EventArgs e)
@@ -3103,6 +3147,121 @@ namespace E7_Gear_Optimizer
         private void B_CancelOptimize_Click(object sender, EventArgs e)
         {
             tokenSource.Cancel();
+        }
+
+        private void cb1_SpeedTuner_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb1_SpeedTuner.Text != "")
+            {
+                Hero hero = data.Heroes.Find(x => x.ID == cb1_SpeedTuner.Text.Split().Last());
+                pb1_SpeedTuner.Image = hero.Portrait;
+                tb1_SpeedTunerGear.Text = ((int)hero.CurrentStats[Stats.SPD]).ToString();
+                int spd = int.Parse(tb1_SpeedTunerGear.Text) + (int)nud1_SpeedTunerImprint.Value;
+                tb1_SpeedTuner_ResultMax.Text = (spd * 1.05).ToString();
+                tb1_SpeedTuner_Result.Text = spd.ToString();
+                tb1_SpeedTuner_ResultMin.Text = (spd * 0.95).ToString();
+            }
+            checkIfTuned();
+        }
+
+        private void checkIfTuned()
+        {
+            float spd1min = tb1_SpeedTuner_ResultMin.Text != "" ? float.Parse(tb1_SpeedTuner_ResultMin.Text) : 0;
+            float spd2max = tb2_SpeedTuner_ResultMax.Text != "" ? float.Parse(tb2_SpeedTuner_ResultMax.Text) : 0;
+            float spd2min = tb2_SpeedTuner_ResultMin.Text != "" ? float.Parse(tb2_SpeedTuner_ResultMin.Text) : 0;
+            float spd3max = tb3_SpeedTuner_ResultMax.Text != "" ? float.Parse(tb3_SpeedTuner_ResultMax.Text) : 0;
+            float spd3min = tb3_SpeedTuner_ResultMin.Text != "" ? float.Parse(tb3_SpeedTuner_ResultMin.Text) : 0;
+            float spd4max = tb4_SpeedTuner_ResultMax.Text != "" ? float.Parse(tb4_SpeedTuner_ResultMax.Text) : 0;
+            float spd4min = tb4_SpeedTuner_ResultMin.Text != "" ? float.Parse(tb4_SpeedTuner_ResultMin.Text) : 0;
+            if (spd2max > spd1min)
+            {
+                tb2_SpeedTuner_ResultMax.BackColor = Color.Red;
+            }
+            else
+            {
+                tb2_SpeedTuner_ResultMax.BackColor = SystemColors.Control;
+            }
+            if (spd3max > spd2min)
+            {
+                tb3_SpeedTuner_ResultMax.BackColor = Color.Red;
+            }
+            else
+            {
+                tb3_SpeedTuner_ResultMax.BackColor = SystemColors.Control;
+            }
+            if (spd4max > spd3min)
+            {
+                tb4_SpeedTuner_ResultMax.BackColor = Color.Red;
+            }
+            else
+            {
+                tb4_SpeedTuner_ResultMax.BackColor = SystemColors.Control;
+            }
+        }
+
+        private void Cb2_SpeedTuner_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb2_SpeedTuner.Text != "")
+            {
+                Hero hero = data.Heroes.Find(x => x.ID == cb2_SpeedTuner.Text.Split().Last());
+                pb2_SpeedTuner.Image = hero.Portrait;
+                tb2_SpeedTunerGear.Text = ((int)hero.CurrentStats[Stats.SPD]).ToString();
+                int spd = int.Parse(tb2_SpeedTunerGear.Text) + (int)nud2_SpeedTunerImprint.Value;
+                tb2_SpeedTuner_ResultMax.Text = (spd * 1.05).ToString();
+                tb2_SpeedTuner_Result.Text = spd.ToString();
+                tb2_SpeedTuner_ResultMin.Text = (spd * 0.95).ToString();
+            }
+            checkIfTuned();
+        }
+
+        private void Cb3_SpeedTuner_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb3_SpeedTuner.Text != "")
+            {
+                Hero hero = data.Heroes.Find(x => x.ID == cb3_SpeedTuner.Text.Split().Last());
+                pb3_SpeedTuner.Image = hero.Portrait;
+                tb3_SpeedTunerGear.Text = ((int)hero.CurrentStats[Stats.SPD]).ToString();
+                int spd = int.Parse(tb3_SpeedTunerGear.Text) + (int)nud3_SpeedTunerImprint.Value;
+                tb3_SpeedTuner_ResultMax.Text = (spd * 1.05).ToString();
+                tb3_SpeedTuner_Result.Text = spd.ToString();
+                tb3_SpeedTuner_ResultMin.Text = (spd * 0.95).ToString();
+            }
+            checkIfTuned();
+        }
+
+        private void Cb4_SpeedTuner_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb4_SpeedTuner.Text != "")
+            {
+                Hero hero = data.Heroes.Find(x => x.ID == cb4_SpeedTuner.Text.Split().Last());
+                pb4_SpeedTuner.Image = hero.Portrait;
+                tb4_SpeedTunerGear.Text = ((int)hero.CurrentStats[Stats.SPD]).ToString();
+                int spd = int.Parse(tb4_SpeedTunerGear.Text) + (int)nud4_SpeedTunerImprint.Value;
+                tb4_SpeedTuner_ResultMax.Text = (spd * 1.05).ToString();
+                tb4_SpeedTuner_Result.Text = spd.ToString();
+                tb4_SpeedTuner_ResultMin.Text = (spd * 0.95).ToString();
+            }
+            checkIfTuned();
+        }
+
+        private void Nud1_SpeedTunerImprint_ValueChanged(object sender, EventArgs e)
+        {
+            cb1_SpeedTuner_SelectedIndexChanged(null, null);
+        }
+
+        private void Nud2_SpeedTunerImprint_ValueChanged(object sender, EventArgs e)
+        {
+            Cb2_SpeedTuner_SelectedIndexChanged(null, null);
+        }
+
+        private void Nud3_SpeedTunerImprint_ValueChanged(object sender, EventArgs e)
+        {
+            Cb3_SpeedTuner_SelectedIndexChanged(null, null);
+        }
+
+        private void Nud4_SpeedTunerImprint_ValueChanged(object sender, EventArgs e)
+        {
+            Cb4_SpeedTuner_SelectedIndexChanged(null, null);
         }
     }
 }

@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tb_Inventory = new System.Windows.Forms.TabPage();
             this.l_ItemCount = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -111,6 +111,30 @@
             this.rb_SpeedSet = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.dgv_Inventory = new System.Windows.Forms.DataGridView();
+            this.c_set = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Type = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_ILvl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Enhance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_ATKPer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_ATK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_SPD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_CHC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_CHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HPPer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DEFPer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DEF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_EFF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_RES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_WSS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Eq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_SetID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_TypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Locked = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tc_Inventory = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -271,6 +295,28 @@
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.Elements = new System.Windows.Forms.ImageList(this.components);
             this.dgv_Heroes = new System.Windows.Forms.DataGridView();
+            this.c_Portrait = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Element = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Class = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Lvl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Awakening = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_Sets = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_ATKHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_SPDHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_CritHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_CritDmgHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HPHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HPpSHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DEFHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_EFFHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_RESHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DACHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_EHP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_EHPpSHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DMG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DMGpS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HeroID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.b_EditBoots = new System.Windows.Forms.Button();
             this.b_EditRing = new System.Windows.Forms.Button();
             this.b_EditNecklace = new System.Windows.Forms.Button();
@@ -563,54 +609,70 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pb_WeaponSetOptimize = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.tb_SpeedTuner = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.tb4_SpeedTuner_ResultMin = new System.Windows.Forms.TextBox();
+            this.tb4_SpeedTuner_Result = new System.Windows.Forms.TextBox();
+            this.tb4_SpeedTuner_ResultMax = new System.Windows.Forms.TextBox();
+            this.label95 = new System.Windows.Forms.Label();
+            this.label96 = new System.Windows.Forms.Label();
+            this.label97 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.tb4_SpeedTunerGear = new System.Windows.Forms.TextBox();
+            this.label99 = new System.Windows.Forms.Label();
+            this.label100 = new System.Windows.Forms.Label();
+            this.pb4_SpeedTuner = new System.Windows.Forms.PictureBox();
+            this.cb4_SpeedTuner = new System.Windows.Forms.ComboBox();
+            this.label101 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.tb3_SpeedTuner_ResultMin = new System.Windows.Forms.TextBox();
+            this.tb3_SpeedTuner_Result = new System.Windows.Forms.TextBox();
+            this.tb3_SpeedTuner_ResultMax = new System.Windows.Forms.TextBox();
+            this.label88 = new System.Windows.Forms.Label();
+            this.label89 = new System.Windows.Forms.Label();
+            this.label90 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.tb3_SpeedTunerGear = new System.Windows.Forms.TextBox();
+            this.label91 = new System.Windows.Forms.Label();
+            this.label92 = new System.Windows.Forms.Label();
+            this.pb3_SpeedTuner = new System.Windows.Forms.PictureBox();
+            this.cb3_SpeedTuner = new System.Windows.Forms.ComboBox();
+            this.label94 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.tb2_SpeedTuner_ResultMin = new System.Windows.Forms.TextBox();
+            this.tb2_SpeedTuner_Result = new System.Windows.Forms.TextBox();
+            this.tb2_SpeedTuner_ResultMax = new System.Windows.Forms.TextBox();
+            this.label79 = new System.Windows.Forms.Label();
+            this.label81 = new System.Windows.Forms.Label();
+            this.label83 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.tb2_SpeedTunerGear = new System.Windows.Forms.TextBox();
+            this.label84 = new System.Windows.Forms.Label();
+            this.label86 = new System.Windows.Forms.Label();
+            this.pb2_SpeedTuner = new System.Windows.Forms.PictureBox();
+            this.cb2_SpeedTuner = new System.Windows.Forms.ComboBox();
+            this.label87 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tb1_SpeedTuner_ResultMin = new System.Windows.Forms.TextBox();
+            this.tb1_SpeedTuner_Result = new System.Windows.Forms.TextBox();
+            this.tb1_SpeedTuner_ResultMax = new System.Windows.Forms.TextBox();
+            this.label72 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tb1_SpeedTunerGear = new System.Windows.Forms.TextBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.pb1_SpeedTuner = new System.Windows.Forms.PictureBox();
+            this.cb1_SpeedTuner = new System.Windows.Forms.ComboBox();
+            this.label53 = new System.Windows.Forms.Label();
             this.ofd_import = new System.Windows.Forms.OpenFileDialog();
             this.sfd_export = new System.Windows.Forms.SaveFileDialog();
-            this.c_Portrait = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Element = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Class = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Lvl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Awakening = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Sets = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_ATKHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_SPDHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_CritHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_CritDmgHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HPHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HPpSHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DEFHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_EFFHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_RESHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DACHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_EHP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_EHPpSHero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DMG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DMGpS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HeroID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_set = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Type = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_Grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_ILvl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Enhance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Main = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_ATKPer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_ATK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_SPD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_CHC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_CHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HPPer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DEFPer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DEF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_EFF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_RES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_WSS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Eq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_SetID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_TypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Locked = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nud1_SpeedTunerImprint = new System.Windows.Forms.NumericUpDown();
+            this.nud2_SpeedTunerImprint = new System.Windows.Forms.NumericUpDown();
+            this.nud3_SpeedTunerImprint = new System.Windows.Forms.NumericUpDown();
+            this.nud4_SpeedTunerImprint = new System.Windows.Forms.NumericUpDown();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.tb_Inventory.SuspendLayout();
             this.tc_InventorySets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ItemLocked)).BeginInit();
@@ -686,6 +748,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_WeaponSetOptimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.tb_SpeedTuner.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb4_SpeedTuner)).BeginInit();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3_SpeedTuner)).BeginInit();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2_SpeedTuner)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1_SpeedTuner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud1_SpeedTunerImprint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud2_SpeedTunerImprint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud3_SpeedTunerImprint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud4_SpeedTunerImprint)).BeginInit();
             this.SuspendLayout();
             // 
             // tb_Inventory
@@ -724,7 +803,7 @@
             this.tb_Inventory.Controls.Add(this.b_NewItem);
             this.tb_Inventory.Location = new System.Drawing.Point(4, 25);
             this.tb_Inventory.Name = "tb_Inventory";
-            this.tb_Inventory.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tb_Inventory.Padding = new System.Windows.Forms.Padding(3);
             this.tb_Inventory.Size = new System.Drawing.Size(1455, 740);
             this.tb_Inventory.TabIndex = 1;
             this.tb_Inventory.Text = "Inventory";
@@ -782,7 +861,7 @@
             this.tabPage3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage3.Location = new System.Drawing.Point(4, 32);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabPage3.Size = new System.Drawing.Size(745, 0);
             this.tabPage3.TabIndex = 0;
@@ -793,7 +872,7 @@
             this.tabPage11.ImageIndex = 0;
             this.tabPage11.Location = new System.Drawing.Point(4, 32);
             this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage11.Size = new System.Drawing.Size(745, 0);
             this.tabPage11.TabIndex = 1;
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -1624,14 +1703,14 @@
             this.dgv_Inventory.AllowUserToDeleteRows = false;
             this.dgv_Inventory.AllowUserToOrderColumns = true;
             this.dgv_Inventory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Inventory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle64.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle64.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle64.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle64.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle64.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle64.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Inventory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle64;
             this.dgv_Inventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Inventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.c_set,
@@ -1658,14 +1737,14 @@
             this.c_TypeID,
             this.c_ItemID,
             this.c_Locked});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Inventory.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle65.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle65.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle65.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle65.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle65.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle65.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Inventory.DefaultCellStyle = dataGridViewCellStyle65;
             this.dgv_Inventory.Location = new System.Drawing.Point(6, 40);
             this.dgv_Inventory.MultiSelect = false;
             this.dgv_Inventory.Name = "dgv_Inventory";
@@ -1679,6 +1758,212 @@
             this.dgv_Inventory.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dgv_Inventory_ColumnHeaderMouseClick);
             this.dgv_Inventory.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Inventory_RowEnter);
             this.dgv_Inventory.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.Dgv_Inventory_SortCompare);
+            // 
+            // c_set
+            // 
+            this.c_set.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_set.HeaderText = "Set";
+            this.c_set.MinimumWidth = 8;
+            this.c_set.Name = "c_set";
+            this.c_set.ReadOnly = true;
+            this.c_set.Width = 29;
+            // 
+            // c_Type
+            // 
+            this.c_Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Type.HeaderText = "Type";
+            this.c_Type.MinimumWidth = 8;
+            this.c_Type.Name = "c_Type";
+            this.c_Type.ReadOnly = true;
+            this.c_Type.Width = 37;
+            // 
+            // c_Grade
+            // 
+            this.c_Grade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Grade.HeaderText = "Grade";
+            this.c_Grade.MinimumWidth = 8;
+            this.c_Grade.Name = "c_Grade";
+            this.c_Grade.ReadOnly = true;
+            this.c_Grade.Width = 61;
+            // 
+            // c_ILvl
+            // 
+            this.c_ILvl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_ILvl.HeaderText = "ILvl";
+            this.c_ILvl.MinimumWidth = 8;
+            this.c_ILvl.Name = "c_ILvl";
+            this.c_ILvl.ReadOnly = true;
+            this.c_ILvl.Width = 49;
+            // 
+            // c_Enhance
+            // 
+            this.c_Enhance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Enhance.HeaderText = "Enhance";
+            this.c_Enhance.MinimumWidth = 8;
+            this.c_Enhance.Name = "c_Enhance";
+            this.c_Enhance.ReadOnly = true;
+            this.c_Enhance.Width = 75;
+            // 
+            // c_Main
+            // 
+            this.c_Main.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Main.HeaderText = "Main";
+            this.c_Main.MinimumWidth = 8;
+            this.c_Main.Name = "c_Main";
+            this.c_Main.ReadOnly = true;
+            this.c_Main.Width = 55;
+            // 
+            // c_Value
+            // 
+            this.c_Value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Value.HeaderText = "Value";
+            this.c_Value.MinimumWidth = 8;
+            this.c_Value.Name = "c_Value";
+            this.c_Value.ReadOnly = true;
+            this.c_Value.Width = 59;
+            // 
+            // c_ATKPer
+            // 
+            this.c_ATKPer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_ATKPer.HeaderText = "ATK%";
+            this.c_ATKPer.MinimumWidth = 8;
+            this.c_ATKPer.Name = "c_ATKPer";
+            this.c_ATKPer.ReadOnly = true;
+            this.c_ATKPer.Width = 61;
+            // 
+            // c_ATK
+            // 
+            this.c_ATK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_ATK.HeaderText = "ATK";
+            this.c_ATK.MinimumWidth = 8;
+            this.c_ATK.Name = "c_ATK";
+            this.c_ATK.ReadOnly = true;
+            this.c_ATK.Width = 53;
+            // 
+            // c_SPD
+            // 
+            this.c_SPD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_SPD.HeaderText = "SPD";
+            this.c_SPD.MinimumWidth = 8;
+            this.c_SPD.Name = "c_SPD";
+            this.c_SPD.ReadOnly = true;
+            this.c_SPD.Width = 54;
+            // 
+            // c_CHC
+            // 
+            this.c_CHC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_CHC.HeaderText = "Crit";
+            this.c_CHC.MinimumWidth = 8;
+            this.c_CHC.Name = "c_CHC";
+            this.c_CHC.ReadOnly = true;
+            this.c_CHC.Width = 47;
+            // 
+            // c_CHD
+            // 
+            this.c_CHD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_CHD.HeaderText = "CritDmg";
+            this.c_CHD.MinimumWidth = 8;
+            this.c_CHD.Name = "c_CHD";
+            this.c_CHD.ReadOnly = true;
+            this.c_CHD.Width = 69;
+            // 
+            // c_HPPer
+            // 
+            this.c_HPPer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_HPPer.HeaderText = "HP%";
+            this.c_HPPer.MinimumWidth = 8;
+            this.c_HPPer.Name = "c_HPPer";
+            this.c_HPPer.ReadOnly = true;
+            // 
+            // c_HP
+            // 
+            this.c_HP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_HP.HeaderText = "HP";
+            this.c_HP.MinimumWidth = 8;
+            this.c_HP.Name = "c_HP";
+            this.c_HP.ReadOnly = true;
+            // 
+            // c_DEFPer
+            // 
+            this.c_DEFPer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DEFPer.HeaderText = "DEF%";
+            this.c_DEFPer.MinimumWidth = 8;
+            this.c_DEFPer.Name = "c_DEFPer";
+            this.c_DEFPer.ReadOnly = true;
+            // 
+            // c_DEF
+            // 
+            this.c_DEF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DEF.HeaderText = "DEF";
+            this.c_DEF.MinimumWidth = 8;
+            this.c_DEF.Name = "c_DEF";
+            this.c_DEF.ReadOnly = true;
+            // 
+            // c_EFF
+            // 
+            this.c_EFF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_EFF.HeaderText = "EFF";
+            this.c_EFF.MinimumWidth = 8;
+            this.c_EFF.Name = "c_EFF";
+            this.c_EFF.ReadOnly = true;
+            // 
+            // c_RES
+            // 
+            this.c_RES.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_RES.HeaderText = "RES";
+            this.c_RES.MinimumWidth = 8;
+            this.c_RES.Name = "c_RES";
+            this.c_RES.ReadOnly = true;
+            // 
+            // c_WSS
+            // 
+            this.c_WSS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_WSS.HeaderText = "WSS";
+            this.c_WSS.Name = "c_WSS";
+            this.c_WSS.ReadOnly = true;
+            // 
+            // c_Eq
+            // 
+            this.c_Eq.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_Eq.HeaderText = "Equipped";
+            this.c_Eq.MinimumWidth = 8;
+            this.c_Eq.Name = "c_Eq";
+            this.c_Eq.ReadOnly = true;
+            // 
+            // c_SetID
+            // 
+            this.c_SetID.HeaderText = "SetID";
+            this.c_SetID.MinimumWidth = 8;
+            this.c_SetID.Name = "c_SetID";
+            this.c_SetID.ReadOnly = true;
+            this.c_SetID.Visible = false;
+            this.c_SetID.Width = 150;
+            // 
+            // c_TypeID
+            // 
+            this.c_TypeID.HeaderText = "TypeID";
+            this.c_TypeID.MinimumWidth = 8;
+            this.c_TypeID.Name = "c_TypeID";
+            this.c_TypeID.ReadOnly = true;
+            this.c_TypeID.Visible = false;
+            this.c_TypeID.Width = 150;
+            // 
+            // c_ItemID
+            // 
+            this.c_ItemID.HeaderText = "ItemID";
+            this.c_ItemID.MinimumWidth = 8;
+            this.c_ItemID.Name = "c_ItemID";
+            this.c_ItemID.ReadOnly = true;
+            this.c_ItemID.Visible = false;
+            this.c_ItemID.Width = 150;
+            // 
+            // c_Locked
+            // 
+            this.c_Locked.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_Locked.HeaderText = "locked";
+            this.c_Locked.MinimumWidth = 8;
+            this.c_Locked.Name = "c_Locked";
+            this.c_Locked.ReadOnly = true;
             // 
             // tc_Inventory
             // 
@@ -1707,7 +1992,7 @@
             this.tabPage4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage4.Location = new System.Drawing.Point(4, 32);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabPage4.Size = new System.Drawing.Size(321, 0);
             this.tabPage4.TabIndex = 0;
@@ -1718,7 +2003,7 @@
             this.tabPage5.ImageIndex = 0;
             this.tabPage5.Location = new System.Drawing.Point(4, 32);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(321, 0);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1811,7 +2096,7 @@
             this.tabPage1.Controls.Add(this.rb_import_web);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1455, 740);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
@@ -1886,6 +2171,7 @@
             this.tc_Main.Controls.Add(this.tb_Inventory);
             this.tc_Main.Controls.Add(this.tb_Heroes);
             this.tc_Main.Controls.Add(this.tb_Optimize);
+            this.tc_Main.Controls.Add(this.tb_SpeedTuner);
             this.tc_Main.Location = new System.Drawing.Point(5, 5);
             this.tc_Main.Margin = new System.Windows.Forms.Padding(0);
             this.tc_Main.Name = "tc_Main";
@@ -3341,7 +3627,7 @@
             this.tabPage18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage18.Location = new System.Drawing.Point(4, 32);
             this.tabPage18.Name = "tabPage18";
-            this.tabPage18.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage18.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabPage18.Size = new System.Drawing.Size(321, 0);
             this.tabPage18.TabIndex = 0;
@@ -3352,7 +3638,7 @@
             this.tabPage19.ImageIndex = 0;
             this.tabPage19.Location = new System.Drawing.Point(4, 32);
             this.tabPage19.Name = "tabPage19";
-            this.tabPage19.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage19.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage19.Size = new System.Drawing.Size(321, 0);
             this.tabPage19.TabIndex = 1;
             this.tabPage19.UseVisualStyleBackColor = true;
@@ -3434,7 +3720,7 @@
             this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(4, 32);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabPage2.Size = new System.Drawing.Size(278, 0);
             this.tabPage2.TabIndex = 0;
@@ -3446,7 +3732,7 @@
             this.tabPage12.ImageIndex = 0;
             this.tabPage12.Location = new System.Drawing.Point(4, 32);
             this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage12.Size = new System.Drawing.Size(278, 0);
             this.tabPage12.TabIndex = 1;
             // 
@@ -3499,14 +3785,14 @@
             this.dgv_Heroes.AllowUserToOrderColumns = true;
             this.dgv_Heroes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_Heroes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Heroes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle66.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle66.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle66.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle66.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle66.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle66.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Heroes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle66;
             this.dgv_Heroes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Heroes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.c_Portrait,
@@ -3531,14 +3817,14 @@
             this.c_DMG,
             this.c_DMGpS,
             this.c_HeroID});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Heroes.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle67.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle67.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle67.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle67.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle67.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle67.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Heroes.DefaultCellStyle = dataGridViewCellStyle67;
             this.dgv_Heroes.Location = new System.Drawing.Point(7, 44);
             this.dgv_Heroes.MultiSelect = false;
             this.dgv_Heroes.Name = "dgv_Heroes";
@@ -3548,6 +3834,191 @@
             this.dgv_Heroes.Size = new System.Drawing.Size(1319, 328);
             this.dgv_Heroes.TabIndex = 0;
             this.dgv_Heroes.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Heroes_RowEnter);
+            // 
+            // c_Portrait
+            // 
+            this.c_Portrait.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Portrait.HeaderText = "Portrait";
+            this.c_Portrait.MinimumWidth = 8;
+            this.c_Portrait.Name = "c_Portrait";
+            this.c_Portrait.ReadOnly = true;
+            this.c_Portrait.Width = 46;
+            // 
+            // c_Name
+            // 
+            this.c_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Name.HeaderText = "Name";
+            this.c_Name.MinimumWidth = 8;
+            this.c_Name.Name = "c_Name";
+            this.c_Name.ReadOnly = true;
+            this.c_Name.Width = 60;
+            // 
+            // c_Element
+            // 
+            this.c_Element.HeaderText = "Element";
+            this.c_Element.MinimumWidth = 8;
+            this.c_Element.Name = "c_Element";
+            this.c_Element.ReadOnly = true;
+            this.c_Element.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.c_Element.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.c_Element.Width = 70;
+            // 
+            // c_Class
+            // 
+            this.c_Class.HeaderText = "Class";
+            this.c_Class.MinimumWidth = 8;
+            this.c_Class.Name = "c_Class";
+            this.c_Class.ReadOnly = true;
+            this.c_Class.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.c_Class.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.c_Class.Width = 57;
+            // 
+            // c_Lvl
+            // 
+            this.c_Lvl.HeaderText = "Lvl";
+            this.c_Lvl.MinimumWidth = 8;
+            this.c_Lvl.Name = "c_Lvl";
+            this.c_Lvl.ReadOnly = true;
+            this.c_Lvl.Width = 46;
+            // 
+            // c_Awakening
+            // 
+            this.c_Awakening.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.c_Awakening.HeaderText = "Awakening";
+            this.c_Awakening.MinimumWidth = 8;
+            this.c_Awakening.Name = "c_Awakening";
+            this.c_Awakening.ReadOnly = true;
+            this.c_Awakening.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.c_Awakening.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.c_Awakening.Width = 85;
+            // 
+            // c_Sets
+            // 
+            this.c_Sets.HeaderText = "Sets";
+            this.c_Sets.MinimumWidth = 8;
+            this.c_Sets.Name = "c_Sets";
+            this.c_Sets.ReadOnly = true;
+            this.c_Sets.Width = 34;
+            // 
+            // c_ATKHero
+            // 
+            this.c_ATKHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_ATKHero.HeaderText = "ATK";
+            this.c_ATKHero.MinimumWidth = 8;
+            this.c_ATKHero.Name = "c_ATKHero";
+            this.c_ATKHero.ReadOnly = true;
+            // 
+            // c_SPDHero
+            // 
+            this.c_SPDHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_SPDHero.HeaderText = "SPD";
+            this.c_SPDHero.MinimumWidth = 8;
+            this.c_SPDHero.Name = "c_SPDHero";
+            this.c_SPDHero.ReadOnly = true;
+            // 
+            // c_CritHero
+            // 
+            this.c_CritHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_CritHero.HeaderText = "Crit";
+            this.c_CritHero.MinimumWidth = 8;
+            this.c_CritHero.Name = "c_CritHero";
+            this.c_CritHero.ReadOnly = true;
+            // 
+            // c_CritDmgHero
+            // 
+            this.c_CritDmgHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_CritDmgHero.HeaderText = "CritDmg";
+            this.c_CritDmgHero.MinimumWidth = 8;
+            this.c_CritDmgHero.Name = "c_CritDmgHero";
+            this.c_CritDmgHero.ReadOnly = true;
+            // 
+            // c_HPHero
+            // 
+            this.c_HPHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_HPHero.HeaderText = "HP";
+            this.c_HPHero.MinimumWidth = 8;
+            this.c_HPHero.Name = "c_HPHero";
+            this.c_HPHero.ReadOnly = true;
+            // 
+            // c_HPpSHero
+            // 
+            this.c_HPpSHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_HPpSHero.HeaderText = "HP/SPD";
+            this.c_HPpSHero.MinimumWidth = 8;
+            this.c_HPpSHero.Name = "c_HPpSHero";
+            this.c_HPpSHero.ReadOnly = true;
+            // 
+            // c_DEFHero
+            // 
+            this.c_DEFHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DEFHero.HeaderText = "DEF";
+            this.c_DEFHero.MinimumWidth = 8;
+            this.c_DEFHero.Name = "c_DEFHero";
+            this.c_DEFHero.ReadOnly = true;
+            // 
+            // c_EFFHero
+            // 
+            this.c_EFFHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_EFFHero.HeaderText = "EFF";
+            this.c_EFFHero.MinimumWidth = 8;
+            this.c_EFFHero.Name = "c_EFFHero";
+            this.c_EFFHero.ReadOnly = true;
+            // 
+            // c_RESHero
+            // 
+            this.c_RESHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_RESHero.HeaderText = "RES";
+            this.c_RESHero.MinimumWidth = 8;
+            this.c_RESHero.Name = "c_RESHero";
+            this.c_RESHero.ReadOnly = true;
+            // 
+            // c_DACHero
+            // 
+            this.c_DACHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DACHero.HeaderText = "DAC";
+            this.c_DACHero.MinimumWidth = 8;
+            this.c_DACHero.Name = "c_DACHero";
+            this.c_DACHero.ReadOnly = true;
+            // 
+            // c_EHP
+            // 
+            this.c_EHP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_EHP.HeaderText = "EHP";
+            this.c_EHP.MinimumWidth = 8;
+            this.c_EHP.Name = "c_EHP";
+            this.c_EHP.ReadOnly = true;
+            // 
+            // c_EHPpSHero
+            // 
+            this.c_EHPpSHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_EHPpSHero.HeaderText = "EHP/SPD";
+            this.c_EHPpSHero.MinimumWidth = 8;
+            this.c_EHPpSHero.Name = "c_EHPpSHero";
+            this.c_EHPpSHero.ReadOnly = true;
+            // 
+            // c_DMG
+            // 
+            this.c_DMG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DMG.HeaderText = "DMG";
+            this.c_DMG.MinimumWidth = 8;
+            this.c_DMG.Name = "c_DMG";
+            this.c_DMG.ReadOnly = true;
+            // 
+            // c_DMGpS
+            // 
+            this.c_DMGpS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_DMGpS.HeaderText = "DMG/SPD";
+            this.c_DMGpS.MinimumWidth = 8;
+            this.c_DMGpS.Name = "c_DMGpS";
+            this.c_DMGpS.ReadOnly = true;
+            // 
+            // c_HeroID
+            // 
+            this.c_HeroID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.c_HeroID.HeaderText = "ID";
+            this.c_HeroID.MinimumWidth = 8;
+            this.c_HeroID.Name = "c_HeroID";
+            this.c_HeroID.ReadOnly = true;
             // 
             // b_EditBoots
             // 
@@ -3901,7 +4372,7 @@
             this.panel1.Controls.Add(this.label47);
             this.panel1.Controls.Add(this.l_Results);
             this.panel1.Location = new System.Drawing.Point(709, 19);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(207, 309);
             this.panel1.TabIndex = 141;
@@ -5866,14 +6337,14 @@
             this.dgv_OptimizeResults.AllowUserToDeleteRows = false;
             this.dgv_OptimizeResults.AllowUserToOrderColumns = true;
             this.dgv_OptimizeResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_OptimizeResults.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle68.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle68.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle68.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle68.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle68.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle68.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle68.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_OptimizeResults.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle68;
             this.dgv_OptimizeResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_OptimizeResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -5891,14 +6362,14 @@
             this.dataGridViewTextBoxColumn24,
             this.dataGridViewTextBoxColumn19,
             this.dataGridViewTextBoxColumn25});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_OptimizeResults.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle70.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle70.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle70.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle70.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle70.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle70.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle70.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_OptimizeResults.DefaultCellStyle = dataGridViewCellStyle70;
             this.dgv_OptimizeResults.Location = new System.Drawing.Point(6, 416);
             this.dgv_OptimizeResults.MultiSelect = false;
             this.dgv_OptimizeResults.Name = "dgv_OptimizeResults";
@@ -5986,10 +6457,10 @@
             // 
             // dataGridViewImageColumn1
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle6.NullValue")));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle69.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle69.NullValue")));
+            dataGridViewCellStyle69.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle69;
             this.dataGridViewImageColumn1.HeaderText = "Sets";
             this.dataGridViewImageColumn1.MinimumWidth = 8;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
@@ -6040,14 +6511,14 @@
             this.dgv_CurrentGear.AllowUserToOrderColumns = true;
             this.dgv_CurrentGear.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_CurrentGear.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_CurrentGear.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle71.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle71.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle71.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle71.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle71.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle71.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_CurrentGear.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle71;
             this.dgv_CurrentGear.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_CurrentGear.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3,
@@ -6065,14 +6536,14 @@
             this.dataGridViewTextBoxColumn21,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn22});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_CurrentGear.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle72.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle72.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle72.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle72.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle72.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle72.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_CurrentGear.DefaultCellStyle = dataGridViewCellStyle72;
             this.dgv_CurrentGear.Location = new System.Drawing.Point(6, 333);
             this.dgv_CurrentGear.MultiSelect = false;
             this.dgv_CurrentGear.Name = "dgv_CurrentGear";
@@ -6809,6 +7280,758 @@
             this.pictureBox4.TabIndex = 46;
             this.pictureBox4.TabStop = false;
             // 
+            // tb_SpeedTuner
+            // 
+            this.tb_SpeedTuner.Controls.Add(this.richTextBox2);
+            this.tb_SpeedTuner.Controls.Add(this.tableLayoutPanel8);
+            this.tb_SpeedTuner.Controls.Add(this.tableLayoutPanel9);
+            this.tb_SpeedTuner.Controls.Add(this.pb4_SpeedTuner);
+            this.tb_SpeedTuner.Controls.Add(this.cb4_SpeedTuner);
+            this.tb_SpeedTuner.Controls.Add(this.label101);
+            this.tb_SpeedTuner.Controls.Add(this.tableLayoutPanel6);
+            this.tb_SpeedTuner.Controls.Add(this.tableLayoutPanel7);
+            this.tb_SpeedTuner.Controls.Add(this.pb3_SpeedTuner);
+            this.tb_SpeedTuner.Controls.Add(this.cb3_SpeedTuner);
+            this.tb_SpeedTuner.Controls.Add(this.label94);
+            this.tb_SpeedTuner.Controls.Add(this.tableLayoutPanel4);
+            this.tb_SpeedTuner.Controls.Add(this.tableLayoutPanel5);
+            this.tb_SpeedTuner.Controls.Add(this.pb2_SpeedTuner);
+            this.tb_SpeedTuner.Controls.Add(this.cb2_SpeedTuner);
+            this.tb_SpeedTuner.Controls.Add(this.label87);
+            this.tb_SpeedTuner.Controls.Add(this.tableLayoutPanel3);
+            this.tb_SpeedTuner.Controls.Add(this.tableLayoutPanel2);
+            this.tb_SpeedTuner.Controls.Add(this.pb1_SpeedTuner);
+            this.tb_SpeedTuner.Controls.Add(this.cb1_SpeedTuner);
+            this.tb_SpeedTuner.Controls.Add(this.label53);
+            this.tb_SpeedTuner.Location = new System.Drawing.Point(4, 25);
+            this.tb_SpeedTuner.Name = "tb_SpeedTuner";
+            this.tb_SpeedTuner.Size = new System.Drawing.Size(1455, 740);
+            this.tb_SpeedTuner.TabIndex = 4;
+            this.tb_SpeedTuner.Text = "Speed Tuner";
+            this.tb_SpeedTuner.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 3;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel8.Controls.Add(this.tb4_SpeedTuner_ResultMin, 2, 1);
+            this.tableLayoutPanel8.Controls.Add(this.tb4_SpeedTuner_Result, 1, 1);
+            this.tableLayoutPanel8.Controls.Add(this.tb4_SpeedTuner_ResultMax, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.label95, 2, 0);
+            this.tableLayoutPanel8.Controls.Add(this.label96, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.label97, 0, 0);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(350, 412);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 2;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(213, 50);
+            this.tableLayoutPanel8.TabIndex = 19;
+            // 
+            // tb4_SpeedTuner_ResultMin
+            // 
+            this.tb4_SpeedTuner_ResultMin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb4_SpeedTuner_ResultMin.Location = new System.Drawing.Point(145, 28);
+            this.tb4_SpeedTuner_ResultMin.Name = "tb4_SpeedTuner_ResultMin";
+            this.tb4_SpeedTuner_ResultMin.ReadOnly = true;
+            this.tb4_SpeedTuner_ResultMin.Size = new System.Drawing.Size(65, 20);
+            this.tb4_SpeedTuner_ResultMin.TabIndex = 7;
+            this.tb4_SpeedTuner_ResultMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tb4_SpeedTuner_Result
+            // 
+            this.tb4_SpeedTuner_Result.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb4_SpeedTuner_Result.Location = new System.Drawing.Point(74, 28);
+            this.tb4_SpeedTuner_Result.Name = "tb4_SpeedTuner_Result";
+            this.tb4_SpeedTuner_Result.ReadOnly = true;
+            this.tb4_SpeedTuner_Result.Size = new System.Drawing.Size(65, 20);
+            this.tb4_SpeedTuner_Result.TabIndex = 6;
+            this.tb4_SpeedTuner_Result.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tb4_SpeedTuner_ResultMax
+            // 
+            this.tb4_SpeedTuner_ResultMax.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb4_SpeedTuner_ResultMax.Location = new System.Drawing.Point(3, 28);
+            this.tb4_SpeedTuner_ResultMax.Name = "tb4_SpeedTuner_ResultMax";
+            this.tb4_SpeedTuner_ResultMax.ReadOnly = true;
+            this.tb4_SpeedTuner_ResultMax.Size = new System.Drawing.Size(65, 20);
+            this.tb4_SpeedTuner_ResultMax.TabIndex = 5;
+            this.tb4_SpeedTuner_ResultMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label95
+            // 
+            this.label95.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label95.AutoSize = true;
+            this.label95.Location = new System.Drawing.Point(145, 0);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(65, 25);
+            this.label95.TabIndex = 2;
+            this.label95.Text = "-5%";
+            this.label95.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label96
+            // 
+            this.label96.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label96.AutoSize = true;
+            this.label96.Location = new System.Drawing.Point(74, 0);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(65, 25);
+            this.label96.TabIndex = 1;
+            this.label96.Text = "Actual SPD";
+            this.label96.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label97
+            // 
+            this.label97.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label97.AutoSize = true;
+            this.label97.Location = new System.Drawing.Point(3, 0);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(65, 25);
+            this.label97.TabIndex = 0;
+            this.label97.Text = "+5%";
+            this.label97.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 2;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Controls.Add(this.nud4_SpeedTunerImprint, 1, 1);
+            this.tableLayoutPanel9.Controls.Add(this.tb4_SpeedTunerGear, 0, 1);
+            this.tableLayoutPanel9.Controls.Add(this.label99, 1, 0);
+            this.tableLayoutPanel9.Controls.Add(this.label100, 0, 0);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(101, 412);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 2;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(200, 50);
+            this.tableLayoutPanel9.TabIndex = 18;
+            // 
+            // tb4_SpeedTunerGear
+            // 
+            this.tb4_SpeedTunerGear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb4_SpeedTunerGear.Location = new System.Drawing.Point(3, 28);
+            this.tb4_SpeedTunerGear.Name = "tb4_SpeedTunerGear";
+            this.tb4_SpeedTunerGear.ReadOnly = true;
+            this.tb4_SpeedTunerGear.Size = new System.Drawing.Size(94, 20);
+            this.tb4_SpeedTunerGear.TabIndex = 4;
+            this.tb4_SpeedTunerGear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label99
+            // 
+            this.label99.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label99.AutoSize = true;
+            this.label99.Location = new System.Drawing.Point(103, 0);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(94, 25);
+            this.label99.TabIndex = 1;
+            this.label99.Text = "SPD (Imprint)";
+            this.label99.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label100
+            // 
+            this.label100.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label100.AutoSize = true;
+            this.label100.Location = new System.Drawing.Point(3, 0);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(94, 25);
+            this.label100.TabIndex = 0;
+            this.label100.Text = "SPD (Gear)";
+            this.label100.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pb4_SpeedTuner
+            // 
+            this.pb4_SpeedTuner.Location = new System.Drawing.Point(46, 412);
+            this.pb4_SpeedTuner.Name = "pb4_SpeedTuner";
+            this.pb4_SpeedTuner.Size = new System.Drawing.Size(49, 50);
+            this.pb4_SpeedTuner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb4_SpeedTuner.TabIndex = 17;
+            this.pb4_SpeedTuner.TabStop = false;
+            // 
+            // cb4_SpeedTuner
+            // 
+            this.cb4_SpeedTuner.FormattingEnabled = true;
+            this.cb4_SpeedTuner.Location = new System.Drawing.Point(46, 385);
+            this.cb4_SpeedTuner.Name = "cb4_SpeedTuner";
+            this.cb4_SpeedTuner.Size = new System.Drawing.Size(121, 21);
+            this.cb4_SpeedTuner.TabIndex = 16;
+            this.cb4_SpeedTuner.SelectedIndexChanged += new System.EventHandler(this.Cb4_SpeedTuner_SelectedIndexChanged);
+            // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label101.Location = new System.Drawing.Point(43, 369);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(45, 13);
+            this.label101.TabIndex = 15;
+            this.label101.Text = "Hero 4";
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 3;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.Controls.Add(this.tb3_SpeedTuner_ResultMin, 2, 1);
+            this.tableLayoutPanel6.Controls.Add(this.tb3_SpeedTuner_Result, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.tb3_SpeedTuner_ResultMax, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.label88, 2, 0);
+            this.tableLayoutPanel6.Controls.Add(this.label89, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.label90, 0, 0);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(350, 299);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(213, 50);
+            this.tableLayoutPanel6.TabIndex = 14;
+            // 
+            // tb3_SpeedTuner_ResultMin
+            // 
+            this.tb3_SpeedTuner_ResultMin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb3_SpeedTuner_ResultMin.Location = new System.Drawing.Point(145, 28);
+            this.tb3_SpeedTuner_ResultMin.Name = "tb3_SpeedTuner_ResultMin";
+            this.tb3_SpeedTuner_ResultMin.ReadOnly = true;
+            this.tb3_SpeedTuner_ResultMin.Size = new System.Drawing.Size(65, 20);
+            this.tb3_SpeedTuner_ResultMin.TabIndex = 7;
+            this.tb3_SpeedTuner_ResultMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tb3_SpeedTuner_Result
+            // 
+            this.tb3_SpeedTuner_Result.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb3_SpeedTuner_Result.Location = new System.Drawing.Point(74, 28);
+            this.tb3_SpeedTuner_Result.Name = "tb3_SpeedTuner_Result";
+            this.tb3_SpeedTuner_Result.ReadOnly = true;
+            this.tb3_SpeedTuner_Result.Size = new System.Drawing.Size(65, 20);
+            this.tb3_SpeedTuner_Result.TabIndex = 6;
+            this.tb3_SpeedTuner_Result.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tb3_SpeedTuner_ResultMax
+            // 
+            this.tb3_SpeedTuner_ResultMax.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb3_SpeedTuner_ResultMax.Location = new System.Drawing.Point(3, 28);
+            this.tb3_SpeedTuner_ResultMax.Name = "tb3_SpeedTuner_ResultMax";
+            this.tb3_SpeedTuner_ResultMax.ReadOnly = true;
+            this.tb3_SpeedTuner_ResultMax.Size = new System.Drawing.Size(65, 20);
+            this.tb3_SpeedTuner_ResultMax.TabIndex = 5;
+            this.tb3_SpeedTuner_ResultMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label88
+            // 
+            this.label88.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label88.AutoSize = true;
+            this.label88.Location = new System.Drawing.Point(145, 0);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(65, 25);
+            this.label88.TabIndex = 2;
+            this.label88.Text = "-5%";
+            this.label88.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label89
+            // 
+            this.label89.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(74, 0);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(65, 25);
+            this.label89.TabIndex = 1;
+            this.label89.Text = "Actual SPD";
+            this.label89.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label90
+            // 
+            this.label90.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(3, 0);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(65, 25);
+            this.label90.TabIndex = 0;
+            this.label90.Text = "+5%";
+            this.label90.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Controls.Add(this.nud3_SpeedTunerImprint, 1, 1);
+            this.tableLayoutPanel7.Controls.Add(this.tb3_SpeedTunerGear, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.label91, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.label92, 0, 0);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(101, 299);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 2;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(200, 50);
+            this.tableLayoutPanel7.TabIndex = 13;
+            // 
+            // tb3_SpeedTunerGear
+            // 
+            this.tb3_SpeedTunerGear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb3_SpeedTunerGear.Location = new System.Drawing.Point(3, 28);
+            this.tb3_SpeedTunerGear.Name = "tb3_SpeedTunerGear";
+            this.tb3_SpeedTunerGear.ReadOnly = true;
+            this.tb3_SpeedTunerGear.Size = new System.Drawing.Size(94, 20);
+            this.tb3_SpeedTunerGear.TabIndex = 4;
+            this.tb3_SpeedTunerGear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label91
+            // 
+            this.label91.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(103, 0);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(94, 25);
+            this.label91.TabIndex = 1;
+            this.label91.Text = "SPD (Imprint)";
+            this.label91.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label92
+            // 
+            this.label92.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label92.AutoSize = true;
+            this.label92.Location = new System.Drawing.Point(3, 0);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(94, 25);
+            this.label92.TabIndex = 0;
+            this.label92.Text = "SPD (Gear)";
+            this.label92.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pb3_SpeedTuner
+            // 
+            this.pb3_SpeedTuner.Location = new System.Drawing.Point(46, 299);
+            this.pb3_SpeedTuner.Name = "pb3_SpeedTuner";
+            this.pb3_SpeedTuner.Size = new System.Drawing.Size(49, 50);
+            this.pb3_SpeedTuner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb3_SpeedTuner.TabIndex = 12;
+            this.pb3_SpeedTuner.TabStop = false;
+            // 
+            // cb3_SpeedTuner
+            // 
+            this.cb3_SpeedTuner.FormattingEnabled = true;
+            this.cb3_SpeedTuner.Location = new System.Drawing.Point(46, 272);
+            this.cb3_SpeedTuner.Name = "cb3_SpeedTuner";
+            this.cb3_SpeedTuner.Size = new System.Drawing.Size(121, 21);
+            this.cb3_SpeedTuner.TabIndex = 11;
+            this.cb3_SpeedTuner.SelectedIndexChanged += new System.EventHandler(this.Cb3_SpeedTuner_SelectedIndexChanged);
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label94.Location = new System.Drawing.Point(43, 256);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(45, 13);
+            this.label94.TabIndex = 10;
+            this.label94.Text = "Hero 3";
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.Controls.Add(this.tb2_SpeedTuner_ResultMin, 2, 1);
+            this.tableLayoutPanel4.Controls.Add(this.tb2_SpeedTuner_Result, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.tb2_SpeedTuner_ResultMax, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.label79, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label81, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label83, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(350, 187);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(213, 50);
+            this.tableLayoutPanel4.TabIndex = 9;
+            // 
+            // tb2_SpeedTuner_ResultMin
+            // 
+            this.tb2_SpeedTuner_ResultMin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb2_SpeedTuner_ResultMin.Location = new System.Drawing.Point(145, 28);
+            this.tb2_SpeedTuner_ResultMin.Name = "tb2_SpeedTuner_ResultMin";
+            this.tb2_SpeedTuner_ResultMin.ReadOnly = true;
+            this.tb2_SpeedTuner_ResultMin.Size = new System.Drawing.Size(65, 20);
+            this.tb2_SpeedTuner_ResultMin.TabIndex = 7;
+            this.tb2_SpeedTuner_ResultMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tb2_SpeedTuner_Result
+            // 
+            this.tb2_SpeedTuner_Result.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb2_SpeedTuner_Result.Location = new System.Drawing.Point(74, 28);
+            this.tb2_SpeedTuner_Result.Name = "tb2_SpeedTuner_Result";
+            this.tb2_SpeedTuner_Result.ReadOnly = true;
+            this.tb2_SpeedTuner_Result.Size = new System.Drawing.Size(65, 20);
+            this.tb2_SpeedTuner_Result.TabIndex = 6;
+            this.tb2_SpeedTuner_Result.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tb2_SpeedTuner_ResultMax
+            // 
+            this.tb2_SpeedTuner_ResultMax.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb2_SpeedTuner_ResultMax.BackColor = System.Drawing.SystemColors.Control;
+            this.tb2_SpeedTuner_ResultMax.Location = new System.Drawing.Point(3, 28);
+            this.tb2_SpeedTuner_ResultMax.Name = "tb2_SpeedTuner_ResultMax";
+            this.tb2_SpeedTuner_ResultMax.ReadOnly = true;
+            this.tb2_SpeedTuner_ResultMax.Size = new System.Drawing.Size(65, 20);
+            this.tb2_SpeedTuner_ResultMax.TabIndex = 5;
+            this.tb2_SpeedTuner_ResultMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label79
+            // 
+            this.label79.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(145, 0);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(65, 25);
+            this.label79.TabIndex = 2;
+            this.label79.Text = "-5%";
+            this.label79.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label81
+            // 
+            this.label81.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(74, 0);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(65, 25);
+            this.label81.TabIndex = 1;
+            this.label81.Text = "Actual SPD";
+            this.label81.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label83
+            // 
+            this.label83.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(3, 0);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(65, 25);
+            this.label83.TabIndex = 0;
+            this.label83.Text = "+5%";
+            this.label83.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.nud2_SpeedTunerImprint, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.tb2_SpeedTunerGear, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.label84, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label86, 0, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(101, 187);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(200, 50);
+            this.tableLayoutPanel5.TabIndex = 8;
+            // 
+            // tb2_SpeedTunerGear
+            // 
+            this.tb2_SpeedTunerGear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb2_SpeedTunerGear.Location = new System.Drawing.Point(3, 28);
+            this.tb2_SpeedTunerGear.Name = "tb2_SpeedTunerGear";
+            this.tb2_SpeedTunerGear.ReadOnly = true;
+            this.tb2_SpeedTunerGear.Size = new System.Drawing.Size(94, 20);
+            this.tb2_SpeedTunerGear.TabIndex = 4;
+            this.tb2_SpeedTunerGear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label84
+            // 
+            this.label84.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label84.AutoSize = true;
+            this.label84.Location = new System.Drawing.Point(103, 0);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(94, 25);
+            this.label84.TabIndex = 1;
+            this.label84.Text = "SPD (Imprint)";
+            this.label84.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label86
+            // 
+            this.label86.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(3, 0);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(94, 25);
+            this.label86.TabIndex = 0;
+            this.label86.Text = "SPD (Gear)";
+            this.label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pb2_SpeedTuner
+            // 
+            this.pb2_SpeedTuner.Location = new System.Drawing.Point(46, 187);
+            this.pb2_SpeedTuner.Name = "pb2_SpeedTuner";
+            this.pb2_SpeedTuner.Size = new System.Drawing.Size(49, 50);
+            this.pb2_SpeedTuner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb2_SpeedTuner.TabIndex = 7;
+            this.pb2_SpeedTuner.TabStop = false;
+            // 
+            // cb2_SpeedTuner
+            // 
+            this.cb2_SpeedTuner.FormattingEnabled = true;
+            this.cb2_SpeedTuner.Location = new System.Drawing.Point(46, 160);
+            this.cb2_SpeedTuner.Name = "cb2_SpeedTuner";
+            this.cb2_SpeedTuner.Size = new System.Drawing.Size(121, 21);
+            this.cb2_SpeedTuner.TabIndex = 6;
+            this.cb2_SpeedTuner.SelectedIndexChanged += new System.EventHandler(this.Cb2_SpeedTuner_SelectedIndexChanged);
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label87.Location = new System.Drawing.Point(43, 144);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(45, 13);
+            this.label87.TabIndex = 5;
+            this.label87.Text = "Hero 2";
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.Controls.Add(this.tb1_SpeedTuner_ResultMin, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.tb1_SpeedTuner_Result, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.tb1_SpeedTuner_ResultMax, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label72, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label58, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label57, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(350, 76);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(213, 50);
+            this.tableLayoutPanel3.TabIndex = 4;
+            // 
+            // tb1_SpeedTuner_ResultMin
+            // 
+            this.tb1_SpeedTuner_ResultMin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb1_SpeedTuner_ResultMin.Location = new System.Drawing.Point(145, 28);
+            this.tb1_SpeedTuner_ResultMin.Name = "tb1_SpeedTuner_ResultMin";
+            this.tb1_SpeedTuner_ResultMin.ReadOnly = true;
+            this.tb1_SpeedTuner_ResultMin.Size = new System.Drawing.Size(65, 20);
+            this.tb1_SpeedTuner_ResultMin.TabIndex = 7;
+            this.tb1_SpeedTuner_ResultMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tb1_SpeedTuner_Result
+            // 
+            this.tb1_SpeedTuner_Result.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb1_SpeedTuner_Result.Location = new System.Drawing.Point(74, 28);
+            this.tb1_SpeedTuner_Result.Name = "tb1_SpeedTuner_Result";
+            this.tb1_SpeedTuner_Result.ReadOnly = true;
+            this.tb1_SpeedTuner_Result.Size = new System.Drawing.Size(65, 20);
+            this.tb1_SpeedTuner_Result.TabIndex = 6;
+            this.tb1_SpeedTuner_Result.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tb1_SpeedTuner_ResultMax
+            // 
+            this.tb1_SpeedTuner_ResultMax.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb1_SpeedTuner_ResultMax.Location = new System.Drawing.Point(3, 28);
+            this.tb1_SpeedTuner_ResultMax.Name = "tb1_SpeedTuner_ResultMax";
+            this.tb1_SpeedTuner_ResultMax.ReadOnly = true;
+            this.tb1_SpeedTuner_ResultMax.Size = new System.Drawing.Size(65, 20);
+            this.tb1_SpeedTuner_ResultMax.TabIndex = 5;
+            this.tb1_SpeedTuner_ResultMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label72
+            // 
+            this.label72.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(145, 0);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(65, 25);
+            this.label72.TabIndex = 2;
+            this.label72.Text = "-5%";
+            this.label72.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label58
+            // 
+            this.label58.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(74, 0);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(65, 25);
+            this.label58.TabIndex = 1;
+            this.label58.Text = "Actual SPD";
+            this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label57
+            // 
+            this.label57.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(3, 0);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(65, 25);
+            this.label57.TabIndex = 0;
+            this.label57.Text = "+5%";
+            this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.tb1_SpeedTunerGear, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label56, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label54, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.nud1_SpeedTunerImprint, 1, 1);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(101, 76);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 50);
+            this.tableLayoutPanel2.TabIndex = 3;
+            // 
+            // tb1_SpeedTunerGear
+            // 
+            this.tb1_SpeedTunerGear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb1_SpeedTunerGear.Location = new System.Drawing.Point(3, 28);
+            this.tb1_SpeedTunerGear.Name = "tb1_SpeedTunerGear";
+            this.tb1_SpeedTunerGear.ReadOnly = true;
+            this.tb1_SpeedTunerGear.Size = new System.Drawing.Size(94, 20);
+            this.tb1_SpeedTunerGear.TabIndex = 4;
+            this.tb1_SpeedTunerGear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label56
+            // 
+            this.label56.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(103, 0);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(94, 25);
+            this.label56.TabIndex = 1;
+            this.label56.Text = "SPD (Imprint)";
+            this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label54
+            // 
+            this.label54.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(3, 0);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(94, 25);
+            this.label54.TabIndex = 0;
+            this.label54.Text = "SPD (Gear)";
+            this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pb1_SpeedTuner
+            // 
+            this.pb1_SpeedTuner.Location = new System.Drawing.Point(46, 76);
+            this.pb1_SpeedTuner.Name = "pb1_SpeedTuner";
+            this.pb1_SpeedTuner.Size = new System.Drawing.Size(49, 50);
+            this.pb1_SpeedTuner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb1_SpeedTuner.TabIndex = 2;
+            this.pb1_SpeedTuner.TabStop = false;
+            // 
+            // cb1_SpeedTuner
+            // 
+            this.cb1_SpeedTuner.FormattingEnabled = true;
+            this.cb1_SpeedTuner.Location = new System.Drawing.Point(46, 49);
+            this.cb1_SpeedTuner.Name = "cb1_SpeedTuner";
+            this.cb1_SpeedTuner.Size = new System.Drawing.Size(121, 21);
+            this.cb1_SpeedTuner.TabIndex = 1;
+            this.cb1_SpeedTuner.SelectedIndexChanged += new System.EventHandler(this.cb1_SpeedTuner_SelectedIndexChanged);
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(43, 33);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(45, 13);
+            this.label53.TabIndex = 0;
+            this.label53.Text = "Hero 1";
+            // 
             // ofd_import
             // 
             this.ofd_import.DefaultExt = "json";
@@ -6820,396 +8043,68 @@
             this.sfd_export.FileName = "E7 Gear Optimizer.json";
             this.sfd_export.Filter = "JSON|*.json";
             // 
-            // c_Portrait
-            // 
-            this.c_Portrait.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Portrait.HeaderText = "Portrait";
-            this.c_Portrait.MinimumWidth = 8;
-            this.c_Portrait.Name = "c_Portrait";
-            this.c_Portrait.ReadOnly = true;
-            this.c_Portrait.Width = 46;
-            // 
-            // c_Name
-            // 
-            this.c_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Name.HeaderText = "Name";
-            this.c_Name.MinimumWidth = 8;
-            this.c_Name.Name = "c_Name";
-            this.c_Name.ReadOnly = true;
-            this.c_Name.Width = 60;
-            // 
-            // c_Element
-            // 
-            this.c_Element.HeaderText = "Element";
-            this.c_Element.MinimumWidth = 8;
-            this.c_Element.Name = "c_Element";
-            this.c_Element.ReadOnly = true;
-            this.c_Element.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.c_Element.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.c_Element.Width = 70;
-            // 
-            // c_Class
-            // 
-            this.c_Class.HeaderText = "Class";
-            this.c_Class.MinimumWidth = 8;
-            this.c_Class.Name = "c_Class";
-            this.c_Class.ReadOnly = true;
-            this.c_Class.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.c_Class.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.c_Class.Width = 57;
-            // 
-            // c_Lvl
-            // 
-            this.c_Lvl.HeaderText = "Lvl";
-            this.c_Lvl.MinimumWidth = 8;
-            this.c_Lvl.Name = "c_Lvl";
-            this.c_Lvl.ReadOnly = true;
-            this.c_Lvl.Width = 46;
-            // 
-            // c_Awakening
-            // 
-            this.c_Awakening.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Awakening.HeaderText = "Awakening";
-            this.c_Awakening.MinimumWidth = 8;
-            this.c_Awakening.Name = "c_Awakening";
-            this.c_Awakening.ReadOnly = true;
-            this.c_Awakening.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.c_Awakening.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.c_Awakening.Width = 85;
-            // 
-            // c_Sets
-            // 
-            this.c_Sets.HeaderText = "Sets";
-            this.c_Sets.MinimumWidth = 8;
-            this.c_Sets.Name = "c_Sets";
-            this.c_Sets.ReadOnly = true;
-            this.c_Sets.Width = 34;
-            // 
-            // c_ATKHero
-            // 
-            this.c_ATKHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_ATKHero.HeaderText = "ATK";
-            this.c_ATKHero.MinimumWidth = 8;
-            this.c_ATKHero.Name = "c_ATKHero";
-            this.c_ATKHero.ReadOnly = true;
-            // 
-            // c_SPDHero
-            // 
-            this.c_SPDHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_SPDHero.HeaderText = "SPD";
-            this.c_SPDHero.MinimumWidth = 8;
-            this.c_SPDHero.Name = "c_SPDHero";
-            this.c_SPDHero.ReadOnly = true;
-            // 
-            // c_CritHero
-            // 
-            this.c_CritHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_CritHero.HeaderText = "Crit";
-            this.c_CritHero.MinimumWidth = 8;
-            this.c_CritHero.Name = "c_CritHero";
-            this.c_CritHero.ReadOnly = true;
-            // 
-            // c_CritDmgHero
-            // 
-            this.c_CritDmgHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_CritDmgHero.HeaderText = "CritDmg";
-            this.c_CritDmgHero.MinimumWidth = 8;
-            this.c_CritDmgHero.Name = "c_CritDmgHero";
-            this.c_CritDmgHero.ReadOnly = true;
-            // 
-            // c_HPHero
-            // 
-            this.c_HPHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_HPHero.HeaderText = "HP";
-            this.c_HPHero.MinimumWidth = 8;
-            this.c_HPHero.Name = "c_HPHero";
-            this.c_HPHero.ReadOnly = true;
-            // 
-            // c_HPpSHero
-            // 
-            this.c_HPpSHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_HPpSHero.HeaderText = "HP/SPD";
-            this.c_HPpSHero.MinimumWidth = 8;
-            this.c_HPpSHero.Name = "c_HPpSHero";
-            this.c_HPpSHero.ReadOnly = true;
-            // 
-            // c_DEFHero
-            // 
-            this.c_DEFHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DEFHero.HeaderText = "DEF";
-            this.c_DEFHero.MinimumWidth = 8;
-            this.c_DEFHero.Name = "c_DEFHero";
-            this.c_DEFHero.ReadOnly = true;
-            // 
-            // c_EFFHero
-            // 
-            this.c_EFFHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_EFFHero.HeaderText = "EFF";
-            this.c_EFFHero.MinimumWidth = 8;
-            this.c_EFFHero.Name = "c_EFFHero";
-            this.c_EFFHero.ReadOnly = true;
-            // 
-            // c_RESHero
-            // 
-            this.c_RESHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_RESHero.HeaderText = "RES";
-            this.c_RESHero.MinimumWidth = 8;
-            this.c_RESHero.Name = "c_RESHero";
-            this.c_RESHero.ReadOnly = true;
-            // 
-            // c_DACHero
-            // 
-            this.c_DACHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DACHero.HeaderText = "DAC";
-            this.c_DACHero.MinimumWidth = 8;
-            this.c_DACHero.Name = "c_DACHero";
-            this.c_DACHero.ReadOnly = true;
-            // 
-            // c_EHP
-            // 
-            this.c_EHP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_EHP.HeaderText = "EHP";
-            this.c_EHP.MinimumWidth = 8;
-            this.c_EHP.Name = "c_EHP";
-            this.c_EHP.ReadOnly = true;
-            // 
-            // c_EHPpSHero
-            // 
-            this.c_EHPpSHero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_EHPpSHero.HeaderText = "EHP/SPD";
-            this.c_EHPpSHero.MinimumWidth = 8;
-            this.c_EHPpSHero.Name = "c_EHPpSHero";
-            this.c_EHPpSHero.ReadOnly = true;
-            // 
-            // c_DMG
-            // 
-            this.c_DMG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DMG.HeaderText = "DMG";
-            this.c_DMG.MinimumWidth = 8;
-            this.c_DMG.Name = "c_DMG";
-            this.c_DMG.ReadOnly = true;
-            // 
-            // c_DMGpS
-            // 
-            this.c_DMGpS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DMGpS.HeaderText = "DMG/SPD";
-            this.c_DMGpS.MinimumWidth = 8;
-            this.c_DMGpS.Name = "c_DMGpS";
-            this.c_DMGpS.ReadOnly = true;
-            // 
-            // c_HeroID
-            // 
-            this.c_HeroID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_HeroID.HeaderText = "ID";
-            this.c_HeroID.MinimumWidth = 8;
-            this.c_HeroID.Name = "c_HeroID";
-            this.c_HeroID.ReadOnly = true;
-            // 
-            // c_set
-            // 
-            this.c_set.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_set.HeaderText = "Set";
-            this.c_set.MinimumWidth = 8;
-            this.c_set.Name = "c_set";
-            this.c_set.ReadOnly = true;
-            this.c_set.Width = 29;
-            // 
-            // c_Type
-            // 
-            this.c_Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Type.HeaderText = "Type";
-            this.c_Type.MinimumWidth = 8;
-            this.c_Type.Name = "c_Type";
-            this.c_Type.ReadOnly = true;
-            this.c_Type.Width = 37;
-            // 
-            // c_Grade
-            // 
-            this.c_Grade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Grade.HeaderText = "Grade";
-            this.c_Grade.MinimumWidth = 8;
-            this.c_Grade.Name = "c_Grade";
-            this.c_Grade.ReadOnly = true;
-            this.c_Grade.Width = 61;
-            // 
-            // c_ILvl
-            // 
-            this.c_ILvl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_ILvl.HeaderText = "ILvl";
-            this.c_ILvl.MinimumWidth = 8;
-            this.c_ILvl.Name = "c_ILvl";
-            this.c_ILvl.ReadOnly = true;
-            this.c_ILvl.Width = 49;
-            // 
-            // c_Enhance
-            // 
-            this.c_Enhance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Enhance.HeaderText = "Enhance";
-            this.c_Enhance.MinimumWidth = 8;
-            this.c_Enhance.Name = "c_Enhance";
-            this.c_Enhance.ReadOnly = true;
-            this.c_Enhance.Width = 75;
-            // 
-            // c_Main
-            // 
-            this.c_Main.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Main.HeaderText = "Main";
-            this.c_Main.MinimumWidth = 8;
-            this.c_Main.Name = "c_Main";
-            this.c_Main.ReadOnly = true;
-            this.c_Main.Width = 55;
-            // 
-            // c_Value
-            // 
-            this.c_Value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_Value.HeaderText = "Value";
-            this.c_Value.MinimumWidth = 8;
-            this.c_Value.Name = "c_Value";
-            this.c_Value.ReadOnly = true;
-            this.c_Value.Width = 59;
-            // 
-            // c_ATKPer
-            // 
-            this.c_ATKPer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_ATKPer.HeaderText = "ATK%";
-            this.c_ATKPer.MinimumWidth = 8;
-            this.c_ATKPer.Name = "c_ATKPer";
-            this.c_ATKPer.ReadOnly = true;
-            this.c_ATKPer.Width = 61;
-            // 
-            // c_ATK
-            // 
-            this.c_ATK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_ATK.HeaderText = "ATK";
-            this.c_ATK.MinimumWidth = 8;
-            this.c_ATK.Name = "c_ATK";
-            this.c_ATK.ReadOnly = true;
-            this.c_ATK.Width = 53;
-            // 
-            // c_SPD
-            // 
-            this.c_SPD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_SPD.HeaderText = "SPD";
-            this.c_SPD.MinimumWidth = 8;
-            this.c_SPD.Name = "c_SPD";
-            this.c_SPD.ReadOnly = true;
-            this.c_SPD.Width = 54;
-            // 
-            // c_CHC
-            // 
-            this.c_CHC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_CHC.HeaderText = "Crit";
-            this.c_CHC.MinimumWidth = 8;
-            this.c_CHC.Name = "c_CHC";
-            this.c_CHC.ReadOnly = true;
-            this.c_CHC.Width = 47;
-            // 
-            // c_CHD
-            // 
-            this.c_CHD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.c_CHD.HeaderText = "CritDmg";
-            this.c_CHD.MinimumWidth = 8;
-            this.c_CHD.Name = "c_CHD";
-            this.c_CHD.ReadOnly = true;
-            this.c_CHD.Width = 69;
-            // 
-            // c_HPPer
-            // 
-            this.c_HPPer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_HPPer.HeaderText = "HP%";
-            this.c_HPPer.MinimumWidth = 8;
-            this.c_HPPer.Name = "c_HPPer";
-            this.c_HPPer.ReadOnly = true;
-            // 
-            // c_HP
-            // 
-            this.c_HP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_HP.HeaderText = "HP";
-            this.c_HP.MinimumWidth = 8;
-            this.c_HP.Name = "c_HP";
-            this.c_HP.ReadOnly = true;
-            // 
-            // c_DEFPer
-            // 
-            this.c_DEFPer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DEFPer.HeaderText = "DEF%";
-            this.c_DEFPer.MinimumWidth = 8;
-            this.c_DEFPer.Name = "c_DEFPer";
-            this.c_DEFPer.ReadOnly = true;
-            // 
-            // c_DEF
-            // 
-            this.c_DEF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_DEF.HeaderText = "DEF";
-            this.c_DEF.MinimumWidth = 8;
-            this.c_DEF.Name = "c_DEF";
-            this.c_DEF.ReadOnly = true;
-            // 
-            // c_EFF
-            // 
-            this.c_EFF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_EFF.HeaderText = "EFF";
-            this.c_EFF.MinimumWidth = 8;
-            this.c_EFF.Name = "c_EFF";
-            this.c_EFF.ReadOnly = true;
-            // 
-            // c_RES
-            // 
-            this.c_RES.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_RES.HeaderText = "RES";
-            this.c_RES.MinimumWidth = 8;
-            this.c_RES.Name = "c_RES";
-            this.c_RES.ReadOnly = true;
-            // 
-            // c_WSS
-            // 
-            this.c_WSS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_WSS.HeaderText = "WSS";
-            this.c_WSS.Name = "c_WSS";
-            this.c_WSS.ReadOnly = true;
-            // 
-            // c_Eq
-            // 
-            this.c_Eq.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_Eq.HeaderText = "Equipped";
-            this.c_Eq.MinimumWidth = 8;
-            this.c_Eq.Name = "c_Eq";
-            this.c_Eq.ReadOnly = true;
-            // 
-            // c_SetID
-            // 
-            this.c_SetID.HeaderText = "SetID";
-            this.c_SetID.MinimumWidth = 8;
-            this.c_SetID.Name = "c_SetID";
-            this.c_SetID.ReadOnly = true;
-            this.c_SetID.Visible = false;
-            this.c_SetID.Width = 150;
-            // 
-            // c_TypeID
-            // 
-            this.c_TypeID.HeaderText = "TypeID";
-            this.c_TypeID.MinimumWidth = 8;
-            this.c_TypeID.Name = "c_TypeID";
-            this.c_TypeID.ReadOnly = true;
-            this.c_TypeID.Visible = false;
-            this.c_TypeID.Width = 150;
-            // 
-            // c_ItemID
-            // 
-            this.c_ItemID.HeaderText = "ItemID";
-            this.c_ItemID.MinimumWidth = 8;
-            this.c_ItemID.Name = "c_ItemID";
-            this.c_ItemID.ReadOnly = true;
-            this.c_ItemID.Visible = false;
-            this.c_ItemID.Width = 150;
-            // 
-            // c_Locked
-            // 
-            this.c_Locked.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.c_Locked.HeaderText = "locked";
-            this.c_Locked.MinimumWidth = 8;
-            this.c_Locked.Name = "c_Locked";
-            this.c_Locked.ReadOnly = true;
+            // nud1_SpeedTunerImprint
+            // 
+            this.nud1_SpeedTunerImprint.Location = new System.Drawing.Point(103, 28);
+            this.nud1_SpeedTunerImprint.Maximum = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
+            this.nud1_SpeedTunerImprint.Name = "nud1_SpeedTunerImprint";
+            this.nud1_SpeedTunerImprint.Size = new System.Drawing.Size(94, 20);
+            this.nud1_SpeedTunerImprint.TabIndex = 5;
+            this.nud1_SpeedTunerImprint.ValueChanged += new System.EventHandler(this.Nud1_SpeedTunerImprint_ValueChanged);
+            // 
+            // nud2_SpeedTunerImprint
+            // 
+            this.nud2_SpeedTunerImprint.Location = new System.Drawing.Point(103, 28);
+            this.nud2_SpeedTunerImprint.Maximum = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
+            this.nud2_SpeedTunerImprint.Name = "nud2_SpeedTunerImprint";
+            this.nud2_SpeedTunerImprint.Size = new System.Drawing.Size(94, 20);
+            this.nud2_SpeedTunerImprint.TabIndex = 20;
+            this.nud2_SpeedTunerImprint.ValueChanged += new System.EventHandler(this.Nud2_SpeedTunerImprint_ValueChanged);
+            // 
+            // nud3_SpeedTunerImprint
+            // 
+            this.nud3_SpeedTunerImprint.Location = new System.Drawing.Point(103, 28);
+            this.nud3_SpeedTunerImprint.Maximum = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
+            this.nud3_SpeedTunerImprint.Name = "nud3_SpeedTunerImprint";
+            this.nud3_SpeedTunerImprint.Size = new System.Drawing.Size(94, 20);
+            this.nud3_SpeedTunerImprint.TabIndex = 20;
+            this.nud3_SpeedTunerImprint.ValueChanged += new System.EventHandler(this.Nud3_SpeedTunerImprint_ValueChanged);
+            // 
+            // nud4_SpeedTunerImprint
+            // 
+            this.nud4_SpeedTunerImprint.Location = new System.Drawing.Point(103, 28);
+            this.nud4_SpeedTunerImprint.Maximum = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
+            this.nud4_SpeedTunerImprint.Name = "nud4_SpeedTunerImprint";
+            this.nud4_SpeedTunerImprint.Size = new System.Drawing.Size(94, 20);
+            this.nud4_SpeedTunerImprint.TabIndex = 20;
+            this.nud4_SpeedTunerImprint.ValueChanged += new System.EventHandler(this.Nud4_SpeedTunerImprint_ValueChanged);
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox2.Location = new System.Drawing.Point(676, 33);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.ReadOnly = true;
+            this.richTextBox2.Size = new System.Drawing.Size(743, 331);
+            this.richTextBox2.TabIndex = 20;
+            this.richTextBox2.Text = "";
             // 
             // Main
             // 
@@ -7321,6 +8216,32 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_WeaponSetOptimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.tb_SpeedTuner.ResumeLayout(false);
+            this.tb_SpeedTuner.PerformLayout();
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel8.PerformLayout();
+            this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb4_SpeedTuner)).EndInit();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3_SpeedTuner)).EndInit();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2_SpeedTuner)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1_SpeedTuner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud1_SpeedTunerImprint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud2_SpeedTunerImprint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud3_SpeedTunerImprint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud4_SpeedTunerImprint)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -7899,6 +8820,68 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn c_TypeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn c_ItemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn c_Locked;
+        private System.Windows.Forms.TabPage tb_SpeedTuner;
+        private System.Windows.Forms.PictureBox pb1_SpeedTuner;
+        private System.Windows.Forms.ComboBox cb1_SpeedTuner;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TextBox tb1_SpeedTunerGear;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.TextBox tb4_SpeedTuner_ResultMin;
+        private System.Windows.Forms.TextBox tb4_SpeedTuner_Result;
+        private System.Windows.Forms.TextBox tb4_SpeedTuner_ResultMax;
+        private System.Windows.Forms.Label label95;
+        private System.Windows.Forms.Label label96;
+        private System.Windows.Forms.Label label97;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private System.Windows.Forms.TextBox tb4_SpeedTunerGear;
+        private System.Windows.Forms.Label label99;
+        private System.Windows.Forms.Label label100;
+        private System.Windows.Forms.PictureBox pb4_SpeedTuner;
+        private System.Windows.Forms.ComboBox cb4_SpeedTuner;
+        private System.Windows.Forms.Label label101;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.TextBox tb3_SpeedTuner_ResultMin;
+        private System.Windows.Forms.TextBox tb3_SpeedTuner_Result;
+        private System.Windows.Forms.TextBox tb3_SpeedTuner_ResultMax;
+        private System.Windows.Forms.Label label88;
+        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.TextBox tb3_SpeedTunerGear;
+        private System.Windows.Forms.Label label91;
+        private System.Windows.Forms.Label label92;
+        private System.Windows.Forms.PictureBox pb3_SpeedTuner;
+        private System.Windows.Forms.ComboBox cb3_SpeedTuner;
+        private System.Windows.Forms.Label label94;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TextBox tb2_SpeedTuner_ResultMin;
+        private System.Windows.Forms.TextBox tb2_SpeedTuner_Result;
+        private System.Windows.Forms.TextBox tb2_SpeedTuner_ResultMax;
+        private System.Windows.Forms.Label label79;
+        private System.Windows.Forms.Label label81;
+        private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.TextBox tb2_SpeedTunerGear;
+        private System.Windows.Forms.Label label84;
+        private System.Windows.Forms.Label label86;
+        private System.Windows.Forms.PictureBox pb2_SpeedTuner;
+        private System.Windows.Forms.ComboBox cb2_SpeedTuner;
+        private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TextBox tb1_SpeedTuner_ResultMin;
+        private System.Windows.Forms.TextBox tb1_SpeedTuner_Result;
+        private System.Windows.Forms.TextBox tb1_SpeedTuner_ResultMax;
+        private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.NumericUpDown nud4_SpeedTunerImprint;
+        private System.Windows.Forms.NumericUpDown nud3_SpeedTunerImprint;
+        private System.Windows.Forms.NumericUpDown nud2_SpeedTunerImprint;
+        private System.Windows.Forms.NumericUpDown nud1_SpeedTunerImprint;
+        private System.Windows.Forms.RichTextBox richTextBox2;
     }
 }
 
