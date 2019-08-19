@@ -4608,12 +4608,12 @@
             // 
             // l_Results
             // 
-            this.l_Results.AutoSize = true;
-            this.l_Results.Location = new System.Drawing.Point(125, 224);
+            this.l_Results.Location = new System.Drawing.Point(103, 226);
             this.l_Results.Name = "l_Results";
-            this.l_Results.Size = new System.Drawing.Size(13, 13);
+            this.l_Results.Size = new System.Drawing.Size(79, 15);
             this.l_Results.TabIndex = 25;
             this.l_Results.Text = "0";
+            this.l_Results.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // b_CancelOptimize
             // 
