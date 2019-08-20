@@ -309,7 +309,7 @@ namespace E7_Gear_Optimizer
         //Calculates the stats from set bonuses with a given set of gear
         public Dictionary<Stats, float> setBonusStats(List<Set> activeSets)
         {
-            Dictionary<Stats, float> stats = new Dictionary<Stats, float>();
+            Dictionary<Stats, float> stats = new Dictionary<Stats, float>(statsArrayGeneric.Length);
             foreach (Stats s in statsArrayGeneric)
             {
                 stats[s] = 0;

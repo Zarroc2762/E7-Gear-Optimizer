@@ -175,8 +175,8 @@ namespace E7_Gear_Optimizer
         //Calculate the active Sets in a given gear combination
         public static List<Set> activeSet(List<Item> gear)
         {
-            List<Set> activeSets = new List<Set>();
-            Dictionary<Set, int> setCounter = new Dictionary<Set, int>();
+            List<Set> activeSets = new List<Set>(3);
+            Dictionary<Set, int> setCounter = new Dictionary<Set, int>(setsArrayGeneric.Length);
             foreach (Set s in setsArrayGeneric)
             {
                 setCounter[s] = 0;
@@ -187,11 +187,12 @@ namespace E7_Gear_Optimizer
             }
             foreach (Set set in setsArrayGeneric)
             {
-                if (Util.fourPieceSets.Contains(set) && setCounter[set] / 4 > 0)
+                bool isFourPieceSet = Util.fourPieceSets.Contains(set);
+                if (isFourPieceSet && setCounter[set] / 4 > 0)
                 {
                     activeSets.Add(set);
                 }
-                else if (!Util.fourPieceSets.Contains(set))
+                else if (!isFourPieceSet)
                 {
                     for (int i = 0; i < setCounter[set] / 2; i++)
                     {
