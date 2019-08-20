@@ -34,7 +34,11 @@ namespace E7_Gear_Optimizer
         private Dictionary<Stats, float> AwakeningStats { get; set; }
 
         //Cache of Enum.GetValues(typeof(Stats)). Used to iterate over Stats. Greatly increases performance.
-        private static Stats[] statsArrayGeneric = Enum.GetValues(typeof(Stats)).Cast<Stats>().ToArray();
+        public static Stats[] statsArrayGeneric = Enum.GetValues(typeof(Stats)).Cast<Stats>().ToArray();
+
+        private SStats sBaseStats;
+        private SStats sCurrentStats;
+        private SStats sAwakeningStats;
 
         public Hero(string ID, string name, List<Item> gear, Item artifact, int lvl, int awakening)
         {
@@ -341,6 +345,45 @@ namespace E7_Gear_Optimizer
                         break;
                     case Set.Speed:
                         stats[Stats.SPD] += 0.25f;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return stats;
+        }
+
+        //Calculates the stats from set bonuses with a given set of gear
+        public SStats setBonusStatsS(List<Set> activeSets)
+        {
+            SStats stats = new SStats();
+            foreach (Set set in activeSets)
+            {
+                switch (set)
+                {
+                    case Set.Attack:
+                        stats.ATKPercent += 0.35f;
+                        break;
+                    case Set.Crit:
+                        stats.Crit += 0.12f;
+                        break;
+                    case Set.Def:
+                        stats.DEFPercent += 0.15f;
+                        break;
+                    case Set.Destruction:
+                        stats.CritDmg += 0.4f;
+                        break;
+                    case Set.Health:
+                        stats.HPPercent += 0.15f;
+                        break;
+                    case Set.Hit:
+                        stats.EFF += 0.2f;
+                        break;
+                    case Set.Resist:
+                        stats.RES += 0.2f;
+                        break;
+                    case Set.Speed:
+                        stats.SPD += 0.25f;
                         break;
                     default:
                         break;

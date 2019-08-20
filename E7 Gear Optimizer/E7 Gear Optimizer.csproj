@@ -112,6 +112,7 @@
       <DependentUpon>Import.cs</DependentUpon>
     </Compile>
     <Compile Include="Item.cs" />
+    <Compile Include="SStats.cs" />
     <Compile Include="updated.cs">
       <SubType>Form</SubType>
     </Compile>
