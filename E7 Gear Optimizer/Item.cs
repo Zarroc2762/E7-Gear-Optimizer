@@ -68,8 +68,28 @@ namespace E7_Gear_Optimizer
                 }
             }
         }
-        public Stat Main { get => main; set => main = value; }
-        public Stat[] SubStats { get => subStats; set => subStats = value; }
+        public Stat Main
+        {
+            get => main;
+            set
+            {
+                main = value;
+                AllStats = new SStats();
+                AllStats.AddStatsValues(new[] { main });
+                AllStats.AddStatsValues(subStats);
+            }
+        }
+        public Stat[] SubStats
+        {
+            get => subStats;
+            set
+            {
+                subStats = value;
+                AllStats = new SStats();
+                AllStats.AddStatsValues(new[] { main });
+                AllStats.AddStatsValues(subStats);
+            }
+        }
 
         public float WSS { get => wss; }
 
