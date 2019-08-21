@@ -1656,6 +1656,7 @@ namespace E7_Gear_Optimizer
                 tokenSource = new CancellationTokenSource();
                 SStats sHeroStats = new SStats(hero.calcStatsWithoutGear((float)nud_CritBonus.Value / 100f));
                 SStats sItemStats = new SStats();
+                Dictionary<Stats, (float, float)> optimizedFilterStats = optimizeFilterStats();
                 foreach (Item w in weapons)
                 {
                     sItemStats.Add(w.AllStats);
@@ -1668,7 +1669,7 @@ namespace E7_Gear_Optimizer
 
                             SStats sItemStatsTemp = new SStats(sItemStats);
 
-                            tasks.Add(Task.Run(() => calculate(w, h, a, necklaces, rings, boots, hero, sHeroStats, filterStats, setFocus, progress, sItemStatsTemp, cb_Broken.Checked, tokenSource.Token), tokenSource.Token));
+                            tasks.Add(Task.Run(() => calculate(w, h, a, necklaces, rings, boots, hero, sHeroStats, optimizedFilterStats, setFocus, progress, sItemStatsTemp, cb_Broken.Checked, tokenSource.Token), tokenSource.Token));
 
                             sItemStats.Subtract(a.AllStats);
                         }
@@ -1689,7 +1690,7 @@ namespace E7_Gear_Optimizer
                     dgv_OptimizeResults.RowCount = Math.Min(100, combinations.Count);
                     optimizePage = 1;
                     l_Pages.Text = "1 / " + ((combinations.Count + 99) / 100);
-                    MessageBox.Show(sw.Elapsed.TotalMilliseconds.ToString() + Environment.NewLine + atk);
+                    MessageBox.Show(sw.Elapsed.TotalMilliseconds.ToString());
                 }
                 catch (OperationCanceledException)
                 {
@@ -1702,8 +1703,6 @@ namespace E7_Gear_Optimizer
                 }
             }
         }
-
-        volatile static float atk = 0;
 
         //Calculate all possible gear combinations and check whether they satisfy the given filters
 
@@ -1718,40 +1717,25 @@ namespace E7_Gear_Optimizer
             List<(List<Item>, List<(Stats, float)>)> combinations = new List<(List<Item>, List<(Stats, float)>)>();
             Dictionary<Set, int> setCounter = new Dictionary<Set, int>(6);
             setCounter[weapon.Set] = 1;
-            addOrIncrement(setCounter, helmet.Set);
-            addOrIncrement(setCounter, armor.Set);
+            Util.updateSetCounter(setCounter, helmet);
+            Util.updateSetCounter(setCounter, armor);
             int count = 0;
             foreach (Item n in necklaces)
             {
                 sItemStats.Add(n.AllStats);
-                addOrIncrement(setCounter, n.Set);
+                Util.updateSetCounter(setCounter, n);
                 foreach (Item r in rings)
                 {
                     sItemStats.Add(r.AllStats);
-                    addOrIncrement(setCounter, r.Set);
+                    Util.updateSetCounter(setCounter, r);
                     foreach (Item b in boots)
                     {
                         sItemStats.Add(b.AllStats);
-                        addOrIncrement(setCounter, b.Set);
+                        Util.updateSetCounter(setCounter, b);
+
                         ct.ThrowIfCancellationRequested();
 
-                        List<Set> activeSets = new List<Set>(3);
-                        foreach (var setCount in setCounter)
-                        {
-                            bool isFourPieceSet = Util.fourPieceSets2.Contains(setCount.Key);
-                            if (isFourPieceSet && setCount.Value / 4 > 0)
-                            {
-                                activeSets.Add(setCount.Key);
-                            }
-                            else if (!isFourPieceSet)
-                            {
-                                for (int i = 0; i < setCount.Value / 2; i++)
-                                {
-                                    activeSets.Add(setCount.Key);
-                                }
-                            }
-                        }
-
+                        List<Set> activeSets = Util.activeSet(setCounter);
 
                         bool valid = true;
                         foreach (Set s in setFocus)
@@ -1790,56 +1774,53 @@ namespace E7_Gear_Optimizer
                             valid = valid && calculatedStats[Stats.RES] >= filter[7].Item1 && calculatedStats[Stats.RES] <= filter[7].Item2;
                             valid = valid && calculatedStats[Stats.EHP] >= filter[8].Item1 && calculatedStats[Stats.EHP] <= filter[8].Item2;
                             valid = valid && calculatedStats[Stats.DMG] >= filter[9].Item1 && calculatedStats[Stats.DMG] <= filter[9].Item2;*/
-                            if (calculatedStats.ATK > atk)
-                            {
-                                atk = calculatedStats.ATK;
-                            }
                             foreach (KeyValuePair<Stats, (float, float)> stat in filter)
                             {
-                                if (valid)
+                                if (!valid)
                                 {
-                                    switch (stat.Key)
-                                    {
-                                        case Stats.ATK:
-                                            valid = stat.Value.Item1 <= calculatedStats.ATK && stat.Value.Item2 >= calculatedStats.ATK;
-                                            break;
-                                        case Stats.HP:
-                                            valid = stat.Value.Item1 <= calculatedStats.HP && stat.Value.Item2 >= calculatedStats.HP;
-                                            break;
-                                        case Stats.DEF:
-                                            valid = stat.Value.Item1 <= calculatedStats.DEF && stat.Value.Item2 >= calculatedStats.DEF;
-                                            break;
-                                        case Stats.SPD:
-                                            valid = stat.Value.Item1 <= calculatedStats.SPD && stat.Value.Item2 >= calculatedStats.SPD;
-                                            break;
-                                        case Stats.Crit:
-                                            valid = stat.Value.Item1 <= calculatedStats.Crit && stat.Value.Item2 >= calculatedStats.Crit;
-                                            break;
-                                        case Stats.CritDmg:
-                                            valid = stat.Value.Item1 <= calculatedStats.CritDmg && stat.Value.Item2 >= calculatedStats.CritDmg;
-                                            break;
-                                        case Stats.EFF:
-                                            valid = stat.Value.Item1 <= calculatedStats.EFF && stat.Value.Item2 >= calculatedStats.EFF;
-                                            break;
-                                        case Stats.RES:
-                                            valid = stat.Value.Item1 <= calculatedStats.RES && stat.Value.Item2 >= calculatedStats.RES;
-                                            break;
-                                        case Stats.EHP:
-                                            valid = stat.Value.Item1 <= calculatedStats.EHP && stat.Value.Item2 >= calculatedStats.EHP;
-                                            break;
-                                        case Stats.HPpS:
-                                            valid = stat.Value.Item1 <= calculatedStats.HPpS && stat.Value.Item2 >= calculatedStats.HPpS;
-                                            break;
-                                        case Stats.EHPpS:
-                                            valid = stat.Value.Item1 <= calculatedStats.EHPpS && stat.Value.Item2 >= calculatedStats.EHPpS;
-                                            break;
-                                        case Stats.DMG:
-                                            valid = stat.Value.Item1 <= calculatedStats.DMG && stat.Value.Item2 >= calculatedStats.DMG;
-                                            break;
-                                        case Stats.DMGpS:
-                                            valid = stat.Value.Item1 <= calculatedStats.DMGpS && stat.Value.Item2 >= calculatedStats.DMGpS;
-                                            break;
-                                    }
+                                    break;
+                                }
+                                switch (stat.Key)
+                                {
+                                    case Stats.ATK:
+                                        valid = stat.Value.Item1 <= calculatedStats.ATK && stat.Value.Item2 >= calculatedStats.ATK;
+                                        break;
+                                    case Stats.HP:
+                                        valid = stat.Value.Item1 <= calculatedStats.HP && stat.Value.Item2 >= calculatedStats.HP;
+                                        break;
+                                    case Stats.DEF:
+                                        valid = stat.Value.Item1 <= calculatedStats.DEF && stat.Value.Item2 >= calculatedStats.DEF;
+                                        break;
+                                    case Stats.SPD:
+                                        valid = stat.Value.Item1 <= calculatedStats.SPD && stat.Value.Item2 >= calculatedStats.SPD;
+                                        break;
+                                    case Stats.Crit:
+                                        valid = stat.Value.Item1 <= calculatedStats.Crit && stat.Value.Item2 >= calculatedStats.Crit;
+                                        break;
+                                    case Stats.CritDmg:
+                                        valid = stat.Value.Item1 <= calculatedStats.CritDmg && stat.Value.Item2 >= calculatedStats.CritDmg;
+                                        break;
+                                    case Stats.EFF:
+                                        valid = stat.Value.Item1 <= calculatedStats.EFF && stat.Value.Item2 >= calculatedStats.EFF;
+                                        break;
+                                    case Stats.RES:
+                                        valid = stat.Value.Item1 <= calculatedStats.RES && stat.Value.Item2 >= calculatedStats.RES;
+                                        break;
+                                    case Stats.EHP:
+                                        valid = stat.Value.Item1 <= calculatedStats.EHP && stat.Value.Item2 >= calculatedStats.EHP;
+                                        break;
+                                    case Stats.HPpS:
+                                        valid = stat.Value.Item1 <= calculatedStats.HPpS && stat.Value.Item2 >= calculatedStats.HPpS;
+                                        break;
+                                    case Stats.EHPpS:
+                                        valid = stat.Value.Item1 <= calculatedStats.EHPpS && stat.Value.Item2 >= calculatedStats.EHPpS;
+                                        break;
+                                    case Stats.DMG:
+                                        valid = stat.Value.Item1 <= calculatedStats.DMG && stat.Value.Item2 >= calculatedStats.DMG;
+                                        break;
+                                    case Stats.DMGpS:
+                                        valid = stat.Value.Item1 <= calculatedStats.DMGpS && stat.Value.Item2 >= calculatedStats.DMGpS;
+                                        break;
                                 }
                             }
 
@@ -1877,16 +1858,17 @@ namespace E7_Gear_Optimizer
             return combinations;
         }
 
-        private static void addOrIncrement(Dictionary<Set, int> setCounter, Set set)
+        private Dictionary<Stats, (float, float)> optimizeFilterStats()
         {
-            if (setCounter.ContainsKey(set))
+            Dictionary<Stats, (float, float)> stats = new Dictionary<Stats, (float, float)>();
+            foreach (var pair in filterStats)
             {
-                setCounter[set]++;
+                if (pair.Value.Item1 > 0 || pair.Value.Item2 < float.MaxValue)
+                {
+                    stats.Add(pair.Key, pair.Value);
+                }
             }
-            else
-            {
-                setCounter.Add(set, 1);
-            }
+            return stats;
         }
 
         //Get the value for the current cell depending on which page of results is displayed
