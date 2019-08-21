@@ -1716,20 +1716,43 @@ namespace E7_Gear_Optimizer
                                                                         bool brokenSets, CancellationToken ct)
         {
             List<(List<Item>, List<(Stats, float)>)> combinations = new List<(List<Item>, List<(Stats, float)>)>();
+            Dictionary<Set, int> setCounter = new Dictionary<Set, int>(6);
+            setCounter[weapon.Set] = 1;
+            addOrIncrement(setCounter, helmet.Set);
+            addOrIncrement(setCounter, armor.Set);
             int count = 0;
             foreach (Item n in necklaces)
             {
                 sItemStats.Add(n.AllStats);
+                addOrIncrement(setCounter, n.Set);
                 foreach (Item r in rings)
                 {
                     sItemStats.Add(r.AllStats);
+                    addOrIncrement(setCounter, r.Set);
                     foreach (Item b in boots)
                     {
                         sItemStats.Add(b.AllStats);
+                        addOrIncrement(setCounter, b.Set);
                         ct.ThrowIfCancellationRequested();
 
-                        List<Item> items = new List<Item> { weapon, helmet, armor, n, r, b };
-                        List<Set> activeSets = Util.activeSet(items);
+                        List<Set> activeSets = new List<Set>(3);
+                        foreach (var setCount in setCounter)
+                        {
+                            bool isFourPieceSet = Util.fourPieceSets2.Contains(setCount.Key);
+                            if (isFourPieceSet && setCount.Value / 4 > 0)
+                            {
+                                activeSets.Add(setCount.Key);
+                            }
+                            else if (!isFourPieceSet)
+                            {
+                                for (int i = 0; i < setCount.Value / 2; i++)
+                                {
+                                    activeSets.Add(setCount.Key);
+                                }
+                            }
+                        }
+
+
                         bool valid = true;
                         foreach (Set s in setFocus)
                         {
@@ -1741,11 +1764,6 @@ namespace E7_Gear_Optimizer
                         }
                         if (valid)
                         {
-                           
-                            
-                            
-                            
-
                             SStats setBonusStats = hero.setBonusStatsS(activeSets);
                             SStats calculatedStats = new SStats();
                             calculatedStats.ATK = (sStats.ATK * (1 + sItemStats.ATKPercent + setBonusStats.ATKPercent)) + sItemStats.ATK + hero.Artifact.SubStats[0].Value;
@@ -1775,10 +1793,6 @@ namespace E7_Gear_Optimizer
                             if (calculatedStats.ATK > atk)
                             {
                                 atk = calculatedStats.ATK;
-                            }
-                            if (calculatedStats.ATK >= 4000)
-                            {
-
                             }
                             foreach (KeyValuePair<Stats, (float, float)> stat in filter)
                             {
@@ -1850,13 +1864,29 @@ namespace E7_Gear_Optimizer
                         }
                         count++;
                         sItemStats.Subtract(b.AllStats);
+                        setCounter[b.Set]--;
                     }
                     sItemStats.Subtract(r.AllStats);
+                    setCounter[r.Set]--;
+
                 }
                 sItemStats.Subtract(n.AllStats);
+                setCounter[n.Set]--;
             }
             progress.Report(count);
             return combinations;
+        }
+
+        private static void addOrIncrement(Dictionary<Set, int> setCounter, Set set)
+        {
+            if (setCounter.ContainsKey(set))
+            {
+                setCounter[set]++;
+            }
+            else
+            {
+                setCounter.Add(set, 1);
+            }
         }
 
         //Get the value for the current cell depending on which page of results is displayed
