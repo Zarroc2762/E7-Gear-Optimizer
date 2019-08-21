@@ -70,6 +70,46 @@ namespace E7_Gear_Optimizer
         public float DMG;
         public float DMGpS;
 
+        public void Add(SStats sStats)
+        {
+            ATKPercent += sStats.ATKPercent;
+            ATK += sStats.ATK;
+            SPD += sStats.SPD;
+            Crit += sStats.Crit;
+            CritDmg += sStats.CritDmg;
+            HPPercent += sStats.HPPercent;
+            HP += sStats.HP;
+            DEFPercent += sStats.DEFPercent;
+            DEF += sStats.DEF;
+            EFF += sStats.EFF;
+            RES += sStats.RES;
+            HPpS += sStats.HPpS;
+            EHP += sStats.EHP;
+            EHPpS += sStats.EHPpS;
+            DMG += sStats.DMG;
+            DMGpS += sStats.DMGpS;
+        }
+
+        public void Subtract(SStats sStats)
+        {
+            ATKPercent -= sStats.ATKPercent;
+            ATK -= sStats.ATK;
+            SPD -= sStats.SPD;
+            Crit -= sStats.Crit;
+            CritDmg -= sStats.CritDmg;
+            HPPercent -= sStats.HPPercent;
+            HP -= sStats.HP;
+            DEFPercent -= sStats.DEFPercent;
+            DEF -= sStats.DEF;
+            EFF -= sStats.EFF;
+            RES -= sStats.RES;
+            HPpS -= sStats.HPpS;
+            EHP -= sStats.EHP;
+            EHPpS -= sStats.EHPpS;
+            DMG -= sStats.DMG;
+            DMGpS -= sStats.DMGpS;
+        }
+
         public void AddStatsValues(Stat[] stats)
         {
             foreach (var stat in stats)
@@ -123,64 +163,6 @@ namespace E7_Gear_Optimizer
                         break;
                     case Stats.DMGpS:
                         DMGpS += stat.Value;
-                        break;
-                }
-            }
-        }
-
-        public void SubtractStatsValues(Stat[] stats)
-        {
-            foreach (var stat in stats)
-            {
-                switch (stat.Name)
-                {
-                    case Stats.ATKPercent:
-                        ATKPercent -= stat.Value;
-                        break;
-                    case Stats.ATK:
-                        ATK -= stat.Value;
-                        break;
-                    case Stats.SPD:
-                        SPD -= stat.Value;
-                        break;
-                    case Stats.Crit:
-                        Crit -= stat.Value;
-                        break;
-                    case Stats.CritDmg:
-                        CritDmg -= stat.Value;
-                        break;
-                    case Stats.HPPercent:
-                        HPPercent -= stat.Value;
-                        break;
-                    case Stats.HP:
-                        HP -= stat.Value;
-                        break;
-                    case Stats.DEFPercent:
-                        DEFPercent -= stat.Value;
-                        break;
-                    case Stats.DEF:
-                        DEF -= stat.Value;
-                        break;
-                    case Stats.EFF:
-                        EFF -= stat.Value;
-                        break;
-                    case Stats.RES:
-                        RES -= stat.Value;
-                        break;
-                    case Stats.HPpS:
-                        HPpS -= stat.Value;
-                        break;
-                    case Stats.EHP:
-                        EHP -= stat.Value;
-                        break;
-                    case Stats.EHPpS:
-                        EHPpS -= stat.Value;
-                        break;
-                    case Stats.DMG:
-                        DMG -= stat.Value;
-                        break;
-                    case Stats.DMGpS:
-                        DMGpS -= stat.Value;
                         break;
                 }
             }
