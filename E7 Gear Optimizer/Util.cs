@@ -170,67 +170,46 @@ namespace E7_Gear_Optimizer
             Stats.RES
         };
 
-        public static List<Set> fourPieceSets = new List<Set>() { Set.Attack, Set.Destruction, Set.Lifesteal, Set.Rage, Set.Speed, Set.Counter };
-
-        public static HashSet<Set> fourPieceSets2 = new HashSet<Set>() { Set.Attack, Set.Destruction, Set.Lifesteal, Set.Rage, Set.Speed, Set.Counter };
+        public static HashSet<Set> fourPieceSets = new HashSet<Set>() { Set.Attack, Set.Destruction, Set.Lifesteal, Set.Rage, Set.Speed, Set.Counter };
 
         //Calculate the active Sets in a given gear combination
         public static List<Set> activeSet(List<Item> gear)
         {
-            List<Set> activeSets = new List<Set>(3);
-            Dictionary<Set, int> setCounter = getSetCounter(gear);
-            foreach (Set set in setsArrayGeneric)
-            {
-                bool isFourPieceSet = Util.fourPieceSets.Contains(set);
-                if (isFourPieceSet && setCounter[set] / 4 > 0)
-                {
-                    activeSets.Add(set);
-                }
-                else if (!isFourPieceSet)
-                {
-                    for (int i = 0; i < setCounter[set] / 2; i++)
-                    {
-                        activeSets.Add(set);
-                    }
-                }
-            }
-            return activeSets;
-        }
-
-        public static Dictionary<Set, int> getSetCounter(IEnumerable<Item> gear)
-        {
-            Dictionary<Set, int> setCounter = new Dictionary<Set, int>(setsArrayGeneric.Length);
-            foreach (Set s in setsArrayGeneric)
-            {
-                setCounter[s] = 0;
-            }
-            updateSetCounter(ref setCounter, gear);
-            return setCounter;
-        }
-
-        public static void updateSetCounter(ref Dictionary<Set, int> setCounter, IEnumerable<Item> gear)
-        {
+            Dictionary<Set, int> setCounter = new Dictionary<Set, int>(6);
             foreach (Item item in gear)
             {
-                setCounter[item.Set] += 1;
+                updateSetCounter(setCounter, item);
+            }
+            return activeSet(setCounter);
+        }
+
+        public static void updateSetCounter(Dictionary<Set, int> setCounter, Item item)
+        {
+            if (setCounter.ContainsKey(item.Set))
+            {
+                setCounter[item.Set]++;
+            }
+            else
+            {
+                setCounter.Add(item.Set, 1);
             }
         }
 
-        public static List<Set> activeSet(ref Dictionary<Set, int> setCounter)
+        public static List<Set> activeSet(Dictionary<Set, int> setCounter)
         {
             List<Set> activeSets = new List<Set>(3);
-            foreach (Set set in setsArrayGeneric)
+            foreach (var setCount in setCounter)
             {
-                bool isFourPieceSet = Util.fourPieceSets.Contains(set);
-                if (isFourPieceSet && setCounter[set] / 4 > 0)
+                bool isFourPieceSet = Util.fourPieceSets.Contains(setCount.Key);
+                if (isFourPieceSet && setCount.Value / 4 > 0)
                 {
-                    activeSets.Add(set);
+                    activeSets.Add(setCount.Key);
                 }
                 else if (!isFourPieceSet)
                 {
-                    for (int i = 0; i < setCounter[set] / 2; i++)
+                    for (int i = 0; i < setCount.Value / 2; i++)
                     {
-                        activeSets.Add(set);
+                        activeSets.Add(setCount.Key);
                     }
                 }
             }
