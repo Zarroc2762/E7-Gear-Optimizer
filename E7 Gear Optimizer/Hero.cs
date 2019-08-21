@@ -311,50 +311,7 @@ namespace E7_Gear_Optimizer
         }
 
         //Calculates the stats from set bonuses with a given set of gear
-        public Dictionary<Stats, float> setBonusStats(List<Set> activeSets)
-        {
-            Dictionary<Stats, float> stats = new Dictionary<Stats, float>(statsArrayGeneric.Length);
-            foreach (Stats s in statsArrayGeneric)
-            {
-                stats[s] = 0;
-            }
-            foreach (Set set in activeSets)
-            {
-                switch (set)
-                {
-                    case Set.Attack:
-                        stats[Stats.ATKPercent] += 0.35f;
-                        break;
-                    case Set.Crit:
-                        stats[Stats.Crit] += 0.12f;
-                        break;
-                    case Set.Def:
-                        stats[Stats.DEFPercent] += 0.15f;
-                        break;
-                    case Set.Destruction:
-                        stats[Stats.CritDmg] += 0.4f;
-                        break;
-                    case Set.Health:
-                        stats[Stats.HPPercent] += 0.15f;
-                        break;
-                    case Set.Hit:
-                        stats[Stats.EFF] += 0.2f;
-                        break;
-                    case Set.Resist:
-                        stats[Stats.RES] += 0.2f;
-                        break;
-                    case Set.Speed:
-                        stats[Stats.SPD] += 0.25f;
-                        break;
-                    default:
-                        break;
-                }
-            }
-            return stats;
-        }
-
-        //Calculates the stats from set bonuses with a given set of gear
-        public SStats setBonusStatsS(List<Set> activeSets)
+        public SStats setBonusStats(List<Set> activeSets)
         {
             SStats stats = new SStats();
             foreach (Set set in activeSets)

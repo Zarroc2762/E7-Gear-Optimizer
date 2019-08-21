@@ -1764,7 +1764,7 @@ namespace E7_Gear_Optimizer
                         }
                         if (valid)
                         {
-                            SStats setBonusStats = hero.setBonusStatsS(activeSets);
+                            SStats setBonusStats = hero.setBonusStats(activeSets);
                             SStats calculatedStats = new SStats();
                             calculatedStats.ATK = (sStats.ATK * (1 + sItemStats.ATKPercent + setBonusStats.ATKPercent)) + sItemStats.ATK + hero.Artifact.SubStats[0].Value;
                             calculatedStats.HP = (sStats.HP * (1 + sItemStats.HPPercent + setBonusStats.HPPercent)) + sItemStats.HP + hero.Artifact.SubStats[1].Value;
