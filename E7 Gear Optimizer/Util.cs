@@ -176,7 +176,7 @@ namespace E7_Gear_Optimizer
         private static bool[] isFourPieceSetArray = new[] { true, false, false, false, false, true, true, true, true, false, true, false, false };
 
         //Calculate the active Sets in a given gear combination
-        public static List<Set> activeSet(List<Item> gear)
+        public static List<Set> activeSet(IEnumerable<Item> gear)
         {
             Dictionary<Set, int> setCounter = new Dictionary<Set, int>(6);
             foreach (Item item in gear)
