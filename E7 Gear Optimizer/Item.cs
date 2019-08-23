@@ -33,11 +33,12 @@ namespace E7_Gear_Optimizer
             this.subStats = subStats;
             Equipped = equipped;
             Locked = locked;
-            calcWSS();
 
             AllStats = new SStats();
             AllStats.AddStatsValues(new[] { main });
             AllStats.AddStatsValues(subStats);
+
+            calcWSS();
         }
 
         public Item() { }
