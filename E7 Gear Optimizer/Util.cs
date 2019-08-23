@@ -172,6 +172,9 @@ namespace E7_Gear_Optimizer
 
         public static HashSet<Set> fourPieceSets = new HashSet<Set>() { Set.Attack, Set.Destruction, Set.Lifesteal, Set.Rage, Set.Speed, Set.Counter };
 
+        //HACK: Speed, Hit, Crit, Def, Health, Attack, Counter, Lifesteal, Destruction, Resist, Rage, Immunity, Unity
+        private static bool[] isFourPieceSetArray = new[] { true, false, false, false, false, true, true, true, true, false, true, false, false };
+
         //Calculate the active Sets in a given gear combination
         public static List<Set> activeSet(List<Item> gear)
         {
@@ -200,7 +203,7 @@ namespace E7_Gear_Optimizer
             List<Set> activeSets = new List<Set>(3);
             foreach (var setCount in setCounter)
             {
-                bool isFourPieceSet = Util.fourPieceSets.Contains(setCount.Key);
+                bool isFourPieceSet = isFourPieceSetArray[(int)setCount.Key];
                 if (isFourPieceSet && setCount.Value / 4 > 0)
                 {
                     activeSets.Add(setCount.Key);
@@ -210,6 +213,31 @@ namespace E7_Gear_Optimizer
                     for (int i = 0; i < setCount.Value / 2; i++)
                     {
                         activeSets.Add(setCount.Key);
+                    }
+                }
+            }
+            return activeSets;
+        }
+
+        public static List<Set> activeSet(int[] setCounter)
+        {
+            List<Set> activeSets = new List<Set>();
+            for (int iSet = 0; iSet < setCounter.Length; iSet++)
+            {
+                if (setCounter[iSet] == 0)
+                {
+                    continue;
+                }
+                bool isFourPieceSet = isFourPieceSetArray[iSet];
+                if (isFourPieceSet && setCounter[iSet] / 4 > 0)
+                {
+                    activeSets.Add((Set)iSet);
+                }
+                else if (!isFourPieceSet)
+                {
+                    for (int i = 0; i < setCounter[i] / 2; i++)
+                    {
+                        activeSets.Add((Set)iSet);
                     }
                 }
             }

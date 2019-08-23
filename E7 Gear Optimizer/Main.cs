@@ -1715,23 +1715,23 @@ namespace E7_Gear_Optimizer
                                                                         bool brokenSets, CancellationToken ct)
         {
             List<(List<Item>, List<(Stats, float)>)> combinations = new List<(List<Item>, List<(Stats, float)>)>();
-            Dictionary<Set, int> setCounter = new Dictionary<Set, int>(6);
-            setCounter[weapon.Set] = 1;
-            Util.updateSetCounter(setCounter, helmet);
-            Util.updateSetCounter(setCounter, armor);
+            int[] setCounter = new int[13];//enum Set length
+            setCounter[(int)weapon.Set]++;
+            setCounter[(int)helmet.Set]++;
+            setCounter[(int)armor.Set]++;
             int count = 0;
             foreach (Item n in necklaces)
             {
                 sItemStats.Add(n.AllStats);
-                Util.updateSetCounter(setCounter, n);
+                setCounter[(int)n.Set]++;
                 foreach (Item r in rings)
                 {
                     sItemStats.Add(r.AllStats);
-                    Util.updateSetCounter(setCounter, r);
+                    setCounter[(int)r.Set]++;
                     foreach (Item b in boots)
                     {
                         sItemStats.Add(b.AllStats);
-                        Util.updateSetCounter(setCounter, b);
+                        setCounter[(int)b.Set]++;
 
                         ct.ThrowIfCancellationRequested();
 
@@ -1839,14 +1839,14 @@ namespace E7_Gear_Optimizer
                         }
                         count++;
                         sItemStats.Subtract(b.AllStats);
-                        setCounter[b.Set]--;
+                        setCounter[(int)b.Set]--;
                     }
                     sItemStats.Subtract(r.AllStats);
-                    setCounter[r.Set]--;
+                    setCounter[(int)r.Set]--;
 
                 }
                 sItemStats.Subtract(n.AllStats);
-                setCounter[n.Set]--;
+                setCounter[(int)n.Set]--;
             }
             progress.Report(count);
             return combinations;
