@@ -26,11 +26,6 @@ namespace E7_Gear_Optimizer
             DEF = stats.ContainsKey(Stats.DEF) ? stats[Stats.DEF] : 0;
             EFF = stats.ContainsKey(Stats.EFF) ? stats[Stats.EFF] : 0;
             RES = stats.ContainsKey(Stats.RES) ? stats[Stats.RES] : 0;
-            HPpS = stats.ContainsKey(Stats.HPpS) ? stats[Stats.HPpS] : 0;
-            EHP = stats.ContainsKey(Stats.EHP) ? stats[Stats.EHP] : 0;
-            EHPpS = stats.ContainsKey(Stats.EHPpS) ? stats[Stats.EHPpS] : 0;
-            DMG = stats.ContainsKey(Stats.DMG) ? stats[Stats.DMG] : 0;
-            DMGpS = stats.ContainsKey(Stats.DMGpS) ? stats[Stats.DMGpS] : 0;
         }
 
         public SStats(SStats sStats)
@@ -46,29 +41,25 @@ namespace E7_Gear_Optimizer
             DEF = sStats.DEF;
             EFF = sStats.EFF;
             RES = sStats.RES;
-            HPpS = sStats.HPpS;
-            EHP = sStats.EHP;
-            EHPpS = sStats.EHPpS;
-            DMG = sStats.DMG;
-            DMGpS = sStats.DMGpS;
         }
 
-        public float ATKPercent;
-        public float ATK;
-        public float SPD;
-        public float Crit;
-        public float CritDmg;
-        public float HPPercent;
-        public float HP;
-        public float DEFPercent;
-        public float DEF;
-        public float EFF;
-        public float RES;
-        public float HPpS;
-        public float EHP;
-        public float EHPpS;
-        public float DMG;
-        public float DMGpS;
+        public float ATKPercent { get; set; }
+        public float ATK { get; set; }
+        public float SPD { get; set; }
+        public float Crit { get; set; }
+        private float _RealCrit { get => Crit < 1 ? Crit : 1; }
+        public float CritDmg { get; set; }
+        public float HPPercent { get; set; }
+        public float HP { get; set; }
+        public float DEFPercent { get; set; }
+        public float DEF { get; set; }
+        public float EFF { get; set; }
+        public float RES { get; set; }
+        public float HPpS { get => HP * SPD / 100; }
+        public float EHP { get => HP * (1 + (DEF / 300)); }
+        public float EHPpS { get => EHP * SPD / 100; }
+        public float DMG { get => (ATK * (1 - _RealCrit)) + (ATK * _RealCrit * CritDmg); }
+        public float DMGpS { get => DMG * SPD / 100; }
 
         public void Add(SStats sStats)
         {
@@ -83,11 +74,6 @@ namespace E7_Gear_Optimizer
             DEF += sStats.DEF;
             EFF += sStats.EFF;
             RES += sStats.RES;
-            HPpS += sStats.HPpS;
-            EHP += sStats.EHP;
-            EHPpS += sStats.EHPpS;
-            DMG += sStats.DMG;
-            DMGpS += sStats.DMGpS;
         }
 
         public void Subtract(SStats sStats)
@@ -103,11 +89,6 @@ namespace E7_Gear_Optimizer
             DEF -= sStats.DEF;
             EFF -= sStats.EFF;
             RES -= sStats.RES;
-            HPpS -= sStats.HPpS;
-            EHP -= sStats.EHP;
-            EHPpS -= sStats.EHPpS;
-            DMG -= sStats.DMG;
-            DMGpS -= sStats.DMGpS;
         }
 
         public void AddStatsValues(Stat[] stats)
@@ -148,21 +129,6 @@ namespace E7_Gear_Optimizer
                         break;
                     case Stats.RES:
                         RES += stat.Value;
-                        break;
-                    case Stats.HPpS:
-                        HPpS += stat.Value;
-                        break;
-                    case Stats.EHP:
-                        EHP += stat.Value;
-                        break;
-                    case Stats.EHPpS:
-                        EHPpS += stat.Value;
-                        break;
-                    case Stats.DMG:
-                        DMG += stat.Value;
-                        break;
-                    case Stats.DMGpS:
-                        DMGpS += stat.Value;
                         break;
                 }
             }

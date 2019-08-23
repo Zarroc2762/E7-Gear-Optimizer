@@ -1758,12 +1758,6 @@ namespace E7_Gear_Optimizer
                             calculatedStats.CritDmg = sStats.CritDmg + sItemStats.CritDmg + setBonusStats.CritDmg;
                             calculatedStats.EFF = sStats.EFF + sItemStats.EFF + setBonusStats.EFF;
                             calculatedStats.RES = sStats.RES + sItemStats.RES + setBonusStats.RES;
-                            calculatedStats.EHP = calculatedStats.HP * (1 + (calculatedStats.DEF / 300));
-                            calculatedStats.HPpS = calculatedStats.HP * calculatedStats.SPD / 100;
-                            calculatedStats.EHPpS = calculatedStats.EHP * calculatedStats.SPD / 100;
-                            float crit = calculatedStats.Crit > 1 ? 1 : calculatedStats.Crit;
-                            calculatedStats.DMG = (calculatedStats.ATK * (1 - crit)) + (calculatedStats.ATK * crit * calculatedStats.CritDmg);
-                            calculatedStats.DMGpS = calculatedStats.DMG * calculatedStats.SPD / 100;
                             /*valid = valid && calculatedStats[Stats.ATK] >= filter[0].Item1 && calculatedStats[Stats.ATK] <= filter[0].Item2;
                             valid = valid && calculatedStats[Stats.SPD] >= filter[1].Item1 && calculatedStats[Stats.SPD] <= filter[1].Item2;
                             valid = valid && calculatedStats[Stats.Crit] >= filter[2].Item1 && calculatedStats[Stats.Crit] <= filter[2].Item2;
