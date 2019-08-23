@@ -1535,7 +1535,6 @@ namespace E7_Gear_Optimizer
             optimizeHero = hero;
             if (hero != null)
             {
-                Stopwatch sw = Stopwatch.StartNew();
                 List<Item> weapons = data.Items.Where(x => x.Type == ItemType.Weapon && x.Enhance >= nud_EnhanceFocus.Value).ToList();
                 List<Item> helmets = data.Items.Where(x => x.Type == ItemType.Helmet && x.Enhance >= nud_EnhanceFocus.Value).ToList();
                 List<Item> armors = data.Items.Where(x => x.Type == ItemType.Armor && x.Enhance >= nud_EnhanceFocus.Value).ToList();
@@ -1690,7 +1689,6 @@ namespace E7_Gear_Optimizer
                     dgv_OptimizeResults.RowCount = Math.Min(100, combinations.Count);
                     optimizePage = 1;
                     l_Pages.Text = "1 / " + ((combinations.Count + 99) / 100);
-                    MessageBox.Show(sw.Elapsed.TotalMilliseconds.ToString());
                 }
                 catch (OperationCanceledException)
                 {
