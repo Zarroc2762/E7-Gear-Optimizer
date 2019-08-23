@@ -91,46 +91,51 @@ namespace E7_Gear_Optimizer
             RES -= sStats.RES;
         }
 
-        public void AddStatsValues(Stat[] stats)
+        public void SetStat(Stat stat)
+        {
+            switch (stat.Name)
+            {
+                case Stats.ATKPercent:
+                    ATKPercent = stat.Value;
+                    break;
+                case Stats.ATK:
+                    ATK = stat.Value;
+                    break;
+                case Stats.SPD:
+                    SPD = stat.Value;
+                    break;
+                case Stats.Crit:
+                    Crit = stat.Value;
+                    break;
+                case Stats.CritDmg:
+                    CritDmg = stat.Value;
+                    break;
+                case Stats.HPPercent:
+                    HPPercent = stat.Value;
+                    break;
+                case Stats.HP:
+                    HP = stat.Value;
+                    break;
+                case Stats.DEFPercent:
+                    DEFPercent = stat.Value;
+                    break;
+                case Stats.DEF:
+                    DEF = stat.Value;
+                    break;
+                case Stats.EFF:
+                    EFF = stat.Value;
+                    break;
+                case Stats.RES:
+                    RES = stat.Value;
+                    break;
+            }
+        }
+
+        public void SetStats(Stat[] stats)
         {
             foreach (var stat in stats)
             {
-                switch (stat.Name)
-                {
-                    case Stats.ATKPercent:
-                        ATKPercent += stat.Value;
-                        break;
-                    case Stats.ATK:
-                        ATK += stat.Value;
-                        break;
-                    case Stats.SPD:
-                        SPD += stat.Value;
-                        break;
-                    case Stats.Crit:
-                        Crit += stat.Value;
-                        break;
-                    case Stats.CritDmg:
-                        CritDmg += stat.Value;
-                        break;
-                    case Stats.HPPercent:
-                        HPPercent += stat.Value;
-                        break;
-                    case Stats.HP:
-                        HP += stat.Value;
-                        break;
-                    case Stats.DEFPercent:
-                        DEFPercent += stat.Value;
-                        break;
-                    case Stats.DEF:
-                        DEF += stat.Value;
-                        break;
-                    case Stats.EFF:
-                        EFF += stat.Value;
-                        break;
-                    case Stats.RES:
-                        RES += stat.Value;
-                        break;
-                }
+                SetStat(stat);
             }
         }
     }
