@@ -4577,7 +4577,7 @@
             "Counter",
             "Lifesteal",
             "Destruction",
-            "Reist",
+            "Resist",
             "Rage",
             "Immunity",
             "Unity"});
