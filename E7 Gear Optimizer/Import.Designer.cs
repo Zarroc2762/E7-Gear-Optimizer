@@ -54,7 +54,7 @@
             // 
             this.progressBar1.Location = new System.Drawing.Point(12, 12);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(271, 28);
+            this.progressBar1.Size = new System.Drawing.Size(259, 28);
             this.progressBar1.Step = 1;
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar1.TabIndex = 1;
@@ -66,7 +66,7 @@
             this.label1.Location = new System.Drawing.Point(3, 3);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Imported:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -75,10 +75,10 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(115, 3);
+            this.label2.Location = new System.Drawing.Point(117, 3);
             this.label2.Margin = new System.Windows.Forms.Padding(3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Heroes";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -87,10 +87,10 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(115, 22);
+            this.label3.Location = new System.Drawing.Point(117, 22);
             this.label3.Margin = new System.Windows.Forms.Padding(3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Items";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -99,10 +99,10 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(59, 3);
+            this.label4.Location = new System.Drawing.Point(60, 3);
             this.label4.Margin = new System.Windows.Forms.Padding(3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.Size = new System.Drawing.Size(51, 13);
             this.label4.TabIndex = 5;
             this.label4.Text = "0";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -132,10 +132,10 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(59, 22);
+            this.label5.Location = new System.Drawing.Point(60, 22);
             this.label5.Margin = new System.Windows.Forms.Padding(3);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.Size = new System.Drawing.Size(51, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "0";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -145,7 +145,7 @@
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(287, 130);
+            this.ClientSize = new System.Drawing.Size(283, 126);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.progressBar1);
@@ -156,6 +156,7 @@
             this.Name = "Import";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Importing...";
             this.Shown += new System.EventHandler(this.Import_Shown);
             this.tableLayoutPanel1.ResumeLayout(false);
