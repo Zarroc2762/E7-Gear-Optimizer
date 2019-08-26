@@ -55,7 +55,7 @@ namespace E7_Gear_Optimizer
             this.awakening = awakening > lvl / 10 ? lvl / 10 : awakening;
             try
             {
-                string json = Util.client.DownloadString(Util.ApiUrl + "/hero/" + Util.toAPIUrl(Name));
+                string json = loadJson();
                 json = Encoding.UTF8.GetString(Encoding.Default.GetBytes(json)).Replace("✰", "");
                 json = json.Remove(json.IndexOf("\"skills\":")) + json.Substring(json.IndexOf("\"awakening\":"));
                 baseStats = getBaseStats(json);
@@ -90,9 +90,25 @@ namespace E7_Gear_Optimizer
             Bitmap portrait;
             try
             {
-                portrait = new Bitmap(Util.client.OpenRead(Util.AssetUrl + "/hero/" + Util.toAPIUrl(name) + "/icon.png"));
+                string cacheFileName = System.IO.Path.Combine("cache", $"db.hero.{Name}.icon.png");
+                if (Properties.Settings.Default.UseCache && System.IO.File.Exists(cacheFileName))
+                {
+                    //using FileStream as the file is locked otherwise and cannot be deleted on cache invalidation
+                    using (var fs = new System.IO.FileStream(cacheFileName, System.IO.FileMode.Open))
+                    {
+                        portrait = new Bitmap(fs);
+                    }
+                }
+                else
+                {
+                    portrait = new Bitmap(Util.client.OpenRead(Util.AssetUrl + "/hero/" + Util.toAPIUrl(Name) + "/icon.png"));
+                    if (Properties.Settings.Default.UseCache)
+                    {
+                        portrait.Save(cacheFileName, ImageFormat.Png);
+                    }
+                }
             }
-            catch (WebException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 portrait = Util.error;
@@ -143,7 +159,7 @@ namespace E7_Gear_Optimizer
         //Updates base stats from EpicSevenDB
         public void updateBaseStats()
         {
-            string json = Util.client.DownloadString(Util.ApiUrl + "/hero/" + Util.toAPIUrl(Name));
+            string json = loadJson();
             json = Encoding.UTF8.GetString(Encoding.Default.GetBytes(json)).Replace("✰", "");
             json = json.Remove(json.IndexOf("\"skills\":")) + json.Substring(json.IndexOf("\"awakening\":"));
             baseStats = getBaseStats(json);
@@ -185,7 +201,7 @@ namespace E7_Gear_Optimizer
 
         public void calcAwakeningStats()
         {
-            string json = Util.client.DownloadString(Util.ApiUrl + "/hero/" + Util.toAPIUrl(Name));
+            string json = loadJson();
             json = Encoding.UTF8.GetString(Encoding.Default.GetBytes(json)).Replace("✰", "");
             json = json.Remove(json.IndexOf("\"skills\":")) + json.Substring(json.IndexOf("\"awakening\":"));
             AwakeningStats = getAwakeningStats(json);
@@ -405,6 +421,25 @@ namespace E7_Gear_Optimizer
         public List<Item> getGear()
         {
             return gear.Values.ToList();
+        }
+
+        private string loadJson()
+        {
+            string cacheFileName = System.IO.Path.Combine(Properties.Settings.Default.CacheDirectory, $"db.hero.{Name}.json");
+            string json;
+            if (Properties.Settings.Default.UseCache && System.IO.File.Exists(cacheFileName))
+            {
+                json = System.IO.File.ReadAllText(cacheFileName);
+            }
+            else
+            {
+                json = Util.client.DownloadString(Util.ApiUrl + "/hero/" + Util.toAPIUrl(Name));
+                if (Properties.Settings.Default.UseCache)
+                {
+                    System.IO.File.WriteAllText(cacheFileName, json);
+                }
+            }
+            return json;
         }
     }
 }

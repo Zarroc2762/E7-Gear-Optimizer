@@ -35,6 +35,34 @@ namespace E7_Gear_Optimizer
         static bool limitResults = Properties.Settings.Default.LimitResults;
         static int limitResultsNum = Properties.Settings.Default.LimitResultsNum;
         static long resultsCurrent;//long is used to allow use Interlocked.Read() as that method is more clear than .CompareExchange()
+        private bool useCache
+        {
+            get => Properties.Settings.Default.UseCache;
+            set
+            {
+                if (value && !Directory.Exists(Properties.Settings.Default.CacheDirectory))
+                {
+                    Directory.CreateDirectory(Properties.Settings.Default.CacheDirectory);
+                }
+                Properties.Settings.Default.UseCache = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+        private bool importOnLoad
+        {
+            get => Properties.Settings.Default.ImportOnLoad;
+            set
+            {
+                Properties.Settings.Default.ImportOnLoad = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+        private void setLastUsedFileName(string lastUsedFileName, bool web)
+        {
+            Properties.Settings.Default.LastUsedFileName = lastUsedFileName;
+            Properties.Settings.Default.LastUsedFileNameWeb = web;
+            Properties.Settings.Default.Save();
+        }
 
         public Main()
         {
@@ -56,10 +84,27 @@ namespace E7_Gear_Optimizer
                     MessageBox.Show("Could not find E7 optimizer Updater.exe");
                 }
             }
+            if (Properties.Settings.Default.UseCache)
+            {
+                Directory.CreateDirectory(Properties.Settings.Default.CacheDirectory);
+            }
             //Read list of heroes from epicsevendb.com
             try
             {
-                string json = Util.client.DownloadString(Util.ApiUrl + "/hero/");
+                string json;
+                string cacheFileName = Path.Combine(Properties.Settings.Default.CacheDirectory, "db.hero.json");
+                if (useCache && File.Exists(cacheFileName))
+                {
+                    json = File.ReadAllText(cacheFileName);
+                }
+                else
+                {
+                    json = Util.client.DownloadString(Util.ApiUrl + "/hero/");
+                    if (useCache)
+                    {
+                        File.WriteAllText(cacheFileName, json);
+                    }
+                }
                 JToken info = JObject.Parse(json)["results"];
                 int length = info.Count();
                 for (int i = 0; i < length; i++)
@@ -178,6 +223,10 @@ namespace E7_Gear_Optimizer
             cb_LimitResults.Checked = Properties.Settings.Default.LimitResults;
             nud_LimitResults.Enabled = Properties.Settings.Default.LimitResults;
             nud_LimitResults.Value = Properties.Settings.Default.LimitResultsNum;
+
+            cb_ImportOnLoad.Checked = importOnLoad;
+            cb_CacheWeb.Checked = useCache;
+            btn_InvalidateCache.Enabled = useCache;
         }
 
         
@@ -2502,6 +2551,7 @@ namespace E7_Gear_Optimizer
             {
                 JObject json = createJson();
                 File.WriteAllText(sfd_export.FileName, json.ToString());
+                setLastUsedFileName(sfd_export.FileName, false);
             }
         }
         
@@ -3144,10 +3194,38 @@ namespace E7_Gear_Optimizer
         {
             l_Results.Text = numberOfResults().ToString("#,0");
         }
-        
+
         private void Nud_CritBonus_Leave(object sender, EventArgs e)
         {
             nud_CritBonus.Text = nud_CritBonus.Value.ToString();
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            if (importOnLoad && File.Exists(Properties.Settings.Default.LastUsedFileName))
+            {
+                import(Properties.Settings.Default.LastUsedFileName, Properties.Settings.Default.LastUsedFileNameWeb);
+            }
+        }
+
+        private void Cb_ImportOnLoad_CheckedChanged(object sender, EventArgs e)
+        {
+            importOnLoad = cb_ImportOnLoad.Checked;
+        }
+
+        private void Cb_CacheWeb_CheckedChanged(object sender, EventArgs e)
+        {
+            useCache = cb_CacheWeb.Checked;
+            btn_InvalidateCache.Enabled = useCache;
+        }
+
+        private void Btn_InvalidateCache_Click(object sender, EventArgs e)
+        {
+            var files = Directory.GetFiles(Properties.Settings.Default.CacheDirectory, "db.*");
+            foreach (var file in files)
+            {
+                File.Delete(file);
+            }
         }
     }
 }
