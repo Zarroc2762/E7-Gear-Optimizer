@@ -187,37 +187,39 @@ namespace E7_Gear_Optimizer
             {
                 if (ofd_import.ShowDialog() == DialogResult.OK)
                 {
-                    Import importForm = new Import(data, ofd_import.FileName, false);
-                    importForm.ShowDialog();
-                    if (!importForm.result)
-                    {
-                        MessageBox.Show("Corrupted or wrong file format. Please select a JSON file exported by this application!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        updateHeroList();
-                    }
+                    import(ofd_import.FileName);
                 }
             }
             else if (rb_import_web.Checked)
             {
                 if (ofd_import.ShowDialog() == DialogResult.OK)
                 {
-                    Import importForm = new Import(data, ofd_import.FileName, true);
-                    importForm.ShowDialog();
-                    if (!importForm.result)
-                    {
-                        MessageBox.Show("Corrupted or wrong file format. Please select a JSON file exported by /u/HyrTheWinter's Equipment Optimizer!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        updateHeroList();
-                    }
+                    import(ofd_import.FileName, true);
                 }
             }
             else
             {
                 MessageBox.Show("Please select the source to import from!");
+            }
+        }
+
+        private void import(string fileName, bool web = false, bool append = false)
+        {
+            Import importForm = new Import(data, fileName, web, append);
+            importForm.ShowDialog();
+            if (!importForm.result)
+            {
+                string message = web
+                    ? "Corrupted or wrong file format. Please select a JSON file exported by /u/HyrTheWinter's Equipment Optimizer!"
+                    : "Corrupted or wrong file format. Please select a JSON file exported by this application!";
+                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                l_ImportResults.Text = $"Successfully imported {importForm.HeroesImported} heroes and {importForm.ItemsImported} items from {fileName}";
+                l_ImportResults.ForeColor = Color.Green;
+                updateHeroList();
+                setLastUsedFileName(fileName, web);
             }
         }
 
@@ -2945,32 +2947,14 @@ namespace E7_Gear_Optimizer
             {
                 if (ofd_import.ShowDialog() == DialogResult.OK)
                 {
-                    Import importForm = new Import(data, ofd_import.FileName, false, true);
-                    importForm.ShowDialog();
-                    if (!importForm.result)
-                    {
-                        MessageBox.Show("Corrupted or wrong file format. Please select a JSON file exported by this application!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        updateHeroList();
-                    }
+                    import(ofd_import.FileName, false, true);
                 }
             }
             else if (rb_import_web.Checked)
             {
                 if (ofd_import.ShowDialog() == DialogResult.OK)
                 {
-                    Import importForm = new Import(data, ofd_import.FileName, true, true);
-                    importForm.ShowDialog();
-                    if (!importForm.result)
-                    {
-                        MessageBox.Show("Corrupted or wrong file format. Please select a JSON file exported by /u/HyrTheWinter's Equipment Optimizer!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        updateHeroList();
-                    }
+                    import(ofd_import.FileName, true, true);
                 }
             }
             else
