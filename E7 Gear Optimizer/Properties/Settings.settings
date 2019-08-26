@@ -8,5 +8,20 @@
     <Setting Name="LimitResultsNum" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10000000</Value>
     </Setting>
+    <Setting Name="UseCache" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="CacheDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cache</Value>
+    </Setting>
+    <Setting Name="ImportOnLoad" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LastUsedFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LastUsedFileNameWeb" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

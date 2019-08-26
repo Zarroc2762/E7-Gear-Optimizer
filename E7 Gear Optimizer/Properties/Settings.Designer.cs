@@ -34,6 +34,18 @@ namespace E7_Gear_Optimizer.Properties {
                 this["LimitResults"] = value;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UseCache {
+            get {
+                return ((bool)(this["UseCache"]));
+            }
+            set {
+                this["UseCache"] = value;
+            }
+        }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -44,6 +56,54 @@ namespace E7_Gear_Optimizer.Properties {
             }
             set {
                 this["LimitResultsNum"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("cache")]
+        public string CacheDirectory {
+            get {
+                return ((string)(this["CacheDirectory"]));
+            }
+            set {
+                this["CacheDirectory"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ImportOnLoad {
+            get {
+                return ((bool)(this["ImportOnLoad"]));
+            }
+            set {
+                this["ImportOnLoad"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LastUsedFileName {
+            get {
+                return ((string)(this["LastUsedFileName"]));
+            }
+            set {
+                this["LastUsedFileName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool LastUsedFileNameWeb {
+            get {
+                return ((bool)(this["LastUsedFileNameWeb"]));
+            }
+            set {
+                this["LastUsedFileNameWeb"] = value;
             }
         }
     }
