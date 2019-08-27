@@ -1643,6 +1643,10 @@ namespace E7_Gear_Optimizer
                 }
 
                 long numResults = weapons.Count * helmets.Count * armors.Count * necklaces.Count * rings.Count * boots.Count;
+                if (numResults == 0)
+                {
+                    return;
+                }
                 float counter = 0;
                 IProgress<int> progress = new Progress<int>(x =>
                 {
