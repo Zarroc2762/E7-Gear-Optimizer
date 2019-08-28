@@ -673,6 +673,8 @@
             this.label53 = new System.Windows.Forms.Label();
             this.ofd_import = new System.Windows.Forms.OpenFileDialog();
             this.sfd_export = new System.Windows.Forms.SaveFileDialog();
+            this.cb_LimitResults = new System.Windows.Forms.CheckBox();
+            this.nud_LimitResults = new System.Windows.Forms.NumericUpDown();
             this.tb_Inventory.SuspendLayout();
             this.tc_InventorySets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ItemLocked)).BeginInit();
@@ -765,6 +767,7 @@
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud1_SpeedTunerImprint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_SpeedTuner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_LimitResults)).BeginInit();
             this.SuspendLayout();
             // 
             // tb_Inventory
@@ -4353,6 +4356,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.nud_LimitResults);
+            this.panel1.Controls.Add(this.cb_LimitResults);
             this.panel1.Controls.Add(this.cb_Broken);
             this.panel1.Controls.Add(this.label39);
             this.panel1.Controls.Add(this.label41);
@@ -8106,6 +8111,42 @@
             this.sfd_export.FileName = "E7 Gear Optimizer.json";
             this.sfd_export.Filter = "JSON|*.json";
             // 
+            // cb_LimitResults
+            // 
+            this.cb_LimitResults.AutoSize = true;
+            this.cb_LimitResults.Checked = true;
+            this.cb_LimitResults.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_LimitResults.Location = new System.Drawing.Point(6, 243);
+            this.cb_LimitResults.Name = "cb_LimitResults";
+            this.cb_LimitResults.Size = new System.Drawing.Size(85, 17);
+            this.cb_LimitResults.TabIndex = 141;
+            this.cb_LimitResults.Text = "Limit Results";
+            this.cb_LimitResults.UseVisualStyleBackColor = true;
+            // 
+            // nud_LimitResults
+            // 
+            this.nud_LimitResults.Increment = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.nud_LimitResults.Location = new System.Drawing.Point(97, 240);
+            this.nud_LimitResults.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.nud_LimitResults.Name = "nud_LimitResults";
+            this.nud_LimitResults.Size = new System.Drawing.Size(84, 20);
+            this.nud_LimitResults.TabIndex = 142;
+            this.nud_LimitResults.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nud_LimitResults.ThousandsSeparator = true;
+            this.nud_LimitResults.Value = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8244,6 +8285,7 @@
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud1_SpeedTunerImprint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_SpeedTuner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_LimitResults)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -8884,6 +8926,8 @@
         private System.Windows.Forms.NumericUpDown nud2_SpeedTunerImprint;
         private System.Windows.Forms.NumericUpDown nud1_SpeedTunerImprint;
         private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.NumericUpDown nud_LimitResults;
+        private System.Windows.Forms.CheckBox cb_LimitResults;
     }
 }
 
