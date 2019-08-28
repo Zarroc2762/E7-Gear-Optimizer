@@ -32,8 +32,8 @@ namespace E7_Gear_Optimizer
         CancellationTokenSource tokenSource;
         string[] args = Environment.GetCommandLineArgs();
         Hero optimizeHero = null;
-        static bool limitResults { get => Properties.Settings.Default.LimitResults; }
-        static int limitResultsNum { get => Properties.Settings.Default.LimitResultsNum; }
+        static bool limitResults = Properties.Settings.Default.LimitResults;
+        static int limitResultsNum = Properties.Settings.Default.LimitResultsNum;
         static long resultsCurrent;//long is used to allow use Interlocked.Read() as that method is more clear than .CompareExchange()
 
         public Main()
@@ -3138,12 +3138,12 @@ namespace E7_Gear_Optimizer
         private void Cb_LimitResults_CheckedChanged(object sender, EventArgs e)
         {
             nud_LimitResults.Enabled = cb_LimitResults.Checked;
-            Properties.Settings.Default.LimitResults = cb_LimitResults.Checked;
+            Properties.Settings.Default.LimitResults = limitResults = cb_LimitResults.Checked;
         }
 
         private void Nud_LimitResults_ValueChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.LimitResultsNum = (int)nud_LimitResults.Value;
+            Properties.Settings.Default.LimitResultsNum = limitResultsNum = (int)nud_LimitResults.Value;
         }
     }
 }
