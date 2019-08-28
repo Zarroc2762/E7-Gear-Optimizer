@@ -32,7 +32,7 @@ namespace E7_Gear_Optimizer
         CancellationTokenSource tokenSource;
         string[] args = Environment.GetCommandLineArgs();
         Hero optimizeHero = null;
-        static int COMBINATIONS_MAX = 10_000_000;
+        static int COMBINATIONS_MAX { get => Properties.Settings.Default.LimitResultsNum; }
         static long COMBINATIONS_CURRENT;//long is used to allow use Interlocked.Read() as that method is more clear than .CompareExchange()
 
         public Main()
@@ -177,6 +177,9 @@ namespace E7_Gear_Optimizer
             lb_Sub2.SelectedIndex = 0;
             lb_Sub3.SelectedIndex = 0;
             lb_Sub4.SelectedIndex = 0;
+            cb_LimitResults.Checked = Properties.Settings.Default.LimitResults;
+            nud_LimitResults.Enabled = Properties.Settings.Default.LimitResults;
+            nud_LimitResults.Value = Properties.Settings.Default.LimitResultsNum;
         }
 
         
@@ -2541,6 +2544,7 @@ namespace E7_Gear_Optimizer
                 JObject json = createJson();
                 File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "/Backup.json", json.ToString());
             }
+            Properties.Settings.Default.Save();
         }
 
         private JObject createJson()
@@ -3131,6 +3135,17 @@ namespace E7_Gear_Optimizer
         private void Nud4_SpeedTunerImprint_ValueChanged(object sender, EventArgs e)
         {
             Cb4_SpeedTuner_SelectedIndexChanged(null, null);
+        }
+
+        private void Cb_LimitResults_CheckedChanged(object sender, EventArgs e)
+        {
+            nud_LimitResults.Enabled = cb_LimitResults.Checked;
+            Properties.Settings.Default.LimitResults = cb_LimitResults.Checked;
+        }
+
+        private void Nud_LimitResults_ValueChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.LimitResultsNum = (int)nud_LimitResults.Value;
         }
     }
 }

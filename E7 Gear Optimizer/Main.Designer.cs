@@ -4605,7 +4605,7 @@
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(3, 226);
+            this.label47.Location = new System.Drawing.Point(3, 225);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(94, 13);
             this.label47.TabIndex = 24;
@@ -4613,7 +4613,7 @@
             // 
             // l_Results
             // 
-            this.l_Results.Location = new System.Drawing.Point(103, 226);
+            this.l_Results.Location = new System.Drawing.Point(103, 225);
             this.l_Results.Name = "l_Results";
             this.l_Results.Size = new System.Drawing.Size(79, 15);
             this.l_Results.TabIndex = 25;
@@ -8122,6 +8122,7 @@
             this.cb_LimitResults.TabIndex = 141;
             this.cb_LimitResults.Text = "Limit Results";
             this.cb_LimitResults.UseVisualStyleBackColor = true;
+            this.cb_LimitResults.CheckedChanged += new System.EventHandler(this.Cb_LimitResults_CheckedChanged);
             // 
             // nud_LimitResults
             // 
@@ -8146,6 +8147,7 @@
             0,
             0,
             0});
+            this.nud_LimitResults.ValueChanged += new System.EventHandler(this.Nud_LimitResults_ValueChanged);
             // 
             // Main
             // 
