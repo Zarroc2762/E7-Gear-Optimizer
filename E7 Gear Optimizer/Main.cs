@@ -32,8 +32,9 @@ namespace E7_Gear_Optimizer
         CancellationTokenSource tokenSource;
         string[] args = Environment.GetCommandLineArgs();
         Hero optimizeHero = null;
-        static int COMBINATIONS_MAX { get => Properties.Settings.Default.LimitResultsNum; }
-        static long COMBINATIONS_CURRENT;//long is used to allow use Interlocked.Read() as that method is more clear than .CompareExchange()
+        static bool limitResults { get => Properties.Settings.Default.LimitResults; }
+        static int limitResultsNum { get => Properties.Settings.Default.LimitResultsNum; }
+        static long resultsCurrent;//long is used to allow use Interlocked.Read() as that method is more clear than .CompareExchange()
 
         public Main()
         {
@@ -1661,7 +1662,7 @@ namespace E7_Gear_Optimizer
                 SStats sHeroStats = new SStats(hero.calcStatsWithoutGear((float)nud_CritBonus.Value / 100f));
                 SStats sItemStats = new SStats();
                 Dictionary<Stats, (float, float)> optimizedFilterStats = optimizeFilterStats();
-                Interlocked.Exchange(ref COMBINATIONS_CURRENT, 0);
+                Interlocked.Exchange(ref resultsCurrent, 0);
                 foreach (Item w in weapons)
                 {
                     sItemStats.Add(w.AllStats);
@@ -1687,9 +1688,9 @@ namespace E7_Gear_Optimizer
                     if (tasks.Count > 0)
                     {
                         combinations = (await Task.WhenAll(tasks)).Aggregate((a, b) => { a.AddRange(b); return a; });
-                        if (combinations.Count > COMBINATIONS_MAX)
+                        if (combinations.Count > limitResultsNum)
                         {
-                            combinations = combinations.Take(COMBINATIONS_MAX).ToList();
+                            combinations = combinations.Take(limitResultsNum).ToList();
                         }
                     }
                     b_CancelOptimize.Hide();
@@ -1699,7 +1700,7 @@ namespace E7_Gear_Optimizer
                     dgv_OptimizeResults.RowCount = Math.Min(100, combinations.Count);
                     optimizePage = 1;
                     l_Pages.Text = "1 / " + ((combinations.Count + 99) / 100);
-                    if (COMBINATIONS_CURRENT >= COMBINATIONS_MAX)
+                    if (resultsCurrent >= limitResultsNum)
                     {
                         MessageBox.Show("Maximum number of combinations reached. Please try to narrow the filter.", "Limit break", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
@@ -1726,7 +1727,7 @@ namespace E7_Gear_Optimizer
                                                         bool brokenSets, CancellationToken ct)
         {
             List<(Item[], SStats)> combinations = new List<(Item[], SStats)>();
-            if (Interlocked.Read(ref COMBINATIONS_CURRENT) >= COMBINATIONS_MAX)
+            if (limitResults && Interlocked.Read(ref resultsCurrent) >= limitResultsNum)
             {
                 return combinations;
             }
@@ -1776,15 +1777,12 @@ namespace E7_Gear_Optimizer
                             valid = valid && checkFilter(calculatedStats, filter);
                             if (valid)
                             {
-                                if (Interlocked.Read(ref COMBINATIONS_CURRENT) < COMBINATIONS_MAX)
-                                {
-                                    combinations.Add((new[] { weapon, helmet, armor, n, r, b }, calculatedStats));
-                                    Interlocked.Increment(ref COMBINATIONS_CURRENT);
-                                }
-                                else
+                                if (limitResults && Interlocked.Read(ref resultsCurrent) >= limitResultsNum)
                                 {
                                     return combinations;
                                 }
+                                combinations.Add((new[] { weapon, helmet, armor, n, r, b }, calculatedStats));
+                                Interlocked.Increment(ref resultsCurrent);
                             }
                         }
                         count++;
