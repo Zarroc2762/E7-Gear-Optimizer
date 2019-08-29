@@ -165,7 +165,7 @@ namespace E7_Gear_Optimizer
             richTextBox2.SelectedText = "\n";
             richTextBox2.SelectionBullet = true;
             richTextBox2.SelectionFont = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold);
-            richTextBox2.SelectedText = "Input SPD from imprints.\n";
+            richTextBox2.SelectedText = "Input SPD from imprints and/or exclusive equipment.\n";
             richTextBox2.SelectionBullet = false;
             richTextBox2.SelectedText = "\n";
             richTextBox2.SelectionFont = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold);
