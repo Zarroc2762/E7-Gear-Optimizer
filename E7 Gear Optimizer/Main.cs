@@ -1369,39 +1369,9 @@ namespace E7_Gear_Optimizer
             {
                 Base = Base.Where(x => !x.Locked || x.Equipped == hero).ToList();
             }
-            string neckFocus = cb_NecklaceFocus.SelectedIndex > -1 ? cb_NecklaceFocus.Items[cb_NecklaceFocus.SelectedIndex].ToString() : "";
-            long necklaces;
-            if (neckFocus != "")
-            {
-                Stats stat = (Stats)Enum.Parse(typeof(Stats), neckFocus.Replace("%", "Percent"));
-                necklaces = Base.Where(x => x.Type == ItemType.Necklace).Where(x => x.Main.Name == stat).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
-            }
-            else
-            {
-                necklaces = Base.Where(x => x.Type == ItemType.Necklace).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
-            }
-            string ringFocus = cb_RingFocus.SelectedIndex> -1 ? cb_RingFocus.Items[cb_RingFocus.SelectedIndex].ToString(): "";
-            long rings;
-            if (ringFocus != "")
-            {
-                Stats stat = (Stats)Enum.Parse(typeof(Stats), ringFocus.Replace("%", "Percent"));
-                rings = Base.Where(x => x.Type == ItemType.Ring).Where(x => x.Main.Name == stat).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
-            }
-            else
-            {
-                rings = Base.Where(x => x.Type == ItemType.Ring).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
-            }
-            string bootsFocus = cb_BootsFocus.SelectedIndex > -1 ? cb_BootsFocus.Items[cb_BootsFocus.SelectedIndex].ToString() : "";
-            long boots;
-            if (bootsFocus != "")
-            {
-                Stats stat = (Stats)Enum.Parse(typeof(Stats), bootsFocus.Replace("%", "Percent"));
-                boots = Base.Where(x => x.Type == ItemType.Boots).Where(x => x.Main.Name == stat).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
-            }
-            else
-            {
-                boots = Base.Where(x => x.Type == ItemType.Boots).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
-            }
+            long necklaces = getRightSideGear(Base, ItemType.Necklace).Where(x => checkSets(x, setFocus)).Count();
+            long rings = getRightSideGear(Base, ItemType.Ring).Where(x => checkSets(x, setFocus)).Count();
+            long boots = getRightSideGear(Base, ItemType.Boots).Where(x => checkSets(x, setFocus)).Count();
             long weapons = Base.Where(x => x.Type == ItemType.Weapon).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
             long helmets = Base.Where(x => x.Type == ItemType.Helmet).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
             long armors = Base.Where(x => x.Type == ItemType.Armor).Where(x => checkForceStats(x)).Where(x => checkSets(x, setFocus)).Count();
@@ -1438,6 +1408,47 @@ namespace E7_Gear_Optimizer
             }
 
             return weapons * helmets * armors * necklaces * rings * boots;
+        }
+
+        /// <summary>
+        /// This method returns filtered collection of "right-side" items (necklaces, rings or boots) 
+        /// </summary>
+        /// <param name="items">Items to choose from</param>
+        /// <param name="itemType">ItemType of items to get</param>
+        /// <returns></returns>
+        private IEnumerable<Item> getRightSideGear(IEnumerable<Item> items, ItemType itemType)
+        {
+            string focus;
+            if (itemType == ItemType.Necklace)
+            {
+                focus = cb_NecklaceFocus.SelectedIndex > -1 ? cb_NecklaceFocus.Items[cb_NecklaceFocus.SelectedIndex].ToString() : "";
+            }
+            else if (itemType == ItemType.Ring)
+            {
+                focus = cb_RingFocus.SelectedIndex > -1 ? cb_RingFocus.Items[cb_RingFocus.SelectedIndex].ToString() : "";
+            }
+            else if (itemType == ItemType.Boots)
+            {
+                focus = cb_BootsFocus.SelectedIndex > -1 ? cb_BootsFocus.Items[cb_BootsFocus.SelectedIndex].ToString() : "";
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException(nameof(itemType));
+            }
+            if (string.IsNullOrWhiteSpace(focus))
+            {
+                return items.Where(x => x.Type == itemType && x.Enhance >= nud_EnhanceFocus.Value).Where(x => checkForceStats(x));
+            }
+            else
+            {
+                var statsStrings = focus.Split(' ');
+                List<Stats> stats = new List<Stats>(statsStrings.Length);
+                foreach (var s in statsStrings)
+                {
+                    stats.Add((Stats)Enum.Parse(typeof(Stats), s.Replace("%", "Percent")));
+                }
+                return items.Where(x => x.Type == itemType && x.Enhance >= nud_EnhanceFocus.Value).Where(x => stats.Contains(x.Main.Name)).Where(x => checkForceStats(x));
+            }
         }
 
         private bool checkForceStats(Item item)
@@ -1538,39 +1549,9 @@ namespace E7_Gear_Optimizer
                 List<Item> weapons = data.Items.Where(x => x.Type == ItemType.Weapon && x.Enhance >= nud_EnhanceFocus.Value).ToList();
                 List<Item> helmets = data.Items.Where(x => x.Type == ItemType.Helmet && x.Enhance >= nud_EnhanceFocus.Value).ToList();
                 List<Item> armors = data.Items.Where(x => x.Type == ItemType.Armor && x.Enhance >= nud_EnhanceFocus.Value).ToList();
-                List<Item> necklaces;
-                List<Item> rings;
-                List<Item> boots;
-                string neckFocus = cb_NecklaceFocus.SelectedIndex > -1 ? cb_NecklaceFocus.Items[cb_NecklaceFocus.SelectedIndex].ToString() : "";
-                if (neckFocus != "")
-                {
-                    Stats stat = (Stats)Enum.Parse(typeof(Stats), neckFocus.Replace("%", "Percent"));
-                    necklaces = data.Items.Where(x => x.Type == ItemType.Necklace && x.Enhance >= nud_EnhanceFocus.Value).Where(x => x.Main.Name == stat).ToList();
-                }
-                else
-                {
-                    necklaces = data.Items.Where(x => x.Type == ItemType.Necklace && x.Enhance >= nud_EnhanceFocus.Value).ToList();
-                }
-                string ringFocus = cb_RingFocus.SelectedIndex > -1 ? cb_RingFocus.Items[cb_RingFocus.SelectedIndex].ToString() : "";
-                if (ringFocus != "")
-                {
-                    Stats stat = (Stats)Enum.Parse(typeof(Stats), ringFocus.Replace("%", "Percent"));
-                    rings = data.Items.Where(x => x.Type == ItemType.Ring && x.Enhance >= nud_EnhanceFocus.Value).Where(x => x.Main.Name == stat).ToList();
-                }
-                else
-                {
-                    rings = data.Items.Where(x => x.Type == ItemType.Ring && x.Enhance >= nud_EnhanceFocus.Value).ToList();
-                }
-                string bootsFocus = cb_BootsFocus.SelectedIndex > -1 ? cb_BootsFocus.Items[cb_BootsFocus.SelectedIndex].ToString() : "";
-                if (bootsFocus != "")
-                {
-                    Stats stat = (Stats)Enum.Parse(typeof(Stats), bootsFocus.Replace("%", "Percent"));
-                    boots = data.Items.Where(x => x.Type == ItemType.Boots && x.Enhance >= nud_EnhanceFocus.Value).Where(x => x.Main.Name == stat).ToList();
-                }
-                else
-                {
-                    boots = data.Items.Where(x => x.Type == ItemType.Boots && x.Enhance >= nud_EnhanceFocus.Value).ToList();
-                }
+                List<Item> necklaces = getRightSideGear(data.Items, ItemType.Necklace).ToList();
+                List<Item> rings = getRightSideGear(data.Items, ItemType.Ring).ToList();
+                List<Item> boots = getRightSideGear(data.Items, ItemType.Boots).ToList();
                 if (!chb_Equipped.Checked)
                 {
                     weapons = weapons.Where(x => x.Equipped == null || x.Equipped == hero).ToList();
