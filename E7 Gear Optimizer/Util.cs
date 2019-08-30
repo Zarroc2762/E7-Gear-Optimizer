@@ -235,7 +235,7 @@ namespace E7_Gear_Optimizer
                 }
                 else if (!isFourPieceSet)
                 {
-                    for (int i = 0; i < setCounter[i] / 2; i++)
+                    for (int i = 0; i < setCounter[iSet] / 2; i++)
                     {
                         activeSets.Add((Set)iSet);
                     }
