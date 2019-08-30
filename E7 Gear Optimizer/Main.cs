@@ -1688,7 +1688,7 @@ namespace E7_Gear_Optimizer
                     if (tasks.Count > 0)
                     {
                         combinations = (await Task.WhenAll(tasks)).Aggregate((a, b) => { a.AddRange(b); return a; });
-                        if (combinations.Count > limitResultsNum)
+                        if (limitResults && combinations.Count > limitResultsNum)
                         {
                             combinations = combinations.Take(limitResultsNum).ToList();
                         }
@@ -1700,7 +1700,7 @@ namespace E7_Gear_Optimizer
                     dgv_OptimizeResults.RowCount = Math.Min(100, combinations.Count);
                     optimizePage = 1;
                     l_Pages.Text = "1 / " + ((combinations.Count + 99) / 100);
-                    if (resultsCurrent >= limitResultsNum)
+                    if (limitResults && resultsCurrent >= limitResultsNum)
                     {
                         MessageBox.Show("Maximum number of combinations reached. Please try to narrow the filter.", "Limit break", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
