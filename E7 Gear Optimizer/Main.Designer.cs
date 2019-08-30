@@ -2147,7 +2147,7 @@
             this.cb_ImportOnLoad.Name = "cb_ImportOnLoad";
             this.cb_ImportOnLoad.Size = new System.Drawing.Size(245, 17);
             this.cb_ImportOnLoad.TabIndex = 8;
-            this.cb_ImportOnLoad.Text = "Auto import selected JSON on application start";
+            this.cb_ImportOnLoad.Text = "Auto import last used JSON on application start";
             this.cb_ImportOnLoad.UseVisualStyleBackColor = true;
             this.cb_ImportOnLoad.CheckedChanged += new System.EventHandler(this.Cb_ImportOnLoad_CheckedChanged);
             // 
