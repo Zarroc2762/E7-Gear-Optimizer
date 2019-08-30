@@ -104,9 +104,6 @@ namespace E7_Gear_Optimizer
             Classes.Images.Add(Properties.Resources.mage);
             Classes.Images.Add(Properties.Resources.soulweaver);
             Classes.Images.Add(Properties.Resources.ranger);
-            cb_NecklaceFocus.Items.Add("");
-            cb_RingFocus.Items.Add("");
-            cb_BootsFocus.Items.Add("");
             cb_Set1.Items.Add("");
             cb_Set2.Items.Add("");
             cb_Set3.Items.Add("");
@@ -1421,15 +1418,15 @@ namespace E7_Gear_Optimizer
             string focus;
             if (itemType == ItemType.Necklace)
             {
-                focus = cb_NecklaceFocus.SelectedIndex > -1 ? cb_NecklaceFocus.Items[cb_NecklaceFocus.SelectedIndex].ToString() : "";
+                focus = tb_NecklaceFocus.Text;
             }
             else if (itemType == ItemType.Ring)
             {
-                focus = cb_RingFocus.SelectedIndex > -1 ? cb_RingFocus.Items[cb_RingFocus.SelectedIndex].ToString() : "";
+                focus = tb_RingFocus.Text;
             }
             else if (itemType == ItemType.Boots)
             {
-                focus = cb_BootsFocus.SelectedIndex > -1 ? cb_BootsFocus.Items[cb_BootsFocus.SelectedIndex].ToString() : "";
+                focus = tb_BootsFocus.Text;
             }
             else
             {
@@ -1515,21 +1512,6 @@ namespace E7_Gear_Optimizer
         }
 
         private void Chb_Equipped_CheckedChanged(object sender, EventArgs e)
-        {
-            l_Results.Text = numberOfResults().ToString("#,0");
-        }
-
-        private void Cb_NecklaceFocus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            l_Results.Text = numberOfResults().ToString("#,0");
-        }
-
-        private void Cb_RingFocus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            l_Results.Text = numberOfResults().ToString("#,0");
-        }
-
-        private void Cb_BootsFocus_SelectedIndexChanged(object sender, EventArgs e)
         {
             l_Results.Text = numberOfResults().ToString("#,0");
         }
@@ -3104,6 +3086,52 @@ namespace E7_Gear_Optimizer
         private void Nud4_SpeedTunerImprint_ValueChanged(object sender, EventArgs e)
         {
             Cb4_SpeedTuner_SelectedIndexChanged(null, null);
+        }
+
+        private void b_RightSideFocus_Click(TextBox tb, string[] stats)
+        {
+            MultiSelectForm multiSelect = new MultiSelectForm(stats);
+            multiSelect.Location = tb.PointToScreen(new Point(0, 0 + tb.Height));
+            var result = multiSelect.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                List<string> selectedStats = new List<string>(multiSelect.SelectedItems.Count);
+                foreach (var item in multiSelect.SelectedItems)
+                {
+                    selectedStats.Add(item.ToString());
+                }
+                tb.Text = string.Join(" ", selectedStats);
+            }
+        }
+
+        private void B_NecklaceFocus(object sender, EventArgs e)
+        {
+            b_RightSideFocus_Click(tb_NecklaceFocus, new string[] { "ATK%", "ATK", "Crit", "CritDmg", "HP%", "HP", "DEF%", "DEF" });
+        }
+
+        private void B_RingFocus_Click(object sender, EventArgs e)
+        {
+            b_RightSideFocus_Click(tb_RingFocus, new string[] { "ATK%", "ATK", "HP%", "HP", "DEF%", "DEF", "EFF", "RES" });
+        }
+
+        private void B_BootsFocus_Click(object sender, EventArgs e)
+        {
+            b_RightSideFocus_Click(tb_BootsFocus, new string[] { "ATK%", "ATK", "SPD", "HP%", "HP", "DEF%", "DEF"});
+        }
+
+        private void Tb_NecklaceFocus_TextChanged(object sender, EventArgs e)
+        {
+            l_Results.Text = numberOfResults().ToString("#,0");
+        }
+
+        private void Tb_RingFocus_TextChanged(object sender, EventArgs e)
+        {
+            l_Results.Text = numberOfResults().ToString("#,0");
+        }
+
+        private void Tb_BootsFocus_TextChanged(object sender, EventArgs e)
+        {
+            l_Results.Text = numberOfResults().ToString("#,0");
         }
     }
 }
