@@ -320,6 +320,7 @@ namespace E7_Gear_Optimizer
             Point cell = dgv_Inventory.CurrentCellAddress;
             DataGridViewColumn sortColumn = dgv_Inventory.SortedColumn;
             SortOrder order = dgv_Inventory.SortOrder;
+            string ID = cell.Y >= 0 ? dgv_Inventory.Rows[cell.Y].Cells["c_ItemID"].Value.ToString() : null;
             dgv_Inventory.Rows.Clear();
 
             //calculate new list of items based on the selected type filter
@@ -359,9 +360,10 @@ namespace E7_Gear_Optimizer
             l_ItemCount.Text = filteredList.Count().ToString();
             //restore previous sorting and select previously selected cell
             if (order != SortOrder.None) dgv_Inventory.Sort(sortColumn, (ListSortDirection)Enum.Parse(typeof(ListSortDirection), order.ToString()));
+            //order of items can change due to change of sortColumn values, so restore selected row by item id
             if (cell.X > -1 && cell.Y > -1 && cell.X < dgv_Inventory.ColumnCount && cell.Y < dgv_Inventory.RowCount)
             {
-                dgv_Inventory.CurrentCell = dgv_Inventory.Rows[cell.Y].Cells[cell.X];
+                dgv_Inventory.CurrentCell = dgv_Inventory.Rows.Cast<DataGridViewRow>().Where(x => x.Cells["c_ItemID"].Value.ToString() == ID).First().Cells[cell.X];
             }
         }
 
