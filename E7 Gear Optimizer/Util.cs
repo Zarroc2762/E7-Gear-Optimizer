@@ -171,8 +171,17 @@ namespace E7_Gear_Optimizer
 
         public static HashSet<Set> fourPieceSets = new HashSet<Set>() { Set.Attack, Set.Destruction, Set.Lifesteal, Set.Rage, Set.Speed, Set.Counter };
 
-        //HACK: Speed, Hit, Crit, Def, Health, Attack, Counter, Lifesteal, Destruction, Resist, Rage, Immunity, Unity
-        private static bool[] isFourPieceSetArray = new[] { true, false, false, false, false, true, true, true, true, false, true, false, false };
+        //Faster alternative to fourPieceSets.Contains() or Dictionary<Set, bool> to determine if a set is 4-piece set. Each index represents (int)Set
+        private static readonly bool[] isFourPieceSetArray;
+
+        static Util()
+        {
+            isFourPieceSetArray = new bool[SETS_LENGTH];
+            for (int i = 0; i < isFourPieceSetArray.Length; i++)
+            {
+                isFourPieceSetArray[i] = fourPieceSets.Contains((Set)i);
+            }
+        }
 
         //Calculate the active Sets in a given gear combination
         public static List<Set> activeSet(IEnumerable<Item> gear)
