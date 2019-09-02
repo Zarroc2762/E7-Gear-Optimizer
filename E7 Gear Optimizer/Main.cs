@@ -1713,7 +1713,7 @@ namespace E7_Gear_Optimizer
                                                                         bool brokenSets, CancellationToken ct)
         {
             List<(Item[], SStats)> combinations = new List<(Item[], SStats)>();
-            int[] setCounter = new int[13];//enum Set length
+            int[] setCounter = new int[Util.SETS_LENGTH];
             setCounter[(int)weapon.Set]++;
             setCounter[(int)helmet.Set]++;
             setCounter[(int)armor.Set]++;

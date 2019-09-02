@@ -106,9 +106,8 @@ namespace E7_Gear_Optimizer
             [ItemType.Ring] = new List<Stats>() { Stats.Crit, Stats.CritDmg, Stats.DEF, Stats.DEFPercent, Stats.EFF, Stats.HP, Stats.HPPercent, Stats.RES, Stats.SPD, Stats.ATK, Stats.ATKPercent },
             [ItemType.Boots] = new List<Stats>() { Stats.Crit, Stats.CritDmg, Stats.DEF, Stats.DEFPercent, Stats.EFF, Stats.HP, Stats.HPPercent, Stats.RES, Stats.SPD, Stats.ATK, Stats.ATKPercent }
         };
-
-        //Cache of Enum.GetValues(typeof(Set)). Used to iterate over sets. Greatly increases performance.
-        public static Set[] setsArrayGeneric = Enum.GetValues(typeof(Set)).Cast<Set>().ToArray();
+        //Cached value of Set enum length to use in arrays' initializations instead of magic number
+        public static readonly int SETS_LENGTH = Enum.GetValues(typeof(Set)).Length;
 
         public static Bitmap ResizeImage(Image image, int width, int height)
         {
