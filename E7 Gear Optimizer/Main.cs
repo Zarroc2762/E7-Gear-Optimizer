@@ -212,13 +212,18 @@ namespace E7_Gear_Optimizer
             cb_LimitResults.Checked = Properties.Settings.Default.LimitResults;
             nud_LimitResults.Enabled = Properties.Settings.Default.LimitResults;
             nud_LimitResults.Value = Properties.Settings.Default.LimitResultsNum;
-
             cb_ImportOnLoad.Checked = Properties.Settings.Default.ImportOnLoad;
             cb_CacheWeb.Checked = useCache;
             b_ClearCache.Enabled = useCache;
+            is_Weapon.Image = Properties.Resources.weapon;
+            is_Helmet.Image = Properties.Resources.helmet;
+            is_Armor.Image = Properties.Resources.armor;
+            is_Necklace.Image = Properties.Resources.necklace;
+            is_Ring.Image = Properties.Resources.ring;
+            is_Boots.Image = Properties.Resources.boots;
         }
 
-        
+
         private void B_import_Click(object sender, EventArgs e)
         {
             if (rb_import_this.Checked)
@@ -918,246 +923,12 @@ namespace E7_Gear_Optimizer
             nud_ArtifactHealth.Value = hero.Artifact != null ? (int)hero.Artifact.SubStats[1].Value : 0;
 
             //Check whether the selected Hero has an item equipped in the slot and set the controls for the slot accordingly
-            Item item = hero.getItem(ItemType.Weapon);
-            if (item != null)
-            {
-                l_WeaponGrade.Text = item.Grade.ToString() + " Weapon";
-                l_WeaponGrade.ForeColor = Util.gradeColors[item.Grade];
-                l_WeaponIlvl.Text = item.ILvl.ToString();
-                l_WeaponEnhance.Text = "+" + item.Enhance.ToString();
-                l_WeaponMain.Text = Util.statStrings[item.Main.Name];
-                l_WeaponMainStat.Text = ((int)item.Main.Value).ToString();
-                l_WeaponSet.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                pb_WeaponSet.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                for (int i = 0; i < 4; i++)
-                {
-                    if (i < item.SubStats.Length)
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                    }
-                    else
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = "";
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = "";
-                    }
-                }
-            }
-            else
-            {
-                l_WeaponGrade.Text = "";
-                l_WeaponIlvl.Text = "";
-                l_WeaponEnhance.Text = "";
-                l_WeaponMain.Text = "";
-                l_WeaponMainStat.Text = "";
-                l_WeaponSet.Text = "";
-                pb_WeaponSet.Image = Util.error;
-                for (int i = 0; i < 4; i++)
-                {
-                    ((Label)tb_Heroes.Controls.Find("l_WeaponSub" + (i + 1), true)[0]).Text = "";
-                    ((Label)tb_Heroes.Controls.Find("l_WeaponSub" + (i + 1) + "Stat", true)[0]).Text = "";
-                }
-            }
-            item = hero.getItem(ItemType.Helmet);
-            if (item != null)
-            {
-                l_HelmetGrade.Text = item.Grade.ToString() + " Helmet";
-                l_HelmetGrade.ForeColor = Util.gradeColors[item.Grade];
-                l_HelmetIlvl.Text = item.ILvl.ToString();
-                l_HelmetEnhance.Text = "+" + item.Enhance.ToString();
-                l_HelmetMain.Text = Util.statStrings[item.Main.Name];
-                l_HelmetMainStat.Text = ((int)item.Main.Value).ToString();
-                l_HelmetSet.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                pb_HelmetSet.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                for (int i = 0; i < 4; i++)
-                {
-                    if (i < item.SubStats.Length)
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                    }
-                    else
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = "";
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = "";
-                    }
-                }
-            }
-            else
-            {
-                l_HelmetGrade.Text = "";
-                l_HelmetIlvl.Text = "";
-                l_HelmetEnhance.Text = "";
-                l_HelmetMain.Text = "";
-                l_HelmetMainStat.Text = "";
-                l_HelmetSet.Text = "";
-                pb_HelmetSet.Image = Util.error;
-                for (int i = 0; i < 4; i++)
-                {
-                    ((Label)tb_Heroes.Controls.Find("l_HelmetSub" + (i + 1), true)[0]).Text = "";
-                    ((Label)tb_Heroes.Controls.Find("l_HelmetSub" + (i + 1) + "Stat", true)[0]).Text = "";
-                }
-            }
-            item = hero.getItem(ItemType.Armor);
-            if (item != null)
-            {
-                l_ArmorGrade.Text = item.Grade.ToString() + " Armor";
-                l_ArmorGrade.ForeColor = Util.gradeColors[item.Grade];
-                l_ArmorIlvl.Text = item.ILvl.ToString();
-                l_ArmorEnhance.Text = "+" + item.Enhance.ToString();
-                l_ArmorMain.Text = Util.statStrings[item.Main.Name];
-                l_ArmorMainStat.Text = ((int)item.Main.Value).ToString();
-                l_ArmorSet.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                pb_ArmorSet.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                for (int i = 0; i < 4; i++)
-                {
-                    if (i < item.SubStats.Length)
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                    }
-                    else
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = "";
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = "";
-                    }
-                }
-            }
-            else
-            {
-                l_ArmorGrade.Text = "";
-                l_ArmorIlvl.Text = "";
-                l_ArmorEnhance.Text = "";
-                l_ArmorMain.Text = "";
-                l_ArmorMainStat.Text = "";
-                l_ArmorSet.Text = "";
-                pb_ArmorSet.Image = Util.error;
-                for (int i = 0; i < 4; i++)
-                {
-                    ((Label)tb_Heroes.Controls.Find("l_ArmorSub" + (i + 1), true)[0]).Text = "";
-                    ((Label)tb_Heroes.Controls.Find("l_ArmorSub" + (i + 1) + "Stat", true)[0]).Text = "";
-                }
-            }
-            item = hero.getItem(ItemType.Necklace);
-            if (item != null)
-            {
-                l_NecklaceGrade.Text = item.Grade.ToString() + " Necklace";
-                l_NecklaceGrade.ForeColor = Util.gradeColors[item.Grade];
-                l_NecklaceIlvl.Text = item.ILvl.ToString();
-                l_NecklaceEnhance.Text = "+" + item.Enhance.ToString();
-                l_NecklaceMain.Text = Util.statStrings[item.Main.Name];
-                l_NecklaceMainStat.Text = Util.percentStats.Contains(item.Main.Name) ? item.Main.Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.Main.Value.ToString();
-                l_NecklaceSet.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                pb_NecklaceSet.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                for (int i = 0; i < 4; i++)
-                {
-                    if (i < item.SubStats.Length)
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                    }
-                    else
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = "";
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = "";
-                    }
-                }
-            }
-            else
-            {
-                l_NecklaceGrade.Text = "";
-                l_NecklaceIlvl.Text = "";
-                l_NecklaceEnhance.Text = "";
-                l_NecklaceMain.Text = "";
-                l_NecklaceMainStat.Text = "";
-                l_NecklaceSet.Text = "";
-                pb_NecklaceSet.Image = Util.error;
-                for (int i = 0; i < 4; i++)
-                {
-                    ((Label)tb_Heroes.Controls.Find("l_NecklaceSub" + (i + 1), true)[0]).Text = "";
-                    ((Label)tb_Heroes.Controls.Find("l_NecklaceSub" + (i + 1) + "Stat", true)[0]).Text = "";
-                }
-            }
-            item = hero.getItem(ItemType.Ring);
-            if (item != null)
-            {
-                l_RingGrade.Text = item.Grade.ToString() + " Ring";
-                l_RingGrade.ForeColor = Util.gradeColors[item.Grade];
-                l_RingIlvl.Text = item.ILvl.ToString();
-                l_RingEnhance.Text = "+" + item.Enhance.ToString();
-                l_RingMain.Text = Util.statStrings[item.Main.Name];
-                l_RingMainStat.Text = Util.percentStats.Contains(item.Main.Name) ? item.Main.Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.Main.Value.ToString();
-                l_RingSet.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                pb_RingSet.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                for (int i = 0; i < 4; i++)
-                {
-                    if (i < item.SubStats.Length)
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                    }
-                    else
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = "";
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = "";
-                    }
-                }
-            }
-            else
-            {
-                l_RingGrade.Text = "";
-                l_RingIlvl.Text = "";
-                l_RingEnhance.Text = "";
-                l_RingMain.Text = "";
-                l_RingMainStat.Text = "";
-                l_RingSet.Text = "";
-                pb_RingSet.Image = Util.error;
-                for (int i = 0; i < 4; i++)
-                {
-                    ((Label)tb_Heroes.Controls.Find("l_RingSub" + (i + 1), true)[0]).Text = "";
-                    ((Label)tb_Heroes.Controls.Find("l_RingSub" + (i + 1) + "Stat", true)[0]).Text = "";
-                }
-            }
-            item = hero.getItem(ItemType.Boots);
-            if (item != null)
-            {
-                l_BootsGrade.Text = item.Grade.ToString() + " Boots";
-                l_BootsGrade.ForeColor = Util.gradeColors[item.Grade];
-                l_BootsIlvl.Text = item.ILvl.ToString();
-                l_BootsEnhance.Text = "+" + item.Enhance.ToString();
-                l_BootsMain.Text = Util.statStrings[item.Main.Name];
-                l_BootsMainStat.Text = Util.percentStats.Contains(item.Main.Name) ? item.Main.Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.Main.Value.ToString();
-                l_BootsSet.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                pb_BootsSet.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                for (int i = 0; i < 4; i++)
-                {
-                    if (i < item.SubStats.Length)
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                    }
-                    else
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = "";
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = "";
-                    }
-                }
-            }
-            else
-            {
-                l_BootsGrade.Text = "";
-                l_BootsIlvl.Text = "";
-                l_BootsEnhance.Text = "";
-                l_BootsMain.Text = "";
-                l_BootsMainStat.Text = "";
-                l_BootsSet.Text = "";
-                pb_BootsSet.Image = Util.error;
-                for (int i = 0; i < 4; i++)
-                {
-                    ((Label)tb_Heroes.Controls.Find("l_BootsSub" + (i + 1), true)[0]).Text = "";
-                    ((Label)tb_Heroes.Controls.Find("l_BootsSub" + (i + 1) + "Stat", true)[0]).Text = "";
-                }
-            }
+            is_Weapon.Item = hero.getItem(ItemType.Weapon);
+            is_Helmet.Item = hero.getItem(ItemType.Helmet);
+            is_Armor.Item = hero.getItem(ItemType.Armor);
+            is_Necklace.Item = hero.getItem(ItemType.Necklace);
+            is_Ring.Item = hero.getItem(ItemType.Ring);
+            is_Boots.Item = hero.getItem(ItemType.Boots);
         }
 
         //Create a new Hero and add it to the list
