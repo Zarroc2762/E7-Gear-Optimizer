@@ -30,7 +30,7 @@ namespace E7_Gear_Optimizer
                     l_ItemIlvl.Text = item.ILvl.ToString();
                     l_ItemEnhance.Text = "+" + item.Enhance.ToString();
                     l_ItemMain.Text = Util.statStrings[item.Main.Name];
-                    l_ItemMainStat.Text = ((int)item.Main.Value).ToString();
+                    l_ItemMainStat.Text = Util.percentStats.Contains(item.Main.Name) ? item.Main.Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.Main.Value.ToString();
                     l_ItemSet.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
                     for (int i = 0; i < 4; i++)
                     {
