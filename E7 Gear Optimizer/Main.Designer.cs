@@ -2025,10 +2025,10 @@
             this.cb_ImportOnLoad.UseVisualStyleBackColor = true;
             this.cb_ImportOnLoad.CheckedChanged += new System.EventHandler(this.Cb_ImportOnLoad_CheckedChanged);
             // 
-            // button2
+            // b_ImportAppend
             // 
             this.b_ImportAppend.Location = new System.Drawing.Point(218, 407);
-            this.b_ImportAppend.Name = "button2";
+            this.b_ImportAppend.Name = "b_ImportAppend";
             this.b_ImportAppend.Size = new System.Drawing.Size(101, 23);
             this.b_ImportAppend.TabIndex = 7;
             this.b_ImportAppend.Text = "Append";
@@ -3272,10 +3272,10 @@
             this.b_CancelOptimize.Visible = false;
             this.b_CancelOptimize.Click += new System.EventHandler(this.B_CancelOptimize_Click);
             // 
-            // button1
+            // b_FilterResults
             // 
             this.b_FilterResults.Location = new System.Drawing.Point(28, 205);
-            this.b_FilterResults.Name = "button1";
+            this.b_FilterResults.Name = "b_FilterResults";
             this.b_FilterResults.Size = new System.Drawing.Size(75, 36);
             this.b_FilterResults.TabIndex = 136;
             this.b_FilterResults.Text = "Filter current results";
