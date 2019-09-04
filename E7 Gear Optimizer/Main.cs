@@ -1827,159 +1827,81 @@ namespace E7_Gear_Optimizer
             if (dgv_OptimizeResults.RowCount == 0) return;
             if (e.RowIndex >= combinations.Count - ((optimizePage - 1) * 100)) return;
             if (filteredCombinations.Count > 0 && e.RowIndex >= filteredCombinations.Count - ((optimizePage - 1) * 100)) return;
-            
-            List<Set> activeSets;
-            if (filteredCombinations.Count > 0)
-            {
-                switch (e.ColumnIndex)
-                {
-                    case 0:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.ATK;
-                        break;
-                    case 1:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.SPD;
-                        break;
-                    case 2:
-                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                        break;
-                    case 3:
-                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.CritDmg.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                        break;
-                    case 4:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.HP;
-                        break;
-                    case 5:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.HPpS;
-                        break;
-                    case 6:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.DEF;
-                        break;
-                    case 7:
-                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.EFF.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                        break;
-                    case 8:
-                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.RES.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                        break;
-                    case 9:
-                        int count = 0;
-                        activeSets = Util.activeSet(combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item1);
-                        if (activeSets.Contains(Set.Unity))
-                        {
-                            foreach (Set set in activeSets)
-                            {
-                                count += set == Set.Unity ? 1 : 0;
-                            }
-                        }
-                        e.Value = (5 + (count * 4)) + "%";
-                        break;
-                    case 10:
-                        activeSets = Util.activeSet(combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item1);
-                        if (activeSets.Count > 0)
-                        {
-                            Bitmap sets = new Bitmap(activeSets.Count * 25, 25, PixelFormat.Format32bppArgb);
-                            Graphics g = Graphics.FromImage(sets);
-                            for (int i = 0; i < activeSets.Count; i++)
-                            {
-                                g.DrawImage(Util.ResizeImage((Image)Properties.Resources.ResourceManager.GetObject("set " + activeSets[i].ToString().ToLower().Replace("def", "defense")), 25, 25), i * 25, 0);
-                            }
-                            e.Value = sets;
-                        }
-                        else
-                        {
-                            e.Value = null;
-                        }
-                        break;
-                    case 11:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.EHP;
-                        break;
-                    case 12:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.EHPpS;
-                        break;
-                    case 13:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.DMG;
-                        break;
-                    case 14:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.DMGpS;
-                        break;
 
-                }
-            }
-            else
+            int iCombination = filteredCombinations.Count > 0 ? filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)] : (e.RowIndex + 100 * (optimizePage - 1));
+            List <Set> activeSets;
+            switch (e.ColumnIndex)
             {
-                switch (e.ColumnIndex)
-                {
-                    case 0:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.ATK;
-                        break;
-                    case 1:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.SPD;
-                        break;
-                    case 2:
-                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                        break;
-                    case 3:
-                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.CritDmg.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                        break;
-                    case 4:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.HP;
-                        break;
-                    case 5:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.HPpS;
-                        break;
-                    case 6:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.DEF;
-                        break;
-                    case 7:
-                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.EFF.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                        break;
-                    case 8:
-                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.RES.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                        break;
-                    case 9:
-                        int count = 0;
-                        activeSets = Util.activeSet(combinations[e.RowIndex + 100 * (optimizePage - 1)].Item1);
-                        if (activeSets.Contains(Set.Unity))
+                case 0:
+                    e.Value = (int)combinations[iCombination].Item2.ATK;
+                    break;
+                case 1:
+                    e.Value = (int)combinations[iCombination].Item2.SPD;
+                    break;
+                case 2:
+                    e.Value = combinations[iCombination].Item2.Crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                    break;
+                case 3:
+                    e.Value = combinations[iCombination].Item2.CritDmg.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                    break;
+                case 4:
+                    e.Value = (int)combinations[iCombination].Item2.HP;
+                    break;
+                case 5:
+                    e.Value = (int)combinations[iCombination].Item2.HPpS;
+                    break;
+                case 6:
+                    e.Value = (int)combinations[iCombination].Item2.DEF;
+                    break;
+                case 7:
+                    e.Value = combinations[iCombination].Item2.EFF.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                    break;
+                case 8:
+                    e.Value = combinations[iCombination].Item2.RES.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                    break;
+                case 9:
+                    int count = 0;
+                    activeSets = Util.activeSet(combinations[iCombination].Item1);
+                    if (activeSets.Contains(Set.Unity))
+                    {
+                        foreach (Set set in activeSets)
                         {
-                            foreach (Set set in activeSets)
-                            {
-                                count += set == Set.Unity ? 1 : 0;
-                            }
+                            count += set == Set.Unity ? 1 : 0;
                         }
-                        e.Value = (5 + (count * 4)) + "%";
-                        break;
-                    case 10:
-                        activeSets = Util.activeSet(combinations[e.RowIndex + 100 * (optimizePage - 1)].Item1);
-                        if (activeSets.Count > 0)
+                    }
+                    e.Value = (5 + (count * 4)) + "%";
+                    break;
+                case 10:
+                    activeSets = Util.activeSet(combinations[iCombination].Item1);
+                    if (activeSets.Count > 0)
+                    {
+                        Bitmap sets = new Bitmap(activeSets.Count * 25, 25, PixelFormat.Format32bppArgb);
+                        Graphics g = Graphics.FromImage(sets);
+                        for (int i = 0; i < activeSets.Count; i++)
                         {
-                            Bitmap sets = new Bitmap(activeSets.Count * 25, 25, PixelFormat.Format32bppArgb);
-                            Graphics g = Graphics.FromImage(sets);
-                            for (int i = 0; i < activeSets.Count; i++)
-                            {
-                                g.DrawImage(Util.ResizeImage((Image)Properties.Resources.ResourceManager.GetObject("set " + activeSets[i].ToString().ToLower().Replace("def", "defense")), 25, 25), i * 25, 0);
-                            }
-                            e.Value = sets;
+                            g.DrawImage(Util.ResizeImage((Image)Properties.Resources.ResourceManager.GetObject("set " + activeSets[i].ToString().ToLower().Replace("def", "defense")), 25, 25), i * 25, 0);
                         }
-                        else
-                        {
-                            e.Value = null;
-                        }
-                        break;
-                    case 11:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.EHP;
-                        break;
-                    case 12:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.EHPpS;
-                        break;
-                    case 13:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.DMG;
-                        break;
-                    case 14:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.DMGpS;
-                        break;
-                }
+                        e.Value = sets;
+                    }
+                    else
+                    {
+                        e.Value = null;
+                    }
+                    break;
+                case 11:
+                    e.Value = (int)combinations[iCombination].Item2.EHP;
+                    break;
+                case 12:
+                    e.Value = (int)combinations[iCombination].Item2.EHPpS;
+                    break;
+                case 13:
+                    e.Value = (int)combinations[iCombination].Item2.DMG;
+                    break;
+                case 14:
+                    e.Value = (int)combinations[iCombination].Item2.DMGpS;
+                    break;
             }
         }
-
 
         private void b_NextPage_Click(object sender, EventArgs e)
         {
@@ -2041,168 +1963,66 @@ namespace E7_Gear_Optimizer
         //Sort results across pages 
         private void Dgv_OptimizeResults_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            Func<(Item[], SStats), float> func = null;
             switch (e.ColumnIndex)
             {
                 case 0:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.ATK).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.ATK).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.ATK;
                     break;
                 case 1:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.SPD).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.SPD).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.SPD;
                     break;
                 case 2:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.Crit).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.Crit).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.Crit;
                     break;
                 case 3:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.CritDmg).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.CritDmg).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.CritDmg;
                     break;
                 case 4:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.HP).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.HP).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.HP;
                     break;
                 case 5:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.HPpS).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.HPpS).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.HPpS;
                     break;
                 case 6:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.DEF).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.DEF).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.DEF;
                     break;
                 case 7:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.EFF).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.EFF).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.EFF;
                     break;
                 case 8:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.RES).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.RES).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.RES;
                     break;
                 case 9:
                     break;
                 case 10:
                     break;
                 case 11:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.EHP).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.EHP).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.EHP;
                     break;
                 case 12:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.EHPpS).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.EHPpS).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.EHPpS;
                     break;
                 case 13:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.DMG).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.DMG).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.DMG;
                     break;
                 case 14:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.DMGpS).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.DMGpS).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.DMGpS;
                     break;
+            }
+            if (func == null)
+            {
+                return;
+            }
+            if (sortColumn == e.ColumnIndex)
+            {
+                combinations = combinations.OrderBy(func).ToList();
+                sortColumn = -1;
+            }
+            else
+            {
+                combinations = combinations.OrderByDescending(func).ToList();
+                sortColumn = e.ColumnIndex;
             }
             if (filteredCombinations.Count > 0)
             {
