@@ -368,7 +368,7 @@
             this.label47 = new System.Windows.Forms.Label();
             this.l_Results = new System.Windows.Forms.Label();
             this.b_CancelOptimize = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.b_FilterResults = new System.Windows.Forms.Button();
             this.pb_OptimizeBootsEquipped = new System.Windows.Forms.PictureBox();
             this.pb_OptimizeRingEquipped = new System.Windows.Forms.PictureBox();
             this.pb_OptimizeNecklaceEquipped = new System.Windows.Forms.PictureBox();
@@ -4308,7 +4308,7 @@
             this.tb_Optimize.Controls.Add(this.label38);
             this.tb_Optimize.Controls.Add(this.panel1);
             this.tb_Optimize.Controls.Add(this.b_CancelOptimize);
-            this.tb_Optimize.Controls.Add(this.button1);
+            this.tb_Optimize.Controls.Add(this.b_FilterResults);
             this.tb_Optimize.Controls.Add(this.pb_OptimizeBootsEquipped);
             this.tb_Optimize.Controls.Add(this.pb_OptimizeRingEquipped);
             this.tb_Optimize.Controls.Add(this.pb_OptimizeNecklaceEquipped);
@@ -4686,13 +4686,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(28, 205);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 36);
-            this.button1.TabIndex = 136;
-            this.button1.Text = "Filter current results";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.b_FilterResults.Location = new System.Drawing.Point(28, 205);
+            this.b_FilterResults.Name = "button1";
+            this.b_FilterResults.Size = new System.Drawing.Size(75, 36);
+            this.b_FilterResults.TabIndex = 136;
+            this.b_FilterResults.Text = "Filter current results";
+            this.b_FilterResults.UseVisualStyleBackColor = true;
+            this.b_FilterResults.Click += new System.EventHandler(this.B_FilterResults_Click);
             // 
             // pb_OptimizeBootsEquipped
             // 
@@ -8825,7 +8825,7 @@
         private System.Windows.Forms.PictureBox pb_OptimizeWeaponEquipped;
         private System.Windows.Forms.PictureBox pb_OptimizeArmorEquipped;
         private System.Windows.Forms.PictureBox pb_OptimizeHelmetEquipped;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button b_FilterResults;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.NumericUpDown nud_EnhanceFocus;
         private System.Windows.Forms.Label label10;

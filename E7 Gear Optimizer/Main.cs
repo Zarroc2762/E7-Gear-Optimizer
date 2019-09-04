@@ -2206,7 +2206,7 @@ namespace E7_Gear_Optimizer
             }
             if (filteredCombinations.Count > 0)
             {
-                button1.PerformClick();
+                b_FilterResults.PerformClick();
             }
             optimizePage = 1;
             dgv_OptimizeResults.Refresh();
@@ -2964,7 +2964,7 @@ namespace E7_Gear_Optimizer
             return valid;
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void B_FilterResults_Click(object sender, EventArgs e)
         {
             filteredCombinations.Clear();
             for (int i = 0; i < combinations.Count; i++)
