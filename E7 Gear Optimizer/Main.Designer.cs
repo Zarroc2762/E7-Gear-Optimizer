@@ -151,7 +151,7 @@
             this.b_ClearCache = new System.Windows.Forms.Button();
             this.cb_CacheWeb = new System.Windows.Forms.CheckBox();
             this.cb_ImportOnLoad = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.b_ImportAppend = new System.Windows.Forms.Button();
             this.b_Export = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.b_import = new System.Windows.Forms.Button();
@@ -2097,7 +2097,7 @@
             this.tabPage1.Controls.Add(this.b_ClearCache);
             this.tabPage1.Controls.Add(this.cb_CacheWeb);
             this.tabPage1.Controls.Add(this.cb_ImportOnLoad);
-            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.b_ImportAppend);
             this.tabPage1.Controls.Add(this.b_Export);
             this.tabPage1.Controls.Add(this.richTextBox1);
             this.tabPage1.Controls.Add(this.b_import);
@@ -2153,13 +2153,13 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(218, 407);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Append";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.b_ImportAppend.Location = new System.Drawing.Point(218, 407);
+            this.b_ImportAppend.Name = "button2";
+            this.b_ImportAppend.Size = new System.Drawing.Size(101, 23);
+            this.b_ImportAppend.TabIndex = 7;
+            this.b_ImportAppend.Text = "Append";
+            this.b_ImportAppend.UseVisualStyleBackColor = true;
+            this.b_ImportAppend.Click += new System.EventHandler(this.B_ImportAppend_Click);
             // 
             // b_Export
             // 
@@ -8826,7 +8826,7 @@
         private System.Windows.Forms.PictureBox pb_OptimizeArmorEquipped;
         private System.Windows.Forms.PictureBox pb_OptimizeHelmetEquipped;
         private System.Windows.Forms.Button b_FilterResults;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button b_ImportAppend;
         private System.Windows.Forms.NumericUpDown nud_EnhanceFocus;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button b_CancelOptimize;

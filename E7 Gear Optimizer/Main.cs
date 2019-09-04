@@ -2980,7 +2980,7 @@ namespace E7_Gear_Optimizer
             l_Pages.Text = "1 / " + ((filteredCombinations.Count + 99) / 100);
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void B_ImportAppend_Click(object sender, EventArgs e)
         {
             if (rb_import_this.Checked)
             {
