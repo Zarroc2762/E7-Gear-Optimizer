@@ -720,51 +720,26 @@ namespace E7_Gear_Optimizer
         //Create a new item with the selected stats without equipping it to a hero
         private void B_NewItem_Click(object sender, EventArgs e)
         {
-            Set set = (Set)Enum.Parse(typeof(Set), p_Set.Controls.OfType<RadioButton>().First(x => x.Checked).Name.Replace("rb_", "").Replace("Set", ""));
-            ItemType type = (ItemType)Enum.Parse(typeof(ItemType), p_Type.Controls.OfType<RadioButton>().First(x => x.Checked).Name.Replace("rb_", "").Replace("Type", ""));
-            Grade grade = (Grade)Enum.Parse(typeof(Grade), p_Grade.Controls.OfType<RadioButton>().First(x => x.Checked).Name.Replace("rb_", "").Replace("Grade", ""));
-
-            Stat main;
-            if (lb_Main.SelectedItem.ToString() != "")
-            {
-                main = new Stat((Stats)Enum.Parse(typeof(Stats), lb_Main.SelectedItem.ToString().Replace("%", "Percent")), (float)nud_Main.Value);
-            }
-            else
-            {
-                MessageBox.Show("Invalid Mainstat");
-                return;
-            }
-
-            List<Stat> substats = new List<Stat>();
-            string selection = lb_Sub1.SelectedItem.ToString();
-            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub1.Value));
-            selection = lb_Sub2.SelectedItem.ToString();
-            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub2.Value));
-            selection = lb_Sub3.SelectedItem.ToString();
-            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub3.Value));
-            selection = lb_Sub4.SelectedItem.ToString();
-            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub4.Value));
-
-            int ilvl = (int)nud_ILvl.Value;
-            int enh = (int)nud_Enhance.Value;
-            bool locked = false;
-            if (Locked)
-            {
-                locked = true;
-            }
-
-            Item newItem = new Item(data.incrementItemID(), type, set, grade, ilvl, enh, main, substats.ToArray(), null, locked);
-            data.Items.Add(newItem);
-            updateItemList();
-            //select the created item if it is displayed with the current filter
-            if (tc_Inventory.SelectedIndex == 0 || (ItemType)(tc_Inventory.SelectedIndex - 1) == type)
-            {
-                dgv_Inventory.CurrentCell = dgv_Inventory.Rows.Cast<DataGridViewRow>().Where(x => x.Cells["c_ItemID"].Value.ToString() == newItem.ID).First().Cells[0];
-            }
+            createNewItem();
         }
 
         //Create a new item with the selected stats equipped on the selected hero
         private void B_NewItemEquipped_Click(object sender, EventArgs e)
+        {
+            
+            Hero hero = null;
+            if (cb_Eq.Text != "")
+            {
+                hero = data.Heroes.Find(x => x.Name == String.Join(" ", cb_Eq.Text.Split(' ').Reverse().Skip(1).Reverse()));
+            }
+            createNewItem(hero);
+        }
+
+        /// <summary>
+        /// Creates new item based on UI controls values and equips it to <paramref name="hero"/>
+        /// </summary>
+        /// <param name="hero">The hero to equip new item to</param>
+        private void createNewItem(Hero hero = null)
         {
             Set set = (Set)Enum.Parse(typeof(Set), p_Set.Controls.OfType<RadioButton>().First(x => x.Checked).Name.Replace("rb_", "").Replace("Set", ""));
             ItemType type = (ItemType)Enum.Parse(typeof(ItemType), p_Type.Controls.OfType<RadioButton>().First(x => x.Checked).Name.Replace("rb_", "").Replace("Type", ""));
@@ -780,7 +755,6 @@ namespace E7_Gear_Optimizer
                 MessageBox.Show("Invalid Mainstat");
                 return;
             }
-
             List<Stat> substats = new List<Stat>();
             string selection = lb_Sub1.SelectedItem.ToString();
             if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub1.Value));
@@ -793,26 +767,17 @@ namespace E7_Gear_Optimizer
 
             int ilvl = (int)nud_ILvl.Value;
             int enh = (int)nud_Enhance.Value;
-            Hero hero = null;
-            if (cb_Eq.Text != "")
-            {
-                hero = data.Heroes.Find(x => x.Name == String.Join(" ", cb_Eq.Text.Split(' ').Reverse().Skip(1).Reverse()));
-            }
             bool locked = false;
             if (Locked)
             {
                 locked = true;
             }
-
             Item newItem = new Item(data.incrementItemID(), type, set, grade, ilvl, enh, main, substats.ToArray(), hero, locked);
-            if (hero != null)
-            {
-                hero.equip(newItem);
-            }
+            hero?.equip(newItem);
             data.Items.Add(newItem);
             updateItemList();
             //select the created item if it is displayed with the current filter
-            if ((tc_Inventory.SelectedIndex == 0 || (ItemType)(tc_Inventory.SelectedIndex - 1) == type ) && (tc_InventorySets.SelectedIndex == 0 || (Set)(tc_InventorySets.SelectedIndex - 1) == set))
+            if ((tc_Inventory.SelectedIndex == 0 || (ItemType)(tc_Inventory.SelectedIndex - 1) == type) && (tc_InventorySets.SelectedIndex == 0 || (Set)(tc_InventorySets.SelectedIndex - 1) == set))
             {
                 dgv_Inventory.CurrentCell = dgv_Inventory.Rows.Cast<DataGridViewRow>().Where(x => x.Cells["c_ItemID"].Value.ToString() == newItem.ID).First().Cells[0];
             }
@@ -1808,6 +1773,10 @@ namespace E7_Gear_Optimizer
             return combinations;
         }
 
+        /// <summary>
+        /// Optimizes global filterStats Dictionary by removing elements with empty values, so we don't have to poinessly check them while calculating
+        /// </summary>
+        /// <returns>Optimized filterStats</returns>
         private Dictionary<Stats, (float, float)> optimizeFilterStats()
         {
             Dictionary<Stats, (float, float)> stats = new Dictionary<Stats, (float, float)>();
@@ -1905,54 +1874,30 @@ namespace E7_Gear_Optimizer
 
         private void b_NextPage_Click(object sender, EventArgs e)
         {
-            if (filteredCombinations.Count > 0)
+            int count = filteredCombinations.Count > 0 ? filteredCombinations.Count : combinations.Count;
+            if (optimizePage != (count + 99) / 100)
             {
-                if (optimizePage != ((filteredCombinations.Count + 99) / 100))
-                {
-                    optimizePage++;
-                    dgv_OptimizeResults.RowCount = Math.Min(filteredCombinations.Count - 100 * (optimizePage - 1), 100);
-                    dgv_OptimizeResults.Refresh();
-                    dgv_OptimizeResults.AutoResizeColumns();
-                    l_Pages.Text = optimizePage + " / " + ((filteredCombinations.Count + 99) / 100);
-                }
-            }
-            else
-            {
-                if (optimizePage != ((combinations.Count + 99) / 100))
-                {
-                    optimizePage++;
-                    dgv_OptimizeResults.RowCount = Math.Min(combinations.Count - 100 * (optimizePage - 1), 100);
-                    dgv_OptimizeResults.Refresh();
-                    dgv_OptimizeResults.AutoResizeColumns();
-                    l_Pages.Text = optimizePage + " / " + ((combinations.Count + 99) / 100);
-                }
+                optimizePage++;
+                onPageChange(count);
             }
         }
 
         private void B_PreviousPage_Click(object sender, EventArgs e)
         {
-            if (filteredCombinations.Count > 0)
+            int count = filteredCombinations.Count > 0 ? filteredCombinations.Count : combinations.Count;
+            if (optimizePage > 1)
             {
-                if (optimizePage > 1)
-                {
-                    optimizePage--;
-                    dgv_OptimizeResults.RowCount = Math.Min(filteredCombinations.Count - 100 * (optimizePage - 1), 100);
-                    dgv_OptimizeResults.Refresh();
-                    dgv_OptimizeResults.AutoResizeColumns();
-                    l_Pages.Text = optimizePage + " / " + ((filteredCombinations.Count + 99) / 100);
-                }
+                optimizePage--;
+                onPageChange(count);
             }
-            else
-            {
-                if (optimizePage > 1)
-                {
-                    optimizePage--;
-                    dgv_OptimizeResults.RowCount = Math.Min(combinations.Count - 100 * (optimizePage - 1), 100);
-                    dgv_OptimizeResults.Refresh();
-                    dgv_OptimizeResults.AutoResizeColumns();
-                    l_Pages.Text = optimizePage + " / " + ((combinations.Count + 99) / 100);
-                }
-            }
+        }
+
+        private void onPageChange(int count)
+        {
+            dgv_OptimizeResults.RowCount = Math.Min(count - 100 * (optimizePage - 1), 100);
+            dgv_OptimizeResults.Refresh();
+            dgv_OptimizeResults.AutoResizeColumns();
+            l_Pages.Text = optimizePage + " / " + ((count + 99) / 100);
         }
 
         private void L_Pages_SizeChanged(object sender, EventArgs e)
