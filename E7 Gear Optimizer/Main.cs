@@ -221,6 +221,12 @@ namespace E7_Gear_Optimizer
             is_Necklace.Image = Properties.Resources.necklace;
             is_Ring.Image = Properties.Resources.ring;
             is_Boots.Image = Properties.Resources.boots;
+            is_WeaponOptimize.Image = Properties.Resources.weapon;
+            is_HelmetOptimize.Image = Properties.Resources.helmet;
+            is_ArmorOptimize.Image = Properties.Resources.armor;
+            is_NecklaceOptimize.Image = Properties.Resources.necklace;
+            is_RingOptimize.Image = Properties.Resources.ring;
+            is_BootsOptimize.Image = Properties.Resources.boots;
         }
 
 
@@ -1773,270 +1779,25 @@ namespace E7_Gear_Optimizer
                 {
                     items = combinations[e.RowIndex + ((optimizePage - 1) * 100)].Item1.ToList();
                 }
-                Item item = items.Find(x => x.Type == ItemType.Weapon);
-                if (item != null)
-                {
-                    l_WeaponGradeOptimize.Text = item.Grade.ToString() + " Weapon";
-                    l_WeaponGradeOptimize.ForeColor = Util.gradeColors[item.Grade];
-                    l_WeaponIlvlOptimize.Text = item.ILvl.ToString();
-                    l_WeaponEnhanceOptimize.Text = "+" + item.Enhance.ToString();
-                    l_WeaponMainOptimize.Text = Util.statStrings[item.Main.Name];
-                    l_WeaponMainStatOptimize.Text = ((int)item.Main.Value).ToString();
-                    l_WeaponSetOptimize.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                    pb_WeaponSetOptimize.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                    for (int i = 0; i < 4; i++)
-                    {
-                        if (i < item.SubStats.Length)
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                        }
-                        else
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                        }
-                    }
-                    //l_WeaponEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
-                    pb_OptimizeWeaponEquipped.Image = item.Equipped?.Portrait;
-                }
-                else
-                {
-                    l_WeaponGradeOptimize.Text = "";
-                    l_WeaponIlvlOptimize.Text = "";
-                    l_WeaponEnhanceOptimize.Text = "";
-                    l_WeaponMainOptimize.Text = "";
-                    l_WeaponMainStatOptimize.Text = "";
-                    l_WeaponSetOptimize.Text = "";
-                    //l_WeaponEquippedOptimize.Text = "";
-                    pb_OptimizeWeaponEquipped = null;
-                    pb_WeaponSetOptimize.Image = Util.error;
-                    for (int i = 0; i < 4; i++)
-                    {
-                        ((Label)tb_Optimize.Controls.Find("l_WeaponSub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                        ((Label)tb_Optimize.Controls.Find("l_WeaponSub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                    }
-                }
+                Item item;
+                item = items.Find(x => x.Type == ItemType.Weapon);
+                is_WeaponOptimize.Item = item;
+                pb_OptimizeWeaponEquipped.Image = item?.Equipped?.Portrait;
                 item = items.Find(x => x.Type == ItemType.Helmet);
-                if (item != null)
-                {
-                    l_HelmetGradeOptimize.Text = item.Grade.ToString() + " Helmet";
-                    l_HelmetGradeOptimize.ForeColor = Util.gradeColors[item.Grade];
-                    l_HelmetIlvlOptimize.Text = item.ILvl.ToString();
-                    l_HelmetEnhanceOptimize.Text = "+" + item.Enhance.ToString();
-                    l_HelmetMainOptimize.Text = Util.statStrings[item.Main.Name];
-                    l_HelmetMainStatOptimize.Text = ((int)item.Main.Value).ToString();
-                    l_HelmetSetOptimize.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                    pb_HelmetSetOptimize.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                    for (int i = 0; i < 4; i++)
-                    {
-                        if (i < item.SubStats.Length)
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                        }
-                        else
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                        }
-                    }
-                    //l_HelmetEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
-                    pb_OptimizeHelmetEquipped.Image = item.Equipped?.Portrait;
-                }
-                else
-                {
-                    l_HelmetGradeOptimize.Text = "";
-                    l_HelmetIlvlOptimize.Text = "";
-                    l_HelmetEnhanceOptimize.Text = "";
-                    l_HelmetMainOptimize.Text = "";
-                    l_HelmetMainStatOptimize.Text = "";
-                    l_HelmetSetOptimize.Text = "";
-                    //l_HelmetEquippedOptimize.Text = "";
-                    pb_OptimizeHelmetEquipped = null;
-                    pb_HelmetSetOptimize.Image = Util.error;
-                    for (int i = 0; i < 4; i++)
-                    {
-                        ((Label)tb_Optimize.Controls.Find("l_HelmetSub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                        ((Label)tb_Optimize.Controls.Find("l_HelmetSub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                    }
-                }
+                is_HelmetOptimize.Item = item;
+                pb_OptimizeHelmetEquipped.Image = item?.Equipped?.Portrait;
                 item = items.Find(x => x.Type == ItemType.Armor);
-                if (item != null)
-                {
-                    l_ArmorGradeOptimize.Text = item.Grade.ToString() + " Armor";
-                    l_ArmorGradeOptimize.ForeColor = Util.gradeColors[item.Grade];
-                    l_ArmorIlvlOptimize.Text = item.ILvl.ToString();
-                    l_ArmorEnhanceOptimize.Text = "+" + item.Enhance.ToString();
-                    l_ArmorMainOptimize.Text = Util.statStrings[item.Main.Name];
-                    l_ArmorMainStatOptimize.Text = ((int)item.Main.Value).ToString();
-                    l_ArmorSetOptimize.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                    pb_ArmorSetOptimize.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                    for (int i = 0; i < 4; i++)
-                    {
-                        if (i < item.SubStats.Length)
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                        }
-                        else
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                        }
-                    }
-                    //l_ArmorEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
-                    pb_OptimizeArmorEquipped.Image = item.Equipped?.Portrait;
-                }
-                else
-                {
-                    l_ArmorGradeOptimize.Text = "";
-                    l_ArmorIlvlOptimize.Text = "";
-                    l_ArmorEnhanceOptimize.Text = "";
-                    l_ArmorMainOptimize.Text = "";
-                    l_ArmorMainStatOptimize.Text = "";
-                    l_ArmorSetOptimize.Text = "";
-                    //l_ArmorEquippedOptimize.Text = "";
-                    pb_OptimizeArmorEquipped = null;
-                    pb_ArmorSetOptimize.Image = Util.error;
-                    for (int i = 0; i < 4; i++)
-                    {
-                        ((Label)tb_Optimize.Controls.Find("l_ArmorSub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                        ((Label)tb_Optimize.Controls.Find("l_ArmorSub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                    }
-                }
+                is_ArmorOptimize.Item = item;
+                pb_OptimizeArmorEquipped.Image = item?.Equipped?.Portrait;
                 item = items.Find(x => x.Type == ItemType.Necklace);
-                if (item != null)
-                {
-                    l_NecklaceGradeOptimize.Text = item.Grade.ToString() + " Necklace";
-                    l_NecklaceGradeOptimize.ForeColor = Util.gradeColors[item.Grade];
-                    l_NecklaceIlvlOptimize.Text = item.ILvl.ToString();
-                    l_NecklaceEnhanceOptimize.Text = "+" + item.Enhance.ToString();
-                    l_NecklaceMainOptimize.Text = Util.statStrings[item.Main.Name];
-                    l_NecklaceMainStatOptimize.Text = Util.percentStats.Contains(item.Main.Name) ? item.Main.Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.Main.Value.ToString();
-                    l_NecklaceSetOptimize.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                    pb_NecklaceSetOptimize.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                    for (int i = 0; i < 4; i++)
-                    {
-                        if (i < item.SubStats.Length)
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                        }
-                        else
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                        }
-                    }
-                    //l_NecklaceEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
-                    pb_OptimizeNecklaceEquipped.Image = item.Equipped?.Portrait;
-                }
-                else
-                {
-                    l_NecklaceGradeOptimize.Text = "";
-                    l_NecklaceIlvlOptimize.Text = "";
-                    l_NecklaceEnhanceOptimize.Text = "";
-                    l_NecklaceMainOptimize.Text = "";
-                    l_NecklaceMainStatOptimize.Text = "";
-                    l_NecklaceSetOptimize.Text = "";
-                    //l_NecklaceEquippedOptimize.Text = "";
-                    pb_OptimizeNecklaceEquipped = null;
-                    pb_NecklaceSetOptimize.Image = Util.error;
-                    for (int i = 0; i < 4; i++)
-                    {
-                        ((Label)tb_Optimize.Controls.Find("l_NecklaceSub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                        ((Label)tb_Optimize.Controls.Find("l_NecklaceSub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                    }
-                }
+                is_NecklaceOptimize.Item = item;
+                pb_OptimizeNecklaceEquipped.Image = item?.Equipped?.Portrait;
                 item = items.Find(x => x.Type == ItemType.Ring);
-                if (item != null)
-                {
-                    l_RingGradeOptimize.Text = item.Grade.ToString() + " Ring";
-                    l_RingGradeOptimize.ForeColor = Util.gradeColors[item.Grade];
-                    l_RingIlvlOptimize.Text = item.ILvl.ToString();
-                    l_RingEnhanceOptimize.Text = "+" + item.Enhance.ToString();
-                    l_RingMainOptimize.Text = Util.statStrings[item.Main.Name];
-                    l_RingMainStatOptimize.Text = Util.percentStats.Contains(item.Main.Name) ? item.Main.Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.Main.Value.ToString();
-                    l_RingSetOptimize.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                    pb_RingSetOptimize.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                    for (int i = 0; i < 4; i++)
-                    {
-                        if (i < item.SubStats.Length)
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                        }
-                        else
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                        }
-                    }
-                    //l_RingEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
-                    pb_OptimizeRingEquipped.Image = item.Equipped?.Portrait;
-                }
-                else
-                {
-                    l_RingGradeOptimize.Text = "";
-                    l_RingIlvlOptimize.Text = "";
-                    l_RingEnhanceOptimize.Text = "";
-                    l_RingMainOptimize.Text = "";
-                    l_RingMainStatOptimize.Text = "";
-                    l_RingSetOptimize.Text = "";
-                    //l_RingEquippedOptimize.Text = "";
-                    pb_OptimizeRingEquipped = null;
-                    pb_RingSetOptimize.Image = Util.error;
-                    for (int i = 0; i < 4; i++)
-                    {
-                        ((Label)tb_Optimize.Controls.Find("l_RingSub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                        ((Label)tb_Optimize.Controls.Find("l_RingSub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                    }
-                }
+                is_RingOptimize.Item = item;
+                pb_OptimizeRingEquipped.Image = item?.Equipped?.Portrait;
                 item = items.Find(x => x.Type == ItemType.Boots);
-                if (item != null)
-                {
-                    l_BootsGradeOptimize.Text = item.Grade.ToString() + " Boots";
-                    l_BootsGradeOptimize.ForeColor = Util.gradeColors[item.Grade];
-                    l_BootsIlvlOptimize.Text = item.ILvl.ToString();
-                    l_BootsEnhanceOptimize.Text = "+" + item.Enhance.ToString();
-                    l_BootsMainOptimize.Text = Util.statStrings[item.Main.Name];
-                    l_BootsMainStatOptimize.Text = Util.percentStats.Contains(item.Main.Name) ? item.Main.Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.Main.Value.ToString();
-                    l_BootsSetOptimize.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                    pb_BootsSetOptimize.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                    for (int i = 0; i < 4; i++)
-                    {
-                        if (i < item.SubStats.Length)
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                        }
-                        else
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                        }
-                    }
-                    //l_BootsEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
-                    pb_OptimizeBootsEquipped.Image = item.Equipped?.Portrait;
-                }
-                else
-                {
-                    l_BootsGradeOptimize.Text = "";
-                    l_BootsIlvlOptimize.Text = "";
-                    l_BootsEnhanceOptimize.Text = "";
-                    l_BootsMainOptimize.Text = "";
-                    l_BootsMainStatOptimize.Text = "";
-                    l_BootsSetOptimize.Text = "";
-                    //l_BootsEquippedOptimize.Text = "";
-                    pb_OptimizeBootsEquipped = null;
-                    pb_BootsSetOptimize.Image = Util.error;
-                    for (int i = 0; i < 4; i++)
-                    {
-                        ((Label)tb_Optimize.Controls.Find("l_BootsSub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                        ((Label)tb_Optimize.Controls.Find("l_BootsSub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                    }
-                }
+                is_BootsOptimize.Item = item;
+                pb_OptimizeBootsEquipped.Image = item?.Equipped?.Portrait;
             }
         }
 
