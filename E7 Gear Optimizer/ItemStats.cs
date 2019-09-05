@@ -12,10 +12,21 @@ namespace E7_Gear_Optimizer
         public ItemStats()
         {
             InitializeComponent();
+            substatsLabels = new[]
+            {
+                (l_ItemSub1, l_ItemSub1Stat),
+                (l_ItemSub2, l_ItemSub2Stat),
+                (l_ItemSub3, l_ItemSub3Stat),
+                (l_ItemSub4, l_ItemSub4Stat)
+            };
         }
 
         private Image image = null;
         private Item item = null;
+        /// <summary>
+        /// Array of Labels for substats names and values, to use instead of Controls.Find()
+        /// </summary>
+        private (Label, Label)[] substatsLabels;
 
         public Item Item
         {
@@ -36,13 +47,13 @@ namespace E7_Gear_Optimizer
                     {
                         if (i < item.SubStats.Length)
                         {
-                            ((Label)Controls.Find("l_ItemSub" + (i + 1) + "", true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                            ((Label)Controls.Find("l_ItemSub" + (i + 1) + "Stat", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
+                            substatsLabels[i].Item1.Text = Util.statStrings[item.SubStats[i].Name];
+                            substatsLabels[i].Item2.Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
                         }
                         else
                         {
-                            ((Label)Controls.Find("l_ItemSub" + (i + 1) + "", true)[0]).Text = "";
-                            ((Label)Controls.Find("l_ItemSub" + (i + 1) + "Stat", true)[0]).Text = "";
+                            substatsLabels[i].Item1.Text = "";
+                            substatsLabels[i].Item2.Text = "";
                         }
                     }
                     if (image == null)
