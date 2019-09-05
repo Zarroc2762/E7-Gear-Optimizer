@@ -76,9 +76,9 @@ namespace E7_Gear_Optimizer
                     l_ItemSub4.Text = l_ItemSub4Stat.Text = "";
                     if (image == null)
                     {
-                        pb_Image.Image = Util.error;
+                        pb_Image.Image = null;
                     }
-                    pb_ItemSet.Image = Util.error;
+                    pb_ItemSet.Image = null;
                 }
             }
         }
