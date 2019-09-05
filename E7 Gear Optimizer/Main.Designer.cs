@@ -1049,7 +1049,7 @@
             // 
             this.nud_Sub4.Location = new System.Drawing.Point(861, 639);
             this.nud_Sub4.Maximum = new decimal(new int[] {
-            2000,
+            9999,
             0,
             0,
             0});
@@ -1091,7 +1091,7 @@
             // 
             this.nud_Sub3.Location = new System.Drawing.Point(805, 639);
             this.nud_Sub3.Maximum = new decimal(new int[] {
-            2000,
+            9999,
             0,
             0,
             0});
@@ -1133,7 +1133,7 @@
             // 
             this.nud_Sub2.Location = new System.Drawing.Point(749, 639);
             this.nud_Sub2.Maximum = new decimal(new int[] {
-            2000,
+            9999,
             0,
             0,
             0});
@@ -1175,7 +1175,7 @@
             // 
             this.nud_Sub1.Location = new System.Drawing.Point(693, 639);
             this.nud_Sub1.Maximum = new decimal(new int[] {
-            2000,
+            9999,
             0,
             0,
             0});
@@ -1227,7 +1227,7 @@
             // 
             this.nud_Main.Location = new System.Drawing.Point(630, 639);
             this.nud_Main.Maximum = new decimal(new int[] {
-            2000,
+            9999,
             0,
             0,
             0});
