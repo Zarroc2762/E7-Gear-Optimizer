@@ -227,8 +227,32 @@ namespace E7_Gear_Optimizer
             is_NecklaceOptimize.Image = Properties.Resources.necklace;
             is_RingOptimize.Image = Properties.Resources.ring;
             is_BootsOptimize.Image = Properties.Resources.boots;
+            // Initialize visibility of columns on Optimization tab based on saved Settings
+            foreach (DataGridViewColumn col in dgv_CurrentGear.Columns)
+            {
+                var statName = col.Name.Substring(2, col.Name.LastIndexOf('_') - 2);//c_*_Current
+                if (Properties.Settings.Default.OptimizationHiddenColumns.IndexOf(statName) >= 0)
+                {
+                    col.Visible = false;
+                }
+            }
+            foreach (DataGridViewColumn col in dgv_OptimizeResults.Columns)
+            {
+                var statName = col.Name.Substring(2, col.Name.LastIndexOf('_') - 2);//c_*_Results
+                if (Properties.Settings.Default.OptimizationHiddenColumns.IndexOf(statName) >= 0)
+                {
+                    col.Visible = false;
+                }
+            }
+            foreach (ToolStripMenuItem menuItem in contextMenuStrip1.Items)
+            {
+                var statName = menuItem.Name.Substring(5);//tsmi_*
+                if (Properties.Settings.Default.OptimizationHiddenColumns.IndexOf(statName) >= 0)
+                {
+                    menuItem.Checked = false;
+                }
+            }
         }
-
 
         private void B_import_Click(object sender, EventArgs e)
         {
@@ -1762,7 +1786,6 @@ namespace E7_Gear_Optimizer
             optimizePage = 1;
             dgv_OptimizeResults.Refresh();
             dgv_OptimizeResults.AutoResizeColumns();
-            dgv_OptimizeResults.CurrentCell = dgv_OptimizeResults.Rows[1].Cells[e.ColumnIndex];
             dgv_OptimizeResults.CurrentCell = dgv_OptimizeResults.Rows[0].Cells[e.ColumnIndex];
             if (filteredCombinations.Count > 0)
             {
@@ -1857,6 +1880,15 @@ namespace E7_Gear_Optimizer
             {
                 JObject json = createJson();
                 File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "/Backup.json", json.ToString());
+            }
+            Properties.Settings.Default.OptimizationHiddenColumns.Clear();
+            foreach (ToolStripMenuItem menuItem in contextMenuStrip1.Items)
+            {
+                if (!menuItem.Checked)
+                {
+                    var statName = menuItem.Name.Substring(5);//tsmi_*
+                    Properties.Settings.Default.OptimizationHiddenColumns.Add(statName);
+                }
             }
             Properties.Settings.Default.Save();
         }
@@ -2521,6 +2553,15 @@ namespace E7_Gear_Optimizer
             {
                 File.Delete(file);
             }
+        }
+        
+        private void ContextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            var item = (ToolStripMenuItem)e.ClickedItem;
+            var checkedNew = !item.Checked;
+            var statName = item.Name.Substring(5);//tsmi_*
+            dgv_CurrentGear.Columns["c_" + statName + "_Current"].Visible = checkedNew;
+            dgv_OptimizeResults.Columns["c_" + statName + "_Results"].Visible = checkedNew;
         }
     }
 }
