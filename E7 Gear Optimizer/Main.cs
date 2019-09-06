@@ -53,6 +53,9 @@ namespace E7_Gear_Optimizer
             Properties.Settings.Default.LastUsedFileNameWeb = web;
         }
 
+        // Array of parent menu items for skill damage columns
+        private ToolStripMenuItem[] contextMenuStrip1SkillMenuItems;
+
         public Main()
         {
             InitializeComponent();
@@ -243,12 +246,60 @@ namespace E7_Gear_Optimizer
                     col.Visible = false;
                 }
             }
-            foreach (ToolStripMenuItem menuItem in contextMenuStrip1.Items)
+            // Initialize contextMenuStrip1
+            foreach (var item in contextMenuStrip1.Items)
             {
-                var statName = menuItem.Name.Substring(5);//tsmi_*
-                if (Properties.Settings.Default.OptimizationHiddenColumns.IndexOf(statName) >= 0)
+                var menuItem = item as ToolStripMenuItem;
+                if (menuItem != null)
                 {
-                    menuItem.Checked = false;
+                    var statName = menuItem.Name.Substring(5);//tsmi_*
+                    if (Properties.Settings.Default.OptimizationHiddenColumns.IndexOf(statName) >= 0)
+                    {
+                        menuItem.Checked = false;
+                    }
+                }
+            }
+            var tuples = new (string, string, string)[]
+            {
+                ("Normal", "Normal Damage", ""),
+                ("Crit", "Critical Damage", ""),
+                ("Avg", "Average Damage", "Crit*CritDmg+(1-Crit)*NormalDmg"),
+                ("Avg/SPD", "Average Damage * SPD / 100", "AverageDmg*SPD/100")
+            };
+            contextMenuStrip1SkillMenuItems = new ToolStripMenuItem[]
+            {
+                tsmi_S1, tsmi_S2, tsmi_S3, tsmi_SB
+            };
+            // Add skill menu items and DataGridViews columns
+            foreach (var tsmi in contextMenuStrip1SkillMenuItems)
+            {
+                tsmi.DropDownItemClicked += ContextMenuStrip1_ItemClicked;
+                foreach (var tuple in tuples)
+                {
+                    string skillNameShort = tsmi.Name.Substring(5);//tsmi_*, S1, S2, etc.
+                    string statName = skillNameShort + "_" + tuple.Item1;
+                    bool visible = Properties.Settings.Default.OptimizationVisibleSkillColumns.Contains(statName);
+                    ToolStripMenuItem item = new ToolStripMenuItem()
+                    {
+                        Name = tsmi.Name + "_" + tuple.Item1,
+                        Text = tuple.Item2,
+                        ToolTipText = tuple.Item3,
+                        CheckOnClick = true,
+                        Checked = visible
+                    };
+                    tsmi.DropDownItems.Add(item);
+                    DataGridViewTextBoxColumn columnCurrent = new DataGridViewTextBoxColumn();
+                    columnCurrent.Visible = visible;
+                    columnCurrent.Name = $"c_{statName}_Current";
+                    columnCurrent.HeaderText = skillNameShort + " " + tuple.Item1;
+                    columnCurrent.ToolTipText = tsmi.Text + " " + tuple.Item2;
+                    dgv_CurrentGear.Columns.Add(columnCurrent);
+                    DataGridViewTextBoxColumn columnResults = new DataGridViewTextBoxColumn();
+                    columnResults.Visible = visible;
+                    columnResults.Name = $"c_{statName}_Results";
+                    columnResults.HeaderText = skillNameShort + " " + tuple.Item1;
+                    columnResults.ToolTipText = tsmi.Text + " " + tuple.Item2;
+                    dgv_OptimizeResults.Columns.Add(columnResults);
                 }
             }
         }
@@ -1887,12 +1938,31 @@ namespace E7_Gear_Optimizer
                 File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "/Backup.json", json.ToString());
             }
             Properties.Settings.Default.OptimizationHiddenColumns.Clear();
-            foreach (ToolStripMenuItem menuItem in contextMenuStrip1.Items)
+            Properties.Settings.Default.OptimizationVisibleSkillColumns.Clear();
+            foreach (var item in contextMenuStrip1.Items)
             {
-                if (!menuItem.Checked)
+                var menuItem = item as ToolStripMenuItem;
+                if (menuItem != null)
                 {
-                    var statName = menuItem.Name.Substring(5);//tsmi_*
-                    Properties.Settings.Default.OptimizationHiddenColumns.Add(statName);
+                    if (contextMenuStrip1SkillMenuItems.Contains(menuItem))
+                    {
+                        foreach (ToolStripMenuItem childMenuItem in menuItem.DropDownItems)
+                        {
+                            if (childMenuItem.Checked)
+                            {
+                                var statName = childMenuItem.Name.Substring(5);//tsmi_*
+                                Properties.Settings.Default.OptimizationVisibleSkillColumns.Add(statName);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (!menuItem.Checked)
+                        {
+                            var statName = menuItem.Name.Substring(5);//tsmi_*
+                            Properties.Settings.Default.OptimizationHiddenColumns.Add(statName);
+                        }
+                    }
                 }
             }
             Properties.Settings.Default.Save();
@@ -1915,7 +1985,8 @@ namespace E7_Gear_Optimizer
                                                 new JProperty("ATK", h.Artifact.SubStats[0].Value),
                                                 new JProperty("HP", h.Artifact.SubStats[1].Value))),
                                        new JProperty("Lvl", h.Lvl),
-                                       new JProperty("Awakening", h.Awakening)))),
+                                       new JProperty("Awakening", h.Awakening),
+                                       new JProperty("Skills", new JArray())))),
                     new JProperty("items",
                         new JArray(from i in data.Items
                                    select new JObject(
@@ -2567,6 +2638,31 @@ namespace E7_Gear_Optimizer
             var statName = item.Name.Substring(5);//tsmi_*
             dgv_CurrentGear.Columns["c_" + statName + "_Current"].Visible = checkedNew;
             dgv_OptimizeResults.Columns["c_" + statName + "_Results"].Visible = checkedNew;
+        }
+
+        private void setCheckState(ToolStripMenuItem menuItem)
+        {
+            int itemsChecked = menuItem.DropDownItems.Cast<ToolStripMenuItem>().Count(i => i.Checked);
+            if (itemsChecked == menuItem.DropDownItems.Count)
+            {
+                menuItem.CheckState = CheckState.Checked;
+            }
+            else if (itemsChecked == 0)
+            {
+                menuItem.CheckState = CheckState.Unchecked;
+            }
+            else
+            {
+                menuItem.CheckState = CheckState.Indeterminate;
+            }
+        }
+
+        private void ContextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            foreach (var menuItem in contextMenuStrip1SkillMenuItems)
+            {
+                setCheckState(menuItem);
+            }
         }
     }
 }

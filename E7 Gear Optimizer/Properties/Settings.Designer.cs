@@ -119,5 +119,19 @@ namespace E7_Gear_Optimizer.Properties {
                 this["OptimizationHiddenColumns"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
+            "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n  <s" +
+            "tring>S3_Crit</string>\r\n</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection OptimizationVisibleSkillColumns {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["OptimizationVisibleSkillColumns"]));
+            }
+            set {
+                this["OptimizationVisibleSkillColumns"] = value;
+            }
+        }
     }
 }

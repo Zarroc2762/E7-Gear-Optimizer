@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tb_Inventory = new System.Windows.Forms.TabPage();
             this.l_ItemCount = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -166,12 +166,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.nud_S1 = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
-            this.is_Weapon = new E7_Gear_Optimizer.ItemStats();
-            this.is_Helmet = new E7_Gear_Optimizer.ItemStats();
-            this.is_Armor = new E7_Gear_Optimizer.ItemStats();
-            this.is_Necklace = new E7_Gear_Optimizer.ItemStats();
-            this.is_Ring = new E7_Gear_Optimizer.ItemStats();
-            this.is_Boots = new E7_Gear_Optimizer.ItemStats();
             this.b_UnlockAll = new System.Windows.Forms.Button();
             this.b_LockAll = new System.Windows.Forms.Button();
             this.b_UnequipAll = new System.Windows.Forms.Button();
@@ -323,8 +317,54 @@
             this.chb_Equipped = new System.Windows.Forms.CheckBox();
             this.chb_Locked = new System.Windows.Forms.CheckBox();
             this.dgv_OptimizeResults = new System.Windows.Forms.DataGridView();
+            this.c_ATK_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_SPD_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Crit_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_CritDmg_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HP_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HPpS_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DEF_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_EFF_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_RES_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DAC_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Sets_Results = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_EHP_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_EHPpS_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DMG_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DMGpS_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmi_ATK = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_SPD = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_Crit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_CritDmg = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_HP = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_HPpS = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_DEF = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_EFF = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_RES = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_DAC = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_Sets = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_EHP = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_EHPpS = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_DMG = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_DMGpS = new System.Windows.Forms.ToolStripMenuItem();
             this.label37 = new System.Windows.Forms.Label();
             this.dgv_CurrentGear = new System.Windows.Forms.DataGridView();
+            this.c_ATK_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_SPD_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Crit_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_CritDmg_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HP_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_HPpS_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DEF_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_EFF_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_RES_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DAC_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_Sets_Current = new System.Windows.Forms.DataGridViewImageColumn();
+            this.c_EHP_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_EHPpS_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DMG_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.c_DMGpS_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label36 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -495,6 +535,11 @@
             this.c_EHPpS_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c_DMG_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c_DMGpS_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tsmi_S1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_S2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_S3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_SB = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tb_Inventory.SuspendLayout();
             this.tc_InventorySets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ItemLocked)).BeginInit();
@@ -535,6 +580,7 @@
             this.tlb_Force.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_CritBonus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_OptimizeResults)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_CurrentGear)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tb_SpeedTuner.SuspendLayout();
@@ -1489,14 +1535,14 @@
             this.dgv_Inventory.AllowUserToDeleteRows = false;
             this.dgv_Inventory.AllowUserToOrderColumns = true;
             this.dgv_Inventory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Inventory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Inventory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgv_Inventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Inventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.c_set,
@@ -1523,14 +1569,14 @@
             this.c_TypeID,
             this.c_ItemID,
             this.c_Locked});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Inventory.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Inventory.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgv_Inventory.Location = new System.Drawing.Point(6, 40);
             this.dgv_Inventory.MultiSelect = false;
             this.dgv_Inventory.Name = "dgv_Inventory";
@@ -2019,12 +2065,6 @@
             this.tb_Heroes.Controls.Add(this.label13);
             this.tb_Heroes.Controls.Add(this.nud_S1);
             this.tb_Heroes.Controls.Add(this.label11);
-            this.tb_Heroes.Controls.Add(this.is_Weapon);
-            this.tb_Heroes.Controls.Add(this.is_Helmet);
-            this.tb_Heroes.Controls.Add(this.is_Armor);
-            this.tb_Heroes.Controls.Add(this.is_Necklace);
-            this.tb_Heroes.Controls.Add(this.is_Ring);
-            this.tb_Heroes.Controls.Add(this.is_Boots);
             this.tb_Heroes.Controls.Add(this.b_UnlockAll);
             this.tb_Heroes.Controls.Add(this.b_LockAll);
             this.tb_Heroes.Controls.Add(this.b_UnequipAll);
@@ -2058,6 +2098,12 @@
             this.tb_Heroes.Controls.Add(this.b_RemoveHero);
             this.tb_Heroes.Controls.Add(this.b_EditHero);
             this.tb_Heroes.Controls.Add(this.b_AddHero);
+            this.tb_Heroes.Controls.Add(this.is_Weapon);
+            this.tb_Heroes.Controls.Add(this.is_Helmet);
+            this.tb_Heroes.Controls.Add(this.is_Armor);
+            this.tb_Heroes.Controls.Add(this.is_Necklace);
+            this.tb_Heroes.Controls.Add(this.is_Ring);
+            this.tb_Heroes.Controls.Add(this.is_Boots);
             this.tb_Heroes.Location = new System.Drawing.Point(4, 25);
             this.tb_Heroes.Name = "tb_Heroes";
             this.tb_Heroes.Size = new System.Drawing.Size(1455, 740);
@@ -2137,60 +2183,6 @@
             this.label11.Size = new System.Drawing.Size(117, 13);
             this.label11.TabIndex = 119;
             this.label11.Text = "Skill enhancements";
-            // 
-            // is_Weapon
-            // 
-            this.is_Weapon.Image = null;
-            this.is_Weapon.Item = null;
-            this.is_Weapon.Location = new System.Drawing.Point(80, 451);
-            this.is_Weapon.Name = "is_Weapon";
-            this.is_Weapon.Size = new System.Drawing.Size(181, 210);
-            this.is_Weapon.TabIndex = 118;
-            // 
-            // is_Helmet
-            // 
-            this.is_Helmet.Image = null;
-            this.is_Helmet.Item = null;
-            this.is_Helmet.Location = new System.Drawing.Point(279, 451);
-            this.is_Helmet.Name = "is_Helmet";
-            this.is_Helmet.Size = new System.Drawing.Size(181, 210);
-            this.is_Helmet.TabIndex = 117;
-            // 
-            // is_Armor
-            // 
-            this.is_Armor.Image = null;
-            this.is_Armor.Item = null;
-            this.is_Armor.Location = new System.Drawing.Point(474, 451);
-            this.is_Armor.Name = "is_Armor";
-            this.is_Armor.Size = new System.Drawing.Size(181, 210);
-            this.is_Armor.TabIndex = 116;
-            // 
-            // is_Necklace
-            // 
-            this.is_Necklace.Image = null;
-            this.is_Necklace.Item = null;
-            this.is_Necklace.Location = new System.Drawing.Point(669, 451);
-            this.is_Necklace.Name = "is_Necklace";
-            this.is_Necklace.Size = new System.Drawing.Size(181, 210);
-            this.is_Necklace.TabIndex = 115;
-            // 
-            // is_Ring
-            // 
-            this.is_Ring.Image = null;
-            this.is_Ring.Item = null;
-            this.is_Ring.Location = new System.Drawing.Point(864, 451);
-            this.is_Ring.Name = "is_Ring";
-            this.is_Ring.Size = new System.Drawing.Size(181, 210);
-            this.is_Ring.TabIndex = 114;
-            // 
-            // is_Boots
-            // 
-            this.is_Boots.Image = null;
-            this.is_Boots.Item = null;
-            this.is_Boots.Location = new System.Drawing.Point(1059, 451);
-            this.is_Boots.Name = "is_Boots";
-            this.is_Boots.Size = new System.Drawing.Size(181, 210);
-            this.is_Boots.TabIndex = 113;
             // 
             // b_UnlockAll
             // 
@@ -2589,14 +2581,14 @@
             this.dgv_Heroes.AllowUserToOrderColumns = true;
             this.dgv_Heroes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_Heroes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Heroes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Heroes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_Heroes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Heroes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.c_Portrait,
@@ -2621,14 +2613,14 @@
             this.c_DMG,
             this.c_DMGpS,
             this.c_HeroID});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Heroes.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Heroes.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgv_Heroes.Location = new System.Drawing.Point(7, 44);
             this.dgv_Heroes.MultiSelect = false;
             this.dgv_Heroes.Name = "dgv_Heroes";
@@ -3858,14 +3850,14 @@
             this.dgv_OptimizeResults.AllowUserToDeleteRows = false;
             this.dgv_OptimizeResults.AllowUserToOrderColumns = true;
             this.dgv_OptimizeResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_OptimizeResults.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_OptimizeResults.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgv_OptimizeResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_OptimizeResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.c_ATK_Results,
@@ -3884,14 +3876,14 @@
             this.c_DMG_Results,
             this.c_DMGpS_Results});
             this.dgv_OptimizeResults.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_OptimizeResults.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_OptimizeResults.DefaultCellStyle = dataGridViewCellStyle19;
             this.dgv_OptimizeResults.Location = new System.Drawing.Point(6, 416);
             this.dgv_OptimizeResults.MultiSelect = false;
             this.dgv_OptimizeResults.Name = "dgv_OptimizeResults";
@@ -3906,6 +3898,280 @@
             this.dgv_OptimizeResults.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.Dgv_OptimizeResults_CellValueNeeded);
             this.dgv_OptimizeResults.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dgv_OptimizeResults_ColumnHeaderMouseClick);
             this.dgv_OptimizeResults.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_OptimizeResults_RowEnter);
+            // 
+            // c_ATK_Results
+            // 
+            this.c_ATK_Results.HeaderText = "ATK";
+            this.c_ATK_Results.MinimumWidth = 8;
+            this.c_ATK_Results.Name = "c_ATK_Results";
+            this.c_ATK_Results.ReadOnly = true;
+            // 
+            // c_SPD_Results
+            // 
+            this.c_SPD_Results.HeaderText = "SPD";
+            this.c_SPD_Results.MinimumWidth = 8;
+            this.c_SPD_Results.Name = "c_SPD_Results";
+            this.c_SPD_Results.ReadOnly = true;
+            // 
+            // c_Crit_Results
+            // 
+            this.c_Crit_Results.HeaderText = "Crit";
+            this.c_Crit_Results.MinimumWidth = 8;
+            this.c_Crit_Results.Name = "c_Crit_Results";
+            this.c_Crit_Results.ReadOnly = true;
+            // 
+            // c_CritDmg_Results
+            // 
+            this.c_CritDmg_Results.HeaderText = "CritDmg";
+            this.c_CritDmg_Results.MinimumWidth = 8;
+            this.c_CritDmg_Results.Name = "c_CritDmg_Results";
+            this.c_CritDmg_Results.ReadOnly = true;
+            // 
+            // c_HP_Results
+            // 
+            this.c_HP_Results.HeaderText = "HP";
+            this.c_HP_Results.MinimumWidth = 8;
+            this.c_HP_Results.Name = "c_HP_Results";
+            this.c_HP_Results.ReadOnly = true;
+            // 
+            // c_HPpS_Results
+            // 
+            this.c_HPpS_Results.HeaderText = "HP/SPD";
+            this.c_HPpS_Results.MinimumWidth = 8;
+            this.c_HPpS_Results.Name = "c_HPpS_Results";
+            this.c_HPpS_Results.ReadOnly = true;
+            // 
+            // c_DEF_Results
+            // 
+            this.c_DEF_Results.HeaderText = "DEF";
+            this.c_DEF_Results.MinimumWidth = 8;
+            this.c_DEF_Results.Name = "c_DEF_Results";
+            this.c_DEF_Results.ReadOnly = true;
+            // 
+            // c_EFF_Results
+            // 
+            this.c_EFF_Results.HeaderText = "EFF";
+            this.c_EFF_Results.MinimumWidth = 8;
+            this.c_EFF_Results.Name = "c_EFF_Results";
+            this.c_EFF_Results.ReadOnly = true;
+            // 
+            // c_RES_Results
+            // 
+            this.c_RES_Results.HeaderText = "RES";
+            this.c_RES_Results.MinimumWidth = 8;
+            this.c_RES_Results.Name = "c_RES_Results";
+            this.c_RES_Results.ReadOnly = true;
+            // 
+            // c_DAC_Results
+            // 
+            this.c_DAC_Results.HeaderText = "DAC";
+            this.c_DAC_Results.MinimumWidth = 8;
+            this.c_DAC_Results.Name = "c_DAC_Results";
+            this.c_DAC_Results.ReadOnly = true;
+            // 
+            // c_Sets_Results
+            // 
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle18.NullValue")));
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.c_Sets_Results.DefaultCellStyle = dataGridViewCellStyle18;
+            this.c_Sets_Results.HeaderText = "Sets";
+            this.c_Sets_Results.MinimumWidth = 8;
+            this.c_Sets_Results.Name = "c_Sets_Results";
+            this.c_Sets_Results.ReadOnly = true;
+            // 
+            // c_EHP_Results
+            // 
+            this.c_EHP_Results.HeaderText = "EHP";
+            this.c_EHP_Results.MinimumWidth = 8;
+            this.c_EHP_Results.Name = "c_EHP_Results";
+            this.c_EHP_Results.ReadOnly = true;
+            // 
+            // c_EHPpS_Results
+            // 
+            this.c_EHPpS_Results.HeaderText = "EHP/SPD";
+            this.c_EHPpS_Results.MinimumWidth = 8;
+            this.c_EHPpS_Results.Name = "c_EHPpS_Results";
+            this.c_EHPpS_Results.ReadOnly = true;
+            // 
+            // c_DMG_Results
+            // 
+            this.c_DMG_Results.HeaderText = "DMG";
+            this.c_DMG_Results.MinimumWidth = 8;
+            this.c_DMG_Results.Name = "c_DMG_Results";
+            this.c_DMG_Results.ReadOnly = true;
+            // 
+            // c_DMGpS_Results
+            // 
+            this.c_DMGpS_Results.HeaderText = "DMG/SPD";
+            this.c_DMGpS_Results.MinimumWidth = 8;
+            this.c_DMGpS_Results.Name = "c_DMGpS_Results";
+            this.c_DMGpS_Results.ReadOnly = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_ATK,
+            this.tsmi_SPD,
+            this.tsmi_Crit,
+            this.tsmi_CritDmg,
+            this.tsmi_HP,
+            this.tsmi_HPpS,
+            this.tsmi_DEF,
+            this.tsmi_EFF,
+            this.tsmi_RES,
+            this.tsmi_DAC,
+            this.tsmi_Sets,
+            this.tsmi_EHP,
+            this.tsmi_EHPpS,
+            this.tsmi_DMG,
+            this.tsmi_DMGpS,
+            this.toolStripSeparator1,
+            this.tsmi_S1,
+            this.tsmi_S2,
+            this.tsmi_S3,
+            this.tsmi_SB});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.ShowCheckMargin = true;
+            this.contextMenuStrip1.ShowImageMargin = false;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(160, 428);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenuStrip1_Opening);
+            this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ContextMenuStrip1_ItemClicked);
+            // 
+            // tsmi_ATK
+            // 
+            this.tsmi_ATK.Checked = true;
+            this.tsmi_ATK.CheckOnClick = true;
+            this.tsmi_ATK.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmi_ATK.Name = "tsmi_ATK";
+            this.tsmi_ATK.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_ATK.Text = "ATK";
+            // 
+            // tsmi_SPD
+            // 
+            this.tsmi_SPD.Checked = true;
+            this.tsmi_SPD.CheckOnClick = true;
+            this.tsmi_SPD.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmi_SPD.Name = "tsmi_SPD";
+            this.tsmi_SPD.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_SPD.Text = "SPD";
+            // 
+            // tsmi_Crit
+            // 
+            this.tsmi_Crit.Checked = true;
+            this.tsmi_Crit.CheckOnClick = true;
+            this.tsmi_Crit.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmi_Crit.Name = "tsmi_Crit";
+            this.tsmi_Crit.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_Crit.Text = "Crit";
+            // 
+            // tsmi_CritDmg
+            // 
+            this.tsmi_CritDmg.Checked = true;
+            this.tsmi_CritDmg.CheckOnClick = true;
+            this.tsmi_CritDmg.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmi_CritDmg.Name = "tsmi_CritDmg";
+            this.tsmi_CritDmg.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_CritDmg.Text = "CritDmg";
+            // 
+            // tsmi_HP
+            // 
+            this.tsmi_HP.Checked = true;
+            this.tsmi_HP.CheckOnClick = true;
+            this.tsmi_HP.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmi_HP.Name = "tsmi_HP";
+            this.tsmi_HP.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_HP.Text = "HP";
+            // 
+            // tsmi_HPpS
+            // 
+            this.tsmi_HPpS.Checked = true;
+            this.tsmi_HPpS.CheckOnClick = true;
+            this.tsmi_HPpS.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmi_HPpS.Name = "tsmi_HPpS";
+            this.tsmi_HPpS.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_HPpS.Text = "HP/SPD";
+            // 
+            // tsmi_DEF
+            // 
+            this.tsmi_DEF.Checked = true;
+            this.tsmi_DEF.CheckOnClick = true;
+            this.tsmi_DEF.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmi_DEF.Name = "tsmi_DEF";
+            this.tsmi_DEF.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_DEF.Text = "DEF";
+            // 
+            // tsmi_EFF
+            // 
+            this.tsmi_EFF.Checked = true;
+            this.tsmi_EFF.CheckOnClick = true;
+            this.tsmi_EFF.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmi_EFF.Name = "tsmi_EFF";
+            this.tsmi_EFF.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_EFF.Text = "EFF";
+            // 
+            // tsmi_RES
+            // 
+            this.tsmi_RES.Checked = true;
+            this.tsmi_RES.CheckOnClick = true;
+            this.tsmi_RES.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmi_RES.Name = "tsmi_RES";
+            this.tsmi_RES.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_RES.Text = "RES";
+            // 
+            // tsmi_DAC
+            // 
+            this.tsmi_DAC.Checked = true;
+            this.tsmi_DAC.CheckOnClick = true;
+            this.tsmi_DAC.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmi_DAC.Name = "tsmi_DAC";
+            this.tsmi_DAC.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_DAC.Text = "DAC";
+            // 
+            // tsmi_Sets
+            // 
+            this.tsmi_Sets.Checked = true;
+            this.tsmi_Sets.CheckOnClick = true;
+            this.tsmi_Sets.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmi_Sets.Name = "tsmi_Sets";
+            this.tsmi_Sets.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_Sets.Text = "Sets";
+            // 
+            // tsmi_EHP
+            // 
+            this.tsmi_EHP.Checked = true;
+            this.tsmi_EHP.CheckOnClick = true;
+            this.tsmi_EHP.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmi_EHP.Name = "tsmi_EHP";
+            this.tsmi_EHP.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_EHP.Text = "EHP";
+            // 
+            // tsmi_EHPpS
+            // 
+            this.tsmi_EHPpS.Checked = true;
+            this.tsmi_EHPpS.CheckOnClick = true;
+            this.tsmi_EHPpS.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmi_EHPpS.Name = "tsmi_EHPpS";
+            this.tsmi_EHPpS.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_EHPpS.Text = "EHP/SPD";
+            // 
+            // tsmi_DMG
+            // 
+            this.tsmi_DMG.Checked = true;
+            this.tsmi_DMG.CheckOnClick = true;
+            this.tsmi_DMG.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmi_DMG.Name = "tsmi_DMG";
+            this.tsmi_DMG.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_DMG.Text = "DMG";
+            // 
+            // tsmi_DMGpS
+            // 
+            this.tsmi_DMGpS.Checked = true;
+            this.tsmi_DMGpS.CheckOnClick = true;
+            this.tsmi_DMGpS.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmi_DMGpS.Name = "tsmi_DMGpS";
+            this.tsmi_DMGpS.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_DMGpS.Text = "DMG/SPD";
             // 
             // label37
             // 
@@ -3924,14 +4190,14 @@
             this.dgv_CurrentGear.AllowUserToOrderColumns = true;
             this.dgv_CurrentGear.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_CurrentGear.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_CurrentGear.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_CurrentGear.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgv_CurrentGear.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_CurrentGear.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.c_ATK_Current,
@@ -3950,14 +4216,14 @@
             this.c_DMG_Current,
             this.c_DMGpS_Current});
             this.dgv_CurrentGear.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_CurrentGear.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_CurrentGear.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgv_CurrentGear.Location = new System.Drawing.Point(6, 333);
             this.dgv_CurrentGear.MultiSelect = false;
             this.dgv_CurrentGear.Name = "dgv_CurrentGear";
@@ -3967,6 +4233,111 @@
             this.dgv_CurrentGear.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_CurrentGear.Size = new System.Drawing.Size(908, 58);
             this.dgv_CurrentGear.TabIndex = 100;
+            // 
+            // c_ATK_Current
+            // 
+            this.c_ATK_Current.HeaderText = "ATK";
+            this.c_ATK_Current.MinimumWidth = 8;
+            this.c_ATK_Current.Name = "c_ATK_Current";
+            this.c_ATK_Current.ReadOnly = true;
+            // 
+            // c_SPD_Current
+            // 
+            this.c_SPD_Current.HeaderText = "SPD";
+            this.c_SPD_Current.MinimumWidth = 8;
+            this.c_SPD_Current.Name = "c_SPD_Current";
+            this.c_SPD_Current.ReadOnly = true;
+            // 
+            // c_Crit_Current
+            // 
+            this.c_Crit_Current.HeaderText = "Crit";
+            this.c_Crit_Current.MinimumWidth = 8;
+            this.c_Crit_Current.Name = "c_Crit_Current";
+            this.c_Crit_Current.ReadOnly = true;
+            // 
+            // c_CritDmg_Current
+            // 
+            this.c_CritDmg_Current.HeaderText = "CritDmg";
+            this.c_CritDmg_Current.MinimumWidth = 8;
+            this.c_CritDmg_Current.Name = "c_CritDmg_Current";
+            this.c_CritDmg_Current.ReadOnly = true;
+            // 
+            // c_HP_Current
+            // 
+            this.c_HP_Current.HeaderText = "HP";
+            this.c_HP_Current.MinimumWidth = 8;
+            this.c_HP_Current.Name = "c_HP_Current";
+            this.c_HP_Current.ReadOnly = true;
+            // 
+            // c_HPpS_Current
+            // 
+            this.c_HPpS_Current.HeaderText = "HP/SPD";
+            this.c_HPpS_Current.MinimumWidth = 8;
+            this.c_HPpS_Current.Name = "c_HPpS_Current";
+            this.c_HPpS_Current.ReadOnly = true;
+            // 
+            // c_DEF_Current
+            // 
+            this.c_DEF_Current.HeaderText = "DEF";
+            this.c_DEF_Current.MinimumWidth = 8;
+            this.c_DEF_Current.Name = "c_DEF_Current";
+            this.c_DEF_Current.ReadOnly = true;
+            // 
+            // c_EFF_Current
+            // 
+            this.c_EFF_Current.HeaderText = "EFF";
+            this.c_EFF_Current.MinimumWidth = 8;
+            this.c_EFF_Current.Name = "c_EFF_Current";
+            this.c_EFF_Current.ReadOnly = true;
+            // 
+            // c_RES_Current
+            // 
+            this.c_RES_Current.HeaderText = "RES";
+            this.c_RES_Current.MinimumWidth = 8;
+            this.c_RES_Current.Name = "c_RES_Current";
+            this.c_RES_Current.ReadOnly = true;
+            // 
+            // c_DAC_Current
+            // 
+            this.c_DAC_Current.HeaderText = "DAC";
+            this.c_DAC_Current.MinimumWidth = 8;
+            this.c_DAC_Current.Name = "c_DAC_Current";
+            this.c_DAC_Current.ReadOnly = true;
+            // 
+            // c_Sets_Current
+            // 
+            this.c_Sets_Current.HeaderText = "Sets";
+            this.c_Sets_Current.MinimumWidth = 8;
+            this.c_Sets_Current.Name = "c_Sets_Current";
+            this.c_Sets_Current.ReadOnly = true;
+            // 
+            // c_EHP_Current
+            // 
+            this.c_EHP_Current.HeaderText = "EHP";
+            this.c_EHP_Current.MinimumWidth = 8;
+            this.c_EHP_Current.Name = "c_EHP_Current";
+            this.c_EHP_Current.ReadOnly = true;
+            // 
+            // c_EHPpS_Current
+            // 
+            this.c_EHPpS_Current.HeaderText = "EHP/SPD";
+            this.c_EHPpS_Current.MinimumWidth = 8;
+            this.c_EHPpS_Current.Name = "c_EHPpS_Current";
+            this.c_EHPpS_Current.ReadOnly = true;
+            // 
+            // c_DMG_Current
+            // 
+            this.c_DMG_Current.HeaderText = "DMG";
+            this.c_DMG_Current.MinimumWidth = 8;
+            this.c_DMG_Current.Name = "c_DMG_Current";
+            this.c_DMG_Current.ReadOnly = true;
+            // 
+            // c_DMGpS_Current
+            // 
+            this.c_DMGpS_Current.HeaderText = "DMG/SPD";
+            this.c_DMGpS_Current.MinimumWidth = 8;
+            this.c_DMGpS_Current.Name = "c_DMGpS_Current";
+            this.c_DMGpS_Current.ReadOnly = true;
             // 
             // label36
             // 
@@ -5584,175 +5955,206 @@
             // 
             // c_DEF_Results
             // 
-            this.c_DEF_Results.HeaderText = "DEF";
-            this.c_DEF_Results.MinimumWidth = 8;
-            this.c_DEF_Results.Name = "c_DEF_Results";
-            this.c_DEF_Results.ReadOnly = true;
+            this.label54.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(3, 0);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(94, 25);
+            this.label54.TabIndex = 0;
+            this.label54.Text = "SPD (Gear)";
+            this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // c_EFF_Results
+            // nud1_SpeedTunerImprint
             // 
-            this.c_EFF_Results.HeaderText = "EFF";
-            this.c_EFF_Results.MinimumWidth = 8;
-            this.c_EFF_Results.Name = "c_EFF_Results";
-            this.c_EFF_Results.ReadOnly = true;
+            this.nud1_SpeedTunerImprint.Location = new System.Drawing.Point(103, 28);
+            this.nud1_SpeedTunerImprint.Maximum = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
+            this.nud1_SpeedTunerImprint.Name = "nud1_SpeedTunerImprint";
+            this.nud1_SpeedTunerImprint.Size = new System.Drawing.Size(94, 20);
+            this.nud1_SpeedTunerImprint.TabIndex = 5;
+            this.nud1_SpeedTunerImprint.ValueChanged += new System.EventHandler(this.Nud1_SpeedTunerImprint_ValueChanged);
             // 
-            // c_RES_Results
+            // pb1_SpeedTuner
             // 
-            this.c_RES_Results.HeaderText = "RES";
-            this.c_RES_Results.MinimumWidth = 8;
-            this.c_RES_Results.Name = "c_RES_Results";
-            this.c_RES_Results.ReadOnly = true;
+            this.pb1_SpeedTuner.Location = new System.Drawing.Point(46, 76);
+            this.pb1_SpeedTuner.Name = "pb1_SpeedTuner";
+            this.pb1_SpeedTuner.Size = new System.Drawing.Size(49, 50);
+            this.pb1_SpeedTuner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb1_SpeedTuner.TabIndex = 2;
+            this.pb1_SpeedTuner.TabStop = false;
             // 
-            // c_DAC_Results
+            // cb1_SpeedTuner
             // 
-            this.c_DAC_Results.HeaderText = "DAC";
-            this.c_DAC_Results.MinimumWidth = 8;
-            this.c_DAC_Results.Name = "c_DAC_Results";
-            this.c_DAC_Results.ReadOnly = true;
+            this.cb1_SpeedTuner.FormattingEnabled = true;
+            this.cb1_SpeedTuner.Location = new System.Drawing.Point(46, 49);
+            this.cb1_SpeedTuner.Name = "cb1_SpeedTuner";
+            this.cb1_SpeedTuner.Size = new System.Drawing.Size(121, 21);
+            this.cb1_SpeedTuner.TabIndex = 1;
+            this.cb1_SpeedTuner.SelectedIndexChanged += new System.EventHandler(this.cb1_SpeedTuner_SelectedIndexChanged);
             // 
-            // c_Sets_Results
+            // label53
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle6.NullValue")));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.c_Sets_Results.DefaultCellStyle = dataGridViewCellStyle6;
-            this.c_Sets_Results.HeaderText = "Sets";
-            this.c_Sets_Results.MinimumWidth = 8;
-            this.c_Sets_Results.Name = "c_Sets_Results";
-            this.c_Sets_Results.ReadOnly = true;
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(43, 33);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(45, 13);
+            this.label53.TabIndex = 0;
+            this.label53.Text = "Hero 1";
             // 
-            // c_EHP_Results
+            // ofd_import
             // 
-            this.c_EHP_Results.HeaderText = "EHP";
-            this.c_EHP_Results.MinimumWidth = 8;
-            this.c_EHP_Results.Name = "c_EHP_Results";
-            this.c_EHP_Results.ReadOnly = true;
+            this.ofd_import.DefaultExt = "json";
+            this.ofd_import.Filter = "JSON File|*.json";
             // 
-            // c_EHPpS_Results
+            // sfd_export
             // 
-            this.c_EHPpS_Results.HeaderText = "EHP/SPD";
-            this.c_EHPpS_Results.MinimumWidth = 8;
-            this.c_EHPpS_Results.Name = "c_EHPpS_Results";
-            this.c_EHPpS_Results.ReadOnly = true;
+            this.sfd_export.DefaultExt = "json";
+            this.sfd_export.FileName = "E7 Gear Optimizer.json";
+            this.sfd_export.Filter = "JSON|*.json";
             // 
-            // c_DMG_Results
+            // tsmi_S1
             // 
-            this.c_DMG_Results.HeaderText = "DMG";
-            this.c_DMG_Results.MinimumWidth = 8;
-            this.c_DMG_Results.Name = "c_DMG_Results";
-            this.c_DMG_Results.ReadOnly = true;
+            this.tsmi_S1.Name = "tsmi_S1";
+            this.tsmi_S1.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_S1.Text = "Skill 1";
             // 
-            // c_DMGpS_Results
+            // tsmi_S2
             // 
-            this.c_DMGpS_Results.HeaderText = "DMG/SPD";
-            this.c_DMGpS_Results.MinimumWidth = 8;
-            this.c_DMGpS_Results.Name = "c_DMGpS_Results";
-            this.c_DMGpS_Results.ReadOnly = true;
+            this.tsmi_S2.Name = "tsmi_S2";
+            this.tsmi_S2.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_S2.Text = "Skill 2";
             // 
-            // c_ATK_Current
+            // tsmi_S3
             // 
-            this.c_ATK_Current.HeaderText = "ATK";
-            this.c_ATK_Current.MinimumWidth = 8;
-            this.c_ATK_Current.Name = "c_ATK_Current";
-            this.c_ATK_Current.ReadOnly = true;
+            this.tsmi_S3.Name = "tsmi_S3";
+            this.tsmi_S3.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_S3.Text = "Skill 3";
             // 
-            // c_SPD_Current
+            // tsmi_SB
             // 
-            this.c_SPD_Current.HeaderText = "SPD";
-            this.c_SPD_Current.MinimumWidth = 8;
-            this.c_SPD_Current.Name = "c_SPD_Current";
-            this.c_SPD_Current.ReadOnly = true;
+            this.tsmi_SB.Name = "tsmi_SB";
+            this.tsmi_SB.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_SB.Text = "Skill Soulburned";
+            this.tsmi_SB.ToolTipText = "Skill with soulburn enabled";
             // 
-            // c_Crit_Current
+            // toolStripSeparator1
             // 
-            this.c_Crit_Current.HeaderText = "Crit";
-            this.c_Crit_Current.MinimumWidth = 8;
-            this.c_Crit_Current.Name = "c_Crit_Current";
-            this.c_Crit_Current.ReadOnly = true;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(156, 6);
             // 
-            // c_CritDmg_Current
+            // is_Weapon
             // 
-            this.c_CritDmg_Current.HeaderText = "CritDmg";
-            this.c_CritDmg_Current.MinimumWidth = 8;
-            this.c_CritDmg_Current.Name = "c_CritDmg_Current";
-            this.c_CritDmg_Current.ReadOnly = true;
+            this.is_Weapon.Image = null;
+            this.is_Weapon.Item = null;
+            this.is_Weapon.Location = new System.Drawing.Point(80, 451);
+            this.is_Weapon.Name = "is_Weapon";
+            this.is_Weapon.Size = new System.Drawing.Size(181, 210);
+            this.is_Weapon.TabIndex = 118;
             // 
-            // c_HP_Current
+            // is_Helmet
             // 
-            this.c_HP_Current.HeaderText = "HP";
-            this.c_HP_Current.MinimumWidth = 8;
-            this.c_HP_Current.Name = "c_HP_Current";
-            this.c_HP_Current.ReadOnly = true;
+            this.is_Helmet.Image = null;
+            this.is_Helmet.Item = null;
+            this.is_Helmet.Location = new System.Drawing.Point(279, 451);
+            this.is_Helmet.Name = "is_Helmet";
+            this.is_Helmet.Size = new System.Drawing.Size(181, 210);
+            this.is_Helmet.TabIndex = 117;
             // 
-            // c_HPpS_Current
+            // is_Armor
             // 
-            this.c_HPpS_Current.HeaderText = "HP/SPD";
-            this.c_HPpS_Current.MinimumWidth = 8;
-            this.c_HPpS_Current.Name = "c_HPpS_Current";
-            this.c_HPpS_Current.ReadOnly = true;
+            this.is_Armor.Image = null;
+            this.is_Armor.Item = null;
+            this.is_Armor.Location = new System.Drawing.Point(474, 451);
+            this.is_Armor.Name = "is_Armor";
+            this.is_Armor.Size = new System.Drawing.Size(181, 210);
+            this.is_Armor.TabIndex = 116;
             // 
-            // c_DEF_Current
+            // is_Necklace
             // 
-            this.c_DEF_Current.HeaderText = "DEF";
-            this.c_DEF_Current.MinimumWidth = 8;
-            this.c_DEF_Current.Name = "c_DEF_Current";
-            this.c_DEF_Current.ReadOnly = true;
+            this.is_Necklace.Image = null;
+            this.is_Necklace.Item = null;
+            this.is_Necklace.Location = new System.Drawing.Point(669, 451);
+            this.is_Necklace.Name = "is_Necklace";
+            this.is_Necklace.Size = new System.Drawing.Size(181, 210);
+            this.is_Necklace.TabIndex = 115;
             // 
-            // c_EFF_Current
+            // is_Ring
             // 
-            this.c_EFF_Current.HeaderText = "EFF";
-            this.c_EFF_Current.MinimumWidth = 8;
-            this.c_EFF_Current.Name = "c_EFF_Current";
-            this.c_EFF_Current.ReadOnly = true;
+            this.is_Ring.Image = null;
+            this.is_Ring.Item = null;
+            this.is_Ring.Location = new System.Drawing.Point(864, 451);
+            this.is_Ring.Name = "is_Ring";
+            this.is_Ring.Size = new System.Drawing.Size(181, 210);
+            this.is_Ring.TabIndex = 114;
             // 
-            // c_RES_Current
+            // is_Boots
             // 
-            this.c_RES_Current.HeaderText = "RES";
-            this.c_RES_Current.MinimumWidth = 8;
-            this.c_RES_Current.Name = "c_RES_Current";
-            this.c_RES_Current.ReadOnly = true;
+            this.is_Boots.Image = null;
+            this.is_Boots.Item = null;
+            this.is_Boots.Location = new System.Drawing.Point(1059, 451);
+            this.is_Boots.Name = "is_Boots";
+            this.is_Boots.Size = new System.Drawing.Size(181, 210);
+            this.is_Boots.TabIndex = 113;
             // 
-            // c_DAC_Current
+            // is_NecklaceOptimize
             // 
-            this.c_DAC_Current.HeaderText = "DAC";
-            this.c_DAC_Current.MinimumWidth = 8;
-            this.c_DAC_Current.Name = "c_DAC_Current";
-            this.c_DAC_Current.ReadOnly = true;
+            this.is_NecklaceOptimize.Image = null;
+            this.is_NecklaceOptimize.Item = null;
+            this.is_NecklaceOptimize.Location = new System.Drawing.Point(1258, 1);
+            this.is_NecklaceOptimize.Name = "is_NecklaceOptimize";
+            this.is_NecklaceOptimize.Size = new System.Drawing.Size(181, 210);
+            this.is_NecklaceOptimize.TabIndex = 146;
             // 
-            // c_Sets_Current
+            // is_BootsOptimize
             // 
-            this.c_Sets_Current.HeaderText = "Sets";
-            this.c_Sets_Current.MinimumWidth = 8;
-            this.c_Sets_Current.Name = "c_Sets_Current";
-            this.c_Sets_Current.ReadOnly = true;
+            this.is_BootsOptimize.Image = null;
+            this.is_BootsOptimize.Item = null;
+            this.is_BootsOptimize.Location = new System.Drawing.Point(1258, 521);
+            this.is_BootsOptimize.Name = "is_BootsOptimize";
+            this.is_BootsOptimize.Size = new System.Drawing.Size(181, 210);
+            this.is_BootsOptimize.TabIndex = 117;
             // 
-            // c_EHP_Current
+            // is_RingOptimize
             // 
-            this.c_EHP_Current.HeaderText = "EHP";
-            this.c_EHP_Current.MinimumWidth = 8;
-            this.c_EHP_Current.Name = "c_EHP_Current";
-            this.c_EHP_Current.ReadOnly = true;
+            this.is_RingOptimize.Image = null;
+            this.is_RingOptimize.Item = null;
+            this.is_RingOptimize.Location = new System.Drawing.Point(1258, 258);
+            this.is_RingOptimize.Name = "is_RingOptimize";
+            this.is_RingOptimize.Size = new System.Drawing.Size(181, 210);
+            this.is_RingOptimize.TabIndex = 145;
             // 
-            // c_EHPpS_Current
+            // is_ArmorOptimize
             // 
-            this.c_EHPpS_Current.HeaderText = "EHP/SPD";
-            this.c_EHPpS_Current.MinimumWidth = 8;
-            this.c_EHPpS_Current.Name = "c_EHPpS_Current";
-            this.c_EHPpS_Current.ReadOnly = true;
+            this.is_ArmorOptimize.Image = null;
+            this.is_ArmorOptimize.Item = null;
+            this.is_ArmorOptimize.Location = new System.Drawing.Point(997, 521);
+            this.is_ArmorOptimize.Name = "is_ArmorOptimize";
+            this.is_ArmorOptimize.Size = new System.Drawing.Size(181, 210);
+            this.is_ArmorOptimize.TabIndex = 144;
             // 
-            // c_DMG_Current
+            // is_HelmetOptimize
             // 
-            this.c_DMG_Current.HeaderText = "DMG";
-            this.c_DMG_Current.MinimumWidth = 8;
-            this.c_DMG_Current.Name = "c_DMG_Current";
-            this.c_DMG_Current.ReadOnly = true;
+            this.is_HelmetOptimize.Image = null;
+            this.is_HelmetOptimize.Item = null;
+            this.is_HelmetOptimize.Location = new System.Drawing.Point(997, 259);
+            this.is_HelmetOptimize.Name = "is_HelmetOptimize";
+            this.is_HelmetOptimize.Size = new System.Drawing.Size(181, 210);
+            this.is_HelmetOptimize.TabIndex = 143;
             // 
-            // c_DMGpS_Current
+            // is_WeaponOptimize
             // 
-            this.c_DMGpS_Current.HeaderText = "DMG/SPD";
-            this.c_DMGpS_Current.MinimumWidth = 8;
-            this.c_DMGpS_Current.Name = "c_DMGpS_Current";
-            this.c_DMGpS_Current.ReadOnly = true;
+            this.is_WeaponOptimize.Image = null;
+            this.is_WeaponOptimize.Item = null;
+            this.is_WeaponOptimize.Location = new System.Drawing.Point(997, 1);
+            this.is_WeaponOptimize.Name = "is_WeaponOptimize";
+            this.is_WeaponOptimize.Size = new System.Drawing.Size(181, 210);
+            this.is_WeaponOptimize.TabIndex = 142;
             // 
             // Main
             // 
@@ -5819,6 +6221,7 @@
             this.tlb_Force.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_CritBonus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_OptimizeResults)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_CurrentGear)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -6306,6 +6709,11 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown nud_S1;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_S1;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_S2;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_S3;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_SB;
     }
 }
 
