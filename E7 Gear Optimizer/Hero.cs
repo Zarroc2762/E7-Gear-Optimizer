@@ -55,16 +55,16 @@ namespace E7_Gear_Optimizer
             {
                 string json = loadJson();
                 json = Encoding.UTF8.GetString(Encoding.Default.GetBytes(json)).Replace("✰", "");
-                //json = json.Remove(json.IndexOf("\"skills\":")) + json.Substring(json.IndexOf("\"awakening\":"));
+                JObject jObject = JObject.Parse(json);
                 baseStats = getBaseStats(json);
                 Element = getElement(json);
                 Class = getClass(json);
                 AwakeningStats = getAwakeningStats(json);
                 Skills = new Skill[]
                 {
-                    new Skill(json, 0, 0),
-                    new Skill(json, 1, 1),
-                    new Skill(json, 2, 2)
+                    new Skill(jObject, 0, 0),
+                    new Skill(jObject, 1, 1),
+                    new Skill(jObject, 2, 2)
                 };
             }
             catch (WebException ex)

@@ -159,6 +159,13 @@
             this.rb_import_web = new System.Windows.Forms.RadioButton();
             this.tc_Main = new System.Windows.Forms.TabControl();
             this.tb_Heroes = new System.Windows.Forms.TabPage();
+            this.label25 = new System.Windows.Forms.Label();
+            this.nud_S3 = new System.Windows.Forms.NumericUpDown();
+            this.label20 = new System.Windows.Forms.Label();
+            this.nud_S2 = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.nud_S1 = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
             this.is_Weapon = new E7_Gear_Optimizer.ItemStats();
             this.is_Helmet = new E7_Gear_Optimizer.ItemStats();
             this.is_Armor = new E7_Gear_Optimizer.ItemStats();
@@ -507,6 +514,9 @@
             this.tabPage1.SuspendLayout();
             this.tc_Main.SuspendLayout();
             this.tb_Heroes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_S3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_S2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_S1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_ArtifactHealth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_ArtifactAttack)).BeginInit();
             this.tc_Heroes_Class.SuspendLayout();
@@ -2002,6 +2012,13 @@
             // 
             // tb_Heroes
             // 
+            this.tb_Heroes.Controls.Add(this.label25);
+            this.tb_Heroes.Controls.Add(this.nud_S3);
+            this.tb_Heroes.Controls.Add(this.label20);
+            this.tb_Heroes.Controls.Add(this.nud_S2);
+            this.tb_Heroes.Controls.Add(this.label13);
+            this.tb_Heroes.Controls.Add(this.nud_S1);
+            this.tb_Heroes.Controls.Add(this.label11);
             this.tb_Heroes.Controls.Add(this.is_Weapon);
             this.tb_Heroes.Controls.Add(this.is_Helmet);
             this.tb_Heroes.Controls.Add(this.is_Armor);
@@ -2047,6 +2064,79 @@
             this.tb_Heroes.TabIndex = 3;
             this.tb_Heroes.Text = "Heroes";
             this.tb_Heroes.UseVisualStyleBackColor = true;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(736, 397);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(20, 13);
+            this.label25.TabIndex = 125;
+            this.label25.Text = "S3";
+            // 
+            // nud_S3
+            // 
+            this.nud_S3.Location = new System.Drawing.Point(759, 395);
+            this.nud_S3.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.nud_S3.Name = "nud_S3";
+            this.nud_S3.Size = new System.Drawing.Size(34, 20);
+            this.nud_S3.TabIndex = 124;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(668, 397);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(20, 13);
+            this.label20.TabIndex = 123;
+            this.label20.Text = "S2";
+            // 
+            // nud_S2
+            // 
+            this.nud_S2.Location = new System.Drawing.Point(691, 395);
+            this.nud_S2.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.nud_S2.Name = "nud_S2";
+            this.nud_S2.Size = new System.Drawing.Size(34, 20);
+            this.nud_S2.TabIndex = 122;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(600, 397);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(20, 13);
+            this.label13.TabIndex = 121;
+            this.label13.Text = "S1";
+            // 
+            // nud_S1
+            // 
+            this.nud_S1.Location = new System.Drawing.Point(623, 395);
+            this.nud_S1.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.nud_S1.Name = "nud_S1";
+            this.nud_S1.Size = new System.Drawing.Size(34, 20);
+            this.nud_S1.TabIndex = 120;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(600, 378);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(117, 13);
+            this.label11.TabIndex = 119;
+            this.label11.Text = "Skill enhancements";
             // 
             // is_Weapon
             // 
@@ -5705,6 +5795,9 @@
             this.tc_Main.ResumeLayout(false);
             this.tb_Heroes.ResumeLayout(false);
             this.tb_Heroes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_S3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_S2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_S1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_ArtifactHealth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_ArtifactAttack)).EndInit();
             this.tc_Heroes_Class.ResumeLayout(false);
@@ -6206,6 +6299,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn c_EHPpS_Current;
         private System.Windows.Forms.DataGridViewTextBoxColumn c_DMG_Current;
         private System.Windows.Forms.DataGridViewTextBoxColumn c_DMGpS_Current;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.NumericUpDown nud_S3;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.NumericUpDown nud_S2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown nud_S1;
+        private System.Windows.Forms.Label label11;
     }
 }
 

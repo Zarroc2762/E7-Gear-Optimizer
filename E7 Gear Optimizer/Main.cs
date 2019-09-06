@@ -921,6 +921,9 @@ namespace E7_Gear_Optimizer
                     newHero.equip(eq);
                     data.Heroes.Remove(hero);
                     data.Heroes.Add(newHero);
+                    newHero.Skills[0].Enhance = (int)nud_S1.Value;
+                    newHero.Skills[1].Enhance = (int)nud_S2.Value;
+                    newHero.Skills[2].Enhance = (int)nud_S3.Value;
                 }
                 else
                 {
@@ -936,6 +939,9 @@ namespace E7_Gear_Optimizer
                     hero.updateBaseStats();
                     hero.calcAwakeningStats();
                     hero.calcStats();
+                    hero.Skills[0].Enhance = (int)nud_S1.Value;
+                    hero.Skills[1].Enhance = (int)nud_S2.Value;
+                    hero.Skills[2].Enhance = (int)nud_S3.Value;
                 }
                 updateHeroList();
             }

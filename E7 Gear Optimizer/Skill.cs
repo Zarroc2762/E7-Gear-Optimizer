@@ -14,68 +14,71 @@ namespace E7_Gear_Optimizer
 
         static Regex enhancementDescRegex = new Regex(@"\+(\d+)% damage", RegexOptions.Compiled);
 
-        public Skill(JToken json, int index, int enhanceLevel)
+        public Skill(JObject jObject, int index, int enhanceLevel = 0)
         {
-            JToken jSkill = json["results"][0]["skills"][index];
-            JToken jDamageModifiers = jSkill["damageModifiers"];
-            foreach (var jModifier in jDamageModifiers)
+            try
             {
-                var modifier = jModifier.ToObject<DamageModifier>();
-                switch (modifier.name)
+                JToken jSkill = jObject["results"][0]["skills"][index];
+                JToken jDamageModifiers = jSkill["damageModifiers"];
+                foreach (var jModifier in jDamageModifiers)
                 {
-                    case "pow":
-                        pow = modifier.value;
-                        powSoul = modifier.soulburn;
-                        break;
-                    case "atk_rate":
-                        atk = modifier.value;
-                        atkSoul = modifier.soulburn;
-                        break;
-                    case "hp_rate":
-                        hp = modifier.value;
-                        hpSoul = modifier.soulburn;
-                        break;
-                    case "def_rate":
-                        def = modifier.value;
-                        defSoul = modifier.soulburn;
-                        break;
-                    case "spd_rate":
-                        spd = modifier.value;
-                        spdSoul = modifier.soulburn;
-                        break;
-                    case "crit_dmg_rate":
-                        critDmg = 1 + modifier.value;
-                        critDmgSoul = 1 + modifier.soulburn;
-                        break;
+                    var modifier = jModifier.ToObject<DamageModifier>();
+                    switch (modifier.name)
+                    {
+                        case "pow":
+                            pow = modifier.value;
+                            powSoul = modifier.soulburn;
+                            break;
+                        case "atk_rate":
+                            atk = modifier.value;
+                            atkSoul = modifier.soulburn;
+                            break;
+                        case "hp_rate":
+                            hp = modifier.value;
+                            hpSoul = modifier.soulburn;
+                            break;
+                        case "def_rate":
+                            def = modifier.value;
+                            defSoul = modifier.soulburn;
+                            break;
+                        case "spd_rate":
+                            spd = modifier.value;
+                            spdSoul = modifier.soulburn;
+                            break;
+                        case "crit_dmg_rate":
+                            critDmg = 1 + modifier.value;
+                            critDmgSoul = 1 + modifier.soulburn;
+                            break;
+                    }
+                }
+                var jEnhancement = jSkill["enhancement"].ToArray();
+                for (int i = 0; i <= enhanceLevel && i < jEnhancement.Length; i++)
+                {
+                    string desc = jEnhancement[i]["description"].ToString();
+                    var match = enhancementDescRegex.Match(desc);
+                    if (match.Success)
+                    {
+                        damageIncrease += float.Parse(match.Groups[1].Value) / 100;
+                    }
                 }
             }
-            var jEnhancement = jSkill["enhancement"].ToArray();
-            for (int i = 0; i <= enhanceLevel && i < jEnhancement.Length; i++)
+            catch
             {
-                string desc = jEnhancement[i]["description"].ToString();
-                var match = enhancementDescRegex.Match(desc);
-                if (match.Success)
-                {
-                    damageIncrease += float.Parse(match.Groups[1].Value) / 100;
-                }
+                pow = 0;
+                powSoul = 0;
+                atk = 0;
+                atkSoul = 0;
+                spd = 0;
+                spdSoul = 0;
+                def = 0;
+                defSoul = 0;
+                hp = 0;
+                hpSoul = 0;
+                critDmg = 1;
+                critDmgSoul = 1;
+                damageIncrease = 1;
+                //throw;
             }
-
-            //Dictionary<Stats, float> baseStats = new Dictionary<Stats, float>();
-            //var stats = statsJson.Children().GetEnumerator();
-            //stats.MoveNext();
-            //stats.MoveNext();
-            //do
-            //{  //skip CP
-            //    JProperty stat = (JProperty)stats.Current;
-            //    if (stat.Name.ToUpper() != "DAC")
-            //    {
-            //        baseStats[(Stats)Enum.Parse(typeof(Stats), stat.Name.ToUpper().Replace("CHC", "Crit").Replace("CHD", "CritDmg").Replace("EFR", "RES"))] = (float)stat.Value;
-            //    }
-            //} while (stats.MoveNext());
-            //return baseStats;
-
-
-            //damageFunc = getDamageFunc(jDamageModifiers);
         }
 
         public int Enhance { get; set; }
