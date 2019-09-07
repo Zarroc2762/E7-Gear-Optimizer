@@ -49,18 +49,14 @@ namespace E7_Gear_Optimizer
                             critDmg = 1 + modifier.value;
                             critDmgSoul = 1 + modifier.soulburn;
                             break;
+                        default:
+                            //throw new ArgumentOutOfRangeException(modifier.name);
+                            break;
                     }
                 }
-                var jEnhancement = jSkill["enhancement"].ToArray();
-                for (int i = 0; i <= enhanceLevel && i < jEnhancement.Length; i++)
-                {
-                    string desc = jEnhancement[i]["description"].ToString();
-                    var match = enhancementDescRegex.Match(desc);
-                    if (match.Success)
-                    {
-                        damageIncrease += float.Parse(match.Groups[1].Value) / 100;
-                    }
-                }
+                jEnhancement = jSkill["enhancement"].ToArray();
+                Enhance = enhanceLevel;
+                HasSoulburn = jSkill["soulBurn"].ToObject<int>() > 0;
             }
             catch
             {
@@ -81,9 +77,41 @@ namespace E7_Gear_Optimizer
             }
         }
 
-        public int Enhance { get; set; }
+        JToken[] jEnhancement;
 
-        bool hasSoulburn;
+        int enhanceLevel;
+
+        public int Enhance
+        {
+            get => enhanceLevel;
+            set
+            {
+                enhanceLevel = value;
+                DamageIncrease = 0;
+                if (jEnhancement != null)
+                {
+                    if (enhanceLevel > jEnhancement.Length)
+                    {
+                        enhanceLevel = jEnhancement.Length;
+                    }
+                    for (int i = 0; i < enhanceLevel; i++)
+                    {
+                        string desc = jEnhancement[i]["description"].ToString();
+                        var match = enhancementDescRegex.Match(desc);
+                        if (match.Success)
+                        {
+                            DamageIncrease += int.Parse(match.Groups[1].Value);
+                        }
+                    }
+                }
+                damageIncrease = 1 + DamageIncrease / 100;
+            }
+        }
+
+        
+
+        public bool HasSoulburn { get; }
+        public int DamageIncrease { get; private set; }
 
         float pow;
         float powSoul;
@@ -102,10 +130,18 @@ namespace E7_Gear_Optimizer
         //The Mossy Testudos in Golem 6 have 642 Defense.
         //The Blaze Dragonas in Wyvern 6 have 592 Defense.
         //enemyDef is enemy defense. Slimes in 1-1 have 55. Wyvern 1 wave 1 dragons have 165
-        float calcDamage(SStats stats, bool crit = false, bool soulburn = false, int enemyDef = 0)
+        /// <summary>
+        /// Calculate damage of the skill based on SStats of the hero
+        /// </summary>
+        /// <param name="stats">SStats of the hero or calulation result</param>
+        /// <param name="crit">Some skills have increased critical damage</param>
+        /// <param name="soulburn">Is soulburn used?</param>
+        /// <param name="enemyDef">Enemy target's defence</param>
+        /// <returns></returns>
+        public float CalcDamage(SStats stats, bool crit = false, bool soulburn = false, int enemyDef = 0)
         {
             float dmg;
-            if (hasSoulburn && soulburn)
+            if (HasSoulburn && soulburn)
             {
                 dmg = (atkSoul * stats.ATK + hpSoul * stats.HP + defSoul * stats.DEF) * (1 + spdSoul * stats.SPD) * powSoul;
                 if (crit)

@@ -1009,6 +1009,12 @@ namespace E7_Gear_Optimizer
             pb_Hero.Image = hero.Portrait ?? Util.error;
             nud_ArtifactAttack.Value = hero.Artifact != null ? (int)hero.Artifact.SubStats[0].Value : 0;
             nud_ArtifactHealth.Value = hero.Artifact != null ? (int)hero.Artifact.SubStats[1].Value : 0;
+            nud_S1.Value = hero.Skills[0].Enhance;
+            nud_S2.Value = hero.Skills[1].Enhance;
+            nud_S3.Value = hero.Skills[2].Enhance;
+            tt_Skills.SetToolTip(nud_S1, $"+{hero.Skills[0].DamageIncrease}% damage dealt");
+            tt_Skills.SetToolTip(nud_S2, $"+{hero.Skills[1].DamageIncrease}% damage dealt");
+            tt_Skills.SetToolTip(nud_S3, $"+{hero.Skills[2].DamageIncrease}% damage dealt");
 
             //Check whether the selected Hero has an item equipped in the slot and set the controls for the slot accordingly
             is_Weapon.Item = hero.getItem(ItemType.Weapon);
@@ -1986,7 +1992,9 @@ namespace E7_Gear_Optimizer
                                                 new JProperty("HP", h.Artifact.SubStats[1].Value))),
                                        new JProperty("Lvl", h.Lvl),
                                        new JProperty("Awakening", h.Awakening),
-                                       new JProperty("Skills", new JArray())))),
+                                       new JProperty("Skills", new JArray(from skill in h.Skills
+                                                                          select new JObject(
+                                                                              new JProperty("Enhance", skill.Enhance))))))),
                     new JProperty("items",
                         new JArray(from i in data.Items
                                    select new JObject(
@@ -2059,6 +2067,16 @@ namespace E7_Gear_Optimizer
                 values[12] = (int)values[11] * (int)values[1] / 100;
                 values[13] = (int)((hero.CurrentStats[Stats.ATK] * (1 - crit)) + (hero.CurrentStats[Stats.ATK] * crit * hero.CurrentStats[Stats.CritDmg]));
                 values[14] = (int)values[13] * (int)values[1] / 100;
+                values[15] = (int)hero.Skills[0].CalcDamage(new SStats(hero.CurrentStats));
+                /* 15s1
+                 * 16s1
+                 * 17s1
+                 * 18s1
+                 * 
+                 * 
+                 * 
+                 * 
+                 */
                 l_Results.Text = numberOfResults().ToString("#,0");
             }
             else
@@ -2217,6 +2235,7 @@ namespace E7_Gear_Optimizer
             {
                 object[] values = new object[dgv_CurrentGear.ColumnCount];
                 Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split().Last());
+                SStats heroStats = new SStats(hero.CurrentStats);
                 values[0] = (int)hero.CurrentStats[Stats.ATK];
                 values[1] = (int)hero.CurrentStats[Stats.SPD];
                 float crit = hero.CurrentStats[Stats.Crit] + ((float)nud_CritBonus.Value / 100f);
@@ -2224,7 +2243,7 @@ namespace E7_Gear_Optimizer
                 values[2] = crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[3] = hero.CurrentStats[Stats.CritDmg].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[4] = (int)hero.CurrentStats[Stats.HP];
-                values[5] = (int)values[4] * (int)values[1] / 100;
+                values[5] = (int)heroStats.HPpS;
                 values[6] = (int)hero.CurrentStats[Stats.DEF];
                 values[7] = hero.CurrentStats[Stats.EFF].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[8] = hero.CurrentStats[Stats.RES].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
@@ -2253,9 +2272,12 @@ namespace E7_Gear_Optimizer
                     values[10] = null;
                 }
                 values[11] = (int)hero.CurrentStats[Stats.EHP];
-                values[12] = (int)values[11] * (int)values[1] / 100;
-                values[13] = (int)((hero.CurrentStats[Stats.ATK] * (1 - crit)) + (hero.CurrentStats[Stats.ATK] * crit * hero.CurrentStats[Stats.CritDmg]));
-                values[14] = (int)values[13] * (int)values[1] / 100;
+                values[12] = (int)heroStats.EHPpS;
+                values[13] = (int)heroStats.DMG;
+                values[14] = (int)heroStats.DMGpS;
+                values[15] = (int)hero.Skills[0].CalcDamage(heroStats);
+                values[16] = (int)hero.Skills[0].CalcDamage(heroStats, true) * heroStats.CritDmg;
+                values[17] = (int)(heroStats.Crit * (int)values[16] + (1 - heroStats.Crit) * (int)values[15]);
                 l_Results.Text = numberOfResults().ToString("#,0");
                 dgv_CurrentGear.Rows.Add(values);
             }

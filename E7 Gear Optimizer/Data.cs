@@ -235,7 +235,16 @@ namespace E7_Gear_Optimizer
                     Item artifact = new Item("", ItemType.Artifact, Set.Attack, Grade.Epic, 0, 0, new Stat(), new Stat[] { new Stat(Stats.ATK, hero["Artifact"].Value<float>("ATK")), new Stat(Stats.HP, hero["Artifact"].Value<float>("HP")) }, null, false);
                     int lvl = hero.Value<int>("Lvl");
                     int awakening = hero.Value<int>("Awakening");
-                    Heroes.Add(new Hero(id, name, gearList, artifact, lvl, awakening));
+                    List<int> skillEnhance = new List<int>();
+                    var jSkills = hero["Skills"]?.ToArray();
+                    if (jSkills != null)
+                    {
+                        foreach (var jSkill in jSkills)
+                        {
+                            skillEnhance.Add(jSkill.Value<int>("Enhance"));
+                        }
+                    }
+                    Heroes.Add(new Hero(id, name, gearList, artifact, lvl, awakening, skillEnhance.Count == 3 ? skillEnhance.ToArray() : null));
                     if (length == 1)
                     {
                         progress.Report(100);

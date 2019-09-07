@@ -37,8 +37,9 @@ namespace E7_Gear_Optimizer
         public static Stats[] statsArrayGeneric = Enum.GetValues(typeof(Stats)).Cast<Stats>().ToArray();
 
         public Skill[] Skills { get; }
+        public Skill SkillWithSoulburn { get; }
 
-        public Hero(string ID, string name, List<Item> gear, Item artifact, int lvl, int awakening)
+        public Hero(string ID, string name, List<Item> gear, Item artifact, int lvl, int awakening, int[] skillEnhance = null)
         {
             this.ID = ID;
             Name = name;
@@ -62,10 +63,11 @@ namespace E7_Gear_Optimizer
                 AwakeningStats = getAwakeningStats(json);
                 Skills = new Skill[]
                 {
-                    new Skill(jObject, 0, 0),
-                    new Skill(jObject, 1, 1),
-                    new Skill(jObject, 2, 2)
+                    new Skill(jObject, 0, skillEnhance != null ? skillEnhance[0] : 0),
+                    new Skill(jObject, 1, skillEnhance != null ? skillEnhance[1] : 0),
+                    new Skill(jObject, 2, skillEnhance != null ? skillEnhance[2] : 0)
                 };
+                SkillWithSoulburn = Skills.FirstOrDefault(s => s.HasSoulburn);
             }
             catch (WebException ex)
             {
