@@ -2023,71 +2023,7 @@ namespace E7_Gear_Optimizer
         //Update the current stats of the specified hero when the value of the critbonus changes
         private void Nud_CritBonus_ValueChanged(object sender, EventArgs e)
         {
-            dgv_CurrentGear.Rows.Clear();
-            object[] values = new object[dgv_CurrentGear.ColumnCount];
-            if (cb_OptimizeHero.Text != "")
-            {
-                Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Items[cb_OptimizeHero.SelectedIndex].ToString().Split().Last());
-                values[0] = (int)hero.CurrentStats[Stats.ATK];
-                values[1] = (int)hero.CurrentStats[Stats.SPD];
-                float crit = hero.CurrentStats[Stats.Crit] + ((float)nud_CritBonus.Value / 100f);
-                crit = crit > 1 ? 1 : crit;
-                values[2] = crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[3] = hero.CurrentStats[Stats.CritDmg].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[4] = (int)hero.CurrentStats[Stats.HP];
-                values[5] = (int)values[4] * (int)values[1] / 100;
-                values[6] = (int)hero.CurrentStats[Stats.DEF];
-                values[7] = hero.CurrentStats[Stats.EFF].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[8] = hero.CurrentStats[Stats.RES].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                List<Set> activeSets = hero.activeSets();
-                int count = 0;
-                if (activeSets.Contains(Set.Unity))
-                {
-                    foreach (Set set in activeSets)
-                    {
-                        count += set == Set.Unity ? 1 : 0;
-                    }
-                }
-                values[9] = (5 + (count * 4)) + "%";
-                if (activeSets.Count > 0)
-                {
-                    Bitmap sets = new Bitmap(activeSets.Count * 25, 25, PixelFormat.Format32bppArgb);
-                    Graphics g = Graphics.FromImage(sets);
-                    for (int i = 0; i < activeSets.Count; i++)
-                    {
-                        g.DrawImage(Util.ResizeImage((Image)Properties.Resources.ResourceManager.GetObject("set " + activeSets[i].ToString().ToLower().Replace("def", "defense")), 25, 25), i * 25, 0);
-                    }
-                    values[10] = sets;
-                }
-                else
-                {
-                    values[10] = null;
-                }
-                values[11] = (int)hero.CurrentStats[Stats.EHP];
-                values[12] = (int)values[11] * (int)values[1] / 100;
-                values[13] = (int)((hero.CurrentStats[Stats.ATK] * (1 - crit)) + (hero.CurrentStats[Stats.ATK] * crit * hero.CurrentStats[Stats.CritDmg]));
-                values[14] = (int)values[13] * (int)values[1] / 100;
-                values[15] = (int)hero.Skills[0].CalcDamage(new SStats(hero.CurrentStats));
-                /* 15s1
-                 * 16s1
-                 * 17s1
-                 * 18s1
-                 * 
-                 * 
-                 * 
-                 * 
-                 */
-                l_Results.Text = numberOfResults().ToString("#,0");
-            }
-            else
-            {
-                for (int i = 0; i < values.Length; i++)
-                {
-                    values[i] = null;
-                }
-                l_Results.Text = "0";
-            }
-            dgv_CurrentGear.Rows.Add(values);
+            updateCurrentGear();
         }
 
         private void B_UnequipAll_Click(object sender, EventArgs e)
@@ -2236,11 +2172,10 @@ namespace E7_Gear_Optimizer
                 object[] values = new object[dgv_CurrentGear.ColumnCount];
                 Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split().Last());
                 SStats heroStats = new SStats(hero.CurrentStats);
+                heroStats.Crit += (float)nud_CritBonus.Value / 100f;
                 values[0] = (int)hero.CurrentStats[Stats.ATK];
                 values[1] = (int)hero.CurrentStats[Stats.SPD];
-                float crit = hero.CurrentStats[Stats.Crit] + ((float)nud_CritBonus.Value / 100f);
-                crit = crit > 1 ? 1 : crit;
-                values[2] = crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                values[2] = heroStats.Crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[3] = hero.CurrentStats[Stats.CritDmg].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[4] = (int)hero.CurrentStats[Stats.HP];
                 values[5] = (int)heroStats.HPpS;
@@ -2275,9 +2210,20 @@ namespace E7_Gear_Optimizer
                 values[12] = (int)heroStats.EHPpS;
                 values[13] = (int)heroStats.DMG;
                 values[14] = (int)heroStats.DMGpS;
-                values[15] = (int)hero.Skills[0].CalcDamage(heroStats);
-                values[16] = (int)hero.Skills[0].CalcDamage(heroStats, true) * heroStats.CritDmg;
-                values[17] = (int)(heroStats.Crit * (int)values[16] + (1 - heroStats.Crit) * (int)values[15]);
+                int iCol = 15;
+                for (int iSkill = 0; iSkill < 4; iSkill++)
+                {
+                    var skill = iSkill <= 2 ? hero.Skills[iSkill] : hero.SkillWithSoulburn;
+                    float skillDmg = skill.CalcDamage(heroStats);
+                    values[iCol++] = (int)skillDmg;
+                    float skillCritDmg = skill.CalcDamage(heroStats, true) * heroStats.CritDmg;
+                    values[iCol++] = (int)skillCritDmg;
+                    float skillAvgDmg = heroStats.CritCapped * skillCritDmg + (1 - heroStats.Crit) * skillDmg;
+                    values[iCol++] = (int)skillAvgDmg;
+                    float skillAvgDmgSpd = skillAvgDmg * heroStats.SPD / 100;
+                    values[iCol++] = (int)skillAvgDmgSpd;
+                    //TODO dont calc all dmg if column is hidden (if necessary)
+                }
                 l_Results.Text = numberOfResults().ToString("#,0");
                 dgv_CurrentGear.Rows.Add(values);
             }
