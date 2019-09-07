@@ -1854,6 +1854,32 @@ namespace E7_Gear_Optimizer
                 case 14:
                     func = x => x.Item2.DMGpS;
                     break;
+                default://Skill damage
+                    // TODO refactor
+                    var hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split().Last());
+                    int iSkill = (e.ColumnIndex - 15) / 4;
+                    int iDmg = (e.ColumnIndex - 15) % 4;
+                    var skill = iSkill <= 2 ? hero.Skills[iSkill] : hero.SkillWithSoulburn;
+                    if (iDmg == 0)
+                    {
+                        func = x => skill.CalcDamage(x.Item2);
+                        break;
+                    }
+                    if (iDmg == 1)
+                    {
+                        func = x => skill.CalcDamage(x.Item2, true) * x.Item2.CritDmg;
+                        break;
+                    }
+                    //float skillDmg = skill.CalcDamage(stats);
+                    //float skillCritDmg = skill.CalcDamage(stats, true) * stats.CritDmg;
+                    //float skillAvgDmg = stats.CritCapped * skillCritDmg + (1 - stats.Crit) * skillDmg;
+                    //if (iDmg == 2)
+                    //{
+                    //    e.Value = (int)skillAvgDmg;
+                    //    break;
+                    //}
+                    //e.Value = (int)(skillAvgDmg * stats.SPD / 100);
+                    break;
             }
             if (func == null)
             {
