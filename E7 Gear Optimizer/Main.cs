@@ -259,6 +259,7 @@ namespace E7_Gear_Optimizer
                     }
                 }
             }
+            // (Name suffix, Text suffix, ToolTipText)
             var tuples = new (string, string, string)[]
             {
                 ("Normal", "Normal Damage", ""),
@@ -1740,6 +1741,33 @@ namespace E7_Gear_Optimizer
                     break;
                 case 14:
                     e.Value = (int)combinations[iCombination].Item2.DMGpS;
+                    break;
+                default://Skill damage
+                    // TODO refactor
+                    var hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split().Last());
+                    SStats stats = combinations[iCombination].Item2;
+                    int iSkill = (e.ColumnIndex - 15) / 4;
+                    int iDmg = (e.ColumnIndex - 15) % 4;
+                    var skill = iSkill <= 2 ? hero.Skills[iSkill] : hero.SkillWithSoulburn;
+                    if (iDmg == 0)
+                    {
+                        e.Value = (int)skill.CalcDamage(stats);
+                        break;
+                    }
+                    if (iDmg == 1)
+                    {
+                        e.Value = (int)(skill.CalcDamage(stats, true) * stats.CritDmg);
+                        break;
+                    }
+                    float skillDmg = skill.CalcDamage(stats);
+                    float skillCritDmg = skill.CalcDamage(stats, true) * stats.CritDmg;
+                    float skillAvgDmg = stats.CritCapped * skillCritDmg + (1 - stats.Crit) * skillDmg;
+                    if (iDmg == 2)
+                    {
+                        e.Value = (int)skillAvgDmg;
+                        break;
+                    }
+                    e.Value = (int)(skillAvgDmg * stats.SPD / 100);
                     break;
             }
         }
