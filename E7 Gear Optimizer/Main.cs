@@ -1863,22 +1863,30 @@ namespace E7_Gear_Optimizer
                     if (iDmg == 0)
                     {
                         func = x => skill.CalcDamage(x.Item2);
-                        break;
                     }
-                    if (iDmg == 1)
+                    else if (iDmg == 1)
                     {
-                        func = x => skill.CalcDamage(x.Item2, true) * x.Item2.CritDmg;
-                        break;
+                        func = x => skill.CalcDamage(x.Item2, true);
                     }
-                    //float skillDmg = skill.CalcDamage(stats);
-                    //float skillCritDmg = skill.CalcDamage(stats, true) * stats.CritDmg;
-                    //float skillAvgDmg = stats.CritCapped * skillCritDmg + (1 - stats.Crit) * skillDmg;
-                    //if (iDmg == 2)
-                    //{
-                    //    e.Value = (int)skillAvgDmg;
-                    //    break;
-                    //}
-                    //e.Value = (int)(skillAvgDmg * stats.SPD / 100);
+                    else if (iDmg == 2)
+                    {
+                        func = x =>
+                        {
+                            float skillDmg = skill.CalcDamage(x.Item2);
+                            float skillCritDmg = skill.CalcDamage(x.Item2, true);
+                            return x.Item2.CritCapped * skillCritDmg + (1 - x.Item2.Crit) * skillDmg;
+                        };
+                    }
+                    else if (iDmg == 3)
+                    {
+                        func = x =>
+                        {
+                            float skillDmg = skill.CalcDamage(x.Item2);
+                            float skillCritDmg = skill.CalcDamage(x.Item2, true);
+                            float skillAvgDmg = x.Item2.CritCapped * skillCritDmg + (1 - x.Item2.Crit) * skillDmg;
+                            return skillAvgDmg * x.Item2.SPD / 100;
+                        };
+                    }
                     break;
             }
             if (func == null)
