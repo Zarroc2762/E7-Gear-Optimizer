@@ -127,16 +127,17 @@ namespace E7_Gear_Optimizer
         float critDmgSoul = 1;
         float damageIncrease = 1;
 
-        //The Mossy Testudos in Golem 6 have 642 Defense.
-        //The Blaze Dragonas in Wyvern 6 have 592 Defense.
-        //enemyDef is enemy defense. Slimes in 1-1 have 55. Wyvern 1 wave 1 dragons have 165
         /// <summary>
         /// Calculate damage of the skill based on SStats of the hero
         /// </summary>
         /// <param name="stats">SStats of the hero or calulation result</param>
         /// <param name="crit">Some skills have increased critical damage</param>
         /// <param name="soulburn">Is soulburn used?</param>
-        /// <param name="enemyDef">Enemy target's defence</param>
+        /// <param name="enemyDef">Enemy target's defence.
+        /// Slimes in 1-1 have 55. Wyvern 1 wave 1 dragons have 165.
+        /// The Mossy Testudos in Golem 6 have 642 Defense.
+        /// The Blaze Dragonas in Wyvern 6 have 592 Defense.
+        /// </param>
         /// <returns></returns>
         public float CalcDamage(SStats stats, bool crit = false, bool soulburn = false, int enemyDef = 0)
         {

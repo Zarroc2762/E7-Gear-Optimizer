@@ -56,6 +56,8 @@ namespace E7_Gear_Optimizer
         // Array of parent menu items for skill damage columns
         private ToolStripMenuItem[] contextMenuStrip1SkillMenuItems;
 
+        private int enemyDef = 0;
+
         public Main()
         {
             InitializeComponent();
@@ -1748,19 +1750,20 @@ namespace E7_Gear_Optimizer
                     SStats stats = combinations[iCombination].Item2;
                     int iSkill = (e.ColumnIndex - 15) / 4;
                     int iDmg = (e.ColumnIndex - 15) % 4;
-                    var skill = iSkill <= 2 ? hero.Skills[iSkill] : hero.SkillWithSoulburn;
+                    bool soulburn = iSkill == 3;
+                    var skill = soulburn ? hero.SkillWithSoulburn : hero.Skills[iSkill];
                     if (iDmg == 0)
                     {
-                        e.Value = (int)skill.CalcDamage(stats);
+                        e.Value = (int)skill.CalcDamage(stats, false, soulburn, enemyDef);
                         break;
                     }
                     if (iDmg == 1)
                     {
-                        e.Value = (int)(skill.CalcDamage(stats, true));
+                        e.Value = (int)(skill.CalcDamage(stats, true, soulburn, enemyDef));
                         break;
                     }
-                    float skillDmg = skill.CalcDamage(stats);
-                    float skillCritDmg = skill.CalcDamage(stats, true);
+                    float skillDmg = skill.CalcDamage(stats, false, soulburn, enemyDef);
+                    float skillCritDmg = skill.CalcDamage(stats, true, soulburn, enemyDef);
                     float skillAvgDmg = stats.CritCapped * skillCritDmg + (1 - stats.Crit) * skillDmg;
                     if (iDmg == 2)
                     {
@@ -1859,21 +1862,22 @@ namespace E7_Gear_Optimizer
                     var hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split().Last());
                     int iSkill = (e.ColumnIndex - 15) / 4;
                     int iDmg = (e.ColumnIndex - 15) % 4;
-                    var skill = iSkill <= 2 ? hero.Skills[iSkill] : hero.SkillWithSoulburn;
+                    bool soulburn = iSkill == 3;
+                    var skill = soulburn ? hero.SkillWithSoulburn : hero.Skills[iSkill];
                     if (iDmg == 0)
                     {
-                        func = x => skill.CalcDamage(x.Item2);
+                        func = x => skill.CalcDamage(x.Item2, false, soulburn, enemyDef);
                     }
                     else if (iDmg == 1)
                     {
-                        func = x => skill.CalcDamage(x.Item2, true);
+                        func = x => skill.CalcDamage(x.Item2, true, soulburn, enemyDef);
                     }
                     else if (iDmg == 2)
                     {
                         func = x =>
                         {
-                            float skillDmg = skill.CalcDamage(x.Item2);
-                            float skillCritDmg = skill.CalcDamage(x.Item2, true);
+                            float skillDmg = skill.CalcDamage(x.Item2, false, soulburn, enemyDef);
+                            float skillCritDmg = skill.CalcDamage(x.Item2, true, soulburn, enemyDef);
                             return x.Item2.CritCapped * skillCritDmg + (1 - x.Item2.Crit) * skillDmg;
                         };
                     }
@@ -1881,8 +1885,8 @@ namespace E7_Gear_Optimizer
                     {
                         func = x =>
                         {
-                            float skillDmg = skill.CalcDamage(x.Item2);
-                            float skillCritDmg = skill.CalcDamage(x.Item2, true);
+                            float skillDmg = skill.CalcDamage(x.Item2, false, soulburn, enemyDef);
+                            float skillCritDmg = skill.CalcDamage(x.Item2, true, soulburn, enemyDef);
                             float skillAvgDmg = x.Item2.CritCapped * skillCritDmg + (1 - x.Item2.Crit) * skillDmg;
                             return skillAvgDmg * x.Item2.SPD / 100;
                         };
@@ -2275,10 +2279,11 @@ namespace E7_Gear_Optimizer
                 int iCol = 15;
                 for (int iSkill = 0; iSkill < 4; iSkill++)
                 {
-                    var skill = iSkill <= 2 ? hero.Skills[iSkill] : hero.SkillWithSoulburn;
-                    float skillDmg = skill.CalcDamage(heroStats);
+                    bool soulburn = iSkill == 3;
+                    var skill = soulburn ? hero.SkillWithSoulburn : hero.Skills[iSkill];
+                    float skillDmg = skill.CalcDamage(heroStats, false, soulburn, enemyDef);
                     values[iCol++] = (int)skillDmg;
-                    float skillCritDmg = skill.CalcDamage(heroStats, true);
+                    float skillCritDmg = skill.CalcDamage(heroStats, true, soulburn, enemyDef);
                     values[iCol++] = (int)skillCritDmg;
                     float skillAvgDmg = heroStats.CritCapped * skillCritDmg + (1 - heroStats.Crit) * skillDmg;
                     values[iCol++] = (int)skillAvgDmg;
@@ -2708,6 +2713,12 @@ namespace E7_Gear_Optimizer
             {
                 setCheckState(menuItem);
             }
+        }
+
+        private void Nud_EnemyDef_ValueChanged(object sender, EventArgs e)
+        {
+            enemyDef = (int)nud_EnemyDef.Value;
+            updateCurrentGear();
         }
     }
 }

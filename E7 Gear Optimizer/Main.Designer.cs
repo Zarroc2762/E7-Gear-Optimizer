@@ -236,9 +236,25 @@
             this.b_RemoveHero = new System.Windows.Forms.Button();
             this.b_EditHero = new System.Windows.Forms.Button();
             this.b_AddHero = new System.Windows.Forms.Button();
+            this.is_Weapon = new E7_Gear_Optimizer.ItemStats();
+            this.is_Helmet = new E7_Gear_Optimizer.ItemStats();
+            this.is_Armor = new E7_Gear_Optimizer.ItemStats();
+            this.is_Necklace = new E7_Gear_Optimizer.ItemStats();
+            this.is_Ring = new E7_Gear_Optimizer.ItemStats();
+            this.is_Boots = new E7_Gear_Optimizer.ItemStats();
             this.tb_Optimize = new System.Windows.Forms.TabPage();
+            this.label35 = new System.Windows.Forms.Label();
+            this.nud_EnemyDef = new System.Windows.Forms.NumericUpDown();
+            this.is_NecklaceOptimize = new E7_Gear_Optimizer.ItemStats();
+            this.is_BootsOptimize = new E7_Gear_Optimizer.ItemStats();
+            this.is_RingOptimize = new E7_Gear_Optimizer.ItemStats();
+            this.is_ArmorOptimize = new E7_Gear_Optimizer.ItemStats();
+            this.is_HelmetOptimize = new E7_Gear_Optimizer.ItemStats();
+            this.is_WeaponOptimize = new E7_Gear_Optimizer.ItemStats();
             this.label38 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.nud_LimitResults = new System.Windows.Forms.NumericUpDown();
+            this.cb_LimitResults = new System.Windows.Forms.CheckBox();
             this.b_BootsFocus = new System.Windows.Forms.Button();
             this.tb_BootsFocus = new System.Windows.Forms.TextBox();
             this.b_RingFocus = new System.Windows.Forms.Button();
@@ -348,6 +364,11 @@
             this.tsmi_EHPpS = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_DMG = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_DMGpS = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmi_S1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_S2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_S3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_SB = new System.Windows.Forms.ToolStripMenuItem();
             this.label37 = new System.Windows.Forms.Label();
             this.dgv_CurrentGear = new System.Windows.Forms.DataGridView();
             this.c_ATK_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -475,71 +496,6 @@
             this.label53 = new System.Windows.Forms.Label();
             this.ofd_import = new System.Windows.Forms.OpenFileDialog();
             this.sfd_export = new System.Windows.Forms.SaveFileDialog();
-            this.cb_LimitResults = new System.Windows.Forms.CheckBox();
-            this.nud_LimitResults = new System.Windows.Forms.NumericUpDown();
-            this.is_Boots = new E7_Gear_Optimizer.ItemStats();
-            this.is_Ring = new E7_Gear_Optimizer.ItemStats();
-            this.is_Necklace = new E7_Gear_Optimizer.ItemStats();
-            this.is_Armor = new E7_Gear_Optimizer.ItemStats();
-            this.is_Helmet = new E7_Gear_Optimizer.ItemStats();
-            this.is_Weapon = new E7_Gear_Optimizer.ItemStats();
-            this.is_WeaponOptimize = new E7_Gear_Optimizer.ItemStats();
-            this.is_HelmetOptimize = new E7_Gear_Optimizer.ItemStats();
-            this.is_ArmorOptimize = new E7_Gear_Optimizer.ItemStats();
-            this.is_RingOptimize = new E7_Gear_Optimizer.ItemStats();
-            this.is_BootsOptimize = new E7_Gear_Optimizer.ItemStats();
-            this.is_NecklaceOptimize = new E7_Gear_Optimizer.ItemStats();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmi_ATK = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_SPD = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_Crit = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_CritDmg = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_HP = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_HPpS = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_DEF = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_EFF = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_RES = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_DAC = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_Sets = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_EHP = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_EHPpS = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_DMG = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_DMGpS = new System.Windows.Forms.ToolStripMenuItem();
-            this.c_ATK_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_SPD_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Crit_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_CritDmg_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HP_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HPpS_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DEF_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_EFF_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_RES_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DAC_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Sets_Results = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_EHP_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_EHPpS_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DMG_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DMGpS_Results = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_ATK_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_SPD_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Crit_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_CritDmg_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HP_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_HPpS_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DEF_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_EFF_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_RES_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DAC_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_Sets_Current = new System.Windows.Forms.DataGridViewImageColumn();
-            this.c_EHP_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_EHPpS_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DMG_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_DMGpS_Current = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tsmi_S1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_S2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_S3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_SB = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tt_Skills = new System.Windows.Forms.ToolTip(this.components);
             this.tb_Inventory.SuspendLayout();
             this.tc_InventorySets.SuspendLayout();
@@ -570,7 +526,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Heroes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Hero)).BeginInit();
             this.tb_Optimize.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_EnemyDef)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_LimitResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_EnhanceFocus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_OptimizeBootsEquipped)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_OptimizeRingEquipped)).BeginInit();
@@ -601,8 +559,6 @@
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud1_SpeedTunerImprint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_SpeedTuner)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_LimitResults)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tb_Inventory
@@ -1947,7 +1903,7 @@
             this.l_ImportResults.Size = new System.Drawing.Size(0, 13);
             this.l_ImportResults.TabIndex = 11;
             // 
-            // btn_InvalidateCache
+            // b_ClearCache
             // 
             this.b_ClearCache.Location = new System.Drawing.Point(100, 484);
             this.b_ClearCache.Name = "b_ClearCache";
@@ -1973,7 +1929,7 @@
             this.cb_ImportOnLoad.AutoSize = true;
             this.cb_ImportOnLoad.Location = new System.Drawing.Point(80, 437);
             this.cb_ImportOnLoad.Name = "cb_ImportOnLoad";
-            this.cb_ImportOnLoad.Size = new System.Drawing.Size(245, 17);
+            this.cb_ImportOnLoad.Size = new System.Drawing.Size(247, 17);
             this.cb_ImportOnLoad.TabIndex = 8;
             this.cb_ImportOnLoad.Text = "Auto import last used JSON on application start";
             this.cb_ImportOnLoad.UseVisualStyleBackColor = true;
@@ -2925,8 +2881,70 @@
             this.b_AddHero.UseVisualStyleBackColor = true;
             this.b_AddHero.Click += new System.EventHandler(this.B_AddHero_Click);
             // 
+            // is_Weapon
+            // 
+            this.is_Weapon.Hero = null;
+            this.is_Weapon.Image = null;
+            this.is_Weapon.Item = null;
+            this.is_Weapon.Location = new System.Drawing.Point(80, 451);
+            this.is_Weapon.Name = "is_Weapon";
+            this.is_Weapon.Size = new System.Drawing.Size(181, 210);
+            this.is_Weapon.TabIndex = 118;
+            // 
+            // is_Helmet
+            // 
+            this.is_Helmet.Hero = null;
+            this.is_Helmet.Image = null;
+            this.is_Helmet.Item = null;
+            this.is_Helmet.Location = new System.Drawing.Point(279, 451);
+            this.is_Helmet.Name = "is_Helmet";
+            this.is_Helmet.Size = new System.Drawing.Size(181, 210);
+            this.is_Helmet.TabIndex = 117;
+            // 
+            // is_Armor
+            // 
+            this.is_Armor.Hero = null;
+            this.is_Armor.Image = null;
+            this.is_Armor.Item = null;
+            this.is_Armor.Location = new System.Drawing.Point(474, 451);
+            this.is_Armor.Name = "is_Armor";
+            this.is_Armor.Size = new System.Drawing.Size(181, 210);
+            this.is_Armor.TabIndex = 116;
+            // 
+            // is_Necklace
+            // 
+            this.is_Necklace.Hero = null;
+            this.is_Necklace.Image = null;
+            this.is_Necklace.Item = null;
+            this.is_Necklace.Location = new System.Drawing.Point(669, 451);
+            this.is_Necklace.Name = "is_Necklace";
+            this.is_Necklace.Size = new System.Drawing.Size(181, 210);
+            this.is_Necklace.TabIndex = 115;
+            // 
+            // is_Ring
+            // 
+            this.is_Ring.Hero = null;
+            this.is_Ring.Image = null;
+            this.is_Ring.Item = null;
+            this.is_Ring.Location = new System.Drawing.Point(864, 451);
+            this.is_Ring.Name = "is_Ring";
+            this.is_Ring.Size = new System.Drawing.Size(181, 210);
+            this.is_Ring.TabIndex = 114;
+            // 
+            // is_Boots
+            // 
+            this.is_Boots.Hero = null;
+            this.is_Boots.Image = null;
+            this.is_Boots.Item = null;
+            this.is_Boots.Location = new System.Drawing.Point(1059, 451);
+            this.is_Boots.Name = "is_Boots";
+            this.is_Boots.Size = new System.Drawing.Size(181, 210);
+            this.is_Boots.TabIndex = 113;
+            // 
             // tb_Optimize
             // 
+            this.tb_Optimize.Controls.Add(this.label35);
+            this.tb_Optimize.Controls.Add(this.nud_EnemyDef);
             this.tb_Optimize.Controls.Add(this.is_NecklaceOptimize);
             this.tb_Optimize.Controls.Add(this.is_BootsOptimize);
             this.tb_Optimize.Controls.Add(this.is_RingOptimize);
@@ -2976,6 +2994,92 @@
             this.tb_Optimize.UseVisualStyleBackColor = true;
             this.tb_Optimize.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
             // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(3, 185);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(91, 26);
+            this.label35.TabIndex = 148;
+            this.label35.Text = "Enemy Defence\r\n(for skills damage)";
+            this.tt_Skills.SetToolTip(this.label35, "Slimes in 1-1 have 55.\r\nWyvern 1 wave 1 dragons have 165.\r\nThe Mossy Testudos in " +
+        "Golem 6 have 642 Defense.\r\nThe Blaze Dragonas in Wyvern 6 have 592 Defense.");
+            // 
+            // nud_EnemyDef
+            // 
+            this.nud_EnemyDef.Location = new System.Drawing.Point(6, 216);
+            this.nud_EnemyDef.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nud_EnemyDef.Name = "nud_EnemyDef";
+            this.nud_EnemyDef.Size = new System.Drawing.Size(46, 20);
+            this.nud_EnemyDef.TabIndex = 147;
+            this.tt_Skills.SetToolTip(this.nud_EnemyDef, "Slimes in 1-1 have 55.\r\nWyvern 1 wave 1 dragons have 165.\r\nThe Mossy Testudos in " +
+        "Golem 6 have 642 Defense.\r\nThe Blaze Dragonas in Wyvern 6 have 592 Defense.");
+            this.nud_EnemyDef.ValueChanged += new System.EventHandler(this.Nud_EnemyDef_ValueChanged);
+            // 
+            // is_NecklaceOptimize
+            // 
+            this.is_NecklaceOptimize.Hero = null;
+            this.is_NecklaceOptimize.Image = null;
+            this.is_NecklaceOptimize.Item = null;
+            this.is_NecklaceOptimize.Location = new System.Drawing.Point(1258, 1);
+            this.is_NecklaceOptimize.Name = "is_NecklaceOptimize";
+            this.is_NecklaceOptimize.Size = new System.Drawing.Size(181, 210);
+            this.is_NecklaceOptimize.TabIndex = 146;
+            // 
+            // is_BootsOptimize
+            // 
+            this.is_BootsOptimize.Hero = null;
+            this.is_BootsOptimize.Image = null;
+            this.is_BootsOptimize.Item = null;
+            this.is_BootsOptimize.Location = new System.Drawing.Point(1258, 521);
+            this.is_BootsOptimize.Name = "is_BootsOptimize";
+            this.is_BootsOptimize.Size = new System.Drawing.Size(181, 210);
+            this.is_BootsOptimize.TabIndex = 117;
+            // 
+            // is_RingOptimize
+            // 
+            this.is_RingOptimize.Hero = null;
+            this.is_RingOptimize.Image = null;
+            this.is_RingOptimize.Item = null;
+            this.is_RingOptimize.Location = new System.Drawing.Point(1258, 258);
+            this.is_RingOptimize.Name = "is_RingOptimize";
+            this.is_RingOptimize.Size = new System.Drawing.Size(181, 210);
+            this.is_RingOptimize.TabIndex = 145;
+            // 
+            // is_ArmorOptimize
+            // 
+            this.is_ArmorOptimize.Hero = null;
+            this.is_ArmorOptimize.Image = null;
+            this.is_ArmorOptimize.Item = null;
+            this.is_ArmorOptimize.Location = new System.Drawing.Point(997, 521);
+            this.is_ArmorOptimize.Name = "is_ArmorOptimize";
+            this.is_ArmorOptimize.Size = new System.Drawing.Size(181, 210);
+            this.is_ArmorOptimize.TabIndex = 144;
+            // 
+            // is_HelmetOptimize
+            // 
+            this.is_HelmetOptimize.Hero = null;
+            this.is_HelmetOptimize.Image = null;
+            this.is_HelmetOptimize.Item = null;
+            this.is_HelmetOptimize.Location = new System.Drawing.Point(997, 259);
+            this.is_HelmetOptimize.Name = "is_HelmetOptimize";
+            this.is_HelmetOptimize.Size = new System.Drawing.Size(181, 210);
+            this.is_HelmetOptimize.TabIndex = 143;
+            // 
+            // is_WeaponOptimize
+            // 
+            this.is_WeaponOptimize.Hero = null;
+            this.is_WeaponOptimize.Image = null;
+            this.is_WeaponOptimize.Item = null;
+            this.is_WeaponOptimize.Location = new System.Drawing.Point(997, 1);
+            this.is_WeaponOptimize.Name = "is_WeaponOptimize";
+            this.is_WeaponOptimize.Size = new System.Drawing.Size(181, 210);
+            this.is_WeaponOptimize.TabIndex = 142;
+            // 
             // label38
             // 
             this.label38.AutoSize = true;
@@ -3016,6 +3120,45 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(207, 309);
             this.panel1.TabIndex = 141;
+            // 
+            // nud_LimitResults
+            // 
+            this.nud_LimitResults.Increment = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.nud_LimitResults.Location = new System.Drawing.Point(97, 240);
+            this.nud_LimitResults.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.nud_LimitResults.Name = "nud_LimitResults";
+            this.nud_LimitResults.Size = new System.Drawing.Size(84, 20);
+            this.nud_LimitResults.TabIndex = 142;
+            this.nud_LimitResults.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nud_LimitResults.ThousandsSeparator = true;
+            this.nud_LimitResults.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            this.nud_LimitResults.Value = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.nud_LimitResults.ValueChanged += new System.EventHandler(this.Nud_LimitResults_ValueChanged);
+            // 
+            // cb_LimitResults
+            // 
+            this.cb_LimitResults.AutoSize = true;
+            this.cb_LimitResults.Checked = true;
+            this.cb_LimitResults.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_LimitResults.Location = new System.Drawing.Point(6, 243);
+            this.cb_LimitResults.Name = "cb_LimitResults";
+            this.cb_LimitResults.Size = new System.Drawing.Size(85, 17);
+            this.cb_LimitResults.TabIndex = 141;
+            this.cb_LimitResults.Text = "Limit Results";
+            this.cb_LimitResults.UseVisualStyleBackColor = true;
+            this.cb_LimitResults.CheckedChanged += new System.EventHandler(this.Cb_LimitResults_CheckedChanged);
             // 
             // b_BootsFocus
             // 
@@ -3272,7 +3415,7 @@
             // 
             // b_FilterResults
             // 
-            this.b_FilterResults.Location = new System.Drawing.Point(28, 205);
+            this.b_FilterResults.Location = new System.Drawing.Point(28, 257);
             this.b_FilterResults.Name = "b_FilterResults";
             this.b_FilterResults.Size = new System.Drawing.Size(75, 36);
             this.b_FilterResults.TabIndex = 136;
@@ -3751,7 +3894,7 @@
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(3, 131);
+            this.label49.Location = new System.Drawing.Point(3, 133);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(127, 26);
             this.label49.TabIndex = 4;
@@ -3759,7 +3902,7 @@
             // 
             // nud_CritBonus
             // 
-            this.nud_CritBonus.Location = new System.Drawing.Point(6, 160);
+            this.nud_CritBonus.Location = new System.Drawing.Point(6, 162);
             this.nud_CritBonus.Name = "nud_CritBonus";
             this.nud_CritBonus.Size = new System.Drawing.Size(46, 20);
             this.nud_CritBonus.TabIndex = 5;
@@ -4012,6 +4155,11 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator1,
+            this.tsmi_S1,
+            this.tsmi_S2,
+            this.tsmi_S3,
+            this.tsmi_SB,
             this.tsmi_ATK,
             this.tsmi_SPD,
             this.tsmi_Crit,
@@ -4026,12 +4174,7 @@
             this.tsmi_EHP,
             this.tsmi_EHPpS,
             this.tsmi_DMG,
-            this.tsmi_DMGpS,
-            this.toolStripSeparator1,
-            this.tsmi_S1,
-            this.tsmi_S2,
-            this.tsmi_S3,
-            this.tsmi_SB});
+            this.tsmi_DMGpS});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.ShowCheckMargin = true;
             this.contextMenuStrip1.ShowImageMargin = false;
@@ -4173,6 +4316,36 @@
             this.tsmi_DMGpS.Name = "tsmi_DMGpS";
             this.tsmi_DMGpS.Size = new System.Drawing.Size(159, 22);
             this.tsmi_DMGpS.Text = "DMG/SPD";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(156, 6);
+            // 
+            // tsmi_S1
+            // 
+            this.tsmi_S1.Name = "tsmi_S1";
+            this.tsmi_S1.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_S1.Text = "Skill 1";
+            // 
+            // tsmi_S2
+            // 
+            this.tsmi_S2.Name = "tsmi_S2";
+            this.tsmi_S2.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_S2.Text = "Skill 2";
+            // 
+            // tsmi_S3
+            // 
+            this.tsmi_S3.Name = "tsmi_S3";
+            this.tsmi_S3.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_S3.Text = "Skill 3";
+            // 
+            // tsmi_SB
+            // 
+            this.tsmi_SB.Name = "tsmi_SB";
+            this.tsmi_SB.Size = new System.Drawing.Size(159, 22);
+            this.tsmi_SB.Text = "Skill Soulburned";
+            this.tsmi_SB.ToolTipText = "Skill with soulburn enabled";
             // 
             // label37
             // 
@@ -5661,502 +5834,6 @@
             this.sfd_export.FileName = "E7 Gear Optimizer.json";
             this.sfd_export.Filter = "JSON|*.json";
             // 
-            // cb_LimitResults
-            // 
-            this.cb_LimitResults.AutoSize = true;
-            this.cb_LimitResults.Checked = true;
-            this.cb_LimitResults.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_LimitResults.Location = new System.Drawing.Point(6, 243);
-            this.cb_LimitResults.Name = "cb_LimitResults";
-            this.cb_LimitResults.Size = new System.Drawing.Size(85, 17);
-            this.cb_LimitResults.TabIndex = 141;
-            this.cb_LimitResults.Text = "Limit Results";
-            this.cb_LimitResults.UseVisualStyleBackColor = true;
-            this.cb_LimitResults.CheckedChanged += new System.EventHandler(this.Cb_LimitResults_CheckedChanged);
-            // 
-            // nud_LimitResults
-            // 
-            this.nud_LimitResults.Increment = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.nud_LimitResults.Location = new System.Drawing.Point(97, 240);
-            this.nud_LimitResults.Maximum = new decimal(new int[] {
-            100000000,
-            0,
-            0,
-            0});
-            this.nud_LimitResults.Name = "nud_LimitResults";
-            this.nud_LimitResults.Size = new System.Drawing.Size(84, 20);
-            this.nud_LimitResults.TabIndex = 142;
-            this.nud_LimitResults.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.nud_LimitResults.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-            this.nud_LimitResults.ThousandsSeparator = true;
-            this.nud_LimitResults.Value = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.nud_LimitResults.ValueChanged += new System.EventHandler(this.Nud_LimitResults_ValueChanged);
-            // 
-            // is_WeaponOptimize
-            // 
-            this.is_WeaponOptimize.Image = null;
-            this.is_WeaponOptimize.Item = null;
-            this.is_WeaponOptimize.Location = new System.Drawing.Point(997, 1);
-            this.is_WeaponOptimize.Name = "is_WeaponOptimize";
-            this.is_WeaponOptimize.Size = new System.Drawing.Size(181, 210);
-            this.is_WeaponOptimize.TabIndex = 142;
-            // 
-            // is_HelmetOptimize
-            // 
-            this.is_HelmetOptimize.Image = null;
-            this.is_HelmetOptimize.Item = null;
-            this.is_HelmetOptimize.Location = new System.Drawing.Point(997, 259);
-            this.is_HelmetOptimize.Name = "is_HelmetOptimize";
-            this.is_HelmetOptimize.Size = new System.Drawing.Size(181, 210);
-            this.is_HelmetOptimize.TabIndex = 143;
-            // 
-            // is_ArmorOptimize
-            // 
-            this.is_ArmorOptimize.Image = null;
-            this.is_ArmorOptimize.Item = null;
-            this.is_ArmorOptimize.Location = new System.Drawing.Point(997, 521);
-            this.is_ArmorOptimize.Name = "is_ArmorOptimize";
-            this.is_ArmorOptimize.Size = new System.Drawing.Size(181, 210);
-            this.is_ArmorOptimize.TabIndex = 144;
-            // 
-            // is_RingOptimize
-            // 
-            this.is_RingOptimize.Image = null;
-            this.is_RingOptimize.Item = null;
-            this.is_RingOptimize.Location = new System.Drawing.Point(1258, 258);
-            this.is_RingOptimize.Name = "is_RingOptimize";
-            this.is_RingOptimize.Size = new System.Drawing.Size(181, 210);
-            this.is_RingOptimize.TabIndex = 145;
-            // 
-            // is_BootsOptimize
-            // 
-            this.is_BootsOptimize.Image = null;
-            this.is_BootsOptimize.Item = null;
-            this.is_BootsOptimize.Location = new System.Drawing.Point(1258, 521);
-            this.is_BootsOptimize.Name = "is_BootsOptimize";
-            this.is_BootsOptimize.Size = new System.Drawing.Size(181, 210);
-            this.is_BootsOptimize.TabIndex = 117;
-            // 
-            // is_NecklaceOptimize
-            // 
-            this.is_NecklaceOptimize.Image = null;
-            this.is_NecklaceOptimize.Item = null;
-            this.is_NecklaceOptimize.Location = new System.Drawing.Point(1258, 1);
-            this.is_NecklaceOptimize.Name = "is_NecklaceOptimize";
-            this.is_NecklaceOptimize.Size = new System.Drawing.Size(181, 210);
-            this.is_NecklaceOptimize.TabIndex = 146;
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmi_ATK,
-            this.tsmi_SPD,
-            this.tsmi_Crit,
-            this.tsmi_CritDmg,
-            this.tsmi_HP,
-            this.tsmi_HPpS,
-            this.tsmi_DEF,
-            this.tsmi_EFF,
-            this.tsmi_RES,
-            this.tsmi_DAC,
-            this.tsmi_Sets,
-            this.tsmi_EHP,
-            this.tsmi_EHPpS,
-            this.tsmi_DMG,
-            this.tsmi_DMGpS});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.ShowCheckMargin = true;
-            this.contextMenuStrip1.ShowImageMargin = false;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(128, 334);
-            this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ContextMenuStrip1_ItemClicked);
-            // 
-            // tsmi_ATK
-            // 
-            this.tsmi_ATK.Checked = true;
-            this.tsmi_ATK.CheckOnClick = true;
-            this.tsmi_ATK.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsmi_ATK.Name = "tsmi_ATK";
-            this.tsmi_ATK.Size = new System.Drawing.Size(127, 22);
-            this.tsmi_ATK.Text = "ATK";
-            // 
-            // tsmi_SPD
-            // 
-            this.tsmi_SPD.Checked = true;
-            this.tsmi_SPD.CheckOnClick = true;
-            this.tsmi_SPD.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsmi_SPD.Name = "tsmi_SPD";
-            this.tsmi_SPD.Size = new System.Drawing.Size(127, 22);
-            this.tsmi_SPD.Text = "SPD";
-            // 
-            // tsmi_Crit
-            // 
-            this.tsmi_Crit.Checked = true;
-            this.tsmi_Crit.CheckOnClick = true;
-            this.tsmi_Crit.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsmi_Crit.Name = "tsmi_Crit";
-            this.tsmi_Crit.Size = new System.Drawing.Size(127, 22);
-            this.tsmi_Crit.Text = "Crit";
-            // 
-            // tsmi_CritDmg
-            // 
-            this.tsmi_CritDmg.Checked = true;
-            this.tsmi_CritDmg.CheckOnClick = true;
-            this.tsmi_CritDmg.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsmi_CritDmg.Name = "tsmi_CritDmg";
-            this.tsmi_CritDmg.Size = new System.Drawing.Size(127, 22);
-            this.tsmi_CritDmg.Text = "CritDmg";
-            // 
-            // tsmi_HP
-            // 
-            this.tsmi_HP.Checked = true;
-            this.tsmi_HP.CheckOnClick = true;
-            this.tsmi_HP.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsmi_HP.Name = "tsmi_HP";
-            this.tsmi_HP.Size = new System.Drawing.Size(127, 22);
-            this.tsmi_HP.Text = "HP";
-            // 
-            // tsmi_HPpS
-            // 
-            this.tsmi_HPpS.Checked = true;
-            this.tsmi_HPpS.CheckOnClick = true;
-            this.tsmi_HPpS.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsmi_HPpS.Name = "tsmi_HPpS";
-            this.tsmi_HPpS.Size = new System.Drawing.Size(127, 22);
-            this.tsmi_HPpS.Text = "HP/SPD";
-            // 
-            // tsmi_DEF
-            // 
-            this.tsmi_DEF.Checked = true;
-            this.tsmi_DEF.CheckOnClick = true;
-            this.tsmi_DEF.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsmi_DEF.Name = "tsmi_DEF";
-            this.tsmi_DEF.Size = new System.Drawing.Size(127, 22);
-            this.tsmi_DEF.Text = "DEF";
-            // 
-            // tsmi_EFF
-            // 
-            this.tsmi_EFF.Checked = true;
-            this.tsmi_EFF.CheckOnClick = true;
-            this.tsmi_EFF.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsmi_EFF.Name = "tsmi_EFF";
-            this.tsmi_EFF.Size = new System.Drawing.Size(127, 22);
-            this.tsmi_EFF.Text = "EFF";
-            // 
-            // tsmi_RES
-            // 
-            this.tsmi_RES.Checked = true;
-            this.tsmi_RES.CheckOnClick = true;
-            this.tsmi_RES.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsmi_RES.Name = "tsmi_RES";
-            this.tsmi_RES.Size = new System.Drawing.Size(127, 22);
-            this.tsmi_RES.Text = "RES";
-            // 
-            // tsmi_DAC
-            // 
-            this.tsmi_DAC.Checked = true;
-            this.tsmi_DAC.CheckOnClick = true;
-            this.tsmi_DAC.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsmi_DAC.Name = "tsmi_DAC";
-            this.tsmi_DAC.Size = new System.Drawing.Size(127, 22);
-            this.tsmi_DAC.Text = "DAC";
-            // 
-            // tsmi_Sets
-            // 
-            this.tsmi_Sets.Checked = true;
-            this.tsmi_Sets.CheckOnClick = true;
-            this.tsmi_Sets.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsmi_Sets.Name = "tsmi_Sets";
-            this.tsmi_Sets.Size = new System.Drawing.Size(127, 22);
-            this.tsmi_Sets.Text = "Sets";
-            // 
-            // tsmi_EHP
-            // 
-            this.tsmi_EHP.Checked = true;
-            this.tsmi_EHP.CheckOnClick = true;
-            this.tsmi_EHP.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsmi_EHP.Name = "tsmi_EHP";
-            this.tsmi_EHP.Size = new System.Drawing.Size(127, 22);
-            this.tsmi_EHP.Text = "EHP";
-            // 
-            // tsmi_EHPpS
-            // 
-            this.tsmi_EHPpS.Checked = true;
-            this.tsmi_EHPpS.CheckOnClick = true;
-            this.tsmi_EHPpS.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsmi_EHPpS.Name = "tsmi_EHPpS";
-            this.tsmi_EHPpS.Size = new System.Drawing.Size(127, 22);
-            this.tsmi_EHPpS.Text = "EHP/SPD";
-            // 
-            // tsmi_DMG
-            // 
-            this.tsmi_DMG.Checked = true;
-            this.tsmi_DMG.CheckOnClick = true;
-            this.tsmi_DMG.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsmi_DMG.Name = "tsmi_DMG";
-            this.tsmi_DMG.Size = new System.Drawing.Size(127, 22);
-            this.tsmi_DMG.Text = "DMG";
-            // 
-            // tsmi_DMGpS
-            // 
-            this.tsmi_DMGpS.Checked = true;
-            this.tsmi_DMGpS.CheckOnClick = true;
-            this.tsmi_DMGpS.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsmi_DMGpS.Name = "tsmi_DMGpS";
-            this.tsmi_DMGpS.Size = new System.Drawing.Size(127, 22);
-            this.tsmi_DMGpS.Text = "DMG/SPD";
-            // 
-            // c_ATK_Results
-            // 
-            this.c_ATK_Results.HeaderText = "ATK";
-            this.c_ATK_Results.MinimumWidth = 8;
-            this.c_ATK_Results.Name = "c_ATK_Results";
-            this.c_ATK_Results.ReadOnly = true;
-            // 
-            // c_SPD_Results
-            // 
-            this.c_SPD_Results.HeaderText = "SPD";
-            this.c_SPD_Results.MinimumWidth = 8;
-            this.c_SPD_Results.Name = "c_SPD_Results";
-            this.c_SPD_Results.ReadOnly = true;
-            // 
-            // c_Crit_Results
-            // 
-            this.c_Crit_Results.HeaderText = "Crit";
-            this.c_Crit_Results.MinimumWidth = 8;
-            this.c_Crit_Results.Name = "c_Crit_Results";
-            this.c_Crit_Results.ReadOnly = true;
-            // 
-            // c_CritDmg_Results
-            // 
-            this.c_CritDmg_Results.HeaderText = "CritDmg";
-            this.c_CritDmg_Results.MinimumWidth = 8;
-            this.c_CritDmg_Results.Name = "c_CritDmg_Results";
-            this.c_CritDmg_Results.ReadOnly = true;
-            // 
-            // c_HP_Results
-            // 
-            this.c_HP_Results.HeaderText = "HP";
-            this.c_HP_Results.MinimumWidth = 8;
-            this.c_HP_Results.Name = "c_HP_Results";
-            this.c_HP_Results.ReadOnly = true;
-            // 
-            // c_HPpS_Results
-            // 
-            this.c_HPpS_Results.HeaderText = "HP/SPD";
-            this.c_HPpS_Results.MinimumWidth = 8;
-            this.c_HPpS_Results.Name = "c_HPpS_Results";
-            this.c_HPpS_Results.ReadOnly = true;
-            // 
-            // c_DEF_Results
-            // 
-            this.label54.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(3, 0);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(94, 25);
-            this.label54.TabIndex = 0;
-            this.label54.Text = "SPD (Gear)";
-            this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // nud1_SpeedTunerImprint
-            // 
-            this.nud1_SpeedTunerImprint.Location = new System.Drawing.Point(103, 28);
-            this.nud1_SpeedTunerImprint.Maximum = new decimal(new int[] {
-            40,
-            0,
-            0,
-            0});
-            this.nud1_SpeedTunerImprint.Name = "nud1_SpeedTunerImprint";
-            this.nud1_SpeedTunerImprint.Size = new System.Drawing.Size(94, 20);
-            this.nud1_SpeedTunerImprint.TabIndex = 5;
-            this.nud1_SpeedTunerImprint.ValueChanged += new System.EventHandler(this.Nud1_SpeedTunerImprint_ValueChanged);
-            // 
-            // pb1_SpeedTuner
-            // 
-            this.pb1_SpeedTuner.Location = new System.Drawing.Point(46, 76);
-            this.pb1_SpeedTuner.Name = "pb1_SpeedTuner";
-            this.pb1_SpeedTuner.Size = new System.Drawing.Size(49, 50);
-            this.pb1_SpeedTuner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb1_SpeedTuner.TabIndex = 2;
-            this.pb1_SpeedTuner.TabStop = false;
-            // 
-            // cb1_SpeedTuner
-            // 
-            this.cb1_SpeedTuner.FormattingEnabled = true;
-            this.cb1_SpeedTuner.Location = new System.Drawing.Point(46, 49);
-            this.cb1_SpeedTuner.Name = "cb1_SpeedTuner";
-            this.cb1_SpeedTuner.Size = new System.Drawing.Size(121, 21);
-            this.cb1_SpeedTuner.TabIndex = 1;
-            this.cb1_SpeedTuner.SelectedIndexChanged += new System.EventHandler(this.cb1_SpeedTuner_SelectedIndexChanged);
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(43, 33);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(45, 13);
-            this.label53.TabIndex = 0;
-            this.label53.Text = "Hero 1";
-            // 
-            // ofd_import
-            // 
-            this.ofd_import.DefaultExt = "json";
-            this.ofd_import.Filter = "JSON File|*.json";
-            // 
-            // sfd_export
-            // 
-            this.sfd_export.DefaultExt = "json";
-            this.sfd_export.FileName = "E7 Gear Optimizer.json";
-            this.sfd_export.Filter = "JSON|*.json";
-            // 
-            // tsmi_S1
-            // 
-            this.tsmi_S1.Name = "tsmi_S1";
-            this.tsmi_S1.Size = new System.Drawing.Size(159, 22);
-            this.tsmi_S1.Text = "Skill 1";
-            // 
-            // tsmi_S2
-            // 
-            this.tsmi_S2.Name = "tsmi_S2";
-            this.tsmi_S2.Size = new System.Drawing.Size(159, 22);
-            this.tsmi_S2.Text = "Skill 2";
-            // 
-            // tsmi_S3
-            // 
-            this.tsmi_S3.Name = "tsmi_S3";
-            this.tsmi_S3.Size = new System.Drawing.Size(159, 22);
-            this.tsmi_S3.Text = "Skill 3";
-            // 
-            // tsmi_SB
-            // 
-            this.tsmi_SB.Name = "tsmi_SB";
-            this.tsmi_SB.Size = new System.Drawing.Size(159, 22);
-            this.tsmi_SB.Text = "Skill Soulburned";
-            this.tsmi_SB.ToolTipText = "Skill with soulburn enabled";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(156, 6);
-            // 
-            // is_Weapon
-            // 
-            this.is_Weapon.Image = null;
-            this.is_Weapon.Item = null;
-            this.is_Weapon.Location = new System.Drawing.Point(80, 451);
-            this.is_Weapon.Name = "is_Weapon";
-            this.is_Weapon.Size = new System.Drawing.Size(181, 210);
-            this.is_Weapon.TabIndex = 118;
-            // 
-            // is_Helmet
-            // 
-            this.is_Helmet.Image = null;
-            this.is_Helmet.Item = null;
-            this.is_Helmet.Location = new System.Drawing.Point(279, 451);
-            this.is_Helmet.Name = "is_Helmet";
-            this.is_Helmet.Size = new System.Drawing.Size(181, 210);
-            this.is_Helmet.TabIndex = 117;
-            // 
-            // is_Armor
-            // 
-            this.is_Armor.Image = null;
-            this.is_Armor.Item = null;
-            this.is_Armor.Location = new System.Drawing.Point(474, 451);
-            this.is_Armor.Name = "is_Armor";
-            this.is_Armor.Size = new System.Drawing.Size(181, 210);
-            this.is_Armor.TabIndex = 116;
-            // 
-            // is_Necklace
-            // 
-            this.is_Necklace.Image = null;
-            this.is_Necklace.Item = null;
-            this.is_Necklace.Location = new System.Drawing.Point(669, 451);
-            this.is_Necklace.Name = "is_Necklace";
-            this.is_Necklace.Size = new System.Drawing.Size(181, 210);
-            this.is_Necklace.TabIndex = 115;
-            // 
-            // is_Ring
-            // 
-            this.is_Ring.Image = null;
-            this.is_Ring.Item = null;
-            this.is_Ring.Location = new System.Drawing.Point(864, 451);
-            this.is_Ring.Name = "is_Ring";
-            this.is_Ring.Size = new System.Drawing.Size(181, 210);
-            this.is_Ring.TabIndex = 114;
-            // 
-            // is_Boots
-            // 
-            this.is_Boots.Image = null;
-            this.is_Boots.Item = null;
-            this.is_Boots.Location = new System.Drawing.Point(1059, 451);
-            this.is_Boots.Name = "is_Boots";
-            this.is_Boots.Size = new System.Drawing.Size(181, 210);
-            this.is_Boots.TabIndex = 113;
-            // 
-            // is_NecklaceOptimize
-            // 
-            this.is_NecklaceOptimize.Image = null;
-            this.is_NecklaceOptimize.Item = null;
-            this.is_NecklaceOptimize.Location = new System.Drawing.Point(1258, 1);
-            this.is_NecklaceOptimize.Name = "is_NecklaceOptimize";
-            this.is_NecklaceOptimize.Size = new System.Drawing.Size(181, 210);
-            this.is_NecklaceOptimize.TabIndex = 146;
-            // 
-            // is_BootsOptimize
-            // 
-            this.is_BootsOptimize.Image = null;
-            this.is_BootsOptimize.Item = null;
-            this.is_BootsOptimize.Location = new System.Drawing.Point(1258, 521);
-            this.is_BootsOptimize.Name = "is_BootsOptimize";
-            this.is_BootsOptimize.Size = new System.Drawing.Size(181, 210);
-            this.is_BootsOptimize.TabIndex = 117;
-            // 
-            // is_RingOptimize
-            // 
-            this.is_RingOptimize.Image = null;
-            this.is_RingOptimize.Item = null;
-            this.is_RingOptimize.Location = new System.Drawing.Point(1258, 258);
-            this.is_RingOptimize.Name = "is_RingOptimize";
-            this.is_RingOptimize.Size = new System.Drawing.Size(181, 210);
-            this.is_RingOptimize.TabIndex = 145;
-            // 
-            // is_ArmorOptimize
-            // 
-            this.is_ArmorOptimize.Image = null;
-            this.is_ArmorOptimize.Item = null;
-            this.is_ArmorOptimize.Location = new System.Drawing.Point(997, 521);
-            this.is_ArmorOptimize.Name = "is_ArmorOptimize";
-            this.is_ArmorOptimize.Size = new System.Drawing.Size(181, 210);
-            this.is_ArmorOptimize.TabIndex = 144;
-            // 
-            // is_HelmetOptimize
-            // 
-            this.is_HelmetOptimize.Image = null;
-            this.is_HelmetOptimize.Item = null;
-            this.is_HelmetOptimize.Location = new System.Drawing.Point(997, 259);
-            this.is_HelmetOptimize.Name = "is_HelmetOptimize";
-            this.is_HelmetOptimize.Size = new System.Drawing.Size(181, 210);
-            this.is_HelmetOptimize.TabIndex = 143;
-            // 
-            // is_WeaponOptimize
-            // 
-            this.is_WeaponOptimize.Image = null;
-            this.is_WeaponOptimize.Item = null;
-            this.is_WeaponOptimize.Location = new System.Drawing.Point(997, 1);
-            this.is_WeaponOptimize.Name = "is_WeaponOptimize";
-            this.is_WeaponOptimize.Size = new System.Drawing.Size(181, 210);
-            this.is_WeaponOptimize.TabIndex = 142;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6209,8 +5886,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_Hero)).EndInit();
             this.tb_Optimize.ResumeLayout(false);
             this.tb_Optimize.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_EnemyDef)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_LimitResults)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_EnhanceFocus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_OptimizeBootsEquipped)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_OptimizeRingEquipped)).EndInit();
@@ -6252,8 +5931,6 @@
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud1_SpeedTunerImprint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1_SpeedTuner)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_LimitResults)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -6716,6 +6393,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_S3;
         private System.Windows.Forms.ToolStripMenuItem tsmi_SB;
         private System.Windows.Forms.ToolTip tt_Skills;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.NumericUpDown nud_EnemyDef;
     }
 }
 
