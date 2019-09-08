@@ -146,7 +146,7 @@ namespace E7_Gear_Optimizer
                 dmg = (atkSoul * stats.ATK + hpSoul * stats.HP + defSoul * stats.DEF) * (1 + spdSoul * stats.SPD) * powSoul;
                 if (crit)
                 {
-                    dmg *= critDmgSoul;
+                    dmg *= critDmgSoul * stats.CritDmg;
                 }
             }
             else
@@ -154,7 +154,7 @@ namespace E7_Gear_Optimizer
                 dmg = (atk * stats.ATK + hp * stats.HP + def * stats.DEF) * (1 + spd * stats.SPD) * pow;
                 if (crit)
                 {
-                    dmg *= critDmg;
+                    dmg *= critDmg * stats.CritDmg;
                 }
             }
             dmg *= POW_CONST * damageIncrease;
