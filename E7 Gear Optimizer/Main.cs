@@ -2664,10 +2664,25 @@ namespace E7_Gear_Optimizer
         private void ContextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             var item = (ToolStripMenuItem)e.ClickedItem;
-            var checkedNew = !item.Checked;
-            var statName = item.Name.Substring(5);//tsmi_*
-            dgv_CurrentGear.Columns["c_" + statName + "_Current"].Visible = checkedNew;
-            dgv_OptimizeResults.Columns["c_" + statName + "_Results"].Visible = checkedNew;
+            if (item.Name.Length == 7 && item.Name.StartsWith("tsmi_S"))//Parent Skill X menu item
+            {
+                bool checkedNew = item.CheckState == CheckState.Unchecked;
+                foreach (ToolStripMenuItem childItem in item.DropDownItems)
+                {
+                    var statName = childItem.Name.Substring(5);//tsmi_*
+                    dgv_CurrentGear.Columns["c_" + statName + "_Current"].Visible = checkedNew;
+                    dgv_OptimizeResults.Columns["c_" + statName + "_Results"].Visible = checkedNew;
+                    childItem.Checked = checkedNew;
+                }
+                contextMenuStrip1.Hide();
+            }
+            else
+            {
+                var checkedNew = !item.Checked;
+                var statName = item.Name.Substring(5);//tsmi_*
+                dgv_CurrentGear.Columns["c_" + statName + "_Current"].Visible = checkedNew;
+                dgv_OptimizeResults.Columns["c_" + statName + "_Results"].Visible = checkedNew;
+            }
         }
 
         private void setCheckState(ToolStripMenuItem menuItem)
