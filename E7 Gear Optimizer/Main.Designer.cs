@@ -4613,7 +4613,7 @@
             // 
             // l_Results
             // 
-            this.l_Results.Location = new System.Drawing.Point(103, 225);
+            this.l_Results.Location = new System.Drawing.Point(104, 225);
             this.l_Results.Name = "l_Results";
             this.l_Results.Size = new System.Drawing.Size(79, 15);
             this.l_Results.TabIndex = 25;
@@ -8141,6 +8141,7 @@
             this.nud_LimitResults.Size = new System.Drawing.Size(84, 20);
             this.nud_LimitResults.TabIndex = 142;
             this.nud_LimitResults.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nud_LimitResults.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             this.nud_LimitResults.ThousandsSeparator = true;
             this.nud_LimitResults.Value = new decimal(new int[] {
             10000000,
