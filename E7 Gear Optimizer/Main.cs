@@ -45,7 +45,6 @@ namespace E7_Gear_Optimizer
                     Directory.CreateDirectory(Properties.Settings.Default.CacheDirectory);
                 }
                 Properties.Settings.Default.UseCache = value;
-                Properties.Settings.Default.Save();
             }
         }
         private bool importOnLoad
@@ -61,7 +60,6 @@ namespace E7_Gear_Optimizer
         {
             Properties.Settings.Default.LastUsedFileName = lastUsedFileName;
             Properties.Settings.Default.LastUsedFileNameWeb = web;
-            Properties.Settings.Default.Save();
         }
 
         public Main()
