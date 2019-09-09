@@ -307,6 +307,14 @@ namespace E7_Gear_Optimizer
                     dgv_OptimizeResults.Columns.Add(columnResults);
                 }
             }
+            foreach (DataGridViewColumn col in dgv_CurrentGear.Columns)
+            {
+                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+            foreach (DataGridViewColumn col in dgv_OptimizeResults.Columns)
+            {
+                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
         }
 
         private void B_import_Click(object sender, EventArgs e)
