@@ -148,7 +148,7 @@
             this.b_NewItem = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.l_ImportResults = new System.Windows.Forms.Label();
-            this.btn_InvalidateCache = new System.Windows.Forms.Button();
+            this.b_ClearCache = new System.Windows.Forms.Button();
             this.cb_CacheWeb = new System.Windows.Forms.CheckBox();
             this.cb_ImportOnLoad = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -2094,7 +2094,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.l_ImportResults);
-            this.tabPage1.Controls.Add(this.btn_InvalidateCache);
+            this.tabPage1.Controls.Add(this.b_ClearCache);
             this.tabPage1.Controls.Add(this.cb_CacheWeb);
             this.tabPage1.Controls.Add(this.cb_ImportOnLoad);
             this.tabPage1.Controls.Add(this.button2);
@@ -2121,13 +2121,13 @@
             // 
             // btn_InvalidateCache
             // 
-            this.btn_InvalidateCache.Location = new System.Drawing.Point(100, 484);
-            this.btn_InvalidateCache.Name = "btn_InvalidateCache";
-            this.btn_InvalidateCache.Size = new System.Drawing.Size(101, 23);
-            this.btn_InvalidateCache.TabIndex = 10;
-            this.btn_InvalidateCache.Text = "Invalidate cache";
-            this.btn_InvalidateCache.UseVisualStyleBackColor = true;
-            this.btn_InvalidateCache.Click += new System.EventHandler(this.Btn_InvalidateCache_Click);
+            this.b_ClearCache.Location = new System.Drawing.Point(100, 484);
+            this.b_ClearCache.Name = "b_ClearCache";
+            this.b_ClearCache.Size = new System.Drawing.Size(101, 23);
+            this.b_ClearCache.TabIndex = 10;
+            this.b_ClearCache.Text = "Clear cache";
+            this.b_ClearCache.UseVisualStyleBackColor = true;
+            this.b_ClearCache.Click += new System.EventHandler(this.B_ClearCache);
             // 
             // cb_CacheWeb
             // 
@@ -8991,7 +8991,7 @@
         private System.Windows.Forms.TextBox tb_RingFocus;
         private System.Windows.Forms.CheckBox cb_CacheWeb;
         private System.Windows.Forms.CheckBox cb_ImportOnLoad;
-        private System.Windows.Forms.Button btn_InvalidateCache;
+        private System.Windows.Forms.Button b_ClearCache;
         private System.Windows.Forms.Label l_ImportResults;
     }
 }

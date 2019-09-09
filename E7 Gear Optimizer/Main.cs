@@ -215,7 +215,7 @@ namespace E7_Gear_Optimizer
 
             cb_ImportOnLoad.Checked = Properties.Settings.Default.ImportOnLoad;
             cb_CacheWeb.Checked = useCache;
-            btn_InvalidateCache.Enabled = useCache;
+            b_ClearCache.Enabled = useCache;
         }
 
         
@@ -3205,10 +3205,10 @@ namespace E7_Gear_Optimizer
         private void Cb_CacheWeb_CheckedChanged(object sender, EventArgs e)
         {
             useCache = cb_CacheWeb.Checked;
-            btn_InvalidateCache.Enabled = useCache;
+            b_ClearCache.Enabled = useCache;
         }
 
-        private void Btn_InvalidateCache_Click(object sender, EventArgs e)
+        private void B_ClearCache(object sender, EventArgs e)
         {
             var files = Directory.GetFiles(Properties.Settings.Default.CacheDirectory, "db.*");
             foreach (var file in files)
