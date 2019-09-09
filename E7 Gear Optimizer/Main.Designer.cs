@@ -5834,6 +5834,30 @@
             this.sfd_export.FileName = "E7 Gear Optimizer.json";
             this.sfd_export.Filter = "JSON|*.json";
             // 
+            // nud_EnemyDef
+            // 
+            this.nud_EnemyDef.Location = new System.Drawing.Point(6, 216);
+            this.nud_EnemyDef.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nud_EnemyDef.Name = "nud_EnemyDef";
+            this.nud_EnemyDef.Size = new System.Drawing.Size(46, 20);
+            this.nud_EnemyDef.TabIndex = 147;
+            this.tt_Skills.SetToolTip(this.nud_EnemyDef, "The Mossy Testudos in Golem 6 have 520 Defense");
+            this.nud_EnemyDef.ValueChanged += new System.EventHandler(this.Nud_EnemyDef_ValueChanged);
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(3, 185);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(91, 26);
+            this.label35.TabIndex = 148;
+            this.label35.Text = "Enemy Defence\r\n(for skills damage)";
+            this.tt_Skills.SetToolTip(this.label35, "The Mossy Testudos in Golem 6 have 520 Defense");
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
