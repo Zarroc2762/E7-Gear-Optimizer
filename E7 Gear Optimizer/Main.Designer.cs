@@ -3256,8 +3256,9 @@
             this.cb_keepEquip.AutoSize = true;
             this.cb_keepEquip.Location = new System.Drawing.Point(6, 91);
             this.cb_keepEquip.Name = "cb_keepEquip";
-            this.cb_keepEquip.Size = new System.Drawing.Size(15, 14);
+            this.cb_keepEquip.Size = new System.Drawing.Size(97, 30);
             this.cb_keepEquip.TabIndex = 3;
+            this.cb_keepEquip.Text = "Keep currently\r\nequipped items";
             this.cb_keepEquip.UseVisualStyleBackColor = true;
             this.cb_keepEquip.CheckedChanged += new System.EventHandler(this.Chb_Equipped_CheckedChanged);
             // 
@@ -3744,9 +3745,9 @@
             this.chb_Equipped.AutoSize = true;
             this.chb_Equipped.Location = new System.Drawing.Point(6, 68);
             this.chb_Equipped.Name = "chb_Equipped";
-            this.chb_Equipped.Size = new System.Drawing.Size(97, 17);
+            this.chb_Equipped.Size = new System.Drawing.Size(98, 17);
             this.chb_Equipped.TabIndex = 2;
-            this.chb_Equipped.Text = "equipped items";
+            this.chb_Equipped.Text = "Equipped items";
             this.chb_Equipped.UseVisualStyleBackColor = true;
             this.chb_Equipped.CheckedChanged += new System.EventHandler(this.Chb_Equipped_CheckedChanged);
             // 
@@ -3755,9 +3756,9 @@
             this.chb_Locked.AutoSize = true;
             this.chb_Locked.Location = new System.Drawing.Point(6, 45);
             this.chb_Locked.Name = "chb_Locked";
-            this.chb_Locked.Size = new System.Drawing.Size(85, 17);
+            this.chb_Locked.Size = new System.Drawing.Size(89, 17);
             this.chb_Locked.TabIndex = 1;
-            this.chb_Locked.Text = "locked items";
+            this.chb_Locked.Text = "Locked items";
             this.chb_Locked.UseVisualStyleBackColor = true;
             this.chb_Locked.CheckedChanged += new System.EventHandler(this.Chb_Locked_CheckedChanged);
             // 

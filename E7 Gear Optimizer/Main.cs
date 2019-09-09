@@ -147,7 +147,6 @@ namespace E7_Gear_Optimizer
             cb_Eq.Items.Add("");
             dgv_OptimizeResults.RowCount = 0;
             dgv_Inventory.Columns[0].SortMode = DataGridViewColumnSortMode.Programmatic;
-            cb_keepEquip.Text = "Keep currently\nequipped items";
             richTextBox1.SelectionFont = new Font(FontFamily.GenericSansSerif, 15, FontStyle.Bold); 
             richTextBox1.SelectedText = "How to use: \n\n";
             richTextBox1.SelectionBullet = true;
