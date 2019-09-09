@@ -57,6 +57,10 @@ namespace E7_Gear_Optimizer
         private ToolStripMenuItem[] contextMenuStrip1SkillMenuItems;
 
         private int enemyDef = 0;
+        /// <summary>
+        /// Selected item on the Inventory tab
+        /// </summary>
+        Item selectedItem = null;
 
         public Main()
         {
@@ -450,7 +454,17 @@ namespace E7_Gear_Optimizer
             //order of items can change due to change of sortColumn values, so restore selected row by item id
             if (cell.X > -1 && cell.Y > -1 && cell.X < dgv_Inventory.ColumnCount && cell.Y < dgv_Inventory.RowCount)
             {
-                dgv_Inventory.CurrentCell = dgv_Inventory.Rows.Cast<DataGridViewRow>().Where(x => x.Cells["c_ItemID"].Value.ToString() == ID).First().Cells[cell.X];
+                //as order can change restore selected cell by selectedItem.ID
+                var rows = dgv_Inventory.Rows.Cast<DataGridViewRow>().Where(r => r.Cells["c_ItemID"].Value.ToString() == selectedItem.ID);
+                if (rows.Count() > 0)
+                {
+                    int y = rows.First().Index;
+                    dgv_Inventory.CurrentCell = dgv_Inventory.Rows[y].Cells[cell.X];
+                }
+                else
+                {
+                    dgv_Inventory.CurrentCell = dgv_Inventory.Rows[0].Cells[cell.X];
+                }
             }
         }
 
@@ -565,6 +579,10 @@ namespace E7_Gear_Optimizer
         //Change the controls on the inventory tab to reflect the data of the currenty selected item
         private void dgv_Inventory_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
+            if (dgv_Inventory.SelectedRows.Count == 0)
+            {
+                return;
+            }
             DataGridViewRow row = dgv_Inventory.Rows[e.RowIndex];
             ((RadioButton)p_Set.Controls.Find("rb_" + ((Set)row.Cells["c_SetID"].Value).ToString() + "Set", false)[0]).Checked = true;
             ((RadioButton)p_Type.Controls.Find("rb_" + ((ItemType)row.Cells["c_TypeID"].Value).ToString() + "Type", false)[0]).Checked = true;
@@ -611,6 +629,7 @@ namespace E7_Gear_Optimizer
                 cb_Eq.SelectedIndex = 0;
                 pb_Equipped.Image = null;
             }
+            selectedItem = item;
         }
 
         //Change selectable Mainstats based on the item type. Eg. weapons alwayys have ATK flat Mainstat
@@ -1204,22 +1223,15 @@ namespace E7_Gear_Optimizer
 
         private void Pb_ItemLocked_Click(object sender, EventArgs e)
         {
-            /*if (Locked)
+            if (dgv_Inventory.SelectedRows.Count > 0 && selectedItem != null)
             {
-                pb_ItemLocked.Image = Properties.Resources.unlocked;
-                Locked = false;
-            }
-            else
-            {
-                pb_ItemLocked.Image = Properties.Resources.locked;
-                Locked = true;
-            }*/
-            if (dgv_Inventory.SelectedRows.Count > 0)
-            {
-                string ID = (string)dgv_Inventory.SelectedRows[0].Cells["c_ItemID"].Value;
-                Item item = data.Items.Find(x => x.ID == ID);
-                item.Locked = !item.Locked;
-                Locked = !Locked;
+                bool locked = Locked = !selectedItem.Locked;
+                foreach (DataGridViewRow row in dgv_Inventory.SelectedRows)
+                {
+                    string ID = (string)row.Cells["c_ItemID"].Value;
+                    Item item = data.Items.Find(x => x.ID == ID);
+                    item.Locked = locked;
+                }
                 updateItemList();
             }
         }
