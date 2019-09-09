@@ -133,5 +133,17 @@ namespace E7_Gear_Optimizer.Properties {
                 this["OptimizationVisibleSkillColumns"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int EnemyDefence {
+            get {
+                return ((int)(this["EnemyDefence"]));
+            }
+            set {
+                this["EnemyDefence"] = value;
+            }
+        }
     }
 }

@@ -213,12 +213,14 @@ namespace E7_Gear_Optimizer
             lb_Sub2.SelectedIndex = 0;
             lb_Sub3.SelectedIndex = 0;
             lb_Sub4.SelectedIndex = 0;
+            // Initialize controls' values from Properties.Settings
             cb_LimitResults.Checked = Properties.Settings.Default.LimitResults;
             nud_LimitResults.Enabled = Properties.Settings.Default.LimitResults;
             nud_LimitResults.Value = Properties.Settings.Default.LimitResultsNum;
             cb_ImportOnLoad.Checked = Properties.Settings.Default.ImportOnLoad;
             cb_CacheWeb.Checked = useCache;
             b_ClearCache.Enabled = useCache;
+            nud_EnemyDef.Value = enemyDef = Properties.Settings.Default.EnemyDefence;
             is_Weapon.Image = Properties.Resources.weapon;
             is_Helmet.Image = Properties.Resources.helmet;
             is_Armor.Image = Properties.Resources.armor;
@@ -2717,8 +2719,9 @@ namespace E7_Gear_Optimizer
 
         private void Nud_EnemyDef_ValueChanged(object sender, EventArgs e)
         {
-            enemyDef = (int)nud_EnemyDef.Value;
+            enemyDef = Properties.Settings.Default.EnemyDefence = (int)nud_EnemyDef.Value;
             updateCurrentGear();
+            dgv_OptimizeResults.Refresh();
         }
     }
 }
