@@ -165,7 +165,7 @@ namespace E7_Gear_Optimizer
             }
             else
             {
-                return dmg / (enemyDef / 300 + 1);
+                return dmg / (enemyDef / 300f + 1);
             }
         }
 
