@@ -2031,9 +2031,11 @@ namespace E7_Gear_Optimizer
         }
         
         //Create a backup of the current item and hero collection in the base directory of the application when the application closes
+        //Also save Properties.Settings
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (args.Length > 1)
+            //Backup data only if collection is not empty
+            if (data.Heroes.Count > 0 || data.Items.Count > 0)
             {
                 JObject json = createJson();
                 File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "/Backup.json", json.ToString());
