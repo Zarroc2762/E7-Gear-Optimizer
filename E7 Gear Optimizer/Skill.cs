@@ -82,6 +82,15 @@ namespace E7_Gear_Optimizer
                         critDmg = 1 + value;
                         critDmgSoul = 1 + soulburn;
                         break;
+                    case "self_hp_current_rate":
+                        otherMultipliers *= (1 + 100 * value);
+                        otherMultipliersSoul *= (1 + 100 * soulburn);
+                        break;
+                    case "skill_dmg_rate":
+                    case "target_hp_missing_rate":
+                    case "self_hp_missing_value"://TODO think about add Krau's max hp
+                        //ignore
+                        break;
                     default:
                         throw new UnsupportedDamageModifierException(name);
                 }
@@ -94,7 +103,7 @@ namespace E7_Gear_Optimizer
         /// <summary>
         /// Collection of 'enhancement' JTokens to use in case of enhanceLevel's change 
         /// </summary>
-        JToken[] jEnhancement;
+        JToken[] jEnhancement = null;
 
         int enhanceLevel;
 
@@ -147,6 +156,8 @@ namespace E7_Gear_Optimizer
         float critDmg = 1;
         float critDmgSoul = 1;
         float damageIncrease = 1;
+        float otherMultipliers = 1;
+        float otherMultipliersSoul = 1;
 
         /// <summary>
         /// Calculate damage of the skill based on <see cref="SStats"/> of the hero
@@ -161,7 +172,7 @@ namespace E7_Gear_Optimizer
             float dmg;
             if (HasSoulburn && soulburn)
             {
-                dmg = (atkSoul * stats.ATK + hpSoul * stats.HP + defSoul * stats.DEF) * (1 + spdSoul * stats.SPD) * powSoul;
+                dmg = (atkSoul * stats.ATK + hpSoul * stats.HP + defSoul * stats.DEF) * (1 + spdSoul * stats.SPD) * powSoul * otherMultipliersSoul;
                 if (crit)
                 {
                     dmg *= critDmgSoul * stats.CritDmg;
@@ -169,7 +180,7 @@ namespace E7_Gear_Optimizer
             }
             else
             { 
-                dmg = (atk * stats.ATK + hp * stats.HP + def * stats.DEF) * (1 + spd * stats.SPD) * pow;
+                dmg = (atk * stats.ATK + hp * stats.HP + def * stats.DEF) * (1 + spd * stats.SPD) * pow * otherMultipliers;
                 if (crit)
                 {
                     dmg *= critDmg * stats.CritDmg;
