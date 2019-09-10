@@ -61,13 +61,22 @@ namespace E7_Gear_Optimizer
                 Element = getElement(json);
                 Class = getClass(json);
                 AwakeningStats = getAwakeningStats(json);
-                Skills = new Skill[]
+                Skills = new Skill[3];
+                for (var iSkill = 0; iSkill < 3; iSkill++)
                 {
-                    new Skill(jObject, 0, skillEnhance != null ? skillEnhance[0] : 0),
-                    new Skill(jObject, 1, skillEnhance != null ? skillEnhance[1] : 0),
-                    new Skill(jObject, 2, skillEnhance != null ? skillEnhance[2] : 0)
+                    try
+                    {
+                        Skills[iSkill] = new Skill(jObject, iSkill, skillEnhance != null ? skillEnhance[iSkill] : 0);
+                    }
+                    catch (Skill.UnsupportedDamageModifierException ex)
+                    {
+                        Skills[iSkill] = new Skill();
+#if DEBUG
+                        MessageBox.Show(ex.Message + Environment.NewLine + "Hero: " + name, "Unsupported damage modifier", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+#endif
+                    }
                 };
-                SkillWithSoulburn = Skills.FirstOrDefault(s => s.HasSoulburn);
+                SkillWithSoulburn = Skills.FirstOrDefault(s => s.HasSoulburn) ?? new Skill();
             }
             catch (WebException ex)
             {

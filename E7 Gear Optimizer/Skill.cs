@@ -14,73 +14,93 @@ namespace E7_Gear_Optimizer
 
         static Regex enhancementDescRegex = new Regex(@"\+(\d+)% damage", RegexOptions.Compiled);
 
-        public Skill(JObject jObject, int index, int enhanceLevel = 0)
+        /// <summary>
+        /// Initializes abstract skill which damage is always equals to 0
+        /// </summary>
+        public Skill()
         {
-            try
-            {
-                JToken jSkill = jObject["results"][0]["skills"][index];
-                JToken jDamageModifiers = jSkill["damageModifiers"];
-                foreach (var jModifier in jDamageModifiers)
-                {
-                    var modifier = jModifier.ToObject<DamageModifier>();
-                    switch (modifier.name)
-                    {
-                        case "pow":
-                            pow = modifier.value;
-                            powSoul = modifier.soulburn;
-                            break;
-                        case "atk_rate":
-                            atk = modifier.value;
-                            atkSoul = modifier.soulburn;
-                            break;
-                        case "hp_rate":
-                            hp = modifier.value;
-                            hpSoul = modifier.soulburn;
-                            break;
-                        case "def_rate":
-                            def = modifier.value;
-                            defSoul = modifier.soulburn;
-                            break;
-                        case "spd_rate":
-                            spd = modifier.value;
-                            spdSoul = modifier.soulburn;
-                            break;
-                        case "crit_dmg_rate":
-                            critDmg = 1 + modifier.value;
-                            critDmgSoul = 1 + modifier.soulburn;
-                            break;
-                        default:
-                            //throw new ArgumentOutOfRangeException(modifier.name);
-                            break;
-                    }
-                }
-                jEnhancement = jSkill["enhancement"].ToArray();
-                Enhance = enhanceLevel;
-                HasSoulburn = jSkill["soulBurn"].ToObject<int>() > 0;
-            }
-            catch
-            {
-                pow = 0;
-                powSoul = 0;
-                atk = 0;
-                atkSoul = 0;
-                spd = 0;
-                spdSoul = 0;
-                def = 0;
-                defSoul = 0;
-                hp = 0;
-                hpSoul = 0;
-                critDmg = 1;
-                critDmgSoul = 1;
-                damageIncrease = 1;
-                //throw;
-            }
         }
 
+        /// <summary>
+        /// Initializes new instance of a <see cref="Skill"/>
+        /// </summary>
+        /// <param name="jObject">JObject with the hero's parsed JSON from epicsevendb.com to read multipliers from</param>
+        /// <param name="index">Zero-based index of the skill</param>
+        /// <param name="enhanceLevel">Enhance level of the hero's skill</param>
+        public Skill(JObject jObject, int index, int enhanceLevel = 0)
+        {
+            JToken jSkill = jObject["results"][0]["skills"][index];
+            JToken jDamageModifiers = jSkill["damageModifiers"];
+            foreach (var jModifier in jDamageModifiers)
+            {
+                string name = jModifier["name"].ToString();
+                float value;
+                float soulburn;
+                var jValue = jModifier["value"];
+                if (jValue is JArray)
+                {
+                    //some values stored as arrays e.g. BBK's, as her damage scales with lost health
+                    //in such cases calc damage using only the first value
+                    value = ((JArray)jValue).First().Value<float>();
+                }
+                else
+                {
+                    value = jValue.Value<float>();
+                }
+                var jSoulburn = jModifier["soulburn"];
+                if (jSoulburn is JArray)
+                {
+                    soulburn = ((JArray)jSoulburn).First().Value<float>();
+                }
+                else
+                {
+                    soulburn = jSoulburn.Value<float>();
+                }
+                switch (name)
+                {
+                    case "pow":
+                        pow = value;
+                        powSoul = soulburn;
+                        break;
+                    case "atk_rate":
+                        atk = value;
+                        atkSoul = soulburn;
+                        break;
+                    case "hp_rate":
+                        hp = value;
+                        hpSoul = soulburn;
+                        break;
+                    case "def_rate":
+                        def = value;
+                        defSoul = soulburn;
+                        break;
+                    case "spd_rate":
+                        spd = value;
+                        spdSoul = soulburn;
+                        break;
+                    case "crit_dmg_rate":
+                        critDmg = 1 + value;
+                        critDmgSoul = 1 + soulburn;
+                        break;
+                    default:
+                        throw new UnsupportedDamageModifierException(name);
+                }
+            }
+            jEnhancement = jSkill["enhancement"].ToArray();
+            Enhance = enhanceLevel;
+            HasSoulburn = jSkill["soulBurn"].ToObject<int>() > 0;
+        }
+
+        /// <summary>
+        /// Collection of 'enhancement' JTokens to use in case of enhanceLevel's change 
+        /// </summary>
         JToken[] jEnhancement;
 
         int enhanceLevel;
 
+        /// <summary>
+        /// Gets or sets the skill's Enhance level
+        /// </summary>
         public int Enhance
         {
             get => enhanceLevel;
@@ -108,9 +128,10 @@ namespace E7_Gear_Optimizer
             }
         }
 
-        
-
         public bool HasSoulburn { get; }
+        /// <summary>
+        /// Summary damage increase from skill's enhancements in %
+        /// </summary>
         public int DamageIncrease { get; private set; }
 
         float pow;
@@ -128,16 +149,12 @@ namespace E7_Gear_Optimizer
         float damageIncrease = 1;
 
         /// <summary>
-        /// Calculate damage of the skill based on SStats of the hero
+        /// Calculate damage of the skill based on <see cref="SStats"/> of the hero
         /// </summary>
-        /// <param name="stats">SStats of the hero or calulation result</param>
+        /// <param name="stats"><see cref="SStats"/> of the hero or calulation result</param>
         /// <param name="crit">Some skills have increased critical damage</param>
         /// <param name="soulburn">Is soulburn used?</param>
-        /// <param name="enemyDef">Enemy target's defence.
-        /// Slimes in 1-1 have 55. Wyvern 1 wave 1 dragons have 165.
-        /// The Mossy Testudos in Golem 6 have 642 Defense.
-        /// The Blaze Dragonas in Wyvern 6 have 592 Defense.
-        /// </param>
+        /// <param name="enemyDef">Enemy target's defence.</param>
         /// <returns></returns>
         public float CalcDamage(SStats stats, bool crit = false, bool soulburn = false, int enemyDef = 0)
         {
@@ -169,11 +186,14 @@ namespace E7_Gear_Optimizer
             }
         }
 
-        private struct DamageModifier
+        public class UnsupportedDamageModifierException : Exception
         {
-            public string name;
-            public float value;
-            public float soulburn;
+            public UnsupportedDamageModifierException(string modifierName) : base($"Unsupported damage modifier: {modifierName}")
+            {
+                ModifierName = modifierName;
+            }
+
+            public string ModifierName { get; }
         }
     }
 }
