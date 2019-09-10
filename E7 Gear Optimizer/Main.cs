@@ -412,6 +412,7 @@ namespace E7_Gear_Optimizer
             DataGridViewColumn sortColumn = dgv_Inventory.SortedColumn;
             SortOrder order = dgv_Inventory.SortOrder;
             Item prevSelectedItem = selectedItem;
+            dgv_Inventory.SuspendLayout();
             dgv_Inventory.Rows.Clear();
 
             //calculate new list of items based on the selected type filter
@@ -466,6 +467,7 @@ namespace E7_Gear_Optimizer
                     dgv_Inventory.CurrentCell = dgv_Inventory.Rows[0].Cells[cell.X];
                 }
             }
+            dgv_Inventory.ResumeLayout();
         }
 
 
