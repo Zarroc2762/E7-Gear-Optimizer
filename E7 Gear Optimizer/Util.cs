@@ -96,7 +96,7 @@ namespace E7_Gear_Optimizer
         public static Bitmap star = Properties.Resources.star;
         public static Bitmap star_j = Properties.Resources.star_j;
         public static WebClient client = new WebClient();
-        public static List<string> percentageColumns = new List<string>() {"c_Ilvl", "c_Enhance", "c_Value", "c_ATKPer", "c_ATK", "c_SPD", "c_CHC", "c_CHD", "c_HPPer", "c_HP", "c_DEFPer", "c_DEF", "c_EFF", "c_RES" };
+        public static List<string> percentageColumns = new List<string>() {"c_Ilvl", "c_Enhance", "c_Value", "c_ATKPer", "c_ATK", "c_SPD", "c_CHC", "c_CHD", "c_HPPer", "c_HP", "c_DEFPer", "c_DEF", "c_EFF", "c_RES", "c_WSS" };
         public static Dictionary<ItemType, List<Stats>> rollableStats = new Dictionary<ItemType, List<Stats>>()
         {
             [ItemType.Weapon] = new List<Stats>() { Stats.Crit, Stats.CritDmg, Stats.ATK, Stats.ATKPercent, Stats.EFF, Stats.HP, Stats.HPPercent, Stats.RES, Stats.SPD },
