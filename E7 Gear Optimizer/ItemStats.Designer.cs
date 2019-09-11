@@ -41,13 +41,15 @@
             this.label80 = new System.Windows.Forms.Label();
             this.l_ItemSub1 = new System.Windows.Forms.Label();
             this.l_ItemSub1Stat = new System.Windows.Forms.Label();
+            this.label85 = new System.Windows.Forms.Label();
+            this.tlp_MainStat = new System.Windows.Forms.TableLayoutPanel();
             this.l_ItemMain = new System.Windows.Forms.Label();
             this.l_ItemMainStat = new System.Windows.Forms.Label();
-            this.label85 = new System.Windows.Forms.Label();
             this.l_ItemGrade = new System.Windows.Forms.Label();
             this.pb_ItemSet = new System.Windows.Forms.PictureBox();
             this.pb_Image = new System.Windows.Forms.PictureBox();
             this.tlp_Item.SuspendLayout();
+            this.tlp_MainStat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ItemSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Image)).BeginInit();
             this.SuspendLayout();
@@ -93,9 +95,8 @@
             this.tlp_Item.Controls.Add(this.label80, 0, 0);
             this.tlp_Item.Controls.Add(this.l_ItemSub1, 0, 3);
             this.tlp_Item.Controls.Add(this.l_ItemSub1Stat, 1, 3);
-            this.tlp_Item.Controls.Add(this.l_ItemMain, 0, 1);
-            this.tlp_Item.Controls.Add(this.l_ItemMainStat, 1, 1);
             this.tlp_Item.Controls.Add(this.label85, 0, 2);
+            this.tlp_Item.Controls.Add(this.tlp_MainStat, 0, 1);
             this.tlp_Item.Location = new System.Drawing.Point(0, 46);
             this.tlp_Item.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
             this.tlp_Item.Name = "tlp_Item";
@@ -103,6 +104,7 @@
             this.tlp_Item.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
             this.tlp_Item.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             this.tlp_Item.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
+            this.tlp_Item.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlp_Item.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlp_Item.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlp_Item.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -195,27 +197,6 @@
             this.l_ItemSub1Stat.Size = new System.Drawing.Size(0, 13);
             this.l_ItemSub1Stat.TabIndex = 42;
             // 
-            // l_ItemMain
-            // 
-            this.l_ItemMain.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.l_ItemMain.AutoSize = true;
-            this.l_ItemMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_ItemMain.ForeColor = System.Drawing.Color.Black;
-            this.l_ItemMain.Location = new System.Drawing.Point(3, 16);
-            this.l_ItemMain.Name = "l_ItemMain";
-            this.l_ItemMain.Size = new System.Drawing.Size(0, 16);
-            this.l_ItemMain.TabIndex = 38;
-            // 
-            // l_ItemMainStat
-            // 
-            this.l_ItemMainStat.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.l_ItemMainStat.AutoSize = true;
-            this.l_ItemMainStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_ItemMainStat.Location = new System.Drawing.Point(178, 16);
-            this.l_ItemMainStat.Name = "l_ItemMainStat";
-            this.l_ItemMainStat.Size = new System.Drawing.Size(0, 16);
-            this.l_ItemMainStat.TabIndex = 39;
-            // 
             // label85
             // 
             this.label85.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -228,6 +209,44 @@
             this.label85.Size = new System.Drawing.Size(175, 1);
             this.label85.TabIndex = 40;
             this.label85.Text = "                                       ";
+            // 
+            // tlp_MainStat
+            // 
+            this.tlp_MainStat.ColumnCount = 2;
+            this.tlp_Item.SetColumnSpan(this.tlp_MainStat, 2);
+            this.tlp_MainStat.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlp_MainStat.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlp_MainStat.Controls.Add(this.l_ItemMain, 0, 0);
+            this.tlp_MainStat.Controls.Add(this.l_ItemMainStat, 1, 0);
+            this.tlp_MainStat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlp_MainStat.Location = new System.Drawing.Point(0, 13);
+            this.tlp_MainStat.Margin = new System.Windows.Forms.Padding(0);
+            this.tlp_MainStat.Name = "tlp_MainStat";
+            this.tlp_MainStat.RowCount = 1;
+            this.tlp_MainStat.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlp_MainStat.Size = new System.Drawing.Size(181, 23);
+            this.tlp_MainStat.TabIndex = 50;
+            // 
+            // l_ItemMain
+            // 
+            this.l_ItemMain.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.l_ItemMain.AutoSize = true;
+            this.l_ItemMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_ItemMain.ForeColor = System.Drawing.Color.Black;
+            this.l_ItemMain.Location = new System.Drawing.Point(3, 3);
+            this.l_ItemMain.Name = "l_ItemMain";
+            this.l_ItemMain.Size = new System.Drawing.Size(0, 16);
+            this.l_ItemMain.TabIndex = 38;
+            // 
+            // l_ItemMainStat
+            // 
+            this.l_ItemMainStat.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.l_ItemMainStat.AutoSize = true;
+            this.l_ItemMainStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_ItemMainStat.Location = new System.Drawing.Point(178, 3);
+            this.l_ItemMainStat.Name = "l_ItemMainStat";
+            this.l_ItemMainStat.Size = new System.Drawing.Size(0, 16);
+            this.l_ItemMainStat.TabIndex = 39;
             // 
             // l_ItemGrade
             // 
@@ -273,6 +292,8 @@
             this.Size = new System.Drawing.Size(181, 210);
             this.tlp_Item.ResumeLayout(false);
             this.tlp_Item.PerformLayout();
+            this.tlp_MainStat.ResumeLayout(false);
+            this.tlp_MainStat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ItemSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Image)).EndInit();
             this.ResumeLayout(false);
@@ -301,5 +322,6 @@
         private System.Windows.Forms.Label l_ItemGrade;
         private System.Windows.Forms.PictureBox pb_ItemSet;
         private System.Windows.Forms.PictureBox pb_Image;
+        private System.Windows.Forms.TableLayoutPanel tlp_MainStat;
     }
 }
