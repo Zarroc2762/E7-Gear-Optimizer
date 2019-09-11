@@ -82,8 +82,8 @@
             // tlp_Item
             // 
             this.tlp_Item.ColumnCount = 2;
-            this.tlp_Item.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.91493F));
-            this.tlp_Item.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.08507F));
+            this.tlp_Item.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlp_Item.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlp_Item.Controls.Add(this.l_ItemSub4Stat, 1, 6);
             this.tlp_Item.Controls.Add(this.l_ItemSub4, 0, 6);
             this.tlp_Item.Controls.Add(this.l_ItemSub3Stat, 1, 5);
@@ -213,7 +213,6 @@
             this.l_ItemMainStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_ItemMainStat.Location = new System.Drawing.Point(178, 16);
             this.l_ItemMainStat.Name = "l_ItemMainStat";
-            this.l_ItemMainStat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.l_ItemMainStat.Size = new System.Drawing.Size(0, 16);
             this.l_ItemMainStat.TabIndex = 39;
             // 

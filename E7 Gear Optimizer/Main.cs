@@ -1129,6 +1129,13 @@ namespace E7_Gear_Optimizer
         //Calculate and display the current stats of the selected hero
         private void Cb_OptimizeHero_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split().Last());
+            is_WeaponOptimize.Hero = hero;
+            is_HelmetOptimize.Hero = hero;
+            is_ArmorOptimize.Hero = hero;
+            is_NecklaceOptimize.Hero = hero;
+            is_RingOptimize.Hero = hero;
+            is_BootsOptimize.Hero = hero;
             updateCurrentGear();
             l_Results.Text = numberOfResults().ToString("#,0");
         }

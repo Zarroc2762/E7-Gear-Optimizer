@@ -28,6 +28,14 @@ namespace E7_Gear_Optimizer
         /// </summary>
         private (Label, Label)[] substatsLabels;
 
+        /// <summary>
+        /// Gets or sets the Hero against whom flat stats' percent values will be calculated
+        /// </summary>
+        public Hero Hero { get; set; } = null;
+
+        /// <summary>
+        /// Gets or sets the Item which stats will be displayed by this control
+        /// </summary>
         public Item Item
         {
             get => item;
@@ -41,14 +49,14 @@ namespace E7_Gear_Optimizer
                     l_ItemIlvl.Text = item.ILvl.ToString();
                     l_ItemEnhance.Text = "+" + item.Enhance.ToString();
                     l_ItemMain.Text = Util.statStrings[item.Main.Name];
-                    l_ItemMainStat.Text = Util.percentStats.Contains(item.Main.Name) ? item.Main.Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.Main.Value.ToString();
+                    l_ItemMainStat.Text = getStatValueString(item.Main);
                     l_ItemSet.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
                     for (int i = 0; i < 4; i++)
                     {
                         if (i < item.SubStats.Length)
                         {
                             substatsLabels[i].Item1.Text = Util.statStrings[item.SubStats[i].Name];
-                            substatsLabels[i].Item2.Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
+                            substatsLabels[i].Item2.Text = getStatValueString(item.SubStats[i]);
                         }
                         else
                         {
@@ -83,8 +91,26 @@ namespace E7_Gear_Optimizer
             }
         }
 
+        private string getStatValueString(Stat stat)
+        {
+            string s;
+            if (Util.percentStats.Contains(stat.Name))
+            {
+                s = stat.Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+            }
+            else if ((item.Equipped == null && Hero == null) || stat.Name == Stats.SPD)
+            {
+                s = stat.Value.ToString();
+            }
+            else
+            {
+                s = stat.Value.ToString() + " (" + (stat.Value / (Hero ?? item.Equipped).BaseStats[stat.Name]).ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) + ')';
+            }
+            return s;
+        }
+
         /// <summary>
-        /// Get or set image that is used instead of default item type image
+        /// Gets or sets the Image that is used instead of default item type image
         /// </summary>
         public Image Image
         {
