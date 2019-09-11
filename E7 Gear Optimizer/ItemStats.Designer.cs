@@ -252,7 +252,6 @@
             // 
             // pb_Image
             // 
-            this.pb_Image.Image = global::E7_Gear_Optimizer.Util.error;
             this.pb_Image.Location = new System.Drawing.Point(6, 0);
             this.pb_Image.Name = "pb_Image";
             this.pb_Image.Size = new System.Drawing.Size(40, 40);
