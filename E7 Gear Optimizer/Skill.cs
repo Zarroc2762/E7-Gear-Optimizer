@@ -187,14 +187,7 @@ namespace E7_Gear_Optimizer
                 }
             }
             dmg *= POW_CONST * damageIncrease;
-            if (enemyDef == 0)
-            {
-                return dmg;
-            }
-            else
-            {
-                return dmg / (enemyDef / 300f + 1);
-            }
+            return dmg / (enemyDef / 300f + 1);
         }
 
         public class UnsupportedDamageModifierException : Exception
