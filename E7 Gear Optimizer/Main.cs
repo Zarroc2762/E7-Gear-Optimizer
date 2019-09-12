@@ -1774,7 +1774,7 @@ namespace E7_Gear_Optimizer
                     }
                     float skillDmg = skill.CalcDamage(stats, false, soulburn, enemyDef);
                     float skillCritDmg = skill.CalcDamage(stats, true, soulburn, enemyDef);
-                    float skillAvgDmg = stats.CritCapped * skillCritDmg + (1 - stats.Crit) * skillDmg;
+                    float skillAvgDmg = stats.CritCapped * skillCritDmg + (1 - stats.CritCapped) * skillDmg;
                     if (iDmg == 2)
                     {
                         e.Value = (int)skillAvgDmg;
@@ -2303,7 +2303,7 @@ namespace E7_Gear_Optimizer
                     values[iCol++] = (int)skillDmg;
                     float skillCritDmg = skill.CalcDamage(heroStats, true, soulburn, enemyDef);
                     values[iCol++] = (int)skillCritDmg;
-                    float skillAvgDmg = heroStats.CritCapped * skillCritDmg + (1 - heroStats.Crit) * skillDmg;
+                    float skillAvgDmg = heroStats.CritCapped * skillCritDmg + (1 - heroStats.CritCapped) * skillDmg;
                     values[iCol++] = (int)skillAvgDmg;
                     float skillAvgDmgSpd = skillAvgDmg * heroStats.SPD / 100;
                     values[iCol++] = (int)skillAvgDmgSpd;
