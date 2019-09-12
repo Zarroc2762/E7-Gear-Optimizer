@@ -409,8 +409,6 @@ namespace E7_Gear_Optimizer
         {
             //clear currently displayed items
             Point cell = dgv_Inventory.CurrentCellAddress;
-            DataGridViewColumn sortColumn = dgv_Inventory.SortedColumn;
-            SortOrder order = dgv_Inventory.SortOrder;
             Item prevSelectedItem = selectedItem;
             dgv_Inventory.SuspendLayout();
             dgv_Inventory.Rows.Clear();
@@ -426,8 +424,7 @@ namespace E7_Gear_Optimizer
             }
             l_ItemCount.Text = filteredList.Count().ToString();
             //restore previous sorting and select previously selected cell
-            if (order != SortOrder.None) dgv_Inventory.Sort(sortColumn, (ListSortDirection)Enum.Parse(typeof(ListSortDirection), order.ToString()));
-            //order of items can change due to change of sortColumn values, so restore selected row by item id
+            sortDataGridView(dgv_Inventory);
             if (cell.X > -1 && cell.Y > -1 && cell.X < dgv_Inventory.ColumnCount && cell.Y < dgv_Inventory.RowCount)
             {
                 //as order can change restore selected cell by selectedItem.ID
@@ -901,11 +898,25 @@ namespace E7_Gear_Optimizer
             Item newItem = new Item(data.incrementItemID(), type, set, grade, ilvl, enh, main, substats.ToArray(), hero, locked);
             hero?.equip(newItem);
             data.Items.Add(newItem);
-            updateItemList();
-            //select the created item if it is displayed with the current filter
+            
+            //add row and select the created item if it is displayed with the current filter
             if ((tc_Inventory.SelectedIndex == 0 || (ItemType)(tc_Inventory.SelectedIndex - 1) == type) && (tc_InventorySets.SelectedIndex == 0 || (Set)(tc_InventorySets.SelectedIndex - 1) == set))
             {
+                dgv_Inventory.Rows.Add(getInventoryRowValues(newItem));
+                sortDataGridView(dgv_Inventory);
                 dgv_Inventory.CurrentCell = dgv_Inventory.Rows.Cast<DataGridViewRow>().Where(x => x.Cells["c_ItemID"].Value.ToString() == newItem.ID).First().Cells[0];
+            }
+        }
+
+        /// <summary>
+        /// Sorts <see cref="DataGridView"/> using previous sorting parameters
+        /// </summary>
+        /// <param name="dgv"></param>
+        private static void sortDataGridView(DataGridView dgv)
+        {
+            if (dgv.SortOrder != SortOrder.None)
+            {
+                dgv.Sort(dgv.SortedColumn, dgv.SortOrder == SortOrder.Ascending ? ListSortDirection.Ascending : ListSortDirection.Descending);
             }
         }
 
@@ -962,13 +973,10 @@ namespace E7_Gear_Optimizer
                 }
 
                 row.SetValues(getInventoryRowValues(item));
-                if (dgv_Inventory.SortOrder != SortOrder.None)
+                sortDataGridView(dgv_Inventory);
+                if (!row.Displayed)
                 {
-                    dgv_Inventory.Sort(dgv_Inventory.SortedColumn, dgv_Inventory.SortOrder == SortOrder.Ascending ? ListSortDirection.Ascending : ListSortDirection.Descending);
-                    if (!row.Displayed)
-                    {
-                        dgv_Inventory.FirstDisplayedScrollingRowIndex = row.Index;
-                    }
+                    dgv_Inventory.FirstDisplayedScrollingRowIndex = row.Index;
                 }
             }
         }
