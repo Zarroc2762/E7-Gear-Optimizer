@@ -133,7 +133,7 @@ namespace E7_Gear_Optimizer
                         }
                     }
                 }
-                damageIncrease = 1 + DamageIncrease / 100;
+                damageIncrease = 1 + DamageIncrease / 100f;
             }
         }
 
