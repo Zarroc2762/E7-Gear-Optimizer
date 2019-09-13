@@ -1931,7 +1931,6 @@ namespace E7_Gear_Optimizer
             }
             optimizePage = 1;
             dgv_OptimizeResults.Refresh();
-            dgv_OptimizeResults.AutoResizeColumns();
             dgv_OptimizeResults.CurrentCell = dgv_OptimizeResults.Rows[0].Cells[e.ColumnIndex];
             if (filteredCombinations.Count > 0)
             {
