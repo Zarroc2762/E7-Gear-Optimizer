@@ -18,6 +18,8 @@ namespace E7_Gear_Optimizer
         public string fileName;
         public bool web;
         public bool append = false;
+        public int ItemsImported;
+        public int HeroesImported;
 
         public Import()
         {
@@ -54,9 +56,11 @@ namespace E7_Gear_Optimizer
                 results = await Task.Run(() => data.importFromThis(fileName, progress, append));
             }
             result = results.Item1;
-            label4.Text = results.Item2.ToString();
-            label5.Text = results.Item3.ToString();
-            button1.Enabled = true;
+            HeroesImported = results.Item2;
+            ItemsImported = results.Item3;
+            label4.Text = HeroesImported.ToString();
+            label5.Text = ItemsImported.ToString();
+            this.Close();
         }
     }
 }
