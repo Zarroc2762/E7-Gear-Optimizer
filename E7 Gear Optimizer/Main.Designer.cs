@@ -2478,7 +2478,7 @@
             // 
             this.nud_ArtifactHealth.Location = new System.Drawing.Point(521, 395);
             this.nud_ArtifactHealth.Maximum = new decimal(new int[] {
-            1000,
+            9999,
             0,
             0,
             0});
@@ -2509,7 +2509,7 @@
             // 
             this.nud_ArtifactAttack.Location = new System.Drawing.Point(408, 395);
             this.nud_ArtifactAttack.Maximum = new decimal(new int[] {
-            1000,
+            9999,
             0,
             0,
             0});
