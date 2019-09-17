@@ -1307,11 +1307,6 @@
             // nud_ILvl
             // 
             this.nud_ILvl.Location = new System.Drawing.Point(933, 474);
-            this.nud_ILvl.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.nud_ILvl.Name = "nud_ILvl";
             this.nud_ILvl.Size = new System.Drawing.Size(50, 20);
             this.nud_ILvl.TabIndex = 11;
@@ -2481,7 +2476,7 @@
             // 
             this.nud_ArtifactHealth.Location = new System.Drawing.Point(521, 395);
             this.nud_ArtifactHealth.Maximum = new decimal(new int[] {
-            1000,
+            9999,
             0,
             0,
             0});
@@ -2512,7 +2507,7 @@
             // 
             this.nud_ArtifactAttack.Location = new System.Drawing.Point(408, 395);
             this.nud_ArtifactAttack.Maximum = new decimal(new int[] {
-            1000,
+            9999,
             0,
             0,
             0});
@@ -5129,6 +5124,7 @@
             this.nud_CritBonus.Size = new System.Drawing.Size(46, 20);
             this.nud_CritBonus.TabIndex = 5;
             this.nud_CritBonus.ValueChanged += new System.EventHandler(this.Nud_CritBonus_ValueChanged);
+            this.nud_CritBonus.Leave += new System.EventHandler(this.Nud_CritBonus_Leave);
             // 
             // pB_Optimize
             // 

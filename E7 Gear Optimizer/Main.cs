@@ -1614,7 +1614,9 @@ namespace E7_Gear_Optimizer
                 IProgress<int> progress = new Progress<int>(x =>
                 {
                     counter += x;
-                    pB_Optimize.Value = (int)(counter / numResults * 100);
+                    var val = counter / numResults * 100;
+                    val = val < 0 ? 0 : val;
+                    pB_Optimize.Value = (int)(val);
                 });
                 pB_Optimize.Show();
                 b_CancelOptimize.Show();
@@ -3122,6 +3124,11 @@ namespace E7_Gear_Optimizer
         private void Tb_BootsFocus_TextChanged(object sender, EventArgs e)
         {
             l_Results.Text = numberOfResults().ToString("#,0");
+        }
+        
+        private void Nud_CritBonus_Leave(object sender, EventArgs e)
+        {
+            nud_CritBonus.Text = nud_CritBonus.Value.ToString();
         }
     }
 }
