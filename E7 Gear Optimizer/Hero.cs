@@ -34,7 +34,11 @@ namespace E7_Gear_Optimizer
         private Dictionary<Stats, float> AwakeningStats { get; set; }
 
         //Cache of Enum.GetValues(typeof(Stats)). Used to iterate over Stats. Greatly increases performance.
-        private static Stats[] statsArrayGeneric = Enum.GetValues(typeof(Stats)).Cast<Stats>().ToArray();
+        public static Stats[] statsArrayGeneric = Enum.GetValues(typeof(Stats)).Cast<Stats>().ToArray();
+
+        private SStats sBaseStats;
+        private SStats sCurrentStats;
+        private SStats sAwakeningStats;
 
         public Hero(string ID, string name, List<Item> gear, Item artifact, int lvl, int awakening)
         {
@@ -307,40 +311,36 @@ namespace E7_Gear_Optimizer
         }
 
         //Calculates the stats from set bonuses with a given set of gear
-        public Dictionary<Stats, float> setBonusStats(List<Set> activeSets)
+        public SStats setBonusStats(List<Set> activeSets)
         {
-            Dictionary<Stats, float> stats = new Dictionary<Stats, float>();
-            foreach (Stats s in statsArrayGeneric)
-            {
-                stats[s] = 0;
-            }
+            SStats stats = new SStats();
             foreach (Set set in activeSets)
             {
                 switch (set)
                 {
                     case Set.Attack:
-                        stats[Stats.ATKPercent] += 0.35f;
+                        stats.ATKPercent += 0.35f;
                         break;
                     case Set.Crit:
-                        stats[Stats.Crit] += 0.12f;
+                        stats.Crit += 0.12f;
                         break;
                     case Set.Def:
-                        stats[Stats.DEFPercent] += 0.15f;
+                        stats.DEFPercent += 0.15f;
                         break;
                     case Set.Destruction:
-                        stats[Stats.CritDmg] += 0.4f;
+                        stats.CritDmg += 0.4f;
                         break;
                     case Set.Health:
-                        stats[Stats.HPPercent] += 0.15f;
+                        stats.HPPercent += 0.15f;
                         break;
                     case Set.Hit:
-                        stats[Stats.EFF] += 0.2f;
+                        stats.EFF += 0.2f;
                         break;
                     case Set.Resist:
-                        stats[Stats.RES] += 0.2f;
+                        stats.RES += 0.2f;
                         break;
                     case Set.Speed:
-                        stats[Stats.SPD] += 0.25f;
+                        stats.SPD += 0.25f;
                         break;
                     default:
                         break;

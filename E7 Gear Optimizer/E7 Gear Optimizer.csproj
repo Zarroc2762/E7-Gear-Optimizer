@@ -50,6 +50,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -112,6 +113,7 @@
       <DependentUpon>Import.cs</DependentUpon>
     </Compile>
     <Compile Include="Item.cs" />
+    <Compile Include="SStats.cs" />
     <Compile Include="updated.cs">
       <SubType>Form</SubType>
     </Compile>
