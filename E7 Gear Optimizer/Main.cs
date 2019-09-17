@@ -1651,7 +1651,9 @@ namespace E7_Gear_Optimizer
                 IProgress<int> progress = new Progress<int>(x =>
                 {
                     counter += x;
-                    pB_Optimize.Value = (int)(counter / numResults * 100);
+                    var val = counter / numResults * 100;
+                    val = val < 0 ? 0 : val;
+                    pB_Optimize.Value = (int)(val);
                 });
                 pB_Optimize.Show();
                 b_CancelOptimize.Show();
