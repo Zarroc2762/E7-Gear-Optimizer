@@ -3116,5 +3116,10 @@ namespace E7_Gear_Optimizer
         {
             Cb4_SpeedTuner_SelectedIndexChanged(null, null);
         }
+
+        private void Nud_CritBonus_Leave(object sender, EventArgs e)
+        {
+            nud_CritBonus.Text = nud_CritBonus.Value.ToString();
+        }
     }
 }
