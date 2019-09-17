@@ -236,7 +236,7 @@ namespace E7_Gear_Optimizer
                 {
                     cb_OptimizeHero.Items.Add(hero.Name + " " + hero.ID);
                 }
-                l_Results.Text = numberOfResults().ToString();
+                l_Results.Text = numberOfResults().ToString("#,0");
                 updatecurrentGear();
             }
             else if (((TabControl)(sender)).SelectedIndex == 4)
@@ -1345,7 +1345,7 @@ namespace E7_Gear_Optimizer
         private void Cb_OptimizeHero_SelectedIndexChanged(object sender, EventArgs e)
         {
             updatecurrentGear();
-            l_Results.Text = numberOfResults().ToString();
+            l_Results.Text = numberOfResults().ToString("#,0");
         }
 
         //Estimate the number of results with the currenty selected criteria. This method only takes account of focus options for right side gear 
@@ -1500,27 +1500,27 @@ namespace E7_Gear_Optimizer
 
         private void Chb_Locked_CheckedChanged(object sender, EventArgs e)
         {
-            l_Results.Text = numberOfResults().ToString();
+            l_Results.Text = numberOfResults().ToString("#,0");
         }
 
         private void Chb_Equipped_CheckedChanged(object sender, EventArgs e)
         {
-            l_Results.Text = numberOfResults().ToString();
+            l_Results.Text = numberOfResults().ToString("#,0");
         }
 
         private void Cb_NecklaceFocus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            l_Results.Text = numberOfResults().ToString();
+            l_Results.Text = numberOfResults().ToString("#,0");
         }
 
         private void Cb_RingFocus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            l_Results.Text = numberOfResults().ToString();
+            l_Results.Text = numberOfResults().ToString("#,0");
         }
 
         private void Cb_BootsFocus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            l_Results.Text = numberOfResults().ToString();
+            l_Results.Text = numberOfResults().ToString("#,0");
         }
 
         //Filter the items based on the selected focus options and whether equipped/locked gear is used. Then executes an asynchronous call to the calculate method
@@ -1643,6 +1643,10 @@ namespace E7_Gear_Optimizer
                 }
 
                 long numResults = weapons.Count * helmets.Count * armors.Count * necklaces.Count * rings.Count * boots.Count;
+                if (numResults == 0)
+                {
+                    return;
+                }
                 float counter = 0;
                 IProgress<int> progress = new Progress<int>(x =>
                 {
@@ -2666,7 +2670,7 @@ namespace E7_Gear_Optimizer
                 values[12] = (int)values[11] * (int)values[1] / 100;
                 values[13] = (int)((hero.CurrentStats[Stats.ATK] * (1 - crit)) + (hero.CurrentStats[Stats.ATK] * crit * hero.CurrentStats[Stats.CritDmg]));
                 values[14] = (int)values[13] * (int)values[1] / 100;
-                l_Results.Text = numberOfResults().ToString();
+                l_Results.Text = numberOfResults().ToString("#,0");
             }
             else
             {
@@ -2796,7 +2800,7 @@ namespace E7_Gear_Optimizer
                     forceStats[stat] = (forceStats[stat].Item1, float.MaxValue);
                 }
             }
-            l_Results.Text = numberOfResults().ToString();
+            l_Results.Text = numberOfResults().ToString("#,0");
         }
 
         private void tc_InventorySets_SelectedIndexChanged(object sender, EventArgs e)
@@ -2863,7 +2867,7 @@ namespace E7_Gear_Optimizer
                 values[12] = (int)values[11] * (int)values[1] / 100;
                 values[13] = (int)((hero.CurrentStats[Stats.ATK] * (1 - crit)) + (hero.CurrentStats[Stats.ATK] * crit * hero.CurrentStats[Stats.CritDmg]));
                 values[14] = (int)values[13] * (int)values[1] / 100;
-                l_Results.Text = numberOfResults().ToString();
+                l_Results.Text = numberOfResults().ToString("#,0");
                 dgv_CurrentGear.Rows.Add(values);
             }
         }
@@ -2998,7 +3002,7 @@ namespace E7_Gear_Optimizer
 
         private void Nud_EnhanceFocus_ValueChanged(object sender, EventArgs e)
         {
-            l_Results.Text = numberOfResults().ToString();
+            l_Results.Text = numberOfResults().ToString("#,0");
         }
 
         private void B_CancelOptimize_Click(object sender, EventArgs e)
