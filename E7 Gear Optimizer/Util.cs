@@ -106,9 +106,8 @@ namespace E7_Gear_Optimizer
             [ItemType.Ring] = new List<Stats>() { Stats.Crit, Stats.CritDmg, Stats.DEF, Stats.DEFPercent, Stats.EFF, Stats.HP, Stats.HPPercent, Stats.RES, Stats.SPD, Stats.ATK, Stats.ATKPercent },
             [ItemType.Boots] = new List<Stats>() { Stats.Crit, Stats.CritDmg, Stats.DEF, Stats.DEFPercent, Stats.EFF, Stats.HP, Stats.HPPercent, Stats.RES, Stats.SPD, Stats.ATK, Stats.ATKPercent }
         };
-
-        //Cache of Enum.GetValues(typeof(Set)). Used to iterate over sets. Greatly increases performance.
-        private static Set[] setsArrayGeneric = Enum.GetValues(typeof(Set)).Cast<Set>().ToArray();
+        //Cached value of Set enum length to use in arrays' initializations instead of magic number
+        public static readonly int SETS_LENGTH = Enum.GetValues(typeof(Set)).Length;
 
         public static Bitmap ResizeImage(Image image, int width, int height)
         {
@@ -170,32 +169,83 @@ namespace E7_Gear_Optimizer
             Stats.RES
         };
 
-        public static List<Set> fourPieceSets = new List<Set>() { Set.Attack, Set.Destruction, Set.Lifesteal, Set.Rage, Set.Speed, Set.Counter };
+        public static HashSet<Set> fourPieceSets = new HashSet<Set>() { Set.Attack, Set.Destruction, Set.Lifesteal, Set.Rage, Set.Speed, Set.Counter };
+
+        //Faster alternative to fourPieceSets.Contains() or Dictionary<Set, bool> to determine if a set is 4-piece set. Each index represents (int)Set
+        private static readonly bool[] isFourPieceSetArray;
+
+        static Util()
+        {
+            isFourPieceSetArray = new bool[SETS_LENGTH];
+            for (int i = 0; i < isFourPieceSetArray.Length; i++)
+            {
+                isFourPieceSetArray[i] = fourPieceSets.Contains((Set)i);
+            }
+        }
 
         //Calculate the active Sets in a given gear combination
-        public static List<Set> activeSet(List<Item> gear)
+        public static List<Set> activeSet(IEnumerable<Item> gear)
         {
-            List<Set> activeSets = new List<Set>();
-            Dictionary<Set, int> setCounter = new Dictionary<Set, int>();
-            foreach (Set s in setsArrayGeneric)
-            {
-                setCounter[s] = 0;
-            }
+            Dictionary<Set, int> setCounter = new Dictionary<Set, int>(6);
             foreach (Item item in gear)
             {
-                setCounter[item.Set] += 1;
+                updateSetCounter(setCounter, item);
             }
-            foreach (Set set in setsArrayGeneric)
+            return activeSet(setCounter);
+        }
+
+        public static void updateSetCounter(Dictionary<Set, int> setCounter, Item item)
+        {
+            if (setCounter.ContainsKey(item.Set))
             {
-                if (Util.fourPieceSets.Contains(set) && setCounter[set] / 4 > 0)
+                setCounter[item.Set]++;
+            }
+            else
+            {
+                setCounter.Add(item.Set, 1);
+            }
+        }
+
+        public static List<Set> activeSet(Dictionary<Set, int> setCounter)
+        {
+            List<Set> activeSets = new List<Set>(3);
+            foreach (var setCount in setCounter)
+            {
+                bool isFourPieceSet = isFourPieceSetArray[(int)setCount.Key];
+                if (isFourPieceSet && setCount.Value / 4 > 0)
                 {
-                    activeSets.Add(set);
+                    activeSets.Add(setCount.Key);
                 }
-                else if (!Util.fourPieceSets.Contains(set))
+                else if (!isFourPieceSet)
                 {
-                    for (int i = 0; i < setCounter[set] / 2; i++)
+                    for (int i = 0; i < setCount.Value / 2; i++)
                     {
-                        activeSets.Add(set);
+                        activeSets.Add(setCount.Key);
+                    }
+                }
+            }
+            return activeSets;
+        }
+
+        public static List<Set> activeSet(int[] setCounter)
+        {
+            List<Set> activeSets = new List<Set>();
+            for (int iSet = 0; iSet < setCounter.Length; iSet++)
+            {
+                if (setCounter[iSet] == 0)
+                {
+                    continue;
+                }
+                bool isFourPieceSet = isFourPieceSetArray[iSet];
+                if (isFourPieceSet && setCounter[iSet] / 4 > 0)
+                {
+                    activeSets.Add((Set)iSet);
+                }
+                else if (!isFourPieceSet)
+                {
+                    for (int i = 0; i < setCounter[iSet] / 2; i++)
+                    {
+                        activeSets.Add((Set)iSet);
                     }
                 }
             }

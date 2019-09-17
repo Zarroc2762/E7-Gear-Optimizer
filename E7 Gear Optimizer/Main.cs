@@ -23,7 +23,7 @@ namespace E7_Gear_Optimizer
     {
         private Data data = new Data();
         private bool Locked = false;
-        List<(List<Item>, List<(Stats, float)>)> combinations = new List<(List<Item>, List<(Stats, float)>)>();
+        List<(Item[], SStats)> combinations = new List<(Item[], SStats)>();
         List<int> filteredCombinations = new List<int>();
         int optimizePage = 1;
         int sortColumn = -1;
@@ -1618,58 +1618,30 @@ namespace E7_Gear_Optimizer
                 });
                 pB_Optimize.Show();
                 b_CancelOptimize.Show();
-                //combinations = await Task.Run(() => calculate(weapons, helmets, armors, necklaces, rings, boots, hero, filter, setFocus, progress));
-                List<Task<List<(List<Item>, List<(Stats, float)>)>>> tasks = new List<Task<List<(List<Item>, List<(Stats, float)>)>>>();
+                List<Task<List<(Item[], SStats)>>> tasks = new List<Task<List<(Item[], SStats)>>>();
                 tokenSource = new CancellationTokenSource();
-                Dictionary<Stats, float> itemStats = new Dictionary<Stats, float>();
-                Dictionary<Stats, float> heroStats = hero.calcStatsWithoutGear((float)nud_CritBonus.Value / 100f);
-                foreach (Stats s in Enum.GetValues(typeof(Stats)))
-                {
-                    itemStats[s] = 0;
-                }
+                SStats sHeroStats = new SStats(hero.calcStatsWithoutGear((float)nud_CritBonus.Value / 100f));
+                SStats sItemStats = new SStats();
+                Dictionary<Stats, (float, float)> optimizedFilterStats = optimizeFilterStats();
                 foreach (Item w in weapons)
                 {
-                    itemStats[w.Main.Name] += w.Main.Value;
-                    foreach (Stat stat in w.SubStats)
-                    {
-                        itemStats[stat.Name] += stat.Value;
-                    }
+                    sItemStats.Add(w.AllStats);
                     foreach (Item h in helmets)
                     {
-                        itemStats[h.Main.Name] += h.Main.Value;
-                        foreach (Stat stat in h.SubStats)
-                        {
-                            itemStats[stat.Name] += stat.Value;
-                        }
+                        sItemStats.Add(h.AllStats);
                         foreach (Item a in armors)
                         {
-                            itemStats[a.Main.Name] += a.Main.Value;
-                            foreach (Stat stat in a.SubStats)
-                            {
-                                itemStats[stat.Name] += stat.Value;
-                            }
+                            sItemStats.Add(a.AllStats);
 
-                            Dictionary<Stats,float> temp = new Dictionary<Stats, float>(itemStats);
+                            SStats sItemStatsTemp = new SStats(sItemStats);
 
-                            tasks.Add(Task.Run(() => calculate(w, h, a, necklaces, rings, boots, hero, heroStats, filterStats, setFocus, progress, temp, cb_Broken.Checked, tokenSource.Token), tokenSource.Token));
+                            tasks.Add(Task.Run(() => calculate(w, h, a, necklaces, rings, boots, hero, sHeroStats, optimizedFilterStats, setFocus, progress, sItemStatsTemp, cb_Broken.Checked, tokenSource.Token), tokenSource.Token));
 
-                            itemStats[a.Main.Name] -= a.Main.Value;
-                            foreach (Stat stat in a.SubStats)
-                            {
-                                itemStats[stat.Name] -= stat.Value;
-                            }
+                            sItemStats.Subtract(a.AllStats);
                         }
-                        itemStats[h.Main.Name] -= h.Main.Value;
-                        foreach (Stat stat in h.SubStats)
-                        {
-                            itemStats[stat.Name] -= stat.Value;
-                        }
+                        sItemStats.Subtract(h.AllStats);
                     }
-                    itemStats[w.Main.Name] -= w.Main.Value;
-                    foreach (Stat stat in w.SubStats)
-                    {
-                        itemStats[stat.Name] -= stat.Value;
-                    }
+                    sItemStats.Subtract(w.AllStats);
                 }
                 try
                 {
@@ -1699,40 +1671,37 @@ namespace E7_Gear_Optimizer
 
         //Calculate all possible gear combinations and check whether they satisfy the given filters
 
-        private static List<(List<Item>, List<(Stats, float)>)> calculate(Item weapon, Item helmet,
+        private static List<(Item[], SStats)> calculate(Item weapon, Item helmet,
                                                                         Item armor, List<Item> necklaces,
                                                                         List<Item> rings, List<Item> boots, Hero hero, 
-                                                                        Dictionary<Stats, float> stats,
+                                                                        SStats sStats,
                                                                         Dictionary<Stats, (float, float)> filter, List<Set> setFocus,
-                                                                        IProgress<int> progress, Dictionary<Stats, float> itemStats,
+                                                                        IProgress<int> progress, SStats sItemStats,
                                                                         bool brokenSets, CancellationToken ct)
         {
-            List<(List<Item>, List<(Stats, float)>)> combinations = new List<(List<Item>, List<(Stats, float)>)>();
+            List<(Item[], SStats)> combinations = new List<(Item[], SStats)>();
+            int[] setCounter = new int[Util.SETS_LENGTH];
+            setCounter[(int)weapon.Set]++;
+            setCounter[(int)helmet.Set]++;
+            setCounter[(int)armor.Set]++;
             int count = 0;
             foreach (Item n in necklaces)
             {
-                itemStats[n.Main.Name] += n.Main.Value;
-                foreach (Stat stat in n.SubStats)
-                {
-                    itemStats[stat.Name] += stat.Value;
-                }
+                sItemStats.Add(n.AllStats);
+                setCounter[(int)n.Set]++;
                 foreach (Item r in rings)
                 {
-                    itemStats[r.Main.Name] += r.Main.Value;
-                    foreach (Stat stat in r.SubStats)
-                    {
-                        itemStats[stat.Name] += stat.Value;
-                    }
+                    sItemStats.Add(r.AllStats);
+                    setCounter[(int)r.Set]++;
                     foreach (Item b in boots)
                     {
+                        sItemStats.Add(b.AllStats);
+                        setCounter[(int)b.Set]++;
+
                         ct.ThrowIfCancellationRequested();
-                        itemStats[b.Main.Name] += b.Main.Value;
-                        foreach (Stat stat in b.SubStats)
-                        {
-                            itemStats[stat.Name] += stat.Value;
-                        }
-                        List<Item> items = new List<Item> { weapon, helmet, armor, n, r, b };
-                        List<Set> activeSets = Util.activeSet(items);
+
+                        List<Set> activeSets = Util.activeSet(setCounter);
+
                         bool valid = true;
                         foreach (Set s in setFocus)
                         {
@@ -1744,71 +1713,47 @@ namespace E7_Gear_Optimizer
                         }
                         if (valid)
                         {
-                            Dictionary<Stats, float> setBonusStats = hero.setBonusStats(activeSets);
-                            Dictionary<Stats, float> calculatedStats = new Dictionary<Stats, float>();
-                            calculatedStats[Stats.ATK] = (stats[Stats.ATK] * (1 + itemStats[Stats.ATKPercent] + setBonusStats[Stats.ATKPercent])) + itemStats[Stats.ATK] + hero.Artifact.SubStats[0].Value;
-                            calculatedStats[Stats.HP] = (stats[Stats.HP] * (1 + itemStats[Stats.HPPercent] + setBonusStats[Stats.HPPercent])) + itemStats[Stats.HP] + hero.Artifact.SubStats[1].Value;
-                            calculatedStats[Stats.DEF] = (stats[Stats.DEF] * (1 + itemStats[Stats.DEFPercent] + setBonusStats[Stats.DEFPercent])) + itemStats[Stats.DEF];
-                            calculatedStats[Stats.SPD] = (stats[Stats.SPD] * (1 + setBonusStats[Stats.SPD])) + itemStats[Stats.SPD];
-                            calculatedStats[Stats.Crit] = stats[Stats.Crit] + itemStats[Stats.Crit] + setBonusStats[Stats.Crit];
-                            calculatedStats[Stats.CritDmg] = stats[Stats.CritDmg] + itemStats[Stats.CritDmg] + setBonusStats[Stats.CritDmg];
-                            calculatedStats[Stats.EFF] = stats[Stats.EFF] + itemStats[Stats.EFF] + setBonusStats[Stats.EFF];
-                            calculatedStats[Stats.RES] = stats[Stats.RES] + itemStats[Stats.RES] + setBonusStats[Stats.RES];
-                            calculatedStats[Stats.EHP] = calculatedStats[Stats.HP] * (1 + (calculatedStats[Stats.DEF] / 300));
-                            calculatedStats[Stats.HPpS] = calculatedStats[Stats.HP] * calculatedStats[Stats.SPD] / 100;
-                            calculatedStats[Stats.EHPpS] = calculatedStats[Stats.EHP] * calculatedStats[Stats.SPD] / 100;
-                            float crit = calculatedStats[Stats.Crit] > 1 ? 1 : calculatedStats[Stats.Crit];
-                            calculatedStats[Stats.DMG] = (calculatedStats[Stats.ATK] * (1 - crit)) + (calculatedStats[Stats.ATK] * crit * calculatedStats[Stats.CritDmg]);
-                            calculatedStats[Stats.DMGpS] = calculatedStats[Stats.DMG] * calculatedStats[Stats.SPD] / 100;
-                            /*valid = valid && calculatedStats[Stats.ATK] >= filter[0].Item1 && calculatedStats[Stats.ATK] <= filter[0].Item2;
-                            valid = valid && calculatedStats[Stats.SPD] >= filter[1].Item1 && calculatedStats[Stats.SPD] <= filter[1].Item2;
-                            valid = valid && calculatedStats[Stats.Crit] >= filter[2].Item1 && calculatedStats[Stats.Crit] <= filter[2].Item2;
-                            valid = valid && calculatedStats[Stats.CritDmg] >= filter[3].Item1 && calculatedStats[Stats.CritDmg] <= filter[3].Item2;
-                            valid = valid && calculatedStats[Stats.HP] >= filter[4].Item1 && calculatedStats[Stats.HP] <= filter[4].Item2;
-                            valid = valid && calculatedStats[Stats.DEF] >= filter[5].Item1 && calculatedStats[Stats.DEF] <= filter[5].Item2;
-                            valid = valid && calculatedStats[Stats.EFF] >= filter[6].Item1 && calculatedStats[Stats.EFF] <= filter[6].Item2;
-                            valid = valid && calculatedStats[Stats.RES] >= filter[7].Item1 && calculatedStats[Stats.RES] <= filter[7].Item2;
-                            valid = valid && calculatedStats[Stats.EHP] >= filter[8].Item1 && calculatedStats[Stats.EHP] <= filter[8].Item2;
-                            valid = valid && calculatedStats[Stats.DMG] >= filter[9].Item1 && calculatedStats[Stats.DMG] <= filter[9].Item2;*/
-
-                            foreach (KeyValuePair<Stats, float> stat in calculatedStats)
-                            {
-                                valid = valid && filter[stat.Key].Item1 <= stat.Value && filter[stat.Key].Item2 >= stat.Value;
-                            }
-
+                            SStats setBonusStats = hero.setBonusStats(activeSets);
+                            SStats calculatedStats = new SStats();
+                            calculatedStats.ATK = (sStats.ATK * (1 + sItemStats.ATKPercent + setBonusStats.ATKPercent)) + sItemStats.ATK + hero.Artifact.SubStats[0].Value;
+                            calculatedStats.HP = (sStats.HP * (1 + sItemStats.HPPercent + setBonusStats.HPPercent)) + sItemStats.HP + hero.Artifact.SubStats[1].Value;
+                            calculatedStats.DEF = (sStats.DEF * (1 + sItemStats.DEFPercent + setBonusStats.DEFPercent)) + sItemStats.DEF;
+                            calculatedStats.SPD = (sStats.SPD * (1 + setBonusStats.SPD)) + sItemStats.SPD;
+                            calculatedStats.Crit = sStats.Crit + sItemStats.Crit + setBonusStats.Crit;
+                            calculatedStats.CritDmg = sStats.CritDmg + sItemStats.CritDmg + setBonusStats.CritDmg;
+                            calculatedStats.EFF = sStats.EFF + sItemStats.EFF + setBonusStats.EFF;
+                            calculatedStats.RES = sStats.RES + sItemStats.RES + setBonusStats.RES;
+                            valid = valid && checkFilter(calculatedStats, filter);
                             if (valid)
                             {
-                                List<(Stats, float)> statList = new List<(Stats, float)>();
-                                foreach(Stats s in calculatedStats.Keys)
-                                {
-                                    statList.Add((s, calculatedStats[s]));
-                                }
-                                combinations.Add((new List<Item> { weapon, helmet, armor, n, r, b }, statList));
+                                combinations.Add((new[] { weapon, helmet, armor, n, r, b }, calculatedStats));
                             }
                         }
                         count++;
-                        itemStats[b.Main.Name] -= b.Main.Value;
-                        foreach (Stat stat in b.SubStats)
-                        {
-                            itemStats[stat.Name] -= stat.Value;
-                        }
+                        sItemStats.Subtract(b.AllStats);
+                        setCounter[(int)b.Set]--;
                     }
-
-                    itemStats[r.Main.Name] -= r.Main.Value;
-                    foreach (Stat stat in r.SubStats)
-                    {
-                        itemStats[stat.Name] -= stat.Value;
-                    }
+                    sItemStats.Subtract(r.AllStats);
+                    setCounter[(int)r.Set]--;
                 }
-
-                itemStats[n.Main.Name] -= n.Main.Value;
-                foreach (Stat stat in n.SubStats)
-                {
-                    itemStats[stat.Name] -= stat.Value;
-                }
+                sItemStats.Subtract(n.AllStats);
+                setCounter[(int)n.Set]--;
             }
             progress.Report(count);
             return combinations;
+        }
+
+        private Dictionary<Stats, (float, float)> optimizeFilterStats()
+        {
+            Dictionary<Stats, (float, float)> stats = new Dictionary<Stats, (float, float)>();
+            foreach (var pair in filterStats)
+            {
+                if (pair.Value.Item1 > 0 || pair.Value.Item2 < float.MaxValue)
+                {
+                    stats.Add(pair.Key, pair.Value);
+                }
+            }
+            return stats;
         }
 
         //Get the value for the current cell depending on which page of results is displayed
@@ -1824,31 +1769,31 @@ namespace E7_Gear_Optimizer
                 switch (e.ColumnIndex)
                 {
                     case 0:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.ATK).Item2;
+                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.ATK;
                         break;
                     case 1:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.SPD).Item2;
+                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.SPD;
                         break;
                     case 2:
-                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.Crit).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                         break;
                     case 3:
-                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.CritDmg).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.CritDmg.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                         break;
                     case 4:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.HP).Item2;
+                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.HP;
                         break;
                     case 5:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.HPpS).Item2;
+                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.HPpS;
                         break;
                     case 6:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.DEF).Item2;
+                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.DEF;
                         break;
                     case 7:
-                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.EFF).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.EFF.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                         break;
                     case 8:
-                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.RES).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.RES.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                         break;
                     case 9:
                         int count = 0;
@@ -1880,16 +1825,16 @@ namespace E7_Gear_Optimizer
                         }
                         break;
                     case 11:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.EHP).Item2;
+                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.EHP;
                         break;
                     case 12:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.EHPpS).Item2;
+                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.EHPpS;
                         break;
                     case 13:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.DMG).Item2;
+                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.DMG;
                         break;
                     case 14:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Find(x => x.Item1 == Stats.DMGpS).Item2;
+                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.DMGpS;
                         break;
 
                 }
@@ -1899,31 +1844,31 @@ namespace E7_Gear_Optimizer
                 switch (e.ColumnIndex)
                 {
                     case 0:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.ATK).Item2;
+                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.ATK;
                         break;
                     case 1:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.SPD).Item2;
+                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.SPD;
                         break;
                     case 2:
-                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.Crit).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                         break;
                     case 3:
-                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.CritDmg).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.CritDmg.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                         break;
                     case 4:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.HP).Item2;
+                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.HP;
                         break;
                     case 5:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.HPpS).Item2;
+                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.HPpS;
                         break;
                     case 6:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.DEF).Item2;
+                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.DEF;
                         break;
                     case 7:
-                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.EFF).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.EFF.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                         break;
                     case 8:
-                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.RES).Item2.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.RES.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                         break;
                     case 9:
                         int count = 0;
@@ -1955,16 +1900,16 @@ namespace E7_Gear_Optimizer
                         }
                         break;
                     case 11:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.EHP).Item2;
+                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.EHP;
                         break;
                     case 12:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.EHPpS).Item2;
+                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.EHPpS;
                         break;
                     case 13:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.DMG).Item2;
+                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.DMG;
                         break;
                     case 14:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Find(x => x.Item1 == Stats.DMGpS).Item2;
+                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.DMGpS;
                         break;
                 }
             }
@@ -2036,108 +1981,108 @@ namespace E7_Gear_Optimizer
                 case 0:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.ATK).Item2).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.ATK).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.ATK).Item2).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.ATK).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 1:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.SPD).Item2).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.SPD).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.SPD).Item2).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.SPD).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 2:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.Crit).Item2).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.Crit).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.Crit).Item2).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.Crit).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 3:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.CritDmg).Item2).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.CritDmg).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.CritDmg).Item2).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.CritDmg).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 4:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.HP).Item2).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.HP).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.HP).Item2).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.HP).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 5:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.HPpS).Item2).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.HPpS).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.HPpS).Item2).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.HPpS).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 6:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.DEF).Item2).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.DEF).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.DEF).Item2).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.DEF).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 7:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.EFF).Item2).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.EFF).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.EFF).Item2).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.EFF).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 8:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.RES).Item2).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.RES).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.RES).Item2).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.RES).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
@@ -2148,48 +2093,48 @@ namespace E7_Gear_Optimizer
                 case 11:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.EHP).Item2).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.EHP).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.EHP).Item2).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.EHP).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 12:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.EHPpS).Item2).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.EHPpS).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.EHPpS).Item2).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.EHPpS).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 13:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.DMG).Item2).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.DMG).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.DMG).Item2).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.DMG).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
                 case 14:
                     if (sortColumn == e.ColumnIndex)
                     {
-                        combinations = combinations.OrderBy(x => x.Item2.Find(y => y.Item1 == Stats.DMGpS).Item2).ToList();
+                        combinations = combinations.OrderBy(x => x.Item2.DMGpS).ToList();
                         sortColumn = -1;
                     }
                     else
                     {
-                        combinations = combinations.OrderByDescending(x => x.Item2.Find(y => y.Item1 == Stats.DMGpS).Item2).ToList();
+                        combinations = combinations.OrderByDescending(x => x.Item2.DMGpS).ToList();
                         sortColumn = e.ColumnIndex;
                     }
                     break;
@@ -2221,11 +2166,11 @@ namespace E7_Gear_Optimizer
                 List<Item> items;
                 if (filteredCombinations.Count > 0)
                 {
-                    items = combinations[filteredCombinations[e.RowIndex + ((optimizePage - 1) * 100)]].Item1;
+                    items = combinations[filteredCombinations[e.RowIndex + ((optimizePage - 1) * 100)]].Item1.ToList();
                 }
                 else
                 {
-                    items = combinations[e.RowIndex + ((optimizePage - 1) * 100)].Item1;
+                    items = combinations[e.RowIndex + ((optimizePage - 1) * 100)].Item1.ToList();
                 }
                 Item item = items.Find(x => x.Type == ItemType.Weapon);
                 if (item != null)
@@ -2500,11 +2445,11 @@ namespace E7_Gear_Optimizer
             List<Item> items;
             if (filteredCombinations.Count > 0)
             {
-                items = combinations[filteredCombinations[dgv_OptimizeResults.SelectedCells[0].RowIndex + ((optimizePage - 1) * 100)]].Item1;
+                items = combinations[filteredCombinations[dgv_OptimizeResults.SelectedCells[0].RowIndex + ((optimizePage - 1) * 100)]].Item1.ToList();
             }
             else
             {
-                items = combinations[dgv_OptimizeResults.SelectedCells[0].RowIndex + ((optimizePage - 1) * 100)].Item1;
+                items = combinations[dgv_OptimizeResults.SelectedCells[0].RowIndex + ((optimizePage - 1) * 100)].Item1.ToList();
             }
             Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split(' ').Last());
             if (hero != optimizeHero)
@@ -2897,12 +2842,57 @@ namespace E7_Gear_Optimizer
             
         }
 
-        private bool checkFilter ((List<Item>, List<(Stats, float)>) x)
+        private static bool checkFilter (SStats stats, Dictionary<Stats, (float, float)> filterStats)
         {
             bool valid = true;
-            foreach ((Stats, float) stat in x.Item2)
+            foreach (KeyValuePair<Stats, (float, float)> stat in filterStats)
             {
-                valid = valid && filterStats[stat.Item1].Item1 <= stat.Item2 && filterStats[stat.Item1].Item2 >= stat.Item2;
+                switch (stat.Key)
+                {
+                    case Stats.ATK:
+                        valid = stat.Value.Item1 <= stats.ATK && stat.Value.Item2 >= stats.ATK;
+                        break;
+                    case Stats.HP:
+                        valid = stat.Value.Item1 <= stats.HP && stat.Value.Item2 >= stats.HP;
+                        break;
+                    case Stats.DEF:
+                        valid = stat.Value.Item1 <= stats.DEF && stat.Value.Item2 >= stats.DEF;
+                        break;
+                    case Stats.SPD:
+                        valid = stat.Value.Item1 <= stats.SPD && stat.Value.Item2 >= stats.SPD;
+                        break;
+                    case Stats.Crit:
+                        valid = stat.Value.Item1 <= stats.Crit && stat.Value.Item2 >= stats.Crit;
+                        break;
+                    case Stats.CritDmg:
+                        valid = stat.Value.Item1 <= stats.CritDmg && stat.Value.Item2 >= stats.CritDmg;
+                        break;
+                    case Stats.EFF:
+                        valid = stat.Value.Item1 <= stats.EFF && stat.Value.Item2 >= stats.EFF;
+                        break;
+                    case Stats.RES:
+                        valid = stat.Value.Item1 <= stats.RES && stat.Value.Item2 >= stats.RES;
+                        break;
+                    case Stats.EHP:
+                        valid = stat.Value.Item1 <= stats.EHP && stat.Value.Item2 >= stats.EHP;
+                        break;
+                    case Stats.HPpS:
+                        valid = stat.Value.Item1 <= stats.HPpS && stat.Value.Item2 >= stats.HPpS;
+                        break;
+                    case Stats.EHPpS:
+                        valid = stat.Value.Item1 <= stats.EHPpS && stat.Value.Item2 >= stats.EHPpS;
+                        break;
+                    case Stats.DMG:
+                        valid = stat.Value.Item1 <= stats.DMG && stat.Value.Item2 >= stats.DMG;
+                        break;
+                    case Stats.DMGpS:
+                        valid = stat.Value.Item1 <= stats.DMGpS && stat.Value.Item2 >= stats.DMGpS;
+                        break;
+                }
+                if (!valid)
+                {
+                    return false;
+                }
             }
             return valid;
         }
@@ -2912,7 +2902,7 @@ namespace E7_Gear_Optimizer
             filteredCombinations.Clear();
             for (int i = 0; i < combinations.Count; i++)
             {
-                if (checkFilter(combinations[i]))
+                if (checkFilter(combinations[i].Item2, filterStats))
                 {
                     filteredCombinations.Add(i);
                 }

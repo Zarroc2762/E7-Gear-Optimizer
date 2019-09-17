@@ -16,6 +16,7 @@ namespace E7_Gear_Optimizer
         private int enhance;
         private Stat main;
         private Stat[] subStats;
+        public SStats AllStats { get; set; } = new SStats();
         private float wss;
         public bool Locked { get; set; }
         public Hero Equipped { get; set; }
@@ -32,6 +33,10 @@ namespace E7_Gear_Optimizer
             this.subStats = subStats;
             Equipped = equipped;
             Locked = locked;
+
+            AllStats.SetStat(main);
+            AllStats.SetStats(subStats);
+
             calcWSS();
         }
 
@@ -63,8 +68,24 @@ namespace E7_Gear_Optimizer
                 }
             }
         }
-        public Stat Main { get => main; set => main = value; }
-        public Stat[] SubStats { get => subStats; set => subStats = value; }
+        public Stat Main
+        {
+            get => main;
+            set
+            {
+                main = value;
+                AllStats.SetStat(main);
+            }
+        }
+        public Stat[] SubStats
+        {
+            get => subStats;
+            set
+            {
+                subStats = value;
+                AllStats.SetStats(subStats);
+            }
+        }
 
         public float WSS { get => wss; }
 
