@@ -342,15 +342,18 @@
             this.tb_Optimize = new System.Windows.Forms.TabPage();
             this.label38 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.b_BootsFocus = new System.Windows.Forms.Button();
+            this.tb_BootsFocus = new System.Windows.Forms.TextBox();
+            this.b_RingFocus = new System.Windows.Forms.Button();
+            this.tb_RingFocus = new System.Windows.Forms.TextBox();
+            this.b_NecklaceFocus = new System.Windows.Forms.Button();
+            this.tb_NecklaceFocus = new System.Windows.Forms.TextBox();
             this.cb_Broken = new System.Windows.Forms.CheckBox();
             this.label39 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.nud_EnhanceFocus = new System.Windows.Forms.NumericUpDown();
             this.label43 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.cb_NecklaceFocus = new System.Windows.Forms.ComboBox();
-            this.cb_RingFocus = new System.Windows.Forms.ComboBox();
-            this.cb_BootsFocus = new System.Windows.Forms.ComboBox();
             this.label46 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
@@ -1052,7 +1055,7 @@
             // 
             this.nud_Sub4.Location = new System.Drawing.Point(861, 639);
             this.nud_Sub4.Maximum = new decimal(new int[] {
-            2000,
+            9999,
             0,
             0,
             0});
@@ -1094,7 +1097,7 @@
             // 
             this.nud_Sub3.Location = new System.Drawing.Point(805, 639);
             this.nud_Sub3.Maximum = new decimal(new int[] {
-            2000,
+            9999,
             0,
             0,
             0});
@@ -1136,7 +1139,7 @@
             // 
             this.nud_Sub2.Location = new System.Drawing.Point(749, 639);
             this.nud_Sub2.Maximum = new decimal(new int[] {
-            2000,
+            9999,
             0,
             0,
             0});
@@ -1178,7 +1181,7 @@
             // 
             this.nud_Sub1.Location = new System.Drawing.Point(693, 639);
             this.nud_Sub1.Maximum = new decimal(new int[] {
-            2000,
+            9999,
             0,
             0,
             0});
@@ -1230,7 +1233,7 @@
             // 
             this.nud_Main.Location = new System.Drawing.Point(630, 639);
             this.nud_Main.Maximum = new decimal(new int[] {
-            2000,
+            9999,
             0,
             0,
             0});
@@ -1307,11 +1310,6 @@
             // nud_ILvl
             // 
             this.nud_ILvl.Location = new System.Drawing.Point(933, 474);
-            this.nud_ILvl.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.nud_ILvl.Name = "nud_ILvl";
             this.nud_ILvl.Size = new System.Drawing.Size(50, 20);
             this.nud_ILvl.TabIndex = 11;
@@ -2481,7 +2479,7 @@
             // 
             this.nud_ArtifactHealth.Location = new System.Drawing.Point(521, 395);
             this.nud_ArtifactHealth.Maximum = new decimal(new int[] {
-            1000,
+            9999,
             0,
             0,
             0});
@@ -2512,7 +2510,7 @@
             // 
             this.nud_ArtifactAttack.Location = new System.Drawing.Point(408, 395);
             this.nud_ArtifactAttack.Maximum = new decimal(new int[] {
-            1000,
+            9999,
             0,
             0,
             0});
@@ -4358,15 +4356,18 @@
             // 
             this.panel1.Controls.Add(this.nud_LimitResults);
             this.panel1.Controls.Add(this.cb_LimitResults);
+            this.panel1.Controls.Add(this.b_BootsFocus);
+            this.panel1.Controls.Add(this.tb_BootsFocus);
+            this.panel1.Controls.Add(this.b_RingFocus);
+            this.panel1.Controls.Add(this.tb_RingFocus);
+            this.panel1.Controls.Add(this.b_NecklaceFocus);
+            this.panel1.Controls.Add(this.tb_NecklaceFocus);
             this.panel1.Controls.Add(this.cb_Broken);
             this.panel1.Controls.Add(this.label39);
             this.panel1.Controls.Add(this.label41);
             this.panel1.Controls.Add(this.nud_EnhanceFocus);
             this.panel1.Controls.Add(this.label43);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.cb_NecklaceFocus);
-            this.panel1.Controls.Add(this.cb_RingFocus);
-            this.panel1.Controls.Add(this.cb_BootsFocus);
             this.panel1.Controls.Add(this.label46);
             this.panel1.Controls.Add(this.label45);
             this.panel1.Controls.Add(this.label44);
@@ -4381,6 +4382,63 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(207, 309);
             this.panel1.TabIndex = 141;
+            // 
+            // b_BootsFocus
+            // 
+            this.b_BootsFocus.Location = new System.Drawing.Point(159, 69);
+            this.b_BootsFocus.Name = "b_BootsFocus";
+            this.b_BootsFocus.Size = new System.Drawing.Size(24, 22);
+            this.b_BootsFocus.TabIndex = 146;
+            this.b_BootsFocus.Text = "...";
+            this.b_BootsFocus.UseVisualStyleBackColor = true;
+            this.b_BootsFocus.Click += new System.EventHandler(this.B_BootsFocus_Click);
+            // 
+            // tb_BootsFocus
+            // 
+            this.tb_BootsFocus.Location = new System.Drawing.Point(61, 70);
+            this.tb_BootsFocus.Name = "tb_BootsFocus";
+            this.tb_BootsFocus.ReadOnly = true;
+            this.tb_BootsFocus.Size = new System.Drawing.Size(98, 20);
+            this.tb_BootsFocus.TabIndex = 145;
+            this.tb_BootsFocus.TextChanged += new System.EventHandler(this.Tb_BootsFocus_TextChanged);
+            // 
+            // b_RingFocus
+            // 
+            this.b_RingFocus.Location = new System.Drawing.Point(159, 43);
+            this.b_RingFocus.Name = "b_RingFocus";
+            this.b_RingFocus.Size = new System.Drawing.Size(24, 22);
+            this.b_RingFocus.TabIndex = 144;
+            this.b_RingFocus.Text = "...";
+            this.b_RingFocus.UseVisualStyleBackColor = true;
+            this.b_RingFocus.Click += new System.EventHandler(this.B_RingFocus_Click);
+            // 
+            // tb_RingFocus
+            // 
+            this.tb_RingFocus.Location = new System.Drawing.Point(61, 44);
+            this.tb_RingFocus.Name = "tb_RingFocus";
+            this.tb_RingFocus.ReadOnly = true;
+            this.tb_RingFocus.Size = new System.Drawing.Size(98, 20);
+            this.tb_RingFocus.TabIndex = 143;
+            this.tb_RingFocus.TextChanged += new System.EventHandler(this.Tb_RingFocus_TextChanged);
+            // 
+            // b_NecklaceFocus
+            // 
+            this.b_NecklaceFocus.Location = new System.Drawing.Point(159, 16);
+            this.b_NecklaceFocus.Name = "b_NecklaceFocus";
+            this.b_NecklaceFocus.Size = new System.Drawing.Size(24, 22);
+            this.b_NecklaceFocus.TabIndex = 142;
+            this.b_NecklaceFocus.Text = "...";
+            this.b_NecklaceFocus.UseVisualStyleBackColor = true;
+            this.b_NecklaceFocus.Click += new System.EventHandler(this.B_NecklaceFocus);
+            // 
+            // tb_NecklaceFocus
+            // 
+            this.tb_NecklaceFocus.Location = new System.Drawing.Point(61, 17);
+            this.tb_NecklaceFocus.Name = "tb_NecklaceFocus";
+            this.tb_NecklaceFocus.ReadOnly = true;
+            this.tb_NecklaceFocus.Size = new System.Drawing.Size(98, 20);
+            this.tb_NecklaceFocus.TabIndex = 141;
+            this.tb_NecklaceFocus.TextChanged += new System.EventHandler(this.Tb_NecklaceFocus_TextChanged);
             // 
             // cb_Broken
             // 
@@ -4443,59 +4501,6 @@
             this.label10.TabIndex = 137;
             this.label10.Text = "Min Enhance";
             // 
-            // cb_NecklaceFocus
-            // 
-            this.cb_NecklaceFocus.FormattingEnabled = true;
-            this.cb_NecklaceFocus.Items.AddRange(new object[] {
-            "ATK%",
-            "ATK",
-            "Crit",
-            "CritDmg",
-            "HP%",
-            "HP",
-            "DEF%",
-            "DEF"});
-            this.cb_NecklaceFocus.Location = new System.Drawing.Point(61, 18);
-            this.cb_NecklaceFocus.Name = "cb_NecklaceFocus";
-            this.cb_NecklaceFocus.Size = new System.Drawing.Size(121, 21);
-            this.cb_NecklaceFocus.TabIndex = 7;
-            this.cb_NecklaceFocus.SelectedIndexChanged += new System.EventHandler(this.Cb_NecklaceFocus_SelectedIndexChanged);
-            // 
-            // cb_RingFocus
-            // 
-            this.cb_RingFocus.FormattingEnabled = true;
-            this.cb_RingFocus.Items.AddRange(new object[] {
-            "ATK%",
-            "ATK",
-            "HP%",
-            "HP",
-            "DEF%",
-            "DEF",
-            "EFF",
-            "RES"});
-            this.cb_RingFocus.Location = new System.Drawing.Point(61, 44);
-            this.cb_RingFocus.Name = "cb_RingFocus";
-            this.cb_RingFocus.Size = new System.Drawing.Size(121, 21);
-            this.cb_RingFocus.TabIndex = 8;
-            this.cb_RingFocus.SelectedIndexChanged += new System.EventHandler(this.Cb_RingFocus_SelectedIndexChanged);
-            // 
-            // cb_BootsFocus
-            // 
-            this.cb_BootsFocus.FormattingEnabled = true;
-            this.cb_BootsFocus.Items.AddRange(new object[] {
-            "ATK%",
-            "ATK",
-            "SPD",
-            "HP%",
-            "HP",
-            "DEF%",
-            "DEF"});
-            this.cb_BootsFocus.Location = new System.Drawing.Point(61, 70);
-            this.cb_BootsFocus.Name = "cb_BootsFocus";
-            this.cb_BootsFocus.Size = new System.Drawing.Size(121, 21);
-            this.cb_BootsFocus.TabIndex = 9;
-            this.cb_BootsFocus.SelectedIndexChanged += new System.EventHandler(this.Cb_BootsFocus_SelectedIndexChanged);
-            // 
             // label46
             // 
             this.label46.AutoSize = true;
@@ -4544,7 +4549,7 @@
             this.cb_Set1.Name = "cb_Set1";
             this.cb_Set1.Size = new System.Drawing.Size(121, 21);
             this.cb_Set1.TabIndex = 10;
-            this.cb_Set1.SelectedIndexChanged += new System.EventHandler(this.Cb_NecklaceFocus_SelectedIndexChanged);
+            this.cb_Set1.SelectedIndexChanged += new System.EventHandler(this.Chb_Locked_CheckedChanged);
             // 
             // cb_Set2
             // 
@@ -4582,7 +4587,7 @@
             "Counter",
             "Lifesteal",
             "Destruction",
-            "Reist",
+            "Resist",
             "Rage",
             "Immunity",
             "Unity"});
@@ -5124,6 +5129,7 @@
             this.nud_CritBonus.Size = new System.Drawing.Size(46, 20);
             this.nud_CritBonus.TabIndex = 5;
             this.nud_CritBonus.ValueChanged += new System.EventHandler(this.Nud_CritBonus_ValueChanged);
+            this.nud_CritBonus.Leave += new System.EventHandler(this.Nud_CritBonus_Leave);
             // 
             // pB_Optimize
             // 
@@ -8564,9 +8570,6 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.ComboBox cb_BootsFocus;
-        private System.Windows.Forms.ComboBox cb_RingFocus;
-        private System.Windows.Forms.ComboBox cb_NecklaceFocus;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label39;
@@ -8931,6 +8934,12 @@
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.NumericUpDown nud_LimitResults;
         private System.Windows.Forms.CheckBox cb_LimitResults;
+        private System.Windows.Forms.Button b_NecklaceFocus;
+        private System.Windows.Forms.TextBox tb_NecklaceFocus;
+        private System.Windows.Forms.Button b_BootsFocus;
+        private System.Windows.Forms.TextBox tb_BootsFocus;
+        private System.Windows.Forms.Button b_RingFocus;
+        private System.Windows.Forms.TextBox tb_RingFocus;
     }
 }
 

@@ -50,6 +50,9 @@ namespace E7_Gear_Optimizer
 
         private void _redrawDgv()
         {
+            // Store previous sorting options
+            var sortedColumn = dgv_Inventory.SortedColumn;
+            var sortOrder = dgv_Inventory.SortOrder;
             dgv_Inventory.Rows.Clear();
             foreach (Item item in items)
             {
@@ -81,6 +84,10 @@ namespace E7_Gear_Optimizer
                 }
                 values[21] = item.ID;
                 dgv_Inventory.Rows.Add(values);
+            }
+            if (sortedColumn != null)
+            {
+                dgv_Inventory.Sort(sortedColumn, sortOrder == SortOrder.Ascending ? ListSortDirection.Ascending : ListSortDirection.Descending);
             }
         }
 

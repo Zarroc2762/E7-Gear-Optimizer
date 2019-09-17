@@ -91,14 +91,39 @@ namespace E7_Gear_Optimizer
 
         public void calcWSS()
         {
-            wss = AllStats.ATKPercent * 100
-                + AllStats.Crit * 1.5f * 100
-                + AllStats.CritDmg * 100
-                + AllStats.DEFPercent * 100
-                + AllStats.HPPercent * 100
-                + AllStats.EFF * 100
-                + AllStats.RES * 100
-                + AllStats.SPD * 2;
+            wss = 0;
+            foreach (Stat s in subStats)
+            {
+                switch (s.Name)
+                {
+                    case Stats.ATKPercent:
+                        wss += s.Value * 100;
+                        break;
+                    case Stats.Crit:
+                        wss += s.Value * 1.5f * 100;
+                        break;
+                    case Stats.CritDmg:
+                        wss += s.Value * 100;
+                        break;
+                    case Stats.DEFPercent:
+                        wss += s.Value * 100;
+                        break;
+                    case Stats.EFF:
+                        wss += s.Value * 100;
+                        break;
+                    case Stats.HPPercent:
+                        wss += s.Value * 100;
+                        break;
+                    case Stats.RES:
+                        wss += s.Value * 100;
+                        break;
+                    case Stats.SPD:
+                        wss += s.Value * 2;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }

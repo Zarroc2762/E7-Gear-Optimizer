@@ -106,9 +106,8 @@ namespace E7_Gear_Optimizer
             [ItemType.Ring] = new List<Stats>() { Stats.Crit, Stats.CritDmg, Stats.DEF, Stats.DEFPercent, Stats.EFF, Stats.HP, Stats.HPPercent, Stats.RES, Stats.SPD, Stats.ATK, Stats.ATKPercent },
             [ItemType.Boots] = new List<Stats>() { Stats.Crit, Stats.CritDmg, Stats.DEF, Stats.DEFPercent, Stats.EFF, Stats.HP, Stats.HPPercent, Stats.RES, Stats.SPD, Stats.ATK, Stats.ATKPercent }
         };
-
-        //Cache of Enum.GetValues(typeof(Set)). Used to iterate over sets. Greatly increases performance.
-        public static Set[] setsArrayGeneric = Enum.GetValues(typeof(Set)).Cast<Set>().ToArray();
+        //Cached value of Set enum length to use in arrays' initializations instead of magic number
+        public static readonly int SETS_LENGTH = Enum.GetValues(typeof(Set)).Length;
 
         public static Bitmap ResizeImage(Image image, int width, int height)
         {
@@ -172,8 +171,17 @@ namespace E7_Gear_Optimizer
 
         public static HashSet<Set> fourPieceSets = new HashSet<Set>() { Set.Attack, Set.Destruction, Set.Lifesteal, Set.Rage, Set.Speed, Set.Counter };
 
-        //HACK: Speed, Hit, Crit, Def, Health, Attack, Counter, Lifesteal, Destruction, Resist, Rage, Immunity, Unity
-        private static bool[] isFourPieceSetArray = new[] { true, false, false, false, false, true, true, true, true, false, true, false, false };
+        //Faster alternative to fourPieceSets.Contains() or Dictionary<Set, bool> to determine if a set is 4-piece set. Each index represents (int)Set
+        private static readonly bool[] isFourPieceSetArray;
+
+        static Util()
+        {
+            isFourPieceSetArray = new bool[SETS_LENGTH];
+            for (int i = 0; i < isFourPieceSetArray.Length; i++)
+            {
+                isFourPieceSetArray[i] = fourPieceSets.Contains((Set)i);
+            }
+        }
 
         //Calculate the active Sets in a given gear combination
         public static List<Set> activeSet(IEnumerable<Item> gear)
@@ -235,7 +243,7 @@ namespace E7_Gear_Optimizer
                 }
                 else if (!isFourPieceSet)
                 {
-                    for (int i = 0; i < setCounter[i] / 2; i++)
+                    for (int i = 0; i < setCounter[iSet] / 2; i++)
                     {
                         activeSets.Add((Set)iSet);
                     }
