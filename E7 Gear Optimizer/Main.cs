@@ -227,8 +227,32 @@ namespace E7_Gear_Optimizer
             is_NecklaceOptimize.Image = Properties.Resources.necklace;
             is_RingOptimize.Image = Properties.Resources.ring;
             is_BootsOptimize.Image = Properties.Resources.boots;
+            // Initialize visibility of columns on Optimization tab based on saved Settings
+            foreach (DataGridViewColumn col in dgv_CurrentGear.Columns)
+            {
+                var statName = col.Name.Substring(2, col.Name.LastIndexOf('_') - 2);//c_*_Current
+                if (Properties.Settings.Default.OptimizationHiddenColumns.IndexOf(statName) >= 0)
+                {
+                    col.Visible = false;
+                }
+            }
+            foreach (DataGridViewColumn col in dgv_OptimizeResults.Columns)
+            {
+                var statName = col.Name.Substring(2, col.Name.LastIndexOf('_') - 2);//c_*_Results
+                if (Properties.Settings.Default.OptimizationHiddenColumns.IndexOf(statName) >= 0)
+                {
+                    col.Visible = false;
+                }
+            }
+            foreach (ToolStripMenuItem menuItem in contextMenuStrip1.Items)
+            {
+                var statName = menuItem.Name.Substring(5);//tsmi_*
+                if (Properties.Settings.Default.OptimizationHiddenColumns.IndexOf(statName) >= 0)
+                {
+                    menuItem.Checked = false;
+                }
+            }
         }
-
 
         private void B_import_Click(object sender, EventArgs e)
         {
@@ -320,6 +344,7 @@ namespace E7_Gear_Optimizer
             Point cell = dgv_Inventory.CurrentCellAddress;
             DataGridViewColumn sortColumn = dgv_Inventory.SortedColumn;
             SortOrder order = dgv_Inventory.SortOrder;
+            string ID = cell.Y >= 0 ? dgv_Inventory.Rows[cell.Y].Cells["c_ItemID"].Value.ToString() : null;
             dgv_Inventory.Rows.Clear();
 
             //calculate new list of items based on the selected type filter
@@ -359,9 +384,10 @@ namespace E7_Gear_Optimizer
             l_ItemCount.Text = filteredList.Count().ToString();
             //restore previous sorting and select previously selected cell
             if (order != SortOrder.None) dgv_Inventory.Sort(sortColumn, (ListSortDirection)Enum.Parse(typeof(ListSortDirection), order.ToString()));
+            //order of items can change due to change of sortColumn values, so restore selected row by item id
             if (cell.X > -1 && cell.Y > -1 && cell.X < dgv_Inventory.ColumnCount && cell.Y < dgv_Inventory.RowCount)
             {
-                dgv_Inventory.CurrentCell = dgv_Inventory.Rows[cell.Y].Cells[cell.X];
+                dgv_Inventory.CurrentCell = dgv_Inventory.Rows.Cast<DataGridViewRow>().Where(x => x.Cells["c_ItemID"].Value.ToString() == ID).First().Cells[cell.X];
             }
         }
 
@@ -1514,7 +1540,7 @@ namespace E7_Gear_Optimizer
                         bool valid = true;
                         foreach (Set s in setFocus)
                         {
-                            valid = valid && activeSets.Contains(s);
+                            valid = valid && activeSets.Contains(s) && activeSets.Count(x => x == s) >= setFocus.Count(x => x == s);
                         }
                         if (!brokenSets)
                         {
@@ -1760,7 +1786,6 @@ namespace E7_Gear_Optimizer
             optimizePage = 1;
             dgv_OptimizeResults.Refresh();
             dgv_OptimizeResults.AutoResizeColumns();
-            dgv_OptimizeResults.CurrentCell = dgv_OptimizeResults.Rows[1].Cells[e.ColumnIndex];
             dgv_OptimizeResults.CurrentCell = dgv_OptimizeResults.Rows[0].Cells[e.ColumnIndex];
             if (filteredCombinations.Count > 0)
             {
@@ -1855,6 +1880,15 @@ namespace E7_Gear_Optimizer
             {
                 JObject json = createJson();
                 File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "/Backup.json", json.ToString());
+            }
+            Properties.Settings.Default.OptimizationHiddenColumns.Clear();
+            foreach (ToolStripMenuItem menuItem in contextMenuStrip1.Items)
+            {
+                if (!menuItem.Checked)
+                {
+                    var statName = menuItem.Name.Substring(5);//tsmi_*
+                    Properties.Settings.Default.OptimizationHiddenColumns.Add(statName);
+                }
             }
             Properties.Settings.Default.Save();
         }
@@ -2519,6 +2553,15 @@ namespace E7_Gear_Optimizer
             {
                 File.Delete(file);
             }
+        }
+        
+        private void ContextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            var item = (ToolStripMenuItem)e.ClickedItem;
+            var checkedNew = !item.Checked;
+            var statName = item.Name.Substring(5);//tsmi_*
+            dgv_CurrentGear.Columns["c_" + statName + "_Current"].Visible = checkedNew;
+            dgv_OptimizeResults.Columns["c_" + statName + "_Results"].Visible = checkedNew;
         }
     }
 }
