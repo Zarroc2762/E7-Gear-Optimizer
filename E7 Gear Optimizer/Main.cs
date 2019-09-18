@@ -212,13 +212,24 @@ namespace E7_Gear_Optimizer
             cb_LimitResults.Checked = Properties.Settings.Default.LimitResults;
             nud_LimitResults.Enabled = Properties.Settings.Default.LimitResults;
             nud_LimitResults.Value = Properties.Settings.Default.LimitResultsNum;
-
             cb_ImportOnLoad.Checked = Properties.Settings.Default.ImportOnLoad;
             cb_CacheWeb.Checked = useCache;
             b_ClearCache.Enabled = useCache;
+            is_Weapon.Image = Properties.Resources.weapon;
+            is_Helmet.Image = Properties.Resources.helmet;
+            is_Armor.Image = Properties.Resources.armor;
+            is_Necklace.Image = Properties.Resources.necklace;
+            is_Ring.Image = Properties.Resources.ring;
+            is_Boots.Image = Properties.Resources.boots;
+            is_WeaponOptimize.Image = Properties.Resources.weapon;
+            is_HelmetOptimize.Image = Properties.Resources.helmet;
+            is_ArmorOptimize.Image = Properties.Resources.armor;
+            is_NecklaceOptimize.Image = Properties.Resources.necklace;
+            is_RingOptimize.Image = Properties.Resources.ring;
+            is_BootsOptimize.Image = Properties.Resources.boots;
         }
 
-        
+
         private void B_import_Click(object sender, EventArgs e)
         {
             if (rb_import_this.Checked)
@@ -280,7 +291,7 @@ namespace E7_Gear_Optimizer
                     cb_OptimizeHero.Items.Add(hero.Name + " " + hero.ID);
                 }
                 l_Results.Text = numberOfResults().ToString("#,0");
-                updatecurrentGear();
+                updateCurrentGear();
             }
             else if (((TabControl)(sender)).SelectedIndex == 4)
             {
@@ -720,51 +731,26 @@ namespace E7_Gear_Optimizer
         //Create a new item with the selected stats without equipping it to a hero
         private void B_NewItem_Click(object sender, EventArgs e)
         {
-            Set set = (Set)Enum.Parse(typeof(Set), p_Set.Controls.OfType<RadioButton>().First(x => x.Checked).Name.Replace("rb_", "").Replace("Set", ""));
-            ItemType type = (ItemType)Enum.Parse(typeof(ItemType), p_Type.Controls.OfType<RadioButton>().First(x => x.Checked).Name.Replace("rb_", "").Replace("Type", ""));
-            Grade grade = (Grade)Enum.Parse(typeof(Grade), p_Grade.Controls.OfType<RadioButton>().First(x => x.Checked).Name.Replace("rb_", "").Replace("Grade", ""));
-
-            Stat main;
-            if (lb_Main.SelectedItem.ToString() != "")
-            {
-                main = new Stat((Stats)Enum.Parse(typeof(Stats), lb_Main.SelectedItem.ToString().Replace("%", "Percent")), (float)nud_Main.Value);
-            }
-            else
-            {
-                MessageBox.Show("Invalid Mainstat");
-                return;
-            }
-
-            List<Stat> substats = new List<Stat>();
-            string selection = lb_Sub1.SelectedItem.ToString();
-            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub1.Value));
-            selection = lb_Sub2.SelectedItem.ToString();
-            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub2.Value));
-            selection = lb_Sub3.SelectedItem.ToString();
-            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub3.Value));
-            selection = lb_Sub4.SelectedItem.ToString();
-            if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub4.Value));
-
-            int ilvl = (int)nud_ILvl.Value;
-            int enh = (int)nud_Enhance.Value;
-            bool locked = false;
-            if (Locked)
-            {
-                locked = true;
-            }
-
-            Item newItem = new Item(data.incrementItemID(), type, set, grade, ilvl, enh, main, substats.ToArray(), null, locked);
-            data.Items.Add(newItem);
-            updateItemList();
-            //select the created item if it is displayed with the current filter
-            if (tc_Inventory.SelectedIndex == 0 || (ItemType)(tc_Inventory.SelectedIndex - 1) == type)
-            {
-                dgv_Inventory.CurrentCell = dgv_Inventory.Rows.Cast<DataGridViewRow>().Where(x => x.Cells["c_ItemID"].Value.ToString() == newItem.ID).First().Cells[0];
-            }
+            createNewItem();
         }
 
         //Create a new item with the selected stats equipped on the selected hero
         private void B_NewItemEquipped_Click(object sender, EventArgs e)
+        {
+            
+            Hero hero = null;
+            if (cb_Eq.Text != "")
+            {
+                hero = data.Heroes.Find(x => x.Name == String.Join(" ", cb_Eq.Text.Split(' ').Reverse().Skip(1).Reverse()));
+            }
+            createNewItem(hero);
+        }
+
+        /// <summary>
+        /// Creates new item based on UI controls values and equips it to <paramref name="hero"/>
+        /// </summary>
+        /// <param name="hero">The hero to equip new item to</param>
+        private void createNewItem(Hero hero = null)
         {
             Set set = (Set)Enum.Parse(typeof(Set), p_Set.Controls.OfType<RadioButton>().First(x => x.Checked).Name.Replace("rb_", "").Replace("Set", ""));
             ItemType type = (ItemType)Enum.Parse(typeof(ItemType), p_Type.Controls.OfType<RadioButton>().First(x => x.Checked).Name.Replace("rb_", "").Replace("Type", ""));
@@ -780,7 +766,6 @@ namespace E7_Gear_Optimizer
                 MessageBox.Show("Invalid Mainstat");
                 return;
             }
-
             List<Stat> substats = new List<Stat>();
             string selection = lb_Sub1.SelectedItem.ToString();
             if (selection != "-----") substats.Add(new Stat((Stats)Enum.Parse(typeof(Stats), selection.Replace("%", "Percent")), (float)nud_Sub1.Value));
@@ -793,26 +778,17 @@ namespace E7_Gear_Optimizer
 
             int ilvl = (int)nud_ILvl.Value;
             int enh = (int)nud_Enhance.Value;
-            Hero hero = null;
-            if (cb_Eq.Text != "")
-            {
-                hero = data.Heroes.Find(x => x.Name == String.Join(" ", cb_Eq.Text.Split(' ').Reverse().Skip(1).Reverse()));
-            }
             bool locked = false;
             if (Locked)
             {
                 locked = true;
             }
-
             Item newItem = new Item(data.incrementItemID(), type, set, grade, ilvl, enh, main, substats.ToArray(), hero, locked);
-            if (hero != null)
-            {
-                hero.equip(newItem);
-            }
+            hero?.equip(newItem);
             data.Items.Add(newItem);
             updateItemList();
             //select the created item if it is displayed with the current filter
-            if ((tc_Inventory.SelectedIndex == 0 || (ItemType)(tc_Inventory.SelectedIndex - 1) == type ) && (tc_InventorySets.SelectedIndex == 0 || (Set)(tc_InventorySets.SelectedIndex - 1) == set))
+            if ((tc_Inventory.SelectedIndex == 0 || (ItemType)(tc_Inventory.SelectedIndex - 1) == type) && (tc_InventorySets.SelectedIndex == 0 || (Set)(tc_InventorySets.SelectedIndex - 1) == set))
             {
                 dgv_Inventory.CurrentCell = dgv_Inventory.Rows.Cast<DataGridViewRow>().Where(x => x.Cells["c_ItemID"].Value.ToString() == newItem.ID).First().Cells[0];
             }
@@ -953,246 +929,12 @@ namespace E7_Gear_Optimizer
             nud_ArtifactHealth.Value = hero.Artifact != null ? (int)hero.Artifact.SubStats[1].Value : 0;
 
             //Check whether the selected Hero has an item equipped in the slot and set the controls for the slot accordingly
-            Item item = hero.getItem(ItemType.Weapon);
-            if (item != null)
-            {
-                l_WeaponGrade.Text = item.Grade.ToString() + " Weapon";
-                l_WeaponGrade.ForeColor = Util.gradeColors[item.Grade];
-                l_WeaponIlvl.Text = item.ILvl.ToString();
-                l_WeaponEnhance.Text = "+" + item.Enhance.ToString();
-                l_WeaponMain.Text = Util.statStrings[item.Main.Name];
-                l_WeaponMainStat.Text = ((int)item.Main.Value).ToString();
-                l_WeaponSet.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                pb_WeaponSet.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                for (int i = 0; i < 4; i++)
-                {
-                    if (i < item.SubStats.Length)
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                    }
-                    else
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = "";
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = "";
-                    }
-                }
-            }
-            else
-            {
-                l_WeaponGrade.Text = "";
-                l_WeaponIlvl.Text = "";
-                l_WeaponEnhance.Text = "";
-                l_WeaponMain.Text = "";
-                l_WeaponMainStat.Text = "";
-                l_WeaponSet.Text = "";
-                pb_WeaponSet.Image = Util.error;
-                for (int i = 0; i < 4; i++)
-                {
-                    ((Label)tb_Heroes.Controls.Find("l_WeaponSub" + (i + 1), true)[0]).Text = "";
-                    ((Label)tb_Heroes.Controls.Find("l_WeaponSub" + (i + 1) + "Stat", true)[0]).Text = "";
-                }
-            }
-            item = hero.getItem(ItemType.Helmet);
-            if (item != null)
-            {
-                l_HelmetGrade.Text = item.Grade.ToString() + " Helmet";
-                l_HelmetGrade.ForeColor = Util.gradeColors[item.Grade];
-                l_HelmetIlvl.Text = item.ILvl.ToString();
-                l_HelmetEnhance.Text = "+" + item.Enhance.ToString();
-                l_HelmetMain.Text = Util.statStrings[item.Main.Name];
-                l_HelmetMainStat.Text = ((int)item.Main.Value).ToString();
-                l_HelmetSet.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                pb_HelmetSet.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                for (int i = 0; i < 4; i++)
-                {
-                    if (i < item.SubStats.Length)
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                    }
-                    else
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = "";
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = "";
-                    }
-                }
-            }
-            else
-            {
-                l_HelmetGrade.Text = "";
-                l_HelmetIlvl.Text = "";
-                l_HelmetEnhance.Text = "";
-                l_HelmetMain.Text = "";
-                l_HelmetMainStat.Text = "";
-                l_HelmetSet.Text = "";
-                pb_HelmetSet.Image = Util.error;
-                for (int i = 0; i < 4; i++)
-                {
-                    ((Label)tb_Heroes.Controls.Find("l_HelmetSub" + (i + 1), true)[0]).Text = "";
-                    ((Label)tb_Heroes.Controls.Find("l_HelmetSub" + (i + 1) + "Stat", true)[0]).Text = "";
-                }
-            }
-            item = hero.getItem(ItemType.Armor);
-            if (item != null)
-            {
-                l_ArmorGrade.Text = item.Grade.ToString() + " Armor";
-                l_ArmorGrade.ForeColor = Util.gradeColors[item.Grade];
-                l_ArmorIlvl.Text = item.ILvl.ToString();
-                l_ArmorEnhance.Text = "+" + item.Enhance.ToString();
-                l_ArmorMain.Text = Util.statStrings[item.Main.Name];
-                l_ArmorMainStat.Text = ((int)item.Main.Value).ToString();
-                l_ArmorSet.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                pb_ArmorSet.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                for (int i = 0; i < 4; i++)
-                {
-                    if (i < item.SubStats.Length)
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                    }
-                    else
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = "";
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = "";
-                    }
-                }
-            }
-            else
-            {
-                l_ArmorGrade.Text = "";
-                l_ArmorIlvl.Text = "";
-                l_ArmorEnhance.Text = "";
-                l_ArmorMain.Text = "";
-                l_ArmorMainStat.Text = "";
-                l_ArmorSet.Text = "";
-                pb_ArmorSet.Image = Util.error;
-                for (int i = 0; i < 4; i++)
-                {
-                    ((Label)tb_Heroes.Controls.Find("l_ArmorSub" + (i + 1), true)[0]).Text = "";
-                    ((Label)tb_Heroes.Controls.Find("l_ArmorSub" + (i + 1) + "Stat", true)[0]).Text = "";
-                }
-            }
-            item = hero.getItem(ItemType.Necklace);
-            if (item != null)
-            {
-                l_NecklaceGrade.Text = item.Grade.ToString() + " Necklace";
-                l_NecklaceGrade.ForeColor = Util.gradeColors[item.Grade];
-                l_NecklaceIlvl.Text = item.ILvl.ToString();
-                l_NecklaceEnhance.Text = "+" + item.Enhance.ToString();
-                l_NecklaceMain.Text = Util.statStrings[item.Main.Name];
-                l_NecklaceMainStat.Text = Util.percentStats.Contains(item.Main.Name) ? item.Main.Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.Main.Value.ToString();
-                l_NecklaceSet.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                pb_NecklaceSet.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                for (int i = 0; i < 4; i++)
-                {
-                    if (i < item.SubStats.Length)
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                    }
-                    else
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = "";
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = "";
-                    }
-                }
-            }
-            else
-            {
-                l_NecklaceGrade.Text = "";
-                l_NecklaceIlvl.Text = "";
-                l_NecklaceEnhance.Text = "";
-                l_NecklaceMain.Text = "";
-                l_NecklaceMainStat.Text = "";
-                l_NecklaceSet.Text = "";
-                pb_NecklaceSet.Image = Util.error;
-                for (int i = 0; i < 4; i++)
-                {
-                    ((Label)tb_Heroes.Controls.Find("l_NecklaceSub" + (i + 1), true)[0]).Text = "";
-                    ((Label)tb_Heroes.Controls.Find("l_NecklaceSub" + (i + 1) + "Stat", true)[0]).Text = "";
-                }
-            }
-            item = hero.getItem(ItemType.Ring);
-            if (item != null)
-            {
-                l_RingGrade.Text = item.Grade.ToString() + " Ring";
-                l_RingGrade.ForeColor = Util.gradeColors[item.Grade];
-                l_RingIlvl.Text = item.ILvl.ToString();
-                l_RingEnhance.Text = "+" + item.Enhance.ToString();
-                l_RingMain.Text = Util.statStrings[item.Main.Name];
-                l_RingMainStat.Text = Util.percentStats.Contains(item.Main.Name) ? item.Main.Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.Main.Value.ToString();
-                l_RingSet.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                pb_RingSet.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                for (int i = 0; i < 4; i++)
-                {
-                    if (i < item.SubStats.Length)
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                    }
-                    else
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = "";
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = "";
-                    }
-                }
-            }
-            else
-            {
-                l_RingGrade.Text = "";
-                l_RingIlvl.Text = "";
-                l_RingEnhance.Text = "";
-                l_RingMain.Text = "";
-                l_RingMainStat.Text = "";
-                l_RingSet.Text = "";
-                pb_RingSet.Image = Util.error;
-                for (int i = 0; i < 4; i++)
-                {
-                    ((Label)tb_Heroes.Controls.Find("l_RingSub" + (i + 1), true)[0]).Text = "";
-                    ((Label)tb_Heroes.Controls.Find("l_RingSub" + (i + 1) + "Stat", true)[0]).Text = "";
-                }
-            }
-            item = hero.getItem(ItemType.Boots);
-            if (item != null)
-            {
-                l_BootsGrade.Text = item.Grade.ToString() + " Boots";
-                l_BootsGrade.ForeColor = Util.gradeColors[item.Grade];
-                l_BootsIlvl.Text = item.ILvl.ToString();
-                l_BootsEnhance.Text = "+" + item.Enhance.ToString();
-                l_BootsMain.Text = Util.statStrings[item.Main.Name];
-                l_BootsMainStat.Text = Util.percentStats.Contains(item.Main.Name) ? item.Main.Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.Main.Value.ToString();
-                l_BootsSet.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                pb_BootsSet.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                for (int i = 0; i < 4; i++)
-                {
-                    if (i < item.SubStats.Length)
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                    }
-                    else
-                    {
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1), true)[0]).Text = "";
-                        ((Label)tb_Heroes.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Stat", true)[0]).Text = "";
-                    }
-                }
-            }
-            else
-            {
-                l_BootsGrade.Text = "";
-                l_BootsIlvl.Text = "";
-                l_BootsEnhance.Text = "";
-                l_BootsMain.Text = "";
-                l_BootsMainStat.Text = "";
-                l_BootsSet.Text = "";
-                pb_BootsSet.Image = Util.error;
-                for (int i = 0; i < 4; i++)
-                {
-                    ((Label)tb_Heroes.Controls.Find("l_BootsSub" + (i + 1), true)[0]).Text = "";
-                    ((Label)tb_Heroes.Controls.Find("l_BootsSub" + (i + 1) + "Stat", true)[0]).Text = "";
-                }
-            }
+            is_Weapon.Item = hero.getItem(ItemType.Weapon);
+            is_Helmet.Item = hero.getItem(ItemType.Helmet);
+            is_Armor.Item = hero.getItem(ItemType.Armor);
+            is_Necklace.Item = hero.getItem(ItemType.Necklace);
+            is_Ring.Item = hero.getItem(ItemType.Ring);
+            is_Boots.Item = hero.getItem(ItemType.Boots);
         }
 
         //Create a new Hero and add it to the list
@@ -1387,7 +1129,14 @@ namespace E7_Gear_Optimizer
         //Calculate and display the current stats of the selected hero
         private void Cb_OptimizeHero_SelectedIndexChanged(object sender, EventArgs e)
         {
-            updatecurrentGear();
+            Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split().Last());
+            is_WeaponOptimize.Hero = hero;
+            is_HelmetOptimize.Hero = hero;
+            is_ArmorOptimize.Hero = hero;
+            is_NecklaceOptimize.Hero = hero;
+            is_RingOptimize.Hero = hero;
+            is_BootsOptimize.Hero = hero;
+            updateCurrentGear();
             l_Results.Text = numberOfResults().ToString("#,0");
         }
 
@@ -1808,6 +1557,10 @@ namespace E7_Gear_Optimizer
             return combinations;
         }
 
+        /// <summary>
+        /// Optimizes global filterStats Dictionary by removing elements with empty values, so we don't have to poinessly check them while calculating
+        /// </summary>
+        /// <returns>Optimized filterStats</returns>
         private Dictionary<Stats, (float, float)> optimizeFilterStats()
         {
             Dictionary<Stats, (float, float)> stats = new Dictionary<Stats, (float, float)>();
@@ -1827,210 +1580,108 @@ namespace E7_Gear_Optimizer
             if (dgv_OptimizeResults.RowCount == 0) return;
             if (e.RowIndex >= combinations.Count - ((optimizePage - 1) * 100)) return;
             if (filteredCombinations.Count > 0 && e.RowIndex >= filteredCombinations.Count - ((optimizePage - 1) * 100)) return;
-            
-            List<Set> activeSets;
-            if (filteredCombinations.Count > 0)
-            {
-                switch (e.ColumnIndex)
-                {
-                    case 0:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.ATK;
-                        break;
-                    case 1:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.SPD;
-                        break;
-                    case 2:
-                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.Crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                        break;
-                    case 3:
-                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.CritDmg.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                        break;
-                    case 4:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.HP;
-                        break;
-                    case 5:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.HPpS;
-                        break;
-                    case 6:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.DEF;
-                        break;
-                    case 7:
-                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.EFF.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                        break;
-                    case 8:
-                        e.Value = combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.RES.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                        break;
-                    case 9:
-                        int count = 0;
-                        activeSets = Util.activeSet(combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item1);
-                        if (activeSets.Contains(Set.Unity))
-                        {
-                            foreach (Set set in activeSets)
-                            {
-                                count += set == Set.Unity ? 1 : 0;
-                            }
-                        }
-                        e.Value = (5 + (count * 4)) + "%";
-                        break;
-                    case 10:
-                        activeSets = Util.activeSet(combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item1);
-                        if (activeSets.Count > 0)
-                        {
-                            Bitmap sets = new Bitmap(activeSets.Count * 25, 25, PixelFormat.Format32bppArgb);
-                            Graphics g = Graphics.FromImage(sets);
-                            for (int i = 0; i < activeSets.Count; i++)
-                            {
-                                g.DrawImage(Util.ResizeImage((Image)Properties.Resources.ResourceManager.GetObject("set " + activeSets[i].ToString().ToLower().Replace("def", "defense")), 25, 25), i * 25, 0);
-                            }
-                            e.Value = sets;
-                        }
-                        else
-                        {
-                            e.Value = null;
-                        }
-                        break;
-                    case 11:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.EHP;
-                        break;
-                    case 12:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.EHPpS;
-                        break;
-                    case 13:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.DMG;
-                        break;
-                    case 14:
-                        e.Value = (int)combinations[filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)]].Item2.DMGpS;
-                        break;
 
-                }
-            }
-            else
+            int iCombination = filteredCombinations.Count > 0 ? filteredCombinations[e.RowIndex + 100 * (optimizePage - 1)] : (e.RowIndex + 100 * (optimizePage - 1));
+            List <Set> activeSets;
+            switch (e.ColumnIndex)
             {
-                switch (e.ColumnIndex)
-                {
-                    case 0:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.ATK;
-                        break;
-                    case 1:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.SPD;
-                        break;
-                    case 2:
-                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.Crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                        break;
-                    case 3:
-                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.CritDmg.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                        break;
-                    case 4:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.HP;
-                        break;
-                    case 5:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.HPpS;
-                        break;
-                    case 6:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.DEF;
-                        break;
-                    case 7:
-                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.EFF.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                        break;
-                    case 8:
-                        e.Value = combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.RES.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                        break;
-                    case 9:
-                        int count = 0;
-                        activeSets = Util.activeSet(combinations[e.RowIndex + 100 * (optimizePage - 1)].Item1);
-                        if (activeSets.Contains(Set.Unity))
+                case 0:
+                    e.Value = (int)combinations[iCombination].Item2.ATK;
+                    break;
+                case 1:
+                    e.Value = (int)combinations[iCombination].Item2.SPD;
+                    break;
+                case 2:
+                    e.Value = combinations[iCombination].Item2.Crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                    break;
+                case 3:
+                    e.Value = combinations[iCombination].Item2.CritDmg.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                    break;
+                case 4:
+                    e.Value = (int)combinations[iCombination].Item2.HP;
+                    break;
+                case 5:
+                    e.Value = (int)combinations[iCombination].Item2.HPpS;
+                    break;
+                case 6:
+                    e.Value = (int)combinations[iCombination].Item2.DEF;
+                    break;
+                case 7:
+                    e.Value = combinations[iCombination].Item2.EFF.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                    break;
+                case 8:
+                    e.Value = combinations[iCombination].Item2.RES.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                    break;
+                case 9:
+                    int count = 0;
+                    activeSets = Util.activeSet(combinations[iCombination].Item1);
+                    if (activeSets.Contains(Set.Unity))
+                    {
+                        foreach (Set set in activeSets)
                         {
-                            foreach (Set set in activeSets)
-                            {
-                                count += set == Set.Unity ? 1 : 0;
-                            }
+                            count += set == Set.Unity ? 1 : 0;
                         }
-                        e.Value = (5 + (count * 4)) + "%";
-                        break;
-                    case 10:
-                        activeSets = Util.activeSet(combinations[e.RowIndex + 100 * (optimizePage - 1)].Item1);
-                        if (activeSets.Count > 0)
+                    }
+                    e.Value = (5 + (count * 4)) + "%";
+                    break;
+                case 10:
+                    activeSets = Util.activeSet(combinations[iCombination].Item1);
+                    if (activeSets.Count > 0)
+                    {
+                        Bitmap sets = new Bitmap(activeSets.Count * 25, 25, PixelFormat.Format32bppArgb);
+                        Graphics g = Graphics.FromImage(sets);
+                        for (int i = 0; i < activeSets.Count; i++)
                         {
-                            Bitmap sets = new Bitmap(activeSets.Count * 25, 25, PixelFormat.Format32bppArgb);
-                            Graphics g = Graphics.FromImage(sets);
-                            for (int i = 0; i < activeSets.Count; i++)
-                            {
-                                g.DrawImage(Util.ResizeImage((Image)Properties.Resources.ResourceManager.GetObject("set " + activeSets[i].ToString().ToLower().Replace("def", "defense")), 25, 25), i * 25, 0);
-                            }
-                            e.Value = sets;
+                            g.DrawImage(Util.ResizeImage((Image)Properties.Resources.ResourceManager.GetObject("set " + activeSets[i].ToString().ToLower().Replace("def", "defense")), 25, 25), i * 25, 0);
                         }
-                        else
-                        {
-                            e.Value = null;
-                        }
-                        break;
-                    case 11:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.EHP;
-                        break;
-                    case 12:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.EHPpS;
-                        break;
-                    case 13:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.DMG;
-                        break;
-                    case 14:
-                        e.Value = (int)combinations[e.RowIndex + 100 * (optimizePage - 1)].Item2.DMGpS;
-                        break;
-                }
+                        e.Value = sets;
+                    }
+                    else
+                    {
+                        e.Value = null;
+                    }
+                    break;
+                case 11:
+                    e.Value = (int)combinations[iCombination].Item2.EHP;
+                    break;
+                case 12:
+                    e.Value = (int)combinations[iCombination].Item2.EHPpS;
+                    break;
+                case 13:
+                    e.Value = (int)combinations[iCombination].Item2.DMG;
+                    break;
+                case 14:
+                    e.Value = (int)combinations[iCombination].Item2.DMGpS;
+                    break;
             }
         }
 
-
         private void b_NextPage_Click(object sender, EventArgs e)
         {
-            if (filteredCombinations.Count > 0)
+            int count = filteredCombinations.Count > 0 ? filteredCombinations.Count : combinations.Count;
+            if (optimizePage != (count + 99) / 100)
             {
-                if (optimizePage != ((filteredCombinations.Count + 99) / 100))
-                {
-                    optimizePage++;
-                    dgv_OptimizeResults.RowCount = Math.Min(filteredCombinations.Count - 100 * (optimizePage - 1), 100);
-                    dgv_OptimizeResults.Refresh();
-                    dgv_OptimizeResults.AutoResizeColumns();
-                    l_Pages.Text = optimizePage + " / " + ((filteredCombinations.Count + 99) / 100);
-                }
-            }
-            else
-            {
-                if (optimizePage != ((combinations.Count + 99) / 100))
-                {
-                    optimizePage++;
-                    dgv_OptimizeResults.RowCount = Math.Min(combinations.Count - 100 * (optimizePage - 1), 100);
-                    dgv_OptimizeResults.Refresh();
-                    dgv_OptimizeResults.AutoResizeColumns();
-                    l_Pages.Text = optimizePage + " / " + ((combinations.Count + 99) / 100);
-                }
+                optimizePage++;
+                onPageChange(count);
             }
         }
 
         private void B_PreviousPage_Click(object sender, EventArgs e)
         {
-            if (filteredCombinations.Count > 0)
+            int count = filteredCombinations.Count > 0 ? filteredCombinations.Count : combinations.Count;
+            if (optimizePage > 1)
             {
-                if (optimizePage > 1)
-                {
-                    optimizePage--;
-                    dgv_OptimizeResults.RowCount = Math.Min(filteredCombinations.Count - 100 * (optimizePage - 1), 100);
-                    dgv_OptimizeResults.Refresh();
-                    dgv_OptimizeResults.AutoResizeColumns();
-                    l_Pages.Text = optimizePage + " / " + ((filteredCombinations.Count + 99) / 100);
-                }
+                optimizePage--;
+                onPageChange(count);
             }
-            else
-            {
-                if (optimizePage > 1)
-                {
-                    optimizePage--;
-                    dgv_OptimizeResults.RowCount = Math.Min(combinations.Count - 100 * (optimizePage - 1), 100);
-                    dgv_OptimizeResults.Refresh();
-                    dgv_OptimizeResults.AutoResizeColumns();
-                    l_Pages.Text = optimizePage + " / " + ((combinations.Count + 99) / 100);
-                }
-            }
+        }
+
+        private void onPageChange(int count)
+        {
+            dgv_OptimizeResults.RowCount = Math.Min(count - 100 * (optimizePage - 1), 100);
+            dgv_OptimizeResults.Refresh();
+            dgv_OptimizeResults.AutoResizeColumns();
+            l_Pages.Text = optimizePage + " / " + ((count + 99) / 100);
         }
 
         private void L_Pages_SizeChanged(object sender, EventArgs e)
@@ -2041,172 +1692,70 @@ namespace E7_Gear_Optimizer
         //Sort results across pages 
         private void Dgv_OptimizeResults_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            Func<(Item[], SStats), float> func = null;
             switch (e.ColumnIndex)
             {
                 case 0:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.ATK).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.ATK).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.ATK;
                     break;
                 case 1:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.SPD).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.SPD).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.SPD;
                     break;
                 case 2:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.Crit).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.Crit).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.Crit;
                     break;
                 case 3:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.CritDmg).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.CritDmg).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.CritDmg;
                     break;
                 case 4:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.HP).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.HP).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.HP;
                     break;
                 case 5:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.HPpS).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.HPpS).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.HPpS;
                     break;
                 case 6:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.DEF).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.DEF).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.DEF;
                     break;
                 case 7:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.EFF).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.EFF).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.EFF;
                     break;
                 case 8:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.RES).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.RES).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.RES;
                     break;
                 case 9:
                     break;
                 case 10:
                     break;
                 case 11:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.EHP).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.EHP).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.EHP;
                     break;
                 case 12:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.EHPpS).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.EHPpS).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.EHPpS;
                     break;
                 case 13:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.DMG).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.DMG).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.DMG;
                     break;
                 case 14:
-                    if (sortColumn == e.ColumnIndex)
-                    {
-                        combinations = combinations.OrderBy(x => x.Item2.DMGpS).ToList();
-                        sortColumn = -1;
-                    }
-                    else
-                    {
-                        combinations = combinations.OrderByDescending(x => x.Item2.DMGpS).ToList();
-                        sortColumn = e.ColumnIndex;
-                    }
+                    func = x => x.Item2.DMGpS;
                     break;
+            }
+            if (func == null)
+            {
+                return;
+            }
+            if (sortColumn == e.ColumnIndex)
+            {
+                combinations = combinations.OrderBy(func).ToList();
+                sortColumn = -1;
+            }
+            else
+            {
+                combinations = combinations.OrderByDescending(func).ToList();
+                sortColumn = e.ColumnIndex;
             }
             if (filteredCombinations.Count > 0)
             {
-                button1.PerformClick();
+                b_FilterResults.PerformClick();
             }
             optimizePage = 1;
             dgv_OptimizeResults.Refresh();
@@ -2237,270 +1786,25 @@ namespace E7_Gear_Optimizer
                 {
                     items = combinations[e.RowIndex + ((optimizePage - 1) * 100)].Item1.ToList();
                 }
-                Item item = items.Find(x => x.Type == ItemType.Weapon);
-                if (item != null)
-                {
-                    l_WeaponGradeOptimize.Text = item.Grade.ToString() + " Weapon";
-                    l_WeaponGradeOptimize.ForeColor = Util.gradeColors[item.Grade];
-                    l_WeaponIlvlOptimize.Text = item.ILvl.ToString();
-                    l_WeaponEnhanceOptimize.Text = "+" + item.Enhance.ToString();
-                    l_WeaponMainOptimize.Text = Util.statStrings[item.Main.Name];
-                    l_WeaponMainStatOptimize.Text = ((int)item.Main.Value).ToString();
-                    l_WeaponSetOptimize.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                    pb_WeaponSetOptimize.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                    for (int i = 0; i < 4; i++)
-                    {
-                        if (i < item.SubStats.Length)
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                        }
-                        else
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                        }
-                    }
-                    //l_WeaponEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
-                    pb_OptimizeWeaponEquipped.Image = item.Equipped?.Portrait;
-                }
-                else
-                {
-                    l_WeaponGradeOptimize.Text = "";
-                    l_WeaponIlvlOptimize.Text = "";
-                    l_WeaponEnhanceOptimize.Text = "";
-                    l_WeaponMainOptimize.Text = "";
-                    l_WeaponMainStatOptimize.Text = "";
-                    l_WeaponSetOptimize.Text = "";
-                    //l_WeaponEquippedOptimize.Text = "";
-                    pb_OptimizeWeaponEquipped = null;
-                    pb_WeaponSetOptimize.Image = Util.error;
-                    for (int i = 0; i < 4; i++)
-                    {
-                        ((Label)tb_Optimize.Controls.Find("l_WeaponSub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                        ((Label)tb_Optimize.Controls.Find("l_WeaponSub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                    }
-                }
+                Item item;
+                item = items.Find(x => x.Type == ItemType.Weapon);
+                is_WeaponOptimize.Item = item;
+                pb_OptimizeWeaponEquipped.Image = item?.Equipped?.Portrait;
                 item = items.Find(x => x.Type == ItemType.Helmet);
-                if (item != null)
-                {
-                    l_HelmetGradeOptimize.Text = item.Grade.ToString() + " Helmet";
-                    l_HelmetGradeOptimize.ForeColor = Util.gradeColors[item.Grade];
-                    l_HelmetIlvlOptimize.Text = item.ILvl.ToString();
-                    l_HelmetEnhanceOptimize.Text = "+" + item.Enhance.ToString();
-                    l_HelmetMainOptimize.Text = Util.statStrings[item.Main.Name];
-                    l_HelmetMainStatOptimize.Text = ((int)item.Main.Value).ToString();
-                    l_HelmetSetOptimize.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                    pb_HelmetSetOptimize.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                    for (int i = 0; i < 4; i++)
-                    {
-                        if (i < item.SubStats.Length)
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                        }
-                        else
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                        }
-                    }
-                    //l_HelmetEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
-                    pb_OptimizeHelmetEquipped.Image = item.Equipped?.Portrait;
-                }
-                else
-                {
-                    l_HelmetGradeOptimize.Text = "";
-                    l_HelmetIlvlOptimize.Text = "";
-                    l_HelmetEnhanceOptimize.Text = "";
-                    l_HelmetMainOptimize.Text = "";
-                    l_HelmetMainStatOptimize.Text = "";
-                    l_HelmetSetOptimize.Text = "";
-                    //l_HelmetEquippedOptimize.Text = "";
-                    pb_OptimizeHelmetEquipped = null;
-                    pb_HelmetSetOptimize.Image = Util.error;
-                    for (int i = 0; i < 4; i++)
-                    {
-                        ((Label)tb_Optimize.Controls.Find("l_HelmetSub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                        ((Label)tb_Optimize.Controls.Find("l_HelmetSub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                    }
-                }
+                is_HelmetOptimize.Item = item;
+                pb_OptimizeHelmetEquipped.Image = item?.Equipped?.Portrait;
                 item = items.Find(x => x.Type == ItemType.Armor);
-                if (item != null)
-                {
-                    l_ArmorGradeOptimize.Text = item.Grade.ToString() + " Armor";
-                    l_ArmorGradeOptimize.ForeColor = Util.gradeColors[item.Grade];
-                    l_ArmorIlvlOptimize.Text = item.ILvl.ToString();
-                    l_ArmorEnhanceOptimize.Text = "+" + item.Enhance.ToString();
-                    l_ArmorMainOptimize.Text = Util.statStrings[item.Main.Name];
-                    l_ArmorMainStatOptimize.Text = ((int)item.Main.Value).ToString();
-                    l_ArmorSetOptimize.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                    pb_ArmorSetOptimize.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                    for (int i = 0; i < 4; i++)
-                    {
-                        if (i < item.SubStats.Length)
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                        }
-                        else
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                        }
-                    }
-                    //l_ArmorEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
-                    pb_OptimizeArmorEquipped.Image = item.Equipped?.Portrait;
-                }
-                else
-                {
-                    l_ArmorGradeOptimize.Text = "";
-                    l_ArmorIlvlOptimize.Text = "";
-                    l_ArmorEnhanceOptimize.Text = "";
-                    l_ArmorMainOptimize.Text = "";
-                    l_ArmorMainStatOptimize.Text = "";
-                    l_ArmorSetOptimize.Text = "";
-                    //l_ArmorEquippedOptimize.Text = "";
-                    pb_OptimizeArmorEquipped = null;
-                    pb_ArmorSetOptimize.Image = Util.error;
-                    for (int i = 0; i < 4; i++)
-                    {
-                        ((Label)tb_Optimize.Controls.Find("l_ArmorSub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                        ((Label)tb_Optimize.Controls.Find("l_ArmorSub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                    }
-                }
+                is_ArmorOptimize.Item = item;
+                pb_OptimizeArmorEquipped.Image = item?.Equipped?.Portrait;
                 item = items.Find(x => x.Type == ItemType.Necklace);
-                if (item != null)
-                {
-                    l_NecklaceGradeOptimize.Text = item.Grade.ToString() + " Necklace";
-                    l_NecklaceGradeOptimize.ForeColor = Util.gradeColors[item.Grade];
-                    l_NecklaceIlvlOptimize.Text = item.ILvl.ToString();
-                    l_NecklaceEnhanceOptimize.Text = "+" + item.Enhance.ToString();
-                    l_NecklaceMainOptimize.Text = Util.statStrings[item.Main.Name];
-                    l_NecklaceMainStatOptimize.Text = Util.percentStats.Contains(item.Main.Name) ? item.Main.Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.Main.Value.ToString();
-                    l_NecklaceSetOptimize.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                    pb_NecklaceSetOptimize.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                    for (int i = 0; i < 4; i++)
-                    {
-                        if (i < item.SubStats.Length)
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                        }
-                        else
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                        }
-                    }
-                    //l_NecklaceEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
-                    pb_OptimizeNecklaceEquipped.Image = item.Equipped?.Portrait;
-                }
-                else
-                {
-                    l_NecklaceGradeOptimize.Text = "";
-                    l_NecklaceIlvlOptimize.Text = "";
-                    l_NecklaceEnhanceOptimize.Text = "";
-                    l_NecklaceMainOptimize.Text = "";
-                    l_NecklaceMainStatOptimize.Text = "";
-                    l_NecklaceSetOptimize.Text = "";
-                    //l_NecklaceEquippedOptimize.Text = "";
-                    pb_OptimizeNecklaceEquipped = null;
-                    pb_NecklaceSetOptimize.Image = Util.error;
-                    for (int i = 0; i < 4; i++)
-                    {
-                        ((Label)tb_Optimize.Controls.Find("l_NecklaceSub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                        ((Label)tb_Optimize.Controls.Find("l_NecklaceSub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                    }
-                }
+                is_NecklaceOptimize.Item = item;
+                pb_OptimizeNecklaceEquipped.Image = item?.Equipped?.Portrait;
                 item = items.Find(x => x.Type == ItemType.Ring);
-                if (item != null)
-                {
-                    l_RingGradeOptimize.Text = item.Grade.ToString() + " Ring";
-                    l_RingGradeOptimize.ForeColor = Util.gradeColors[item.Grade];
-                    l_RingIlvlOptimize.Text = item.ILvl.ToString();
-                    l_RingEnhanceOptimize.Text = "+" + item.Enhance.ToString();
-                    l_RingMainOptimize.Text = Util.statStrings[item.Main.Name];
-                    l_RingMainStatOptimize.Text = Util.percentStats.Contains(item.Main.Name) ? item.Main.Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.Main.Value.ToString();
-                    l_RingSetOptimize.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                    pb_RingSetOptimize.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                    for (int i = 0; i < 4; i++)
-                    {
-                        if (i < item.SubStats.Length)
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                        }
-                        else
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                        }
-                    }
-                    //l_RingEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
-                    pb_OptimizeRingEquipped.Image = item.Equipped?.Portrait;
-                }
-                else
-                {
-                    l_RingGradeOptimize.Text = "";
-                    l_RingIlvlOptimize.Text = "";
-                    l_RingEnhanceOptimize.Text = "";
-                    l_RingMainOptimize.Text = "";
-                    l_RingMainStatOptimize.Text = "";
-                    l_RingSetOptimize.Text = "";
-                    //l_RingEquippedOptimize.Text = "";
-                    pb_OptimizeRingEquipped = null;
-                    pb_RingSetOptimize.Image = Util.error;
-                    for (int i = 0; i < 4; i++)
-                    {
-                        ((Label)tb_Optimize.Controls.Find("l_RingSub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                        ((Label)tb_Optimize.Controls.Find("l_RingSub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                    }
-                }
+                is_RingOptimize.Item = item;
+                pb_OptimizeRingEquipped.Image = item?.Equipped?.Portrait;
                 item = items.Find(x => x.Type == ItemType.Boots);
-                if (item != null)
-                {
-                    l_BootsGradeOptimize.Text = item.Grade.ToString() + " Boots";
-                    l_BootsGradeOptimize.ForeColor = Util.gradeColors[item.Grade];
-                    l_BootsIlvlOptimize.Text = item.ILvl.ToString();
-                    l_BootsEnhanceOptimize.Text = "+" + item.Enhance.ToString();
-                    l_BootsMainOptimize.Text = Util.statStrings[item.Main.Name];
-                    l_BootsMainStatOptimize.Text = Util.percentStats.Contains(item.Main.Name) ? item.Main.Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.Main.Value.ToString();
-                    l_BootsSetOptimize.Text = item.Set.ToString().Replace("Crit", "Critical").Replace("Def", "Defense") + " Set";
-                    pb_BootsSetOptimize.Image = (Image)Properties.Resources.ResourceManager.GetObject("set " + item.Set.ToString().ToLower().Replace("def", "defense"));
-                    for (int i = 0; i < 4; i++)
-                    {
-                        if (i < item.SubStats.Length)
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = Util.statStrings[item.SubStats[i].Name];
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = Util.percentStats.Contains(item.SubStats[i].Name) ? item.SubStats[i].Value.ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) : item.SubStats[i].Value.ToString();
-                        }
-                        else
-                        {
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                            ((Label)tb_Optimize.Controls.Find("l_" + item.Type.ToString() + "Sub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                        }
-                    }
-                    //l_BootsEquippedOptimize.Text = item.Equipped != null ? item.Equipped.Name + " " + item.Equipped.ID : "";
-                    pb_OptimizeBootsEquipped.Image = item.Equipped?.Portrait;
-                }
-                else
-                {
-                    l_BootsGradeOptimize.Text = "";
-                    l_BootsIlvlOptimize.Text = "";
-                    l_BootsEnhanceOptimize.Text = "";
-                    l_BootsMainOptimize.Text = "";
-                    l_BootsMainStatOptimize.Text = "";
-                    l_BootsSetOptimize.Text = "";
-                    //l_BootsEquippedOptimize.Text = "";
-                    pb_OptimizeBootsEquipped = null;
-                    pb_BootsSetOptimize.Image = Util.error;
-                    for (int i = 0; i < 4; i++)
-                    {
-                        ((Label)tb_Optimize.Controls.Find("l_BootsSub" + (i + 1) + "Optimize", true)[0]).Text = "";
-                        ((Label)tb_Optimize.Controls.Find("l_BootsSub" + (i + 1) + "StatOptimize", true)[0]).Text = "";
-                    }
-                }
+                is_BootsOptimize.Item = item;
+                pb_OptimizeBootsEquipped.Image = item?.Equipped?.Portrait;
             }
         }
 
@@ -2530,7 +1834,7 @@ namespace E7_Gear_Optimizer
                 }
             }
             hero.equip(items);
-            updatecurrentGear();
+            updateCurrentGear();
             Dgv_OptimizeResults_RowEnter(null, new DataGridViewCellEventArgs(0, dgv_OptimizeResults.SelectedCells[0].RowIndex));
         }
 
@@ -2796,7 +2100,7 @@ namespace E7_Gear_Optimizer
             }
         }
 
-        private void updatecurrentGear()
+        private void updateCurrentGear()
         {
             dgv_CurrentGear.Rows.Clear();
             if (cb_OptimizeHero.Text != "")
@@ -2964,7 +2268,7 @@ namespace E7_Gear_Optimizer
             return valid;
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void B_FilterResults_Click(object sender, EventArgs e)
         {
             filteredCombinations.Clear();
             for (int i = 0; i < combinations.Count; i++)
@@ -2980,7 +2284,7 @@ namespace E7_Gear_Optimizer
             l_Pages.Text = "1 / " + ((filteredCombinations.Count + 99) / 100);
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void B_ImportAppend_Click(object sender, EventArgs e)
         {
             if (rb_import_this.Checked)
             {

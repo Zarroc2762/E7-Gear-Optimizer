@@ -119,6 +119,12 @@
     <Compile Include="MultiSelectForm.Designer.cs">
       <DependentUpon>MultiSelectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ItemStats.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ItemStats.Designer.cs">
+      <DependentUpon>ItemStats.cs</DependentUpon>
+    </Compile>
     <Compile Include="SStats.cs" />
     <Compile Include="updated.cs">
       <SubType>Form</SubType>
@@ -149,6 +155,9 @@
     <Compile Include="Stat.cs" />
     <EmbeddedResource Include="Import.resx">
       <DependentUpon>Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemStats.resx">
+      <DependentUpon>ItemStats.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
