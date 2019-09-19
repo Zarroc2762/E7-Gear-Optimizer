@@ -4155,11 +4155,6 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator1,
-            this.tsmi_S1,
-            this.tsmi_S2,
-            this.tsmi_S3,
-            this.tsmi_SB,
             this.tsmi_ATK,
             this.tsmi_SPD,
             this.tsmi_Crit,
@@ -4174,7 +4169,12 @@
             this.tsmi_EHP,
             this.tsmi_EHPpS,
             this.tsmi_DMG,
-            this.tsmi_DMGpS});
+            this.tsmi_DMGpS,
+            this.toolStripSeparator1,
+            this.tsmi_S1,
+            this.tsmi_S2,
+            this.tsmi_S3,
+            this.tsmi_SB});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.ShowCheckMargin = true;
             this.contextMenuStrip1.ShowImageMargin = false;
