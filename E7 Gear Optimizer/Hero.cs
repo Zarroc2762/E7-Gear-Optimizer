@@ -56,6 +56,11 @@ namespace E7_Gear_Optimizer
             {
                 string json = loadJson();
                 json = Encoding.UTF8.GetString(Encoding.Default.GetBytes(json)).Replace("✰", "");
+                if (json.Substring(0, 100).Contains("tamarinne"))//search only the beginning of file
+                {
+                    json = System.Text.RegularExpressions.Regex.Replace(json, "\"Shining Star[^\"]*\"", "");
+                    json = System.Text.RegularExpressions.Regex.Replace(json, "description\":\"[^\"]*\",\"enhancement", "description\":\"\",\"enhancement");
+                }
                 JObject jObject = JObject.Parse(json);
                 baseStats = getBaseStats(json);
                 Element = getElement(json);
