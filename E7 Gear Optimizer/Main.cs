@@ -53,6 +53,11 @@ namespace E7_Gear_Optimizer
             Properties.Settings.Default.LastUsedFileNameWeb = web;
         }
 
+        // Array of parent menu items for skill damage columns
+        private ToolStripMenuItem[] contextMenuStrip1SkillMenuItems;
+
+        private int enemyDef = 0;
+
         public Main()
         {
             InitializeComponent();
@@ -147,7 +152,6 @@ namespace E7_Gear_Optimizer
             cb_Eq.Items.Add("");
             dgv_OptimizeResults.RowCount = 0;
             dgv_Inventory.Columns[0].SortMode = DataGridViewColumnSortMode.Programmatic;
-            cb_keepEquip.Text = "Keep currently\nequipped items";
             richTextBox1.SelectionFont = new Font(FontFamily.GenericSansSerif, 15, FontStyle.Bold); 
             richTextBox1.SelectedText = "How to use: \n\n";
             richTextBox1.SelectionBullet = true;
@@ -209,12 +213,14 @@ namespace E7_Gear_Optimizer
             lb_Sub2.SelectedIndex = 0;
             lb_Sub3.SelectedIndex = 0;
             lb_Sub4.SelectedIndex = 0;
+            // Initialize controls' values from Properties.Settings
             cb_LimitResults.Checked = Properties.Settings.Default.LimitResults;
             nud_LimitResults.Enabled = Properties.Settings.Default.LimitResults;
             nud_LimitResults.Value = Properties.Settings.Default.LimitResultsNum;
             cb_ImportOnLoad.Checked = Properties.Settings.Default.ImportOnLoad;
             cb_CacheWeb.Checked = useCache;
             b_ClearCache.Enabled = useCache;
+            nud_EnemyDef.Value = enemyDef = Properties.Settings.Default.EnemyDefence;
             is_Weapon.Image = Properties.Resources.weapon;
             is_Helmet.Image = Properties.Resources.helmet;
             is_Armor.Image = Properties.Resources.armor;
@@ -244,13 +250,70 @@ namespace E7_Gear_Optimizer
                     col.Visible = false;
                 }
             }
-            foreach (ToolStripMenuItem menuItem in contextMenuStrip1.Items)
+            // Initialize contextMenuStrip1
+            foreach (var item in contextMenuStrip1.Items)
             {
-                var statName = menuItem.Name.Substring(5);//tsmi_*
-                if (Properties.Settings.Default.OptimizationHiddenColumns.IndexOf(statName) >= 0)
+                var menuItem = item as ToolStripMenuItem;
+                if (menuItem != null)
                 {
-                    menuItem.Checked = false;
+                    var statName = menuItem.Name.Substring(5);//tsmi_*
+                    if (Properties.Settings.Default.OptimizationHiddenColumns.IndexOf(statName) >= 0)
+                    {
+                        menuItem.Checked = false;
+                    }
                 }
+            }
+            // (Name suffix, Text suffix, ToolTipText)
+            var tuples = new (string, string, string)[]
+            {
+                ("Normal", "Normal Damage", ""),
+                ("Crit", "Critical Damage", ""),
+                ("Avg", "Average Damage", "Crit*CritDmg+(1-Crit)*NormalDmg"),
+                ("Avg/SPD", "Average Damage * SPD / 100", "AverageDmg*SPD/100")
+            };
+            contextMenuStrip1SkillMenuItems = new ToolStripMenuItem[]
+            {
+                tsmi_S1, tsmi_S2, tsmi_S3, tsmi_SB
+            };
+            // Add skill menu items and DataGridViews columns
+            foreach (var tsmi in contextMenuStrip1SkillMenuItems)
+            {
+                tsmi.DropDownItemClicked += ContextMenuStrip1_ItemClicked;
+                foreach (var tuple in tuples)
+                {
+                    string skillNameShort = tsmi.Name.Substring(5);//tsmi_*, S1, S2, etc.
+                    string statName = skillNameShort + "_" + tuple.Item1;
+                    bool visible = Properties.Settings.Default.OptimizationVisibleSkillColumns.Contains(statName);
+                    ToolStripMenuItem item = new ToolStripMenuItem()
+                    {
+                        Name = tsmi.Name + "_" + tuple.Item1,
+                        Text = tuple.Item2,
+                        ToolTipText = tuple.Item3,
+                        CheckOnClick = true,
+                        Checked = visible
+                    };
+                    tsmi.DropDownItems.Add(item);
+                    DataGridViewTextBoxColumn columnCurrent = new DataGridViewTextBoxColumn();
+                    columnCurrent.Visible = visible;
+                    columnCurrent.Name = $"c_{statName}_Current";
+                    columnCurrent.HeaderText = skillNameShort + " " + tuple.Item1;
+                    columnCurrent.ToolTipText = tsmi.Text + " " + tuple.Item2;
+                    dgv_CurrentGear.Columns.Add(columnCurrent);
+                    DataGridViewTextBoxColumn columnResults = new DataGridViewTextBoxColumn();
+                    columnResults.Visible = visible;
+                    columnResults.Name = $"c_{statName}_Results";
+                    columnResults.HeaderText = skillNameShort + " " + tuple.Item1;
+                    columnResults.ToolTipText = tsmi.Text + " " + tuple.Item2;
+                    dgv_OptimizeResults.Columns.Add(columnResults);
+                }
+            }
+            foreach (DataGridViewColumn col in dgv_CurrentGear.Columns)
+            {
+                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+            foreach (DataGridViewColumn col in dgv_OptimizeResults.Columns)
+            {
+                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
         }
 
@@ -922,6 +985,9 @@ namespace E7_Gear_Optimizer
                     newHero.equip(eq);
                     data.Heroes.Remove(hero);
                     data.Heroes.Add(newHero);
+                    newHero.Skills[0].Enhance = (int)nud_S1.Value;
+                    newHero.Skills[1].Enhance = (int)nud_S2.Value;
+                    newHero.Skills[2].Enhance = (int)nud_S3.Value;
                 }
                 else
                 {
@@ -937,6 +1003,9 @@ namespace E7_Gear_Optimizer
                     hero.updateBaseStats();
                     hero.calcAwakeningStats();
                     hero.calcStats();
+                    hero.Skills[0].Enhance = (int)nud_S1.Value;
+                    hero.Skills[1].Enhance = (int)nud_S2.Value;
+                    hero.Skills[2].Enhance = (int)nud_S3.Value;
                 }
                 updateHeroList();
             }
@@ -953,6 +1022,12 @@ namespace E7_Gear_Optimizer
             pb_Hero.Image = hero.Portrait ?? Util.error;
             nud_ArtifactAttack.Value = hero.Artifact != null ? (int)hero.Artifact.SubStats[0].Value : 0;
             nud_ArtifactHealth.Value = hero.Artifact != null ? (int)hero.Artifact.SubStats[1].Value : 0;
+            nud_S1.Value = hero.Skills[0].Enhance;
+            nud_S2.Value = hero.Skills[1].Enhance;
+            nud_S3.Value = hero.Skills[2].Enhance;
+            tt_Skills.SetToolTip(nud_S1, $"+{hero.Skills[0].DamageIncrease}% damage dealt");
+            tt_Skills.SetToolTip(nud_S2, $"+{hero.Skills[1].DamageIncrease}% damage dealt");
+            tt_Skills.SetToolTip(nud_S3, $"+{hero.Skills[2].DamageIncrease}% damage dealt");
 
             //Check whether the selected Hero has an item equipped in the slot and set the controls for the slot accordingly
             is_Weapon.Item = hero.getItem(ItemType.Weapon);
@@ -1679,6 +1754,34 @@ namespace E7_Gear_Optimizer
                 case 14:
                     e.Value = (int)combinations[iCombination].Item2.DMGpS;
                     break;
+                default://Skill damage
+                    // TODO refactor
+                    var hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split().Last());
+                    SStats stats = combinations[iCombination].Item2;
+                    int iSkill = (e.ColumnIndex - 15) / 4;
+                    int iDmg = (e.ColumnIndex - 15) % 4;
+                    bool soulburn = iSkill == 3;
+                    var skill = soulburn ? hero.SkillWithSoulburn : hero.Skills[iSkill];
+                    if (iDmg == 0)
+                    {
+                        e.Value = (int)skill.CalcDamage(stats, false, soulburn, enemyDef);
+                        break;
+                    }
+                    if (iDmg == 1)
+                    {
+                        e.Value = (int)(skill.CalcDamage(stats, true, soulburn, enemyDef));
+                        break;
+                    }
+                    float skillDmg = skill.CalcDamage(stats, false, soulburn, enemyDef);
+                    float skillCritDmg = skill.CalcDamage(stats, true, soulburn, enemyDef);
+                    float skillAvgDmg = stats.CritCapped * skillCritDmg + (1 - stats.CritCapped) * skillDmg;
+                    if (iDmg == 2)
+                    {
+                        e.Value = (int)skillAvgDmg;
+                        break;
+                    }
+                    e.Value = (int)(skillAvgDmg * stats.SPD / 100);
+                    break;
             }
         }
 
@@ -1716,7 +1819,7 @@ namespace E7_Gear_Optimizer
         }
 
         //Sort results across pages 
-        private void Dgv_OptimizeResults_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private async void Dgv_OptimizeResults_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             Func<(Item[], SStats), float> func = null;
             switch (e.ColumnIndex)
@@ -1764,28 +1867,70 @@ namespace E7_Gear_Optimizer
                 case 14:
                     func = x => x.Item2.DMGpS;
                     break;
+                default://Skill damage
+                    // TODO refactor
+                    var hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split().Last());
+                    int iSkill = (e.ColumnIndex - 15) / 4;
+                    int iDmg = (e.ColumnIndex - 15) % 4;
+                    bool soulburn = iSkill == 3;
+                    var skill = soulburn ? hero.SkillWithSoulburn : hero.Skills[iSkill];
+                    if (iDmg == 0)
+                    {
+                        func = x => skill.CalcDamage(x.Item2, false, soulburn, enemyDef);
+                    }
+                    else if (iDmg == 1)
+                    {
+                        func = x => skill.CalcDamage(x.Item2, true, soulburn, enemyDef);
+                    }
+                    else if (iDmg == 2)
+                    {
+                        func = x =>
+                        {
+                            float skillDmg = skill.CalcDamage(x.Item2, false, soulburn, enemyDef);
+                            float skillCritDmg = skill.CalcDamage(x.Item2, true, soulburn, enemyDef);
+                            return x.Item2.CritCapped * skillCritDmg + (1 - x.Item2.Crit) * skillDmg;
+                        };
+                    }
+                    else if (iDmg == 3)
+                    {
+                        func = x =>
+                        {
+                            float skillDmg = skill.CalcDamage(x.Item2, false, soulburn, enemyDef);
+                            float skillCritDmg = skill.CalcDamage(x.Item2, true, soulburn, enemyDef);
+                            float skillAvgDmg = x.Item2.CritCapped * skillCritDmg + (1 - x.Item2.Crit) * skillDmg;
+                            return skillAvgDmg * x.Item2.SPD / 100;
+                        };
+                    }
+                    break;
             }
             if (func == null)
             {
                 return;
             }
-            if (sortColumn == e.ColumnIndex)
+            if (combinations.Count > 1_000_000)
             {
-                combinations = combinations.OrderBy(func).ToList();
-                sortColumn = -1;
+                lbl_Sorting.Visible = true;
             }
-            else
+            await Task.Run(() =>
             {
-                combinations = combinations.OrderByDescending(func).ToList();
-                sortColumn = e.ColumnIndex;
-            }
+                if (sortColumn == e.ColumnIndex)
+                {
+                    combinations = combinations.OrderBy(func).ToList();
+                    sortColumn = -1;
+                }
+                else
+                {
+                    combinations = combinations.OrderByDescending(func).ToList();
+                    sortColumn = e.ColumnIndex;
+                }
+            });
+            lbl_Sorting.Visible = false;
             if (filteredCombinations.Count > 0)
             {
                 b_FilterResults.PerformClick();
             }
             optimizePage = 1;
             dgv_OptimizeResults.Refresh();
-            dgv_OptimizeResults.AutoResizeColumns();
             dgv_OptimizeResults.CurrentCell = dgv_OptimizeResults.Rows[0].Cells[e.ColumnIndex];
             if (filteredCombinations.Count > 0)
             {
@@ -1882,12 +2027,31 @@ namespace E7_Gear_Optimizer
                 File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "/Backup.json", json.ToString());
             }
             Properties.Settings.Default.OptimizationHiddenColumns.Clear();
-            foreach (ToolStripMenuItem menuItem in contextMenuStrip1.Items)
+            Properties.Settings.Default.OptimizationVisibleSkillColumns.Clear();
+            foreach (var item in contextMenuStrip1.Items)
             {
-                if (!menuItem.Checked)
+                var menuItem = item as ToolStripMenuItem;
+                if (menuItem != null)
                 {
-                    var statName = menuItem.Name.Substring(5);//tsmi_*
-                    Properties.Settings.Default.OptimizationHiddenColumns.Add(statName);
+                    if (contextMenuStrip1SkillMenuItems.Contains(menuItem))
+                    {
+                        foreach (ToolStripMenuItem childMenuItem in menuItem.DropDownItems)
+                        {
+                            if (childMenuItem.Checked)
+                            {
+                                var statName = childMenuItem.Name.Substring(5);//tsmi_*
+                                Properties.Settings.Default.OptimizationVisibleSkillColumns.Add(statName);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (!menuItem.Checked)
+                        {
+                            var statName = menuItem.Name.Substring(5);//tsmi_*
+                            Properties.Settings.Default.OptimizationHiddenColumns.Add(statName);
+                        }
+                    }
                 }
             }
             Properties.Settings.Default.Save();
@@ -1910,7 +2074,10 @@ namespace E7_Gear_Optimizer
                                                 new JProperty("ATK", h.Artifact.SubStats[0].Value),
                                                 new JProperty("HP", h.Artifact.SubStats[1].Value))),
                                        new JProperty("Lvl", h.Lvl),
-                                       new JProperty("Awakening", h.Awakening)))),
+                                       new JProperty("Awakening", h.Awakening),
+                                       new JProperty("Skills", new JArray(from skill in h.Skills
+                                                                          select new JObject(
+                                                                              new JProperty("Enhance", skill.Enhance))))))),
                     new JProperty("items",
                         new JArray(from i in data.Items
                                    select new JObject(
@@ -1939,61 +2106,7 @@ namespace E7_Gear_Optimizer
         //Update the current stats of the specified hero when the value of the critbonus changes
         private void Nud_CritBonus_ValueChanged(object sender, EventArgs e)
         {
-            dgv_CurrentGear.Rows.Clear();
-            object[] values = new object[dgv_CurrentGear.ColumnCount];
-            if (cb_OptimizeHero.Text != "")
-            {
-                Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Items[cb_OptimizeHero.SelectedIndex].ToString().Split().Last());
-                values[0] = (int)hero.CurrentStats[Stats.ATK];
-                values[1] = (int)hero.CurrentStats[Stats.SPD];
-                float crit = hero.CurrentStats[Stats.Crit] + ((float)nud_CritBonus.Value / 100f);
-                crit = crit > 1 ? 1 : crit;
-                values[2] = crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[3] = hero.CurrentStats[Stats.CritDmg].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[4] = (int)hero.CurrentStats[Stats.HP];
-                values[5] = (int)values[4] * (int)values[1] / 100;
-                values[6] = (int)hero.CurrentStats[Stats.DEF];
-                values[7] = hero.CurrentStats[Stats.EFF].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[8] = hero.CurrentStats[Stats.RES].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                List<Set> activeSets = hero.activeSets();
-                int count = 0;
-                if (activeSets.Contains(Set.Unity))
-                {
-                    foreach (Set set in activeSets)
-                    {
-                        count += set == Set.Unity ? 1 : 0;
-                    }
-                }
-                values[9] = (5 + (count * 4)) + "%";
-                if (activeSets.Count > 0)
-                {
-                    Bitmap sets = new Bitmap(activeSets.Count * 25, 25, PixelFormat.Format32bppArgb);
-                    Graphics g = Graphics.FromImage(sets);
-                    for (int i = 0; i < activeSets.Count; i++)
-                    {
-                        g.DrawImage(Util.ResizeImage((Image)Properties.Resources.ResourceManager.GetObject("set " + activeSets[i].ToString().ToLower().Replace("def", "defense")), 25, 25), i * 25, 0);
-                    }
-                    values[10] = sets;
-                }
-                else
-                {
-                    values[10] = null;
-                }
-                values[11] = (int)hero.CurrentStats[Stats.EHP];
-                values[12] = (int)values[11] * (int)values[1] / 100;
-                values[13] = (int)((hero.CurrentStats[Stats.ATK] * (1 - crit)) + (hero.CurrentStats[Stats.ATK] * crit * hero.CurrentStats[Stats.CritDmg]));
-                values[14] = (int)values[13] * (int)values[1] / 100;
-                l_Results.Text = numberOfResults().ToString("#,0");
-            }
-            else
-            {
-                for (int i = 0; i < values.Length; i++)
-                {
-                    values[i] = null;
-                }
-                l_Results.Text = "0";
-            }
-            dgv_CurrentGear.Rows.Add(values);
+            updateCurrentGear();
         }
 
         private void B_UnequipAll_Click(object sender, EventArgs e)
@@ -2141,14 +2254,14 @@ namespace E7_Gear_Optimizer
             {
                 object[] values = new object[dgv_CurrentGear.ColumnCount];
                 Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split().Last());
+                SStats heroStats = new SStats(hero.CurrentStats);
+                heroStats.Crit += (float)nud_CritBonus.Value / 100f;
                 values[0] = (int)hero.CurrentStats[Stats.ATK];
                 values[1] = (int)hero.CurrentStats[Stats.SPD];
-                float crit = hero.CurrentStats[Stats.Crit] + ((float)nud_CritBonus.Value / 100f);
-                crit = crit > 1 ? 1 : crit;
-                values[2] = crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                values[2] = heroStats.Crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[3] = hero.CurrentStats[Stats.CritDmg].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[4] = (int)hero.CurrentStats[Stats.HP];
-                values[5] = (int)values[4] * (int)values[1] / 100;
+                values[5] = (int)heroStats.HPpS;
                 values[6] = (int)hero.CurrentStats[Stats.DEF];
                 values[7] = hero.CurrentStats[Stats.EFF].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[8] = hero.CurrentStats[Stats.RES].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
@@ -2177,9 +2290,24 @@ namespace E7_Gear_Optimizer
                     values[10] = null;
                 }
                 values[11] = (int)hero.CurrentStats[Stats.EHP];
-                values[12] = (int)values[11] * (int)values[1] / 100;
-                values[13] = (int)((hero.CurrentStats[Stats.ATK] * (1 - crit)) + (hero.CurrentStats[Stats.ATK] * crit * hero.CurrentStats[Stats.CritDmg]));
-                values[14] = (int)values[13] * (int)values[1] / 100;
+                values[12] = (int)heroStats.EHPpS;
+                values[13] = (int)heroStats.DMG;
+                values[14] = (int)heroStats.DMGpS;
+                int iCol = 15;
+                for (int iSkill = 0; iSkill < 4; iSkill++)
+                {
+                    bool soulburn = iSkill == 3;
+                    var skill = soulburn ? hero.SkillWithSoulburn : hero.Skills[iSkill];
+                    float skillDmg = skill.CalcDamage(heroStats, false, soulburn, enemyDef);
+                    values[iCol++] = (int)skillDmg;
+                    float skillCritDmg = skill.CalcDamage(heroStats, true, soulburn, enemyDef);
+                    values[iCol++] = (int)skillCritDmg;
+                    float skillAvgDmg = heroStats.CritCapped * skillCritDmg + (1 - heroStats.CritCapped) * skillDmg;
+                    values[iCol++] = (int)skillAvgDmg;
+                    float skillAvgDmgSpd = skillAvgDmg * heroStats.SPD / 100;
+                    values[iCol++] = (int)skillAvgDmgSpd;
+                    //TODO dont calc all dmg if column is hidden (if necessary)
+                }
                 l_Results.Text = numberOfResults().ToString("#,0");
                 dgv_CurrentGear.Rows.Add(values);
             }
@@ -2558,10 +2686,57 @@ namespace E7_Gear_Optimizer
         private void ContextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             var item = (ToolStripMenuItem)e.ClickedItem;
-            var checkedNew = !item.Checked;
-            var statName = item.Name.Substring(5);//tsmi_*
-            dgv_CurrentGear.Columns["c_" + statName + "_Current"].Visible = checkedNew;
-            dgv_OptimizeResults.Columns["c_" + statName + "_Results"].Visible = checkedNew;
+            if (item.Name.Length == 7 && item.Name.StartsWith("tsmi_S"))//Parent Skill X menu item
+            {
+                bool checkedNew = item.CheckState == CheckState.Unchecked;
+                foreach (ToolStripMenuItem childItem in item.DropDownItems)
+                {
+                    var statName = childItem.Name.Substring(5);//tsmi_*
+                    dgv_CurrentGear.Columns["c_" + statName + "_Current"].Visible = checkedNew;
+                    dgv_OptimizeResults.Columns["c_" + statName + "_Results"].Visible = checkedNew;
+                    childItem.Checked = checkedNew;
+                }
+                contextMenuStrip1.Hide();
+            }
+            else
+            {
+                var checkedNew = !item.Checked;
+                var statName = item.Name.Substring(5);//tsmi_*
+                dgv_CurrentGear.Columns["c_" + statName + "_Current"].Visible = checkedNew;
+                dgv_OptimizeResults.Columns["c_" + statName + "_Results"].Visible = checkedNew;
+            }
+        }
+
+        private void setCheckState(ToolStripMenuItem menuItem)
+        {
+            int itemsChecked = menuItem.DropDownItems.Cast<ToolStripMenuItem>().Count(i => i.Checked);
+            if (itemsChecked == menuItem.DropDownItems.Count)
+            {
+                menuItem.CheckState = CheckState.Checked;
+            }
+            else if (itemsChecked == 0)
+            {
+                menuItem.CheckState = CheckState.Unchecked;
+            }
+            else
+            {
+                menuItem.CheckState = CheckState.Indeterminate;
+            }
+        }
+
+        private void ContextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            foreach (var menuItem in contextMenuStrip1SkillMenuItems)
+            {
+                setCheckState(menuItem);
+            }
+        }
+
+        private void Nud_EnemyDef_ValueChanged(object sender, EventArgs e)
+        {
+            enemyDef = Properties.Settings.Default.EnemyDefence = (int)nud_EnemyDef.Value;
+            updateCurrentGear();
+            dgv_OptimizeResults.Refresh();
         }
     }
 }

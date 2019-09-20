@@ -125,6 +125,7 @@
     <Compile Include="ItemStats.Designer.cs">
       <DependentUpon>ItemStats.cs</DependentUpon>
     </Compile>
+    <Compile Include="Skill.cs" />
     <Compile Include="SStats.cs" />
     <Compile Include="updated.cs">
       <SubType>Form</SubType>

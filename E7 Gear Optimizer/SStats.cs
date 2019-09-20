@@ -60,7 +60,7 @@ namespace E7_Gear_Optimizer
         public float ATK { get; set; }
         public float SPD { get; set; }
         public float Crit { get; set; }
-        private float _RealCrit { get => Crit < 1 ? Crit : 1; }
+        public float CritCapped { get => Crit < 1 ? Crit : 1; }
         public float CritDmg { get; set; }
         public float HPPercent { get; set; }
         public float HP { get; set; }
@@ -71,7 +71,7 @@ namespace E7_Gear_Optimizer
         public float HPpS { get => HP * SPD / 100; }
         public float EHP { get => HP * (1 + (DEF / 300)); }
         public float EHPpS { get => EHP * SPD / 100; }
-        public float DMG { get => (ATK * (1 - _RealCrit)) + (ATK * _RealCrit * CritDmg); }
+        public float DMG { get => (ATK * (1 - CritCapped)) + (ATK * CritCapped * CritDmg); }
         public float DMGpS { get => DMG * SPD / 100; }
 
         /// <summary>
