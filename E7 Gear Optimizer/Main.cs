@@ -439,7 +439,7 @@ namespace E7_Gear_Optimizer
                         values[i] = "";
                     }
                 }
-                values[18] = item.WSS;
+                values[18] = item.WSS.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
                 values[22] = item.ID;
                 values[23] = item.Locked.ToString();
                 dgv_Inventory.Rows.Add(values);
