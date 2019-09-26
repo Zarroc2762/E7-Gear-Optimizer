@@ -147,6 +147,7 @@
             this.b_EditItem = new System.Windows.Forms.Button();
             this.b_NewItem = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.l_Status = new System.Windows.Forms.Label();
             this.l_ImportResults = new System.Windows.Forms.Label();
             this.b_ClearCache = new System.Windows.Forms.Button();
             this.cb_CacheWeb = new System.Windows.Forms.CheckBox();
@@ -1878,6 +1879,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.l_Status);
             this.tabPage1.Controls.Add(this.l_ImportResults);
             this.tabPage1.Controls.Add(this.b_ClearCache);
             this.tabPage1.Controls.Add(this.cb_CacheWeb);
@@ -1895,6 +1897,14 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // l_Status
+            // 
+            this.l_Status.AutoSize = true;
+            this.l_Status.Location = new System.Drawing.Point(6, 722);
+            this.l_Status.Name = "l_Status";
+            this.l_Status.Size = new System.Drawing.Size(0, 13);
+            this.l_Status.TabIndex = 12;
             // 
             // l_ImportResults
             // 
@@ -6430,6 +6440,7 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.NumericUpDown nud_EnemyDef;
         private System.Windows.Forms.Label lbl_Sorting;
+        private System.Windows.Forms.Label l_Status;
     }
 }
 

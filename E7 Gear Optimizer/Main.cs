@@ -65,10 +65,18 @@ namespace E7_Gear_Optimizer
         public Main()
         {
             InitializeComponent();
-            Util.GetLatestVerion().ContinueWith((ver) =>
+            var task = Util.GetLatestVerion();
+            task.ContinueWith((ver) =>
             {
+                if (task.IsFaulted)
+                {
+                    l_Status.ForeColor = Color.Red;
+                    l_Status.Text = "Error checking for updates";
+                    return;
+                }
                 if (string.IsNullOrEmpty(ver.Result))
                 {
+                    l_Status.Text = "No updates available";
                     return;
                 }
                 this.Invoke((Action)delegate
@@ -83,7 +91,7 @@ namespace E7_Gear_Optimizer
                         }
                         catch
                         {
-                            MessageBox.Show(this, "Could not find E7 Optimizer Updater.exe", "Could not find E7 Optimizer Updater.exe", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show(this, "Could not find E7 Optimizer Updater.exe", "Update error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 });
