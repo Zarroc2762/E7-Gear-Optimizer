@@ -1537,17 +1537,16 @@ namespace E7_Gear_Optimizer
                     }
                 }
 
-                long numResults = weapons.Count * helmets.Count * armors.Count * necklaces.Count * rings.Count * boots.Count;
+                long numResults = (long)weapons.Count * helmets.Count * armors.Count * necklaces.Count * rings.Count * boots.Count;
                 if (numResults == 0)
                 {
                     return;
                 }
-                float counter = 0;
+                long counter = 0;
                 IProgress<int> progress = new Progress<int>(x =>
                 {
                     counter += x;
-                    var val = counter / numResults * 100;
-                    val = val < 0 ? 0 : val;
+                    var val = 100 * counter / numResults;
                     pB_Optimize.Value = (int)(val);
                 });
                 pB_Optimize.Show();
