@@ -2067,6 +2067,8 @@ namespace E7_Gear_Optimizer
                 JObject json = createJson();
                 File.WriteAllText(sfd_export.FileName, json.ToString());
                 setLastUsedFileName(sfd_export.FileName, false);
+                l_ImportResults.Text = $"Successfully exported {data.Heroes.Count} heroes and {data.Items.Count} items to {sfd_export.FileName}";
+                l_ImportResults.ForeColor = Color.Green;
             }
         }
         
