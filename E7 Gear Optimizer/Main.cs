@@ -68,19 +68,19 @@ namespace E7_Gear_Optimizer
             var task = Util.GetLatestVerion();
             task.ContinueWith((ver) =>
             {
-                if (task.IsFaulted)
-                {
-                    l_Status.ForeColor = Color.Red;
-                    l_Status.Text = "Error checking for updates";
-                    return;
-                }
-                if (string.IsNullOrEmpty(ver.Result))
-                {
-                    l_Status.Text = "No updates available";
-                    return;
-                }
                 this.Invoke((Action)delegate
                 {
+                    if (task.IsFaulted)
+                    {
+                        l_Status.ForeColor = Color.Red;
+                        l_Status.Text = "Error checking for updates";
+                        return;
+                    }
+                    if (string.IsNullOrEmpty(ver.Result))
+                    {
+                        l_Status.Text = "No updates available";
+                        return;
+                    }
                     if (MessageBox.Show(this, $"New version {ver.Result} of the application is available." + Environment.NewLine + "Do you want to update now?",
                     "Update available", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
