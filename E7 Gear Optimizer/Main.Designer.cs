@@ -3140,14 +3140,14 @@
             0,
             0,
             0});
-            this.nud_LimitResults.Location = new System.Drawing.Point(97, 240);
+            this.nud_LimitResults.Location = new System.Drawing.Point(87, 240);
             this.nud_LimitResults.Maximum = new decimal(new int[] {
             100000000,
             0,
             0,
             0});
             this.nud_LimitResults.Name = "nud_LimitResults";
-            this.nud_LimitResults.Size = new System.Drawing.Size(84, 20);
+            this.nud_LimitResults.Size = new System.Drawing.Size(94, 20);
             this.nud_LimitResults.TabIndex = 142;
             this.nud_LimitResults.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nud_LimitResults.ThousandsSeparator = true;
@@ -3407,9 +3407,9 @@
             // 
             // l_Results
             // 
-            this.l_Results.Location = new System.Drawing.Point(104, 225);
+            this.l_Results.Location = new System.Drawing.Point(94, 225);
             this.l_Results.Name = "l_Results";
-            this.l_Results.Size = new System.Drawing.Size(79, 15);
+            this.l_Results.Size = new System.Drawing.Size(89, 15);
             this.l_Results.TabIndex = 25;
             this.l_Results.Text = "0";
             this.l_Results.TextAlign = System.Drawing.ContentAlignment.TopRight;

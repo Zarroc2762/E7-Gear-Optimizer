@@ -918,13 +918,17 @@ namespace E7_Gear_Optimizer
             Item newItem = new Item(data.incrementItemID(), type, set, grade, ilvl, enh, main, substats.ToArray(), hero, locked);
             hero?.equip(newItem);
             data.Items.Add(newItem);
-            
-            //add row and select the created item if it is displayed with the current filter
+
+            //add row, select the created item and increment items count if it is displayed with the current filter
             if ((tc_Inventory.SelectedIndex == 0 || (ItemType)(tc_Inventory.SelectedIndex - 1) == type) && (tc_InventorySets.SelectedIndex == 0 || (Set)(tc_InventorySets.SelectedIndex - 1) == set))
             {
                 dgv_Inventory.Rows.Add(getInventoryRowValues(newItem));
                 sortDataGridView(dgv_Inventory);
                 dgv_Inventory.CurrentCell = dgv_Inventory.Rows.Cast<DataGridViewRow>().Where(x => x.Cells["c_ItemID"].Value.ToString() == newItem.ID).First().Cells[0];
+                if (int.TryParse(l_ItemCount.Text, out int itemsCount))
+                {
+                    l_ItemCount.Text = (++itemsCount).ToString();
+                }
             }
         }
 
@@ -1553,17 +1557,16 @@ namespace E7_Gear_Optimizer
                     }
                 }
 
-                long numResults = weapons.Count * helmets.Count * armors.Count * necklaces.Count * rings.Count * boots.Count;
+                long numResults = (long)weapons.Count * helmets.Count * armors.Count * necklaces.Count * rings.Count * boots.Count;
                 if (numResults == 0)
                 {
                     return;
                 }
-                float counter = 0;
+                long counter = 0;
                 IProgress<int> progress = new Progress<int>(x =>
                 {
                     counter += x;
-                    var val = counter / numResults * 100;
-                    val = val < 0 ? 0 : val;
+                    var val = 100 * counter / numResults;
                     pB_Optimize.Value = (int)(val);
                 });
                 pB_Optimize.Show();
