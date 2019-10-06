@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace E7_Gear_Optimizer
 {
@@ -91,6 +94,7 @@ namespace E7_Gear_Optimizer
         public static string ApiUrl = System.Configuration.ConfigurationManager.AppSettings["ApiUrl"];
         public static string AssetUrl = System.Configuration.ConfigurationManager.AppSettings["AssetUrl"];
         public static string GitHubUrl = System.Configuration.ConfigurationManager.AppSettings["GitHubUrl"];
+        public static string GitHubApiUrl = System.Configuration.ConfigurationManager.AppSettings["GitHubApiUrl"];
         public static string ver = System.Configuration.ConfigurationManager.AppSettings["Version"];
         public static Bitmap error = Properties.Resources.error;
         public static Bitmap star = Properties.Resources.star;
@@ -272,6 +276,38 @@ namespace E7_Gear_Optimizer
         public static string toAPIUrl(string str)
         {
             return str.ToLower().Replace('&', ' ').Replace("   ", " ").Replace(' ', '-');
+        }
+
+        /// <summary>
+        /// Checks the latest release version of the app on the GitHub server
+        /// </summary>
+        /// <returns></returns>
+        public static async Task<string> GetLatestVerion()
+        {
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls
+                   | SecurityProtocolType.Tls11
+                   | SecurityProtocolType.Tls12
+                   | SecurityProtocolType.Ssl3;
+            WebClient client = new WebClient();
+            client.Headers.Add(HttpRequestHeader.UserAgent, "E7 Optimizer Updater");
+            string json = "";
+            string latestver = "0";
+            int count = 0;
+            json = await client.DownloadStringTaskAsync(!string.IsNullOrEmpty(GitHubApiUrl) ? GitHubApiUrl : "https://api.github.com/repos/Zarroc2762/E7-Gear-Optimizer/releases/latest");
+            string newVer = latestver = JObject.Parse(json).Value<string>("tag_name").Replace("v", "");
+            count = latestver.Count(x => x == '.');
+            if (count == 1)
+            {
+                latestver += ".0.0";
+            }
+            else if (count == 2)
+            {
+                latestver += ".0";
+            }
+            latestver = latestver.Replace(".", "");
+            string ver = Application.ProductVersion.Replace(".", "");
+            return int.Parse(latestver) > int.Parse(ver) ? newVer : null;
         }
     }
 }

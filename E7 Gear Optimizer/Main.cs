@@ -65,23 +65,43 @@ namespace E7_Gear_Optimizer
         public Main()
         {
             InitializeComponent();
+            var task = Util.GetLatestVerion();
+            task.ContinueWith((ver) =>
+            {
+                this.Invoke((Action)delegate
+                {
+                    if (task.IsFaulted)
+                    {
+                        l_Status.ForeColor = Color.Red;
+                        l_Status.Text = "Error checking for updates";
+                        return;
+                    }
+                    if (string.IsNullOrEmpty(ver.Result))
+                    {
+                        l_Status.Text = "No updates available";
+                        return;
+                    }
+                    if (MessageBox.Show(this, $"New version {ver.Result} of the application is available." + Environment.NewLine + "Do you want to update now?",
+                    "Update available", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            Process.Start("E7 Optimizer Updater.exe");
+                            Application.Exit();
+                        }
+                        catch
+                        {
+                            MessageBox.Show(this, "Could not find E7 Optimizer Updater.exe", "Update error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                });
+            });
             ServicePointManager.Expect100Continue = true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls
                    | SecurityProtocolType.Tls11
                    | SecurityProtocolType.Tls12
                    | SecurityProtocolType.Ssl3;
             Icon = Icon.FromHandle(Util.ResizeImage(Properties.Resources.bookmark, 19,18).GetHicon());
-            if (args.Length == 1)
-            {
-                try
-                {
-                    Process.Start("E7 Optimizer Updater.exe");
-                }
-                catch
-                {
-                    MessageBox.Show("Could not find E7 optimizer Updater.exe");
-                }
-            }
             if (Properties.Settings.Default.UseCache)
             {
                 Directory.CreateDirectory(Properties.Settings.Default.CacheDirectory);
@@ -2047,6 +2067,8 @@ namespace E7_Gear_Optimizer
                 JObject json = createJson();
                 File.WriteAllText(sfd_export.FileName, json.ToString());
                 setLastUsedFileName(sfd_export.FileName, false);
+                l_ImportResults.Text = $"Successfully exported {data.Heroes.Count} heroes and {data.Items.Count} items to {sfd_export.FileName}";
+                l_ImportResults.ForeColor = Color.Green;
             }
         }
         
@@ -2349,11 +2371,7 @@ namespace E7_Gear_Optimizer
 
         private void Main_Shown(object sender, EventArgs e)
         {
-            if (args.Length == 1 && File.Exists("E7 Optimizer Updater.exe"))
-            {
-                Application.Exit();
-            }
-            else if (Application.ProductVersion != Util.ver)
+            if (Application.ProductVersion != Util.ver)
             {
                 updated updated = new updated();
                 updated.ShowDialog();
