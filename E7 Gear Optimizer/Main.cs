@@ -107,15 +107,16 @@ namespace E7_Gear_Optimizer
                 Directory.CreateDirectory(Properties.Settings.Default.CacheDirectory);
             }
             //Read list of heroes from epicsevendb.com
-            try
+            
+            string json = null;
+            string cacheFileName = Path.Combine(Properties.Settings.Default.CacheDirectory, "db.hero.json");
+            if (useCache && File.Exists(cacheFileName) && System.DateTime.Now.Subtract(File.GetLastWriteTime(cacheFileName)).TotalDays <= Properties.Settings.Default.CacheTimeToLive)
             {
-                string json;
-                string cacheFileName = Path.Combine(Properties.Settings.Default.CacheDirectory, "db.hero.json");
-                if (useCache && File.Exists(cacheFileName))
-                {
-                    json = File.ReadAllText(cacheFileName);
-                }
-                else
+                json = File.ReadAllText(cacheFileName);
+            }
+            else
+            {
+                try
                 {
                     json = Util.client.DownloadString(Util.ApiUrl + "/hero/");
                     if (useCache)
@@ -123,16 +124,23 @@ namespace E7_Gear_Optimizer
                         File.WriteAllText(cacheFileName, json);
                     }
                 }
+                catch (WebException ex)
+                {
+                    MessageBox.Show("Could not connect to epicsevendb.com. Please check your internet connection.\nThe Optimizer will try to use a cached version of epicsevendb.com if it is available.");
+                    if (File.Exists(cacheFileName))
+                    {
+                        json = File.ReadAllText(cacheFileName);
+                    }
+                }
+            }
+            if (json != null)
+            {
                 JToken info = JObject.Parse(json)["results"];
                 int length = info.Count();
                 for (int i = 0; i < length; i++)
                 {
                     cb_Hero.Items.Add((string)info[i]["name"]);
                 }
-            }
-            catch (WebException ex)
-            {
-                MessageBox.Show("Could not connect to epicsevendb.com. Please check your internet connection.");
             }
 
             foreach (Stats stat in (Stats[])Enum.GetValues(typeof(Stats)))
@@ -339,6 +347,9 @@ namespace E7_Gear_Optimizer
             {
                 col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
+
+            //Initialize Tooltips
+            tt_EquipUnlock.SetToolTip(b_EquipUnlockOptimize, "Unlocks currently equipped gear before equipping selected gear");
         }
 
         private void B_import_Click(object sender, EventArgs e)
@@ -2792,6 +2803,17 @@ namespace E7_Gear_Optimizer
             enemyDef = Properties.Settings.Default.EnemyDefence = (int)nud_EnemyDef.Value;
             updateCurrentGear();
             dgv_OptimizeResults.Refresh();
+        }
+
+        private void b_EquipUnlockOptimize_Click(object sender, EventArgs e)
+        {
+            Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split(' ').Last());
+            List<Item> gear = hero.getGear();
+            foreach (Item item in gear)
+            {
+                item.Locked = false;
+            }
+            B_EquipOptimize_Click(null, null);
         }
     }
 }

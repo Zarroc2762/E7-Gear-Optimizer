@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -31,7 +32,8 @@ namespace E7_Gear_Optimizer
         private Dictionary<Stats, float> baseStats;
         public Dictionary<Stats, float> BaseStats { get => baseStats; }
         private Dictionary<Stats, float> currentStats;
-        private Dictionary<Stats, float> AwakeningStats { get; set; }
+        private Dictionary<Stats, float> awakeningStats;
+        public Dictionary<Stats, float> AwakeningStats { get => awakeningStats; }
 
         //Cache of Enum.GetValues(typeof(Stats)). Used to iterate over Stats. Greatly increases performance.
         public static Stats[] statsArrayGeneric = Enum.GetValues(typeof(Stats)).Cast<Stats>().ToArray();
@@ -52,41 +54,28 @@ namespace E7_Gear_Optimizer
             Artifact = artifact;
             this.Lvl = lvl;
             this.awakening = awakening > lvl / 10 ? lvl / 10 : awakening;
-            try
+            string json = loadJson();
+            JObject jObject = JObject.Parse(json);
+            baseStats = getBaseStats(json);
+            Element = getElement(json);
+            Class = getClass(json);
+            awakeningStats = getAwakeningStats(json);
+            Skills = new Skill[3];
+            for (var iSkill = 0; iSkill < 3; iSkill++)
             {
-                string json = loadJson();
-                json = Encoding.UTF8.GetString(Encoding.Default.GetBytes(json)).Replace("✰", "");
-                if (json.Substring(0, 100).Contains("tamarinne"))//search only the beginning of file
+                try
                 {
-                    json = System.Text.RegularExpressions.Regex.Replace(json, "\"Shining Star[^\"]*\"", "\"\"");
-                    json = System.Text.RegularExpressions.Regex.Replace(json, "description\":\"[^\"]*\",\"enhancement", "description\":\"\",\"enhancement");
+                    Skills[iSkill] = new Skill(jObject, iSkill, skillEnhance != null ? skillEnhance[iSkill] : 0);
                 }
-                JObject jObject = JObject.Parse(json);
-                baseStats = getBaseStats(json);
-                Element = getElement(json);
-                Class = getClass(json);
-                AwakeningStats = getAwakeningStats(json);
-                Skills = new Skill[3];
-                for (var iSkill = 0; iSkill < 3; iSkill++)
+                catch (Skill.UnsupportedDamageModifierException ex)
                 {
-                    try
-                    {
-                        Skills[iSkill] = new Skill(jObject, iSkill, skillEnhance != null ? skillEnhance[iSkill] : 0);
-                    }
-                    catch (Skill.UnsupportedDamageModifierException ex)
-                    {
-                        Skills[iSkill] = new Skill();
+                    Skills[iSkill] = new Skill();
 #if DEBUG
-                        MessageBox.Show(ex.Message + Environment.NewLine + "Hero: " + name, "Unsupported damage modifier", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(ex.Message + Environment.NewLine + "Hero: " + name, "Unsupported damage modifier", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 #endif
-                    }
-                };
-                SkillWithSoulburn = Skills.FirstOrDefault(s => s.HasSoulburn) ?? new Skill();
-            }
-            catch (WebException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+                }
+            };
+            SkillWithSoulburn = Skills.FirstOrDefault(s => s.HasSoulburn) ?? new Skill();
             Portrait = getPortrait(name);
             PortraitSmall = Util.ResizeImage(Portrait, 60, 60);
             stars = getStars(lvl, awakening);
@@ -114,7 +103,7 @@ namespace E7_Gear_Optimizer
                 if (Properties.Settings.Default.UseCache && System.IO.File.Exists(cacheFileName))
                 {
                     //using FileStream as the file is locked otherwise and cannot be deleted on cache invalidation
-                    using (var fs = new System.IO.FileStream(cacheFileName, System.IO.FileMode.Open))
+                    using (var fs = new FileStream(cacheFileName, System.IO.FileMode.Open))
                     {
                         portrait = new Bitmap(fs);
                     }
@@ -224,7 +213,7 @@ namespace E7_Gear_Optimizer
             string json = loadJson();
             json = Encoding.UTF8.GetString(Encoding.Default.GetBytes(json)).Replace("✰", "");
             json = json.Remove(json.IndexOf("\"skills\":")) + json.Substring(json.IndexOf("\"awakening\":"));
-            AwakeningStats = getAwakeningStats(json);
+            awakeningStats = getAwakeningStats(json);
             stars = getStars(lvl, awakening);
         }
 
@@ -446,19 +435,34 @@ namespace E7_Gear_Optimizer
         private string loadJson()
         {
             string cacheFileName = System.IO.Path.Combine(Properties.Settings.Default.CacheDirectory, $"db.hero.{Name}.json");
-            string json;
-            if (Properties.Settings.Default.UseCache && System.IO.File.Exists(cacheFileName))
+            string json = null;
+            if (Properties.Settings.Default.UseCache && File.Exists(cacheFileName) && System.DateTime.Now.Subtract(File.GetLastWriteTime(cacheFileName)).TotalDays <= Properties.Settings.Default.CacheTimeToLive)
             {
-                json = System.IO.File.ReadAllText(cacheFileName);
+                json = File.ReadAllText(cacheFileName);
             }
             else
             {
-                json = Util.client.DownloadString(Util.ApiUrl + "/hero/" + Util.toAPIUrl(Name));
-                if (Properties.Settings.Default.UseCache)
+                try
                 {
-                    System.IO.File.WriteAllText(cacheFileName, json);
+                    json = Util.client.DownloadString(Util.ApiUrl + "/hero/" + Util.toAPIUrl(Name));
+                    if (Properties.Settings.Default.UseCache)
+                    {
+                        File.WriteAllText(cacheFileName, json);
+                    }
+                }
+                catch (WebException ex)
+                {
+                    MessageBox.Show("Could not connect to epicsevendb.com. Please check your internet connection.\nThe Optimizer will try to use a cached version of epicsevendb.com if it is available.");
+                    if (File.Exists(cacheFileName))
+                    {
+                        json = File.ReadAllText(cacheFileName);
+                    }
                 }
             }
+            //remove text which results in json errors on systems with some specific language settings
+            json = Encoding.UTF8.GetString(Encoding.Default.GetBytes(json)).Replace("✰", "");
+            json = System.Text.RegularExpressions.Regex.Replace(json, "\"Shining Star[^\"]*\"", "\"\"");
+            json = System.Text.RegularExpressions.Regex.Replace(json, "description\":\"[^\"]*\",\"enhancement", "description\":\"\",\"enhancement");
             return json;
         }
     }
