@@ -244,14 +244,10 @@
             this.is_Ring = new E7_Gear_Optimizer.ItemStats();
             this.is_Boots = new E7_Gear_Optimizer.ItemStats();
             this.tb_Optimize = new System.Windows.Forms.TabPage();
+            this.b_EquipUnlockOptimize = new System.Windows.Forms.Button();
+            this.lbl_Sorting = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.nud_EnemyDef = new System.Windows.Forms.NumericUpDown();
-            this.is_NecklaceOptimize = new E7_Gear_Optimizer.ItemStats();
-            this.is_BootsOptimize = new E7_Gear_Optimizer.ItemStats();
-            this.is_RingOptimize = new E7_Gear_Optimizer.ItemStats();
-            this.is_ArmorOptimize = new E7_Gear_Optimizer.ItemStats();
-            this.is_HelmetOptimize = new E7_Gear_Optimizer.ItemStats();
-            this.is_WeaponOptimize = new E7_Gear_Optimizer.ItemStats();
             this.label38 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.nud_LimitResults = new System.Windows.Forms.NumericUpDown();
@@ -433,6 +429,12 @@
             this.label52 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.cb_OptimizeHero = new System.Windows.Forms.ComboBox();
+            this.is_NecklaceOptimize = new E7_Gear_Optimizer.ItemStats();
+            this.is_BootsOptimize = new E7_Gear_Optimizer.ItemStats();
+            this.is_RingOptimize = new E7_Gear_Optimizer.ItemStats();
+            this.is_ArmorOptimize = new E7_Gear_Optimizer.ItemStats();
+            this.is_HelmetOptimize = new E7_Gear_Optimizer.ItemStats();
+            this.is_WeaponOptimize = new E7_Gear_Optimizer.ItemStats();
             this.tb_SpeedTuner = new System.Windows.Forms.TabPage();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
@@ -498,7 +500,7 @@
             this.ofd_import = new System.Windows.Forms.OpenFileDialog();
             this.sfd_export = new System.Windows.Forms.SaveFileDialog();
             this.tt_Skills = new System.Windows.Forms.ToolTip(this.components);
-            this.lbl_Sorting = new System.Windows.Forms.Label();
+            this.tt_EquipUnlock = new System.Windows.Forms.ToolTip(this.components);
             this.tb_Inventory.SuspendLayout();
             this.tc_InventorySets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ItemLocked)).BeginInit();
@@ -1537,7 +1539,6 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_Inventory.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_Inventory.Location = new System.Drawing.Point(6, 40);
-            this.dgv_Inventory.MultiSelect = true;
             this.dgv_Inventory.Name = "dgv_Inventory";
             this.dgv_Inventory.ReadOnly = true;
             this.dgv_Inventory.RowHeadersWidth = 62;
@@ -2016,7 +2017,7 @@
             this.tc_Main.Controls.Add(this.tb_Heroes);
             this.tc_Main.Controls.Add(this.tb_Optimize);
             this.tc_Main.Controls.Add(this.tb_SpeedTuner);
-            this.tc_Main.Location = new System.Drawing.Point(5, 5);
+            this.tc_Main.Location = new System.Drawing.Point(9, 9);
             this.tc_Main.Margin = new System.Windows.Forms.Padding(0);
             this.tc_Main.Name = "tc_Main";
             this.tc_Main.SelectedIndex = 0;
@@ -2954,15 +2955,10 @@
             // 
             // tb_Optimize
             // 
+            this.tb_Optimize.Controls.Add(this.b_EquipUnlockOptimize);
             this.tb_Optimize.Controls.Add(this.lbl_Sorting);
             this.tb_Optimize.Controls.Add(this.label35);
             this.tb_Optimize.Controls.Add(this.nud_EnemyDef);
-            this.tb_Optimize.Controls.Add(this.is_NecklaceOptimize);
-            this.tb_Optimize.Controls.Add(this.is_BootsOptimize);
-            this.tb_Optimize.Controls.Add(this.is_RingOptimize);
-            this.tb_Optimize.Controls.Add(this.is_ArmorOptimize);
-            this.tb_Optimize.Controls.Add(this.is_HelmetOptimize);
-            this.tb_Optimize.Controls.Add(this.is_WeaponOptimize);
             this.tb_Optimize.Controls.Add(this.label38);
             this.tb_Optimize.Controls.Add(this.panel1);
             this.tb_Optimize.Controls.Add(this.b_CancelOptimize);
@@ -2998,6 +2994,12 @@
             this.tb_Optimize.Controls.Add(this.tableLayoutPanel1);
             this.tb_Optimize.Controls.Add(this.label18);
             this.tb_Optimize.Controls.Add(this.cb_OptimizeHero);
+            this.tb_Optimize.Controls.Add(this.is_NecklaceOptimize);
+            this.tb_Optimize.Controls.Add(this.is_BootsOptimize);
+            this.tb_Optimize.Controls.Add(this.is_RingOptimize);
+            this.tb_Optimize.Controls.Add(this.is_ArmorOptimize);
+            this.tb_Optimize.Controls.Add(this.is_HelmetOptimize);
+            this.tb_Optimize.Controls.Add(this.is_WeaponOptimize);
             this.tb_Optimize.Location = new System.Drawing.Point(4, 25);
             this.tb_Optimize.Name = "tb_Optimize";
             this.tb_Optimize.Size = new System.Drawing.Size(1455, 740);
@@ -3005,6 +3007,26 @@
             this.tb_Optimize.Text = "Optimization";
             this.tb_Optimize.UseVisualStyleBackColor = true;
             this.tb_Optimize.TextChanged += new System.EventHandler(this.Tb_Optimize_TextChanged);
+            // 
+            // b_EquipUnlockOptimize
+            // 
+            this.b_EquipUnlockOptimize.Location = new System.Drawing.Point(728, 716);
+            this.b_EquipUnlockOptimize.Name = "b_EquipUnlockOptimize";
+            this.b_EquipUnlockOptimize.Size = new System.Drawing.Size(90, 23);
+            this.b_EquipUnlockOptimize.TabIndex = 150;
+            this.b_EquipUnlockOptimize.Text = "Unlock + Equip";
+            this.b_EquipUnlockOptimize.UseVisualStyleBackColor = true;
+            this.b_EquipUnlockOptimize.Click += new System.EventHandler(this.b_EquipUnlockOptimize_Click);
+            // 
+            // lbl_Sorting
+            // 
+            this.lbl_Sorting.Location = new System.Drawing.Point(287, 539);
+            this.lbl_Sorting.Name = "lbl_Sorting";
+            this.lbl_Sorting.Size = new System.Drawing.Size(387, 30);
+            this.lbl_Sorting.TabIndex = 149;
+            this.lbl_Sorting.Text = "Sorting...";
+            this.lbl_Sorting.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_Sorting.Visible = false;
             // 
             // label35
             // 
@@ -3014,8 +3036,7 @@
             this.label35.Size = new System.Drawing.Size(91, 26);
             this.label35.TabIndex = 148;
             this.label35.Text = "Enemy Defence\r\n(for skills damage)";
-            this.tt_Skills.SetToolTip(this.label35, "Slimes in 1-1 have 55.\r\nWyvern 1 wave 1 dragons have 165.\r\nThe Mossy Testudos in " +
-        "Golem 6 have 642 Defense.\r\nThe Blaze Dragonas in Wyvern 6 have 592 Defense.");
+            this.tt_Skills.SetToolTip(this.label35, "The Mossy Testudos in Golem 6 have 520 Defense");
             // 
             // nud_EnemyDef
             // 
@@ -3028,69 +3049,8 @@
             this.nud_EnemyDef.Name = "nud_EnemyDef";
             this.nud_EnemyDef.Size = new System.Drawing.Size(46, 20);
             this.nud_EnemyDef.TabIndex = 147;
-            this.tt_Skills.SetToolTip(this.nud_EnemyDef, "Slimes in 1-1 have 55.\r\nWyvern 1 wave 1 dragons have 165.\r\nThe Mossy Testudos in " +
-        "Golem 6 have 642 Defense.\r\nThe Blaze Dragonas in Wyvern 6 have 592 Defense.");
+            this.tt_Skills.SetToolTip(this.nud_EnemyDef, "The Mossy Testudos in Golem 6 have 520 Defense");
             this.nud_EnemyDef.ValueChanged += new System.EventHandler(this.Nud_EnemyDef_ValueChanged);
-            // 
-            // is_NecklaceOptimize
-            // 
-            this.is_NecklaceOptimize.Hero = null;
-            this.is_NecklaceOptimize.Image = null;
-            this.is_NecklaceOptimize.Item = null;
-            this.is_NecklaceOptimize.Location = new System.Drawing.Point(1258, 1);
-            this.is_NecklaceOptimize.Name = "is_NecklaceOptimize";
-            this.is_NecklaceOptimize.Size = new System.Drawing.Size(181, 210);
-            this.is_NecklaceOptimize.TabIndex = 146;
-            // 
-            // is_BootsOptimize
-            // 
-            this.is_BootsOptimize.Hero = null;
-            this.is_BootsOptimize.Image = null;
-            this.is_BootsOptimize.Item = null;
-            this.is_BootsOptimize.Location = new System.Drawing.Point(1258, 521);
-            this.is_BootsOptimize.Name = "is_BootsOptimize";
-            this.is_BootsOptimize.Size = new System.Drawing.Size(181, 210);
-            this.is_BootsOptimize.TabIndex = 117;
-            // 
-            // is_RingOptimize
-            // 
-            this.is_RingOptimize.Hero = null;
-            this.is_RingOptimize.Image = null;
-            this.is_RingOptimize.Item = null;
-            this.is_RingOptimize.Location = new System.Drawing.Point(1258, 258);
-            this.is_RingOptimize.Name = "is_RingOptimize";
-            this.is_RingOptimize.Size = new System.Drawing.Size(181, 210);
-            this.is_RingOptimize.TabIndex = 145;
-            // 
-            // is_ArmorOptimize
-            // 
-            this.is_ArmorOptimize.Hero = null;
-            this.is_ArmorOptimize.Image = null;
-            this.is_ArmorOptimize.Item = null;
-            this.is_ArmorOptimize.Location = new System.Drawing.Point(997, 521);
-            this.is_ArmorOptimize.Name = "is_ArmorOptimize";
-            this.is_ArmorOptimize.Size = new System.Drawing.Size(181, 210);
-            this.is_ArmorOptimize.TabIndex = 144;
-            // 
-            // is_HelmetOptimize
-            // 
-            this.is_HelmetOptimize.Hero = null;
-            this.is_HelmetOptimize.Image = null;
-            this.is_HelmetOptimize.Item = null;
-            this.is_HelmetOptimize.Location = new System.Drawing.Point(997, 259);
-            this.is_HelmetOptimize.Name = "is_HelmetOptimize";
-            this.is_HelmetOptimize.Size = new System.Drawing.Size(181, 210);
-            this.is_HelmetOptimize.TabIndex = 143;
-            // 
-            // is_WeaponOptimize
-            // 
-            this.is_WeaponOptimize.Hero = null;
-            this.is_WeaponOptimize.Image = null;
-            this.is_WeaponOptimize.Item = null;
-            this.is_WeaponOptimize.Location = new System.Drawing.Point(997, 1);
-            this.is_WeaponOptimize.Name = "is_WeaponOptimize";
-            this.is_WeaponOptimize.Size = new System.Drawing.Size(181, 210);
-            this.is_WeaponOptimize.TabIndex = 142;
             // 
             // label38
             // 
@@ -5020,6 +4980,66 @@
             this.cb_OptimizeHero.TabIndex = 0;
             this.cb_OptimizeHero.SelectedIndexChanged += new System.EventHandler(this.Cb_OptimizeHero_SelectedIndexChanged);
             // 
+            // is_NecklaceOptimize
+            // 
+            this.is_NecklaceOptimize.Hero = null;
+            this.is_NecklaceOptimize.Image = null;
+            this.is_NecklaceOptimize.Item = null;
+            this.is_NecklaceOptimize.Location = new System.Drawing.Point(1258, 1);
+            this.is_NecklaceOptimize.Name = "is_NecklaceOptimize";
+            this.is_NecklaceOptimize.Size = new System.Drawing.Size(181, 210);
+            this.is_NecklaceOptimize.TabIndex = 146;
+            // 
+            // is_BootsOptimize
+            // 
+            this.is_BootsOptimize.Hero = null;
+            this.is_BootsOptimize.Image = null;
+            this.is_BootsOptimize.Item = null;
+            this.is_BootsOptimize.Location = new System.Drawing.Point(1258, 521);
+            this.is_BootsOptimize.Name = "is_BootsOptimize";
+            this.is_BootsOptimize.Size = new System.Drawing.Size(181, 210);
+            this.is_BootsOptimize.TabIndex = 117;
+            // 
+            // is_RingOptimize
+            // 
+            this.is_RingOptimize.Hero = null;
+            this.is_RingOptimize.Image = null;
+            this.is_RingOptimize.Item = null;
+            this.is_RingOptimize.Location = new System.Drawing.Point(1258, 258);
+            this.is_RingOptimize.Name = "is_RingOptimize";
+            this.is_RingOptimize.Size = new System.Drawing.Size(181, 210);
+            this.is_RingOptimize.TabIndex = 145;
+            // 
+            // is_ArmorOptimize
+            // 
+            this.is_ArmorOptimize.Hero = null;
+            this.is_ArmorOptimize.Image = null;
+            this.is_ArmorOptimize.Item = null;
+            this.is_ArmorOptimize.Location = new System.Drawing.Point(997, 521);
+            this.is_ArmorOptimize.Name = "is_ArmorOptimize";
+            this.is_ArmorOptimize.Size = new System.Drawing.Size(181, 210);
+            this.is_ArmorOptimize.TabIndex = 144;
+            // 
+            // is_HelmetOptimize
+            // 
+            this.is_HelmetOptimize.Hero = null;
+            this.is_HelmetOptimize.Image = null;
+            this.is_HelmetOptimize.Item = null;
+            this.is_HelmetOptimize.Location = new System.Drawing.Point(997, 259);
+            this.is_HelmetOptimize.Name = "is_HelmetOptimize";
+            this.is_HelmetOptimize.Size = new System.Drawing.Size(181, 210);
+            this.is_HelmetOptimize.TabIndex = 143;
+            // 
+            // is_WeaponOptimize
+            // 
+            this.is_WeaponOptimize.Hero = null;
+            this.is_WeaponOptimize.Image = null;
+            this.is_WeaponOptimize.Item = null;
+            this.is_WeaponOptimize.Location = new System.Drawing.Point(997, 1);
+            this.is_WeaponOptimize.Name = "is_WeaponOptimize";
+            this.is_WeaponOptimize.Size = new System.Drawing.Size(181, 210);
+            this.is_WeaponOptimize.TabIndex = 142;
+            // 
             // tb_SpeedTuner
             // 
             this.tb_SpeedTuner.Controls.Add(this.richTextBox2);
@@ -5846,38 +5866,6 @@
             this.sfd_export.FileName = "E7 Gear Optimizer.json";
             this.sfd_export.Filter = "JSON|*.json";
             // 
-            // nud_EnemyDef
-            // lbl_Sorting
-            // 
-            this.nud_EnemyDef.Location = new System.Drawing.Point(6, 216);
-            this.nud_EnemyDef.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nud_EnemyDef.Name = "nud_EnemyDef";
-            this.nud_EnemyDef.Size = new System.Drawing.Size(46, 20);
-            this.nud_EnemyDef.TabIndex = 147;
-            this.tt_Skills.SetToolTip(this.nud_EnemyDef, "The Mossy Testudos in Golem 6 have 520 Defense");
-            this.nud_EnemyDef.ValueChanged += new System.EventHandler(this.Nud_EnemyDef_ValueChanged);
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(3, 185);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(91, 26);
-            this.label35.TabIndex = 148;
-            this.label35.Text = "Enemy Defence\r\n(for skills damage)";
-            this.tt_Skills.SetToolTip(this.label35, "The Mossy Testudos in Golem 6 have 520 Defense");
-            this.lbl_Sorting.Location = new System.Drawing.Point(287, 539);
-            this.lbl_Sorting.Name = "lbl_Sorting";
-            this.lbl_Sorting.Size = new System.Drawing.Size(387, 30);
-            this.lbl_Sorting.TabIndex = 149;
-            this.lbl_Sorting.Text = "Sorting...";
-            this.lbl_Sorting.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_Sorting.Visible = false;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6441,6 +6429,8 @@
         private System.Windows.Forms.NumericUpDown nud_EnemyDef;
         private System.Windows.Forms.Label lbl_Sorting;
         private System.Windows.Forms.Label l_Status;
+        private System.Windows.Forms.Button b_EquipUnlockOptimize;
+        private System.Windows.Forms.ToolTip tt_EquipUnlock;
     }
 }
 

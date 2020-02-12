@@ -178,6 +178,16 @@ namespace E7_Gear_Optimizer
         //Faster alternative to fourPieceSets.Contains() or Dictionary<Set, bool> to determine if a set is 4-piece set. Each index represents (int)Set
         private static readonly bool[] isFourPieceSetArray;
 
+        public static Dictionary<Stats, Stats> correspondingStats = new Dictionary<Stats, Stats>()
+        {
+            [Stats.ATK] = Stats.ATKPercent,
+            [Stats.ATKPercent] = Stats.ATK,
+            [Stats.DEF] = Stats.DEFPercent,
+            [Stats.DEFPercent] = Stats.DEF,
+            [Stats.HP] = Stats.HPPercent,
+            [Stats.HPPercent] = Stats.HP
+        };
+
         static Util()
         {
             isFourPieceSetArray = new bool[SETS_LENGTH];

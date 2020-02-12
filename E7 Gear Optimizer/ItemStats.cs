@@ -104,7 +104,13 @@ namespace E7_Gear_Optimizer
             }
             else
             {
-                s = stat.Value.ToString() + " (" + (stat.Value / (Hero ?? item.Equipped).BaseStats[stat.Name]).ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) + ')';
+
+                float awakenedStat = (Hero ?? item.Equipped).BaseStats[stat.Name] + ((Hero ?? item.Equipped).AwakeningStats.ContainsKey(stat.Name) ? (Hero ?? item.Equipped).AwakeningStats[stat.Name] : 0.0f);
+                if ((Util.correspondingStats.ContainsKey(stat.Name) && (Hero ?? item.Equipped).AwakeningStats.ContainsKey(Util.correspondingStats[stat.Name])))
+                {
+                    awakenedStat *= 1 + (Hero ?? item.Equipped).AwakeningStats[Util.correspondingStats[stat.Name]];
+                }
+                s = stat.Value.ToString() + " (" + (stat.Value / awakenedStat).ToString("P0", CultureInfo.CreateSpecificCulture("en-US")) + ')';
             }
             return s;
         }

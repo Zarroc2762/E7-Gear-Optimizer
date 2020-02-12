@@ -109,7 +109,7 @@ namespace E7_Gear_Optimizer
                         wss += 100 * s.Value / 30;
                         break;
                     case Stats.CritDmg:
-                        wss += 100 * s.Value / 36;
+                        wss += 100 * s.Value / 42;
                         break;
                     case Stats.SPD:
                         wss += s.Value / 24;
