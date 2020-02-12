@@ -633,7 +633,9 @@ namespace E7_Gear_Optimizer
                 {
                     ListBox lb = (ListBox)tb_Inventory.Controls.Find("lb_Sub" + (subStat + 1) , false)[0];
                     lb.SelectedIndex = lb.FindStringExact(dgv_Inventory.Columns[i].HeaderText);
-                    ((NumericUpDown)tb_Inventory.Controls.Find("nud_Sub" + (subStat+1), false)[0]).Value = (int)float.Parse(((string)row.Cells[i].Value).Replace("%", ""));
+                    NumericUpDown nud = ((NumericUpDown)tb_Inventory.Controls.Find("nud_Sub" + (subStat + 1), false)[0]);
+                    nud.Value = 1;
+                    nud.Value = (int)float.Parse(((string)row.Cells[i].Value).Replace("%", ""));
                     subStat++;
                 }
             }
@@ -1623,8 +1625,8 @@ namespace E7_Gear_Optimizer
                     pB_Optimize.Value = 0;
                     //Display the first page of results. Each page consists of 100 results
                     dgv_OptimizeResults.RowCount = Math.Min(100, combinations.Count);
-                    optimizePage = 1;
-                    l_Pages.Text = "1 / " + ((combinations.Count + 99) / 100);
+                    optimizePage = combinations.Count > 0 ? 1 : 0;
+                    l_Pages.Text = optimizePage + " / " + ((combinations.Count + 99) / 100);
                     if (limitResults && resultsCurrent >= limitResultsNum)
                     {
                         MessageBox.Show("Maximum number of combinations reached. Please try to narrow the filter.", "Limit break", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1854,7 +1856,7 @@ namespace E7_Gear_Optimizer
         private void b_NextPage_Click(object sender, EventArgs e)
         {
             int count = filteredCombinations.Count > 0 ? filteredCombinations.Count : combinations.Count;
-            if (optimizePage != (count + 99) / 100)
+            if (optimizePage < (count + 99) / 100)
             {
                 optimizePage++;
                 onPageChange(count);
