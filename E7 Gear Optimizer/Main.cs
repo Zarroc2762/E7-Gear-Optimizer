@@ -2022,7 +2022,14 @@ namespace E7_Gear_Optimizer
                 }
                 else
                 {
-                    items = combinations[e.RowIndex + ((optimizePage - 1) * 100)].Item1.ToList();
+                    if (optimizePage > 1)
+                    {
+                        items = combinations[e.RowIndex + ((optimizePage - 1) * 100)].Item1.ToList();
+                    } 
+                    else
+                    {
+                        items = combinations[e.RowIndex].Item1.ToList();
+                    }
                 }
                 Item item;
                 item = items.Find(x => x.Type == ItemType.Weapon);
@@ -2326,62 +2333,69 @@ namespace E7_Gear_Optimizer
             {
                 object[] values = new object[dgv_CurrentGear.ColumnCount];
                 Hero hero = data.Heroes.Find(x => x.ID == cb_OptimizeHero.Text.Split().Last());
-                SStats heroStats = new SStats(hero.CurrentStats);
-                heroStats.Crit += (float)nud_CritBonus.Value / 100f;
-                values[0] = (int)hero.CurrentStats[Stats.ATK];
-                values[1] = (int)hero.CurrentStats[Stats.SPD];
-                values[2] = heroStats.Crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[3] = hero.CurrentStats[Stats.CritDmg].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[4] = (int)hero.CurrentStats[Stats.HP];
-                values[5] = (int)heroStats.HPpS;
-                values[6] = (int)hero.CurrentStats[Stats.DEF];
-                values[7] = hero.CurrentStats[Stats.EFF].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                values[8] = hero.CurrentStats[Stats.RES].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
-                List<Set> activeSets = hero.activeSets();
-                int count = 0;
-                if (activeSets.Contains(Set.Unity))
+                if (hero != null)
                 {
-                    foreach (Set set in activeSets)
+                    SStats heroStats = new SStats(hero.CurrentStats);
+                    heroStats.Crit += (float)nud_CritBonus.Value / 100f;
+                    values[0] = (int)hero.CurrentStats[Stats.ATK];
+                    values[1] = (int)hero.CurrentStats[Stats.SPD];
+                    values[2] = heroStats.Crit.ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                    values[3] = hero.CurrentStats[Stats.CritDmg].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                    values[4] = (int)hero.CurrentStats[Stats.HP];
+                    values[5] = (int)heroStats.HPpS;
+                    values[6] = (int)hero.CurrentStats[Stats.DEF];
+                    values[7] = hero.CurrentStats[Stats.EFF].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                    values[8] = hero.CurrentStats[Stats.RES].ToString("P0", CultureInfo.CreateSpecificCulture("en-US"));
+                    List<Set> activeSets = hero.activeSets();
+                    int count = 0;
+                    if (activeSets.Contains(Set.Unity))
                     {
-                        count += set == Set.Unity ? 1 : 0;
+                        foreach (Set set in activeSets)
+                        {
+                            count += set == Set.Unity ? 1 : 0;
+                        }
                     }
-                }
-                values[9] = (5 + (count * 4)) + "%";
-                if (activeSets.Count > 0)
-                {
-                    Bitmap sets = new Bitmap(activeSets.Count * 25, 25, PixelFormat.Format32bppArgb);
-                    Graphics g = Graphics.FromImage(sets);
-                    for (int i = 0; i < activeSets.Count; i++)
+                    values[9] = (5 + (count * 4)) + "%";
+                    if (activeSets.Count > 0)
                     {
-                        g.DrawImage(Util.ResizeImage((Image)Properties.Resources.ResourceManager.GetObject("set " + activeSets[i].ToString().ToLower().Replace("def", "defense")), 25, 25), i * 25, 0);
+                        Bitmap sets = new Bitmap(activeSets.Count * 25, 25, PixelFormat.Format32bppArgb);
+                        Graphics g = Graphics.FromImage(sets);
+                        for (int i = 0; i < activeSets.Count; i++)
+                        {
+                            g.DrawImage(Util.ResizeImage((Image)Properties.Resources.ResourceManager.GetObject("set " + activeSets[i].ToString().ToLower().Replace("def", "defense")), 25, 25), i * 25, 0);
+                        }
+                        values[10] = sets;
                     }
-                    values[10] = sets;
+                    else
+                    {
+                        values[10] = null;
+                    }
+                    values[11] = (int)hero.CurrentStats[Stats.EHP];
+                    values[12] = (int)heroStats.EHPpS;
+                    values[13] = (int)heroStats.DMG;
+                    values[14] = (int)heroStats.DMGpS;
+                    int iCol = 15;
+                    for (int iSkill = 0; iSkill < 4; iSkill++)
+                    {
+                        bool soulburn = iSkill == 3;
+                        var skill = soulburn ? hero.SkillWithSoulburn : hero.Skills[iSkill];
+                        float skillDmg = skill.CalcDamage(heroStats, false, soulburn, enemyDef);
+                        values[iCol++] = (int)skillDmg;
+                        float skillCritDmg = skill.CalcDamage(heroStats, true, soulburn, enemyDef);
+                        values[iCol++] = (int)skillCritDmg;
+                        float skillAvgDmg = heroStats.CritCapped * skillCritDmg + (1 - heroStats.CritCapped) * skillDmg;
+                        values[iCol++] = (int)skillAvgDmg;
+                        float skillAvgDmgSpd = skillAvgDmg * heroStats.SPD / 100;
+                        values[iCol++] = (int)skillAvgDmgSpd;
+                        //TODO dont calc all dmg if column is hidden (if necessary)
+                    }
+                    l_Results.Text = numberOfResults().ToString("#,0");
+                    dgv_CurrentGear.Rows.Add(values);
                 }
                 else
                 {
-                    values[10] = null;
+                    cb_OptimizeHero.Text = "";
                 }
-                values[11] = (int)hero.CurrentStats[Stats.EHP];
-                values[12] = (int)heroStats.EHPpS;
-                values[13] = (int)heroStats.DMG;
-                values[14] = (int)heroStats.DMGpS;
-                int iCol = 15;
-                for (int iSkill = 0; iSkill < 4; iSkill++)
-                {
-                    bool soulburn = iSkill == 3;
-                    var skill = soulburn ? hero.SkillWithSoulburn : hero.Skills[iSkill];
-                    float skillDmg = skill.CalcDamage(heroStats, false, soulburn, enemyDef);
-                    values[iCol++] = (int)skillDmg;
-                    float skillCritDmg = skill.CalcDamage(heroStats, true, soulburn, enemyDef);
-                    values[iCol++] = (int)skillCritDmg;
-                    float skillAvgDmg = heroStats.CritCapped * skillCritDmg + (1 - heroStats.CritCapped) * skillDmg;
-                    values[iCol++] = (int)skillAvgDmg;
-                    float skillAvgDmgSpd = skillAvgDmg * heroStats.SPD / 100;
-                    values[iCol++] = (int)skillAvgDmgSpd;
-                    //TODO dont calc all dmg if column is hidden (if necessary)
-                }
-                l_Results.Text = numberOfResults().ToString("#,0");
-                dgv_CurrentGear.Rows.Add(values);
             }
         }
 
