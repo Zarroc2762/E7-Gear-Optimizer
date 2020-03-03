@@ -117,6 +117,18 @@ namespace E7_Gear_Optimizer
                     }
                 }
             }
+            catch (WebException ex)
+            {
+                if (ex.Status != WebExceptionStatus.ProtocolError)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                else if (((HttpWebResponse)ex.Response).StatusCode != HttpStatusCode.NotFound)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                portrait = Util.error;
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
