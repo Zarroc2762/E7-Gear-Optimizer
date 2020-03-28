@@ -204,7 +204,7 @@ namespace E7_Gear_Optimizer
                         s = new Stat((Stats)Enum.Parse(typeof(Stats), name.Replace("ATT_RATE", "ATKPercent").Replace("MAX_HP_RATE", "HPPercent").Replace("DEF_RATE", "DEFPercent")), (float)stats[j]["value"]);
                     } else
                     {
-                        s = new Stat((Stats)Enum.Parse(typeof(Stats), name.ToUpper().Replace("ATT", "ATK").Replace("SPEED", "SPD").Replace("CRI", "Crit").Replace("CRI_DMG", "CritDmg").Replace("MAX_HP", "HP").Replace("ACC", "EFF")), (float)stats[j]["value"]);
+                        s = new Stat((Stats)Enum.Parse(typeof(Stats), name.ToUpper().Replace("ATT", "ATK").Replace("SPEED", "SPD").Replace("CRI_DMG", "CritDmg").Replace("CRI", "Crit").Replace("MAX_HP", "HP").Replace("ACC", "EFF")), (float)stats[j]["value"]);
                     }
                     if (awakeningStats.ContainsKey(s.Name))
                     {
