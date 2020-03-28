@@ -62,7 +62,7 @@ namespace E7_Gear_Optimizer
                     }
                     for (int i = 0; i < enhanceLevel; i++)
                     {
-                        string desc = jEnhancement[i]["description"].ToString();
+                        string desc = jEnhancement[i]["string"].ToString();
                         var match = enhancementDescRegex.Match(desc);
                         if (match.Success)
                         {
