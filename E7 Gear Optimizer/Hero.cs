@@ -160,7 +160,7 @@ namespace E7_Gear_Optimizer
             {
                 return null;
             }
-            JToken statsJson = JObject.Parse(json)["results"][0]["stats"];
+            JToken statsJson = JObject.Parse(json)["results"][0]["calculatedStatus"];
             statsJson = lvl == 50 ? statsJson["lv50FiveStarNoAwaken"] : statsJson["lv60SixStarNoAwaken"];
             Dictionary<Stats,float> baseStats = new Dictionary<Stats, float>();
             var stats = statsJson.Children().GetEnumerator();
@@ -182,29 +182,29 @@ namespace E7_Gear_Optimizer
         {
             string json = loadJson();
             json = Encoding.UTF8.GetString(Encoding.Default.GetBytes(json)).Replace("✰", "");
-            json = json.Remove(json.IndexOf("\"skills\":")) + json.Substring(json.IndexOf("\"awakening\":"));
+            json = json.Remove(json.IndexOf("\"skills\":")) + json.Substring(json.IndexOf("\"zodiac_tree\":"));
             baseStats = getBaseStats(json);
         }
 
         //Parse JSON data from EpicSevenDB to get the stats of an awakened hero
         private Dictionary<Stats,float> getAwakeningStats(string json)
         {
-            JToken statsJson = JObject.Parse(json)["results"][0]["awakening"];
+            JToken statsJson = JObject.Parse(json)["results"][0]["zodiac_tree"];
             Dictionary<Stats, float> awakeningStats = new Dictionary<Stats, float>();
             for (int i = 0; i < Awakening ;i++)
             {
-                JToken stats = statsJson[i]["statsIncrease"];
+                JToken stats = statsJson[i]["stats"];
                 for (int j = 0; j < stats.Count(); j++)
                 {
-                    JProperty stat = (JProperty)stats[j].First;
-                    string name = stat.Name.ToUpper();
+                    string name = stats[j]["stat"].ToString().ToUpper();
+
                     Stat s;
-                    if ((name == "ATK" || name == "HP" || name == "DEF") && (float)stat.Value < 1)
+                    if ((name == "ATT_RATE" || name == "MAX_HP_RATE" || name == "DEF_RATE"))
                     {
-                        s = new Stat((Stats)Enum.Parse(typeof(Stats), stat.Name.ToUpper() + "Percent"), (float)stat.Value);
+                        s = new Stat((Stats)Enum.Parse(typeof(Stats), name.Replace("ATT_RATE", "ATKPercent").Replace("MAX_HP_RATE", "HPPercent").Replace("DEF_RATE", "DEFPercent")), (float)stats[j]["value"]);
                     } else
                     {
-                        s = new Stat((Stats)Enum.Parse(typeof(Stats), stat.Name.ToUpper().Replace("CHC", "Crit").Replace("CHD", "CritDmg").Replace("EFR", "RES")), (float)stat.Value);
+                        s = new Stat((Stats)Enum.Parse(typeof(Stats), name.ToUpper().Replace("ATT", "ATK").Replace("SPEED", "SPD").Replace("CRI", "Crit").Replace("CRI_DMG", "CritDmg").Replace("MAX_HP", "HP").Replace("ACC", "EFF")), (float)stats[j]["value"]);
                     }
                     if (awakeningStats.ContainsKey(s.Name))
                     {
@@ -224,7 +224,7 @@ namespace E7_Gear_Optimizer
         {
             string json = loadJson();
             json = Encoding.UTF8.GetString(Encoding.Default.GetBytes(json)).Replace("✰", "");
-            json = json.Remove(json.IndexOf("\"skills\":")) + json.Substring(json.IndexOf("\"awakening\":"));
+            json = json.Remove(json.IndexOf("\"skills\":")) + json.Substring(json.IndexOf("\"zodiac_tree\":"));
             awakeningStats = getAwakeningStats(json);
             stars = getStars(lvl, awakening);
         }
@@ -232,13 +232,15 @@ namespace E7_Gear_Optimizer
         private Element getElement(string json)
         {
             JToken info = JObject.Parse(json)["results"][0];
-            return (Element)Enum.Parse(typeof(Element), System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase((string)info["element"]));
+            return (Element)Enum.Parse(typeof(Element), System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase((string)info["attribute"]).Replace("Wind", "Earth"));
         }
 
         private HeroClass getClass(string json)
         {
             JToken info = JObject.Parse(json)["results"][0];
-            return (HeroClass)Enum.Parse(typeof(HeroClass), System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase((string)info["classType"]).Replace("Soul-Weaver","SoulWeaver"));
+            return (HeroClass)Enum.Parse(typeof(HeroClass), System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase((string)info["role"])
+                .Replace("Manauser","SoulWeaver")
+                .Replace("Assassin", "Thief"));
         }
 
         //Calculates the current stats of a hero
