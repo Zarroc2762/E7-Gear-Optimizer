@@ -30,74 +30,16 @@ namespace E7_Gear_Optimizer
         public Skill(JObject jObject, int index, int enhanceLevel = 0)
         {
             JToken jSkill = jObject["results"][0]["skills"][index];
-            JToken jDamageModifiers = jSkill["damageModifiers"];
-            foreach (var jModifier in jDamageModifiers)
-            {
-                string name = jModifier["name"].ToString();
-                float value;
-                float soulburn;
-                var jValue = jModifier["value"];
-                if (jValue is JArray)
-                {
-                    //some values stored as arrays e.g. BBK's, as her damage scales with lost health
-                    //in such cases calc damage using only the first value
-                    value = ((JArray)jValue).First().Value<float>();
-                }
-                else
-                {
-                    value = jValue.Value<float>();
-                }
-                var jSoulburn = jModifier["soulburn"];
-                if (jSoulburn is JArray)
-                {
-                    soulburn = ((JArray)jSoulburn).First().Value<float>();
-                }
-                else
-                {
-                    soulburn = jSoulburn.Value<float>();
-                }
-                switch (name)
-                {
-                    case "pow":
-                        pow = value;
-                        powSoul = soulburn;
-                        break;
-                    case "atk_rate":
-                        atk = value;
-                        atkSoul = soulburn;
-                        break;
-                    case "hp_rate":
-                        hp = value;
-                        hpSoul = soulburn;
-                        break;
-                    case "def_rate":
-                        def = value;
-                        defSoul = soulburn;
-                        break;
-                    case "spd_rate":
-                        spd = value;
-                        spdSoul = soulburn;
-                        break;
-                    case "crit_dmg_rate":
-                        critDmg = 1 + value;
-                        critDmgSoul = 1 + soulburn;
-                        break;
-                    case "self_hp_current_rate":
-                        otherMultipliers *= (1 + 100 * value);
-                        otherMultipliersSoul *= (1 + 100 * soulburn);
-                        break;
-                    case "skill_dmg_rate":
-                    case "target_hp_missing_rate":
-                    case "self_hp_missing_value"://TODO think about add Krau's max hp
-                        //ignore
-                        break;
-                    default:
-                        throw new UnsupportedDamageModifierException(name);
-                }
-            }
-            jEnhancement = jSkill["enhancement"].ToArray();
+            pow = (float)jSkill["pow"];
+            atk = (float) jSkill["att_rate"];
+            jEnhancement = jSkill["enhancements"].ToArray();
             Enhance = enhanceLevel;
-            HasSoulburn = jSkill["soulBurn"].ToObject<int>() > 0;
+            HasSoulburn = jSkill["soul_requirement"]?.ToObject<int>() > 0;
+            if (HasSoulburn)
+            {
+                powSoul = (float)(jSkill["soul_pow"] ?? 0f);
+                atkSoul = (float)(jSkill["soul_att"] ?? 0f);
+            }
         }
 
         /// <summary>
@@ -125,7 +67,7 @@ namespace E7_Gear_Optimizer
                     }
                     for (int i = 0; i < enhanceLevel; i++)
                     {
-                        string desc = jEnhancement[i]["description"].ToString();
+                        string desc = jEnhancement[i]["string"].ToString();
                         var match = enhancementDescRegex.Match(desc);
                         if (match.Success)
                         {
