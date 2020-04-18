@@ -37,8 +37,8 @@ namespace E7_Gear_Optimizer
             HasSoulburn = jSkill["soul_requirement"]?.ToObject<int>() > 0;
             if (HasSoulburn)
             {
-                powSoul = (float)(jSkill["soul_pow"] ?? 0f);
-                atkSoul = (float)(jSkill["soul_att"] ?? 0f);
+                powSoul = (float)(jSkill["soul_pow"] ?? pow);
+                atkSoul = (float)(jSkill["soul_att_rate"] ?? atk);
             }
         }
 
