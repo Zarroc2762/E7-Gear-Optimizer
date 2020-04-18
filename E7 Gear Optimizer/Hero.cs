@@ -110,7 +110,8 @@ namespace E7_Gear_Optimizer
                 }
                 else
                 {
-                    portrait = new Bitmap(Util.client.OpenRead(Util.AssetUrl + "/hero/" + Util.toAPIUrl(Name) + "/icon.png"));
+                    string json = loadJson();
+                    portrait = new Bitmap(Util.client.OpenRead(JObject.Parse(json)["results"][0]["assets"]["icon"].ToString()));
                     if (Properties.Settings.Default.UseCache)
                     {
                         portrait.Save(cacheFileName, ImageFormat.Png);
