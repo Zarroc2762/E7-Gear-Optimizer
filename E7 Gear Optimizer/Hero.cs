@@ -452,7 +452,7 @@ namespace E7_Gear_Optimizer
             string json = null;
             if (Properties.Settings.Default.UseCache && File.Exists(cacheFileName) && System.DateTime.Now.Subtract(File.GetLastWriteTime(cacheFileName)).TotalDays <= Properties.Settings.Default.CacheTimeToLive)
             {
-                json = File.ReadAllText(cacheFileName);
+                json = File.ReadAllText(cacheFileName, Encoding.UTF8);
             }
             else
             {

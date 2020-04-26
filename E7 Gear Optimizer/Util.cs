@@ -6,6 +6,8 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Net;
+using System.Runtime.CompilerServices;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -91,7 +93,7 @@ namespace E7_Gear_Optimizer
     }
     public static class Util
     {
-        public static string ApiUrl = System.Configuration.ConfigurationManager.AppSettings["ApiUrl"];
+        public static string ApiUrl = System.Configuration.ConfigurationManager.AppSettings["ApiUrl"].Replace("epicsevendb-apiserver.herokuapp.com/api", "api.epicsevendb.com");
         public static string AssetUrl = System.Configuration.ConfigurationManager.AppSettings["AssetUrl"];
         public static string GitHubUrl = System.Configuration.ConfigurationManager.AppSettings["GitHubUrl"];
         public static string GitHubApiUrl = System.Configuration.ConfigurationManager.AppSettings["GitHubApiUrl"];
@@ -99,7 +101,7 @@ namespace E7_Gear_Optimizer
         public static Bitmap error = Properties.Resources.error;
         public static Bitmap star = Properties.Resources.star;
         public static Bitmap star_j = Properties.Resources.star_j;
-        public static WebClient client = new WebClient();
+        public static WebClient client = createClient();
         public static List<string> percentageColumns = new List<string>() {"c_Ilvl", "c_Enhance", "c_Value", "c_ATKPer", "c_ATK", "c_SPD", "c_CHC", "c_CHD", "c_HPPer", "c_HP", "c_DEFPer", "c_DEF", "c_EFF", "c_RES", "c_WSS" };
         public static Dictionary<ItemType, List<Stats>> rollableStats = new Dictionary<ItemType, List<Stats>>()
         {
@@ -112,6 +114,13 @@ namespace E7_Gear_Optimizer
         };
         //Cached value of Set enum length to use in arrays' initializations instead of magic number
         public static readonly int SETS_LENGTH = Enum.GetValues(typeof(Set)).Length;
+
+        private static WebClient createClient()
+        {
+            WebClient c = new WebClient();
+            c.Encoding = Encoding.UTF8;
+            return c;
+        }
 
         public static Bitmap ResizeImage(Image image, int width, int height)
         {
