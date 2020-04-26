@@ -94,7 +94,6 @@ namespace E7_Gear_Optimizer
     public static class Util
     {
         public static string ApiUrl = System.Configuration.ConfigurationManager.AppSettings["ApiUrl"].Replace("epicsevendb-apiserver.herokuapp.com/api", "api.epicsevendb.com");
-        public static string AssetUrl = System.Configuration.ConfigurationManager.AppSettings["AssetUrl"];
         public static string GitHubUrl = System.Configuration.ConfigurationManager.AppSettings["GitHubUrl"];
         public static string GitHubApiUrl = System.Configuration.ConfigurationManager.AppSettings["GitHubApiUrl"];
         public static string ver = System.Configuration.ConfigurationManager.AppSettings["Version"];

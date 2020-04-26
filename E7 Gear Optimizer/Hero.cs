@@ -76,7 +76,7 @@ namespace E7_Gear_Optimizer
                 }
             };
             SkillWithSoulburn = Skills.FirstOrDefault(s => s.HasSoulburn) ?? new Skill();
-            Portrait = getPortrait(name);
+            Portrait = getPortrait(name, json);
             PortraitSmall = Util.ResizeImage(Portrait, 60, 60);
             stars = getStars(lvl, awakening);
             currentStats = calcStats();
@@ -94,7 +94,7 @@ namespace E7_Gear_Optimizer
         public Dictionary<Stats, float> CurrentStats { get => currentStats; }
 
         //Fetch the portrait of the hero from EpicSevenDB
-        private Image getPortrait(string name)
+        private Image getPortrait(string name, string json)
         {
             Bitmap portrait;
             try
@@ -110,7 +110,7 @@ namespace E7_Gear_Optimizer
                 }
                 else
                 {
-                    portrait = new Bitmap(Util.client.OpenRead(Util.AssetUrl + "/hero/" + Util.toAPIUrl(Name) + "/icon.png"));
+                    portrait = new Bitmap(Util.client.OpenRead(JObject.Parse(json)["results"][0]["assets"]["icon"].ToString()));
                     if (Properties.Settings.Default.UseCache)
                     {
                         portrait.Save(cacheFileName, ImageFormat.Png);
