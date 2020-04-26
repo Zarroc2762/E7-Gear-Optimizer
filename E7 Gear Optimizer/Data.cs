@@ -244,7 +244,26 @@ namespace E7_Gear_Optimizer
                             skillEnhance.Add(jSkill.Value<int>("Enhance"));
                         }
                     }
-                    Heroes.Add(new Hero(id, name, gearList, artifact, lvl, awakening, skillEnhance.Count == 3 ? skillEnhance.ToArray() : null));
+                    try
+                    {
+                        Heroes.Add(new Hero(id, name, gearList, artifact, lvl, awakening, skillEnhance.Count == 3 ? skillEnhance.ToArray() : null));
+                    }
+                    catch (Exception ex)
+                    {
+                        try
+                        {
+                            File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "\\ImportError.txt", ex.Message + "\n\n" + ex.StackTrace + "\n\n" + ex.InnerException?.Message + "\n\n" + ex.InnerException?.StackTrace);
+                        }
+                        catch (Exception e)
+                        {
+                            MessageBox.Show("Could not write file " + AppDomain.CurrentDomain.BaseDirectory + "\\ImportError.txt");
+                        }
+                        DialogResult r = MessageBox.Show("Error importing " + name + ". Check " + AppDomain.CurrentDomain.BaseDirectory + "\\ImportError.txt for the exact error message.\n Do you want to continue importing the rest of your heroes?", "Importing Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (r == DialogResult.No)
+                        {
+                            break;
+                        }
+                    }
                     if (length == 1)
                     {
                         progress.Report(100);

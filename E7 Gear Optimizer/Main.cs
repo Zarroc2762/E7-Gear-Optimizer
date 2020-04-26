@@ -2134,7 +2134,10 @@ namespace E7_Gear_Optimizer
                 }
             }
             Properties.Settings.Default.Save();
-            
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.AppSettings.Settings.Remove("ApiUrl");
+            config.AppSettings.Settings.Add("ApiUrl", Util.ApiUrl);
+            config.Save(ConfigurationSaveMode.Full);
         }
 
         private JObject createJson()
