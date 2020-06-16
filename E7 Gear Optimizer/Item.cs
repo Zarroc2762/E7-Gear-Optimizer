@@ -89,11 +89,11 @@ namespace E7_Gear_Optimizer
 
         public float WSS { get => wss; }
 
-        private const float wssMultiplier = 2f / 3f;
+        private const float wssMultiplier = 1f / 72f;
 
         public void calcWSS()
         {
-            wss = 0;
+            wss = 0f;
             foreach (Stat s in subStats)
             {
                 switch (s.Name)
@@ -103,16 +103,25 @@ namespace E7_Gear_Optimizer
                     case Stats.HPPercent:
                     case Stats.EFF:
                     case Stats.RES:
-                        wss += 100 * s.Value / 48;
+                        wss += 100f * s.Value;
                         break;
                     case Stats.Crit:
-                        wss += 100 * s.Value / 30;
+                        wss += 100f * s.Value * 8f / 5f;
                         break;
                     case Stats.CritDmg:
-                        wss += 100 * s.Value / 42;
+                        wss += 100f * s.Value * 8f / 7f;
                         break;
                     case Stats.SPD:
-                        wss += s.Value / 24;
+                        wss += s.Value * 8f / 4f;
+                        break;
+                    case Stats.ATK:
+                        wss += 100f * s.Value / 900f;
+                        break;
+                    case Stats.HP:
+                        wss += 100f * s.Value / 5000f;
+                        break;
+                    case Stats.DEF:
+                        wss += 100f * s.Value / 500f;
                         break;
                     default:
                         break;
